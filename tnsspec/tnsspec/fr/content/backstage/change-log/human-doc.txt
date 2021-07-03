@@ -1,0 +1,60 @@
+this::
+    date = 03/07/2021
+
+
+=====================
+Pour les utilisateurs
+=====================
+
+Cette ¨doc se tape via ¨latex et elle est pourrait être a priori traduite même si seul le français est maintenu par l'auteur.
+L'organisation se fait comme suit en notant que le sous-dossier path::``change-log`` se trouve dans le dossier path::``factory`` utilisé pour le ¨dev du code "morceau par morceau".
+Notez les noms utilisés pour les dossiers "année" et les fichiers "jour".
+
+tree-path::
+    + tnsfictif
+        + factory
+            + change-log
+                + 2021
+                    * 07-03[fr].tex
+
+
+warning::
+    Contrairement à la ¨doc technique, les ¨modifs se tapent jour par jour en indiquant la langue utilisée.
+
+
+Voici un exemple possible de ¨chgts qui va nous donner l'occasion d'expliquer quelques points importants.
+
+latex::
+    \begin{doctopic}{Un court changement}
+        ajout de \docmacro{unemacro}.
+    \end{doctopic}
+
+    \begin{doctopic}[ml]{Plusieurs changements}
+        \begin{itemize}
+            \item Modification de \docmacro{uneautremacro}.
+            \item Création de \docenv{unenv}.
+        \begin{itemize}
+    \end{doctopic}
+
+
+Voici ce qu'il faut absolument savoir.
+
+    1) Le numéro de version n'est pas indiqué puisque cette ¨info est connue via les ¨chgts techniques.
+
+    1) Un ¨chgt court se tape directement via l'environnement latex::``\begin{doctopic} ... \end{doctopic}`` qui prend en argument un titre court et dont le contenu détaille les nouveautés.
+
+    1) Pour des ¨chgts plus longs il suffit d'utiliser l'option latex::``ml``
+    ((
+        latex::``ml`` est pour "[m]ulti-[l]ignes".
+    ))
+    de l'environnement latex::``\begin{doctopic} ... \end{doctopic}``.
+
+    1) Les macros latex::``\docmacro`` et latex::``\docenv`` permettent d'indiquer des macros et des environnements de façon sémantique.
+
+
+info::
+    Les outils automatisés produisent un fichier path::``only-last-change[fr]-local.tex`` directement compilable
+    ((
+        Ce fichier est facilement modifiable pour travailler sur d'autre jour si le besoin se fait sentir.
+    ))
+    pour tester le rendu des ¨chgts et éventuellement déboguer le contenu du fichier path::``07-03[fr].tex``.

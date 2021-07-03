@@ -1,0 +1,12 @@
+abrev::
+    content = backstage
+
+==============
+En coulisse...
+==============
+
+content::
+    ¨content/metainfo.txt
+    ¨content/git.txt
+    ¨content/change-log.txt
+    ¨content/coding.txt

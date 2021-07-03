@@ -1,0 +1,11 @@
+this::
+    date = 21/06/2021
+
+
+==================================
+Redéfinition de macros "standards"
+==================================
+
+Certaines macros comme ``\frac`` et ``\sqrt`` sont modifiées de façon silencieuse.
+Le comportement standard reste accessible via les macros ``\stdfrac`` et ``\stdsqrt`` où l'on a ajouté le préfixe ``std``.
+Ce sera toujours ainsi lors de la redéfinition de macros "standards".

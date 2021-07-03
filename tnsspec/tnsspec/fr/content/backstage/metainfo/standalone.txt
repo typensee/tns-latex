@@ -1,0 +1,52 @@
+this::
+    date = 02/07/2021
+
+
+===========================
+Pour les packages autonomes
+===========================
+
+Chaque package indique un certain nombre d'¨infos générales. Pour les packages utilisables directement sans dépendance vis à vis d'autres packages de la suite ¨tnslatex, il faut proposer à la racine du dossier un fichier toujours nommé path::``infos.peuf`` et ayant le contenu minimal suivant.
+
+peuf::
+    about::
+        desc   = Fictional package for this example.
+        author = Christophe BAL
+
+        creation = 01/06/2020
+        licence  = XXX
+        need     = LaTeX2e
+
+
+Les outils automatisés "devinent" le nom de package via celui du dossier du code source.
+De plus la version en cours et sa date sont des informations déjà indiquées dans les journaux des changements
+((
+    Voir cf::``changelog.txt``.
+)).
+Enfin les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
+((
+    Voir cf::``dependancy.txt`` et cf::``small-code.txt``.
+)).
+À l'aide de tout ceci les lignes suivantes seront produites de façon automatisée.
+
+
+latex::
+    % --------------------------------------------------------- %
+    % - This is file `tnsfictif.sty' generated automatically. - %
+    % -                                                       - %
+    % - Copyright (C) 2020-2021 by Christophe BAL             - %
+    % -                                                       - %
+    % - This file may be distributed and/or modified under    - %
+    % - the conditions of the XXX License...                  - %
+    % --------------------------------------------------------- %
+
+    \NeedsTeXFormat{LaTeX2e}
+
+    % Tous les éventuels \RequirePackage...
+
+    \ProvidesExplPackage{tnsfictif} %
+                        {2020-06-01}%
+                        {0.0.0-beta}%
+                        {Fictional package for this example.}
+
+    % Le reste du code...

@@ -1,0 +1,49 @@
+this::
+    date = 03/07/2021
+
+
+=========================
+Coder par petites touches
+=========================
+
+Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau".
+Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager.
+
+
+info::
+    L'automatisation prend en charge des éventuels fichiers spéciaux importés dans les codes ¨etou la ¨doc.
+
+
+Ce style de codage impose une organisation des fichiers. Voici un exemple avec un package fictif nommé path::``tnsfictif``.
+
+tree-path::
+    + tnsfictif
+        + factory
+            + 01-alpha-et-omega
+                * 01-alpha[fr].tex
+                * 01-alpha.sty
+                * 02-omega[fr].tex
+                * 02-omega.sty
+
+            + 02-poorlonesomecowboy
+                * lucky[fr].tex
+                * lucky.sty
+                * TEST-OK-local.tex
+                * LINKS-local.md
+
+
+Expliquons les conventions à suivre.
+
+    1) Le nom du dossier principal correspond au nom du package.
+
+    1) Le développement "morceau par morceau" se fait dans le dossier path::``factory``.
+
+    1) Les dossiers et les fichiers sont lus de façon séquentielle en utilisant l'ordre lexicographique (ceci est important pour la ¨doc finale à destination des utilisateurs).
+
+    1) Chaque morceau de code se trouve dans un fichier path::``STY`` dont la documentation obligatoire est rédigée dans un fichier path::``TEX`` de même nom suivi du suffixe path::``[fr]`` pour la ¨doc en français
+    ((
+        Pour le moment la ¨doc non technique n'est écrite qu'en français mais n'insultons pas l'avenir.
+    )).
+
+    1) Dès que l'on souhaite travailler avec un fichier ne devant pas se trouver dans le produit final, il faut utiliser un nom ayant pour suffixe path::``-local``.
+    Ainsi dans notre exemple fictif les fichiers path::``TEST-OK-local.tex`` et path::``LINKS-local.md`` n'apparaîtront pas dans le produit final.

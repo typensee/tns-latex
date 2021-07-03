@@ -1,0 +1,22 @@
+this::
+    date = 03/07/2021
+
+
+===========
+Dépendances
+===========
+
+Tous les codes sources
+((
+    Nous parlons ici de chaque petit morceau de code.
+))
+s'appuient strictement sur le modèle suivant pour permettre aux outils automatiques de repérer les packages importés.
+
+latex::
+    % == PACKAGES USED == %
+
+    % Lignes avec les \RequirePackage.
+
+    % == DEFINITIONS == %
+
+    % Lignes codant les fonctionnalités.

@@ -1,0 +1,9 @@
+this::
+    date = 29/06/2021
+
+
+======
+¨Intro
+======
+
+Les packages ¨latex3 de la suite ¨tns proposent des outils pour produire du code de ¨mef facile à taper et sémantique dans son interface. Ce document réunit les spécifications utilisées dans cette suite de packages.

@@ -1,0 +1,19 @@
+this::
+    date = 03/07/2021
+
+
+=================
+¨API sans conflit
+=================
+
+Afin d'éviter les conflits, la documentation publique du code s'appuie sur des macros ¨latex "maison" permettant de garder une trace précise des noms des macros et des environnements avec leurs signatures.
+Ceci permet à des outils extérieurs de vérifier qu'il n'y a pas de conflits de noms ¨etou de signatures
+((
+    Les macros et les environnements privés ne sont pas concernés.
+    Celles-ci et ceux-ci sont nommés en les préfixant du nom du package auxquels ils appartiennent pour éviter les conflits.
+)).
+
+
+info::
+    Le choix de ne pas analyser les codes sources évite de gérer de grosses subtilités liées à l'utilisation de fonctions du type verb::``csname`` en coulisse.
+    C'est au codeur d'exposer l'¨API tout en lui laissant la liberté de coder cette ¨API comme il le souhaite.

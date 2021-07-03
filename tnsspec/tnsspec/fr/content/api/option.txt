@@ -1,0 +1,22 @@
+this::
+    date = 03/07/2021
+
+
+============================================
+Les options des macros ou des environnements
+============================================
+
+Les options proposées via l'argument optionnel sont du type verb::``clé = valeur`` ou verb::``un_booléen`` et elles seront séparées par des virgules.
+
+
+Les noms des options ont toutes une forme longue et une autre courte.
+Par exemple, on pourra utiliser verb::``arrow`` ou verb::``arw``, ou bien aussi au choix verb::``loop`` ou verb::``lp``.
+
+
+info::
+    Si le contexte est clair, certaines options courtes sont réduites à une seule lettre.
+    Sinon il suffit de prendre le nom au complet en supprimant les voyelles tout en ignorant les répétitions consécutives de consonnes.
+    Par exemple, verb::``anticonstitutionnellement`` serait raccourci en verb::``ntcnstnlmnt``
+    ((
+        Toute ressemblance avec des options existantes ou ayant existé est purement fortuite.
+    )).

@@ -1,0 +1,20 @@
+this::
+    date = 03/07/2021
+
+
+======
+Tester
+======
+
+Pour le moment les tests sont rudimentaires
+((
+    Cela semble suffisant. Croisons les doigts... Ou fermons bien les yeux.
+)).
+
+    1) La documentation pour les utilisateurs est un test assez complet, et souvent suffisant, des fonctionnalités en situation.
+
+    1) Quelques fichiers sont utilisés avec une galerie complète d'exemples. Ceux-ci sont nommés en utilisant le suffixe path::``-local`` pour indiquer aux outils automatisés de ne pas intégrer ces fichiers dans le produit final.
+
+
+info::
+    Pour le moment le projet n'utilise pas ¨l3build. L'histoire montrera si cela est utile ¨etou nécessaire.

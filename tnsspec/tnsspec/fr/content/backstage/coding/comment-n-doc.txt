@@ -1,0 +1,39 @@
+this::
+    date = 03/07/2021
+
+
+=================================
+Commenter pour documenter le code
+=================================
+
+Les codes sont documentés du point de vue technique via des commentaires,en anglais uniquement.
+Il faut utiliser une syntaxe stricte
+((
+    Cette syntaxe très intuitive est lisible directement sans aucune connaissance particulière.
+))
+qui rend possible l'automatisation de certaines tâches
+((
+    Plus tard des documentations ¨html et ¨pdf seront produites de façon automatisée via un projet en cours de ¨dev.
+)).
+Voici deux exemples fictifs.
+
+
+latex::
+    %%%
+    % prototype::
+    %     opt = #1 ;
+    %           a, b or c
+    %
+    % This environment prints...
+    %%%
+
+
+    %%%
+    % prototype::
+    %     arg = #1 ;
+    %           name of the function
+    %     arg = #2 ;
+    %           name of the variable
+    %
+    % This macro produces...
+    %%%

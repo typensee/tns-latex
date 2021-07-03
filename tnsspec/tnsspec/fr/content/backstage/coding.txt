@@ -1,0 +1,14 @@
+abrev::
+    content = coding
+
+==================
+Méthodes de codage
+==================
+
+content::
+    ¨content/small-code.txt
+    ¨content/docu.txt
+    ¨content/test.txt
+    ¨content/dependency.txt
+    ¨content/no-conflict.txt
+    ¨content/comment-n-doc.txt

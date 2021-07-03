@@ -1,0 +1,13 @@
+this::
+    date = 03/07/2021
+
+
+===============
+D'autres outils
+===============
+
+D'autres outils que ceux présentés dans les sections précédentes sont disponibles via le fichier path::``tools/latex/header[fr].sty``
+((
+    Certains réglages sont propres à la langue utilisée même si seule une ¨doc en français existe à l'heure actuelle.
+))
+relativement au dossier global path::``typensee-latex``. Se reporter au document path::``tools/latex/showcase[fr].tex`` pour des exemples d'utilisation.

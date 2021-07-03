@@ -1,0 +1,13 @@
+abrev::
+    content = doc
+
+=====================
+Documentation du code
+=====================
+
+content::
+    ¨content/two-doc.txt
+    ¨content/section.txt
+    ¨content/use-case.txt
+    ¨content/macro-n-env.txt
+    ¨content/tool.txt

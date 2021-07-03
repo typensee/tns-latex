@@ -1,0 +1,17 @@
+abrev::
+    content = api
+
+=====================
+Interface utilisateur
+=====================
+
+content::
+    ¨content/macroname.txt
+    ¨content/starnostar.txt
+    ¨content/argument.txt
+    ¨content/option.txt
+    ¨content/redef.txt
+    ¨content/luanolua.txt
+    ¨content/error.txt
+    ¨content/packscope.txt
+    ¨content/agregate.txt

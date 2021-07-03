@@ -1,0 +1,17 @@
+this::
+    date = 03/07/2021
+
+
+=============================
+Montrer des cas d'utilisation
+=============================
+
+Tout se passe via des environnements comme latex::``\begin{doclatexex} ... \end{doclatexex}`` utilisés ci-dessous ou des amcros dans le cas de fichiers externes.
+
+latex::
+    \begin{doclatexex}
+    $\norm{\vect{i}} = \vnorm{i}$
+    \end{doclatexex}
+
+
+Dans le document path::``tools/latex/showcase[fr].tex`` sont présentées différentes façons de montrer des cas d'utilisation.

@@ -1,0 +1,32 @@
+this::
+    date = 03/07/2021
+
+
+================
+Pour les codeurs
+================
+
+Cette ¨doc est écrite exclusivement en anglais la langue des codeurs qu'on le souhaite ou pas.
+Les fichiers de type path::``TXT`` contenant les ¨chgts sont organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``change-log`` en utilisant pour chaque année un dossier bien nommé et pour chaque mois un fichier bien nommé lui aussi.
+
+tree-path::
+    + tnsfictif
+        + change-log
+            + 2020
+                * 06.txt
+
+Voici le contenu du fichier path::``06.txt``
+((
+    Cette syntaxe très intuitive est celle d'un projet en cours de ¨dev.
+)).
+
+tns::
+    ==
+    01
+    ==
+
+    **First version version::``0.0.0-beta``:** this package proposes fictive features.
+
+
+La date est indiqué via le titre tns::``01`` entouré des tns::``==``.
+Ensuite il faut noter que le ¨chgt de version s'indique via tns::{{version::``0.0.0-beta``}} qui sera reconnu par les outils automatisées.

@@ -1,0 +1,14 @@
+this::
+    date = 02/07/2021
+
+
+=================================================
+Mathématiques - Délimiteurs étirables... ou pas !
+=================================================
+
+Voici les choix retenus.
+
+    1) L'usage de délimiteurs étirables par défaut est restreint aux cas où cela est indispensable comme c'est le cas pour des coordonnées écrites verticalement ou des matrices.
+
+    1) Dans d'autres cas on propose des délimiteurs un peu plus grands, mais non étirables, que ceux fournis par ¨latex.
+    Dans ces cas, l'usage d'une version extensible ou petite reste possible via des options.

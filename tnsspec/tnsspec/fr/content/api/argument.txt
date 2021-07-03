@@ -1,0 +1,17 @@
+this::
+    date = 19/06/2021
+
+
+========================
+Les arguments des macros
+========================
+
+Pour un **nombre restreint et fixé** d'arguments, on utilise les classiques accolades proposées par ¨latex.
+
+
+Pour un **nombre élevé ou non borné** d'arguments, le choix retenu est l'utilisation d'un argument entre des accolades qui utilise des barres verticales verb::``|`` pour séparer les différents arguments.
+Voici un exemple fictif : ``\unemacro{arg1 | arg2 | arg3 | arg4}``.
+
+
+info::
+    Bien entendu il peut y avoir un mélange des deux méthodes si cela fait sens.

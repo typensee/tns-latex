@@ -1,0 +1,18 @@
+this::
+    date = 03/07/2021
+
+
+==========
+Deux ¨docs
+==========
+
+Chaque projet propose deux ¨docs : l'une technique
+((
+    Voir cf::``comment-n-doc.txt`` où est expliqué comment produire cette ¨doc technique.
+))
+qui s'adresse juste aux codeurs et l'autre de type tutoriel destinée aux utilisateurs.
+Cette dernière se tape via ¨latex
+((
+    Ceci permet de tester en situation réelle : voir cf::``test.txt``.
+))
+via des petites régles à suivre que nous allons expliquer dans les sections suivantes.

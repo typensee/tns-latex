@@ -1,0 +1,12 @@
+abrev::
+    content = change-log
+
+
+========================
+Indiquer les changements
+========================
+
+content::
+    ¨content/two-doc.txt
+    ¨content/technical-doc.txt
+    ¨content/human-doc.txt
