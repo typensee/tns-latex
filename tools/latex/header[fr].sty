@@ -1,0 +1,284 @@
+% ---------------------- %
+% -- GENERAL SETTINGS -- %
+% ---------------------- %
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel,varioref}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor = black,
+    filecolor = black,
+    linkcolor = black,
+    urlcolor  = black
+}
+\usepackage[numbered]{bookmark}
+
+
+
+\usepackage[
+	top    = 2cm,
+	bottom = 2cm,
+	left   = 1.5cm,
+	right  = 1.5cm
+]{geometry}
+
+\usepackage{color}
+
+
+\setlength{\parindent}{0cm}
+
+% \setlist{noitemsep}  Utile ???
+
+
+% --------------- %
+% -- TOC & Co. -- %
+% --------------- %
+
+\usepackage[raggedright]{titlesec}
+
+%\renewcommand\thechapter{\Alph{chapter}.}
+\renewcommand\thesection{\Roman{section}.}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\renewcommand\thesubsubsection{\roman{subsubsection}.}
+
+
+\titleformat{\paragraph}[hang]% 
+            {\normalfont\normalsize\bfseries}% 
+            {\theparagraph}{1em}% 
+            {}
+
+\titlespacing*{\paragraph}% 
+              {0pt}% 
+              {3.25ex plus 1ex minus .2ex}% 
+              {0.5em}
+
+
+% Source
+%    * https://tex.stackexchange.com/a/558025/6880
+\usepackage{tocbasic}[2020/07/22]% needs KOMA-Script version 3.31
+
+\DeclareTOCStyleEntries[
+    raggedentrytext,
+    linefill = \hfill,
+    indent   = 0pt,
+    dynindent,
+    numwidth = 0pt,
+    numsep   = 1ex,
+    dynnumwidth
+]{tocline}{
+	chapter,
+	section,
+	subsection,
+	subsubsection,
+	paragraph,
+	subparagraph
+}
+
+\DeclareTOCStyleEntry[indentfollows = chapter]{tocline}{section}
+
+
+% ----------- %
+% -- TOOLS -- %
+% ----------- %
+
+\usepackage{ifplatform}
+\usepackage{ifthen}
+\usepackage{macroenvsign}
+
+
+
+% ------------------------- %
+% -- SPECIAL FORMATTINGS -- %
+% ------------------------- %
+
+\usepackage{amsthm}
+
+\usepackage{tcolorbox}
+
+
+% -- LISTINGS -- %
+
+\tcbuselibrary{minted, breakable}
+
+\newtcblisting{doclatex}{%
+    breakable,
+    sharp corners,%
+    left   = 1mm, right = 1mm,%
+    bottom = 1mm, top   = 1mm,%
+    %colupper = red!75!blue,%
+    listing side text
+}
+
+\newtcbinputlisting{\inputdoclatex}[2][]{%
+    listing file={#2},%
+    breakable,
+    sharp corners,%
+    left   = 1mm, right = 1mm,%
+    bottom = 1mm, top   = 1mm,%
+    %colupper = red!75!blue,%
+    listing side text
+}
+
+
+\newtcblisting{doclatex-flat}{%
+    breakable,
+    sharp corners,%
+    left   = 1mm, right = 1mm,%
+    bottom = 1mm, top   = 1mm,%
+    %colupper = red!75!blue,%
+}
+
+\newtcbinputlisting{\inputdoclatexflat}[2][]{%
+    listing file={#2},%
+    breakable,
+    sharp corners,%
+    left   = 1mm, right = 1mm,%
+    bottom = 1mm, top   = 1mm,%
+    %colupper = red!75!blue,%
+}
+
+
+\newtcblisting{doclatex-alone}{%
+    breakable,
+    sharp corners,%
+    left   = 1mm, right = 1mm,%
+    bottom = 1mm, top   = 1mm,%
+    %colupper = red!75!blue,%
+    listing only
+}
+
+\newtcbinputlisting{\inputdoclatexalone}[2][]{%
+    listing file={#2},%
+    breakable,
+    sharp corners,%
+    left   = 1mm, right = 1mm,%
+    bottom = 1mm, top   = 1mm,%
+    %colupper = red!75!blue,%
+    listing only
+}
+
+
+\newcommand\inputdoclatexafter[1]{%
+    \begin{center}
+        \input{#1}
+    \end{center}
+
+    \vspace{-.5em}
+    
+    Le rendu précédent a été obtenu via le code suivant.
+    
+    \inputdoclatexalone{#1}
+}
+
+
+\newcommand\inputdoclatexbefore[1]{%
+    \inputdoclatexalone{#1}
+    \vspace{-.75em}
+    \begin{center}
+        \textit{\footnotesize Rendu du code précédent}
+        
+        \medskip
+        
+        \input{#1}
+    \end{center}
+}
+
+
+% -- REMARK -- %
+
+\newtheorem*{remark}{Remarque}
+
+
+% -- EXAMPLE -- %
+
+\newcounter{docexaCNT}[subsubsection]
+
+\newcommand\@docexa@abstract[2]{%
+    \paragraph{%
+        #1%
+        \if\relax\detokenize{#2}\relax\else {} -- #2\fi%
+    }%
+}
+
+\newcommand\docexa{%
+	\@ifstar{\@docexa@star}{\@docexa@no@star}%
+}
+
+\newcommand\@docexa@no@star[1]{%
+    \refstepcounter{docexaCNT}%
+    \@docexa@abstract{Exemple \thedocexaCNT}{#1}%
+}
+
+\newcommand\@docexa@star[1]{%
+    \@docexa@abstract{Exemple}{#1}%
+}
+
+
+% -- CHANGE LOG -- %
+
+\newenvironment{doctopic}[2][]{
+	\medskip
+	
+	\textbf{\textsc{#2}%
+		\ifthenelse{\equal{#1}{ml}}{%
+			.
+			\smallskip
+		}{ :}%
+	}%
+}{}
+
+
+% -- ABOUT MACROS & ENVIRONMENTS -- %
+
+\newcommand\docenv[1]{%
+	\texttt{\textbackslash{}begin\{#1\} \!...\! \textbackslash{}end\{#1\}}%
+}
+
+\newcommand\docmacro[1]{\texttt{\textbackslash{}#1}}
+
+
+\newcommand\docpre[1]{%
+    \texttt{#1}%
+}
+
+\newcommand\docprewhy[2]{%
+    \textbf{\docpre{#1}}-#2%
+}
+
+\newcommand\signprewhy{\@ifstar{\@sign@pre@why@star}{\@sign@pre@why@no@star}}
+
+\newcommand\@sign@pre@why@no@star[2]{%
+    \docpre{#1 = #1-#2}%
+}
+
+\newcommand\@sign@pre@why@star[2]{%
+    \hfill\@sign@pre@why@no@star{#1}{#2}%
+}
+
+
+\newcommand\docinEN{\@ifstar{\@doc@in@EN@star}{\@doc@in@EN@no@star}}
+
+\newcommand\@doc@in@EN@star[1]{%
+    \emph{\og #1 \fg}%
+}
+
+\newcommand\@doc@in@EN@no@star[1]{%
+    \@doc@in@EN@star{#1} en anglais%
+}
+
+
+% -- DECORATIONS -- %
+
+\newcommand\docsep{
+    \medskip
+    \hfill\rule{0.5\textwidth}{0.75pt}\hfill
+    \medskip
+}
+
+
+\newcommand\docxspace{
+    \vspace{0.25em}
+}

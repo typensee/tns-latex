@@ -1,0 +1,141 @@
+\section{Cas d'utilisation tapés directement}
+
+\subsection{Face à face}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\begin{doclatex}
+	$A = B + C$
+\end{doclatex}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\begin{doclatex}
+	$A = B + C$
+\end{doclatex}
+
+
+% ------------------ %
+
+
+\subsection{À la suite}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\begin{doclatex-flat}
+	$A = B + C$
+\end{doclatex-flat}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\begin{doclatex-flat}
+	$A = B + C$
+\end{doclatex-flat}
+
+
+% ------------------ %
+
+
+\subsection{Juste le code}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\begin{doclatex-alone}
+	$A = B + C$
+\end{doclatex-alone}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\begin{doclatex-alone}
+	$A = B + C$
+\end{doclatex-alone}
+
+
+% ------------------ %
+
+
+\section{Cas d'utilisation importés}
+
+Pour les codes suivants, on part du principe que le fichier \verb+showcase/examples/xyz.tex+ relativement au document présent contient juste la ligne \verb+$x y z = 1$+
+
+\subsection{Face à face}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\inputdoclatex{showcase/examples/xyz.tex}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\inputdoclatex{showcase/examples/xyz.tex}
+
+
+% ------------------ %
+
+
+\subsection{À la suite}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\inputdoclatexflat{showcase/examples/xyz.tex}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\inputdoclatexflat{showcase/examples/xyz.tex}
+
+
+% ------------------ %
+
+
+\subsection{Juste le code}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\inputdoclatexalone{showcase/examples/xyz.tex}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\inputdoclatexalone{showcase/examples/xyz.tex}
+
+
+% ------------------ %
+
+
+\subsection{Code suivi du rendu centré}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\inputdoclatexbefore{showcase/examples/xyz.tex}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\inputdoclatexbefore{showcase/examples/xyz.tex}
+
+
+% ------------------ %
+
+
+\subsection{Rendu centré suivi du code}
+
+\begin{tcolorbox}  %%%%%%%%%
+\begin{verbatim}
+\inputdoclatexafter{showcase/examples/xyz.tex}
+\end{verbatim}
+\end{tcolorbox}    %%%%%%%%%
+
+Ceci donne :
+
+\inputdoclatexafter{showcase/examples/xyz.tex}

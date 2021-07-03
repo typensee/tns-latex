@@ -6,12 +6,12 @@ this::
 Montrer des cas d'utilisation
 =============================
 
-Tout se passe via des environnements comme latex::``\begin{doclatexex} ... \end{doclatexex}`` utilisés ci-dessous ou des amcros dans le cas de fichiers externes.
+Tout se passe via des environnements comme latex::``\begin{doclatex} ... \end{doclatex}`` utilisés ci-dessous ou des amcros dans le cas de fichiers externes.
 
 latex::
-    \begin{doclatexex}
+    \begin{doclatex}
     $\norm{\vect{i}} = \vnorm{i}$
-    \end{doclatexex}
+    \end{doclatex}
 
 
 Dans le document path::``tools/latex/showcase[fr].tex`` sont présentées différentes façons de montrer des cas d'utilisation.

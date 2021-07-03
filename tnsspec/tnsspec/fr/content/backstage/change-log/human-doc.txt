@@ -33,7 +33,7 @@ latex::
         \begin{itemize}
             \item Modification de \docmacro{uneautremacro}.
             \item Création de \docenv{unenv}.
-        \begin{itemize}
+        \end{itemize}
     \end{doctopic}
 
 
