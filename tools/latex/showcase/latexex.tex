@@ -2,18 +2,16 @@
 
 \subsection{Face à face}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \begin{doclatex}
-	$A = B + C$
+    $A = B + C$
 \end{doclatex}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone} 
 
 Ceci donne :
 
 \begin{doclatex}
-	$A = B + C$
+    $A = B + C$
 \end{doclatex}
 
 
@@ -22,18 +20,16 @@ Ceci donne :
 
 \subsection{À la suite}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \begin{doclatex-flat}
-	$A = B + C$
+    $A = B + C$
 \end{doclatex-flat}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone}
 
 Ceci donne :
 
 \begin{doclatex-flat}
-	$A = B + C$
+    $A = B + C$
 \end{doclatex-flat}
 
 
@@ -42,18 +38,10 @@ Ceci donne :
 
 \subsection{Juste le code}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
-\begin{doclatex-alone}
-	$A = B + C$
-\end{doclatex-alone}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
-
-Ceci donne :
+En utilisant \verb+doclatex-alone+ au lieu de \verb+doclatex-flat+, on obtient :
 
 \begin{doclatex-alone}
-	$A = B + C$
+    $A = B + C$
 \end{doclatex-alone}
 
 
@@ -62,15 +50,13 @@ Ceci donne :
 
 \section{Cas d'utilisation importés}
 
-Pour les codes suivants, on part du principe que le fichier \verb+showcase/examples/xyz.tex+ relativement au document présent contient juste la ligne \verb+$x y z = 1$+
+Pour les codes suivants, on part du principe que le fichier \verb+showcase/examples/xyz.tex+ relativement au document présent contient juste la ligne \verb+$x y z = 1$+ .
 
 \subsection{Face à face}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \inputdoclatex{showcase/examples/xyz.tex}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone}
 
 Ceci donne :
 
@@ -82,11 +68,9 @@ Ceci donne :
 
 \subsection{À la suite}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \inputdoclatexflat{showcase/examples/xyz.tex}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone}
 
 Ceci donne :
 
@@ -98,11 +82,9 @@ Ceci donne :
 
 \subsection{Juste le code}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \inputdoclatexalone{showcase/examples/xyz.tex}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone}
 
 Ceci donne :
 
@@ -114,28 +96,64 @@ Ceci donne :
 
 \subsection{Code suivi du rendu centré}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \inputdoclatexbefore{showcase/examples/xyz.tex}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone}
 
 Ceci donne :
 
-\inputdoclatexbefore{showcase/examples/xyz.tex}
+\begin{docshowcase}
+    \inputdoclatexbefore{showcase/examples/xyz.tex}
+\end{docshowcase}
 
 
 % ------------------ %
 
 
-\subsection{Rendu centré suivi du code}
+\subsection{Rendu centré suivi du code}\label{output-centered}
 
-\begin{tcolorbox}  %%%%%%%%%
-\begin{verbatim}
+\begin{doclatex-alone}
 \inputdoclatexafter{showcase/examples/xyz.tex}
-\end{verbatim}
-\end{tcolorbox}    %%%%%%%%%
+\end{doclatex-alone}
 
 Ceci donne :
 
-\inputdoclatexafter{showcase/examples/xyz.tex}
+\begin{docshowcase}
+    \inputdoclatexafter{showcase/examples/xyz.tex}
+\end{docshowcase}
+
+
+% ------------------ %
+
+
+\subsection{Rendu réel}
+
+Parfois on veut pouvoir montrer du code en situation réelle comme dans les deux exemples précédents. Voici comment faire.
+
+
+\docexa{Juste le rendu}
+
+Le rendu de l'exemple de la section précédente \ref{output-centered} a été tapé comme suit.
+
+\begin{doclatex-alone}
+\begin{docshowcase}
+    \inputdoclatexafter{showcase/examples/xyz.tex}
+\end{docshowcase}
+\end{doclatex-alone}
+
+
+% ------------------ %
+
+
+\docexa{Code importé et son rendu}
+
+\begin{doclatex-alone}
+    \inputdoclatexreal{showcase/examples/xyz.tex}
+\end{doclatex-alone}
+
+Ceci va produire :
+
+\begin{showcase}
+	\inputdoclatexreal{showcase/examples/xyz.tex}
+\end{showcase}
+

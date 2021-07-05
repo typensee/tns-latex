@@ -17,12 +17,14 @@
 \usepackage[numbered]{bookmark}
 
 
-
 \usepackage[
-	top    = 2cm,
-	bottom = 2cm,
-	left   = 1.5cm,
-	right  = 1.5cm
+	top            = 2.5cm,
+	bottom         = 2.5cm,
+	left           = 2.5cm,
+	right          = 2.5cm,
+	marginparwidth = 2cm, 
+	marginparsep   = 2mm,
+	heightrounded
 ]{geometry}
 
 \usepackage{color}
@@ -86,6 +88,7 @@
 
 \usepackage{ifplatform}
 \usepackage{ifthen}
+
 \usepackage{macroenvsign}
 
 
@@ -95,9 +98,35 @@
 % ------------------------- %
 
 \usepackage{amsthm}
-
+\usepackage{marginnote}
 \usepackage{tcolorbox}
 
+
+% -- VERSION -- %
+
+\reversemarginpar{}
+
+% #1: version
+% #2: date
+\newcommand\docversion[3][blue]{
+	\marginnote{
+		\color{#1}%
+		\scriptsize%
+		\centering
+		\vspace{0pt}
+		\rule{1.65cm}{.95pt}
+		\vspace{-1.9pt}%
+
+		#3
+		
+		\vspace{1pt}
+		
+		#2
+		
+		\vspace{-6.25pt}
+		\rule{1.65cm}{.95pt}
+	}[-.385cm]
+}
 
 % -- LISTINGS -- %
 
@@ -184,6 +213,38 @@
         
         \input{#1}
     \end{center}
+}
+
+
+% -- SHOWCASE -- %
+
+\newcommand\docruler[2][0.25]{%
+	\begin{center}
+		\color{green!50!black}%
+		\scriptsize%
+		\itshape\bfseries%
+		\rule{#1\linewidth}{2.5pt}%
+		\,\,#2\,\,%
+		\rule{#1\linewidth}{2.5pt}%
+	\end{center}
+}
+
+\newenvironment{docshowcase}{
+	\docruler{Début du rendu réel.}
+	\vspace{-.75em}
+}{
+%	\vspace{-1em}
+	\docruler[.262]{Fin du rendu réel.}
+}
+
+\newcommand\inputdoclatexreal[1]{%
+	\inputdoclatexalone{#1}
+	
+	Ceci donne :
+	
+	\begin{docshowcase}
+		\input{#1}
+	\end{docshowcase}
 }
 
 

@@ -1,5 +1,5 @@
 this::
-    date = 02/07/2021
+    date = 05/07/2021
 
 
 ===========================
@@ -41,8 +41,6 @@ latex::
     % --------------------------------------------------------- %
 
     \NeedsTeXFormat{LaTeX2e}
-
-    % Tous les éventuels \RequirePackage...
 
     \ProvidesExplPackage{tnsfictif} %
                         {2020-06-01}%

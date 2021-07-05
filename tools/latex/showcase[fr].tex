@@ -5,13 +5,31 @@
 \makeatother
 
 
+\newcommand\ruler[2][0.3]{%
+	\begin{center}
+		\color{orange}%
+		\scriptsize%
+		\itshape\bfseries%
+		\rule{#1\linewidth}{2.5pt}%
+		\,\,#2\,\,%
+		\rule{#1\linewidth}{2.5pt}%
+	\end{center}
+}
+
+\newenvironment{showcase}{
+	\ruler{Début du rendu pour cette doc.}
+}{
+	\ruler[.312]{Fin du rendu pour cette doc.}
+}
+
+
 \begin{document}
 
 \title{%
 	API pour la doc. de \texttt{typensee-latex}
 }
 \author{Christophe BAL}
-\date{2021-07-04}
+\date{2021-07-05}
 
 \maketitle
 
