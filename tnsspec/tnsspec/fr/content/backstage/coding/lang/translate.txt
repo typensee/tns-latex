@@ -1,0 +1,11 @@
+abrev::
+    content = translate
+
+
+==================
+Comment traduire ?
+==================
+
+content::
+    ¨content/sentence.txt
+    ¨content/macro.txt

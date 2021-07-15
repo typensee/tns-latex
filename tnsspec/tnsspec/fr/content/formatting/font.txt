@@ -1,5 +1,5 @@
 this::
-    date = 29/06/2021
+    date = 15/07/2021
 
 
 =================================
@@ -15,4 +15,4 @@ info::
     ((
         Pour le meilleur ou pour le pire...
     )).
-    Les packages offrant des réglages de polices de caractères proposent toujours deux modes : l'un avec ¨lualatex et l'autre sans, ce dernier étant moins riche.
+    Les packages offrant des réglages de polices de caractères proposent toujours deux modes : l'un avec ¨lualatex et l'autre sans, ce dernier pouvant être moins riche.

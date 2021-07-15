@@ -1,0 +1,12 @@
+abrev::
+    content = user-doc
+
+=====================
+Documentation du code
+=====================
+
+content::
+    ¨content/two-docs.txt
+    ¨content/section.txt
+    ¨content/use-case.txt
+    ¨content/macro-n-env.txt

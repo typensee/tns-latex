@@ -1,0 +1,50 @@
+==
+15
+==
+
+**New minor version version::``0.1)0-beta``:** see all the changes below and before this date.
+
+
+**New ¨specs.**
+
+    1) The way to define tools has been explained.
+
+    1) Languages: ¨api and rules to name internal translating macros.
+
+    1) The file path::``test-one-date.tex`` alllows to test the displaying of changes in the user's ¨doc.
+
+
+**Changes.**
+
+    1) The folder path::``src`` replaces path::``factory``.
+
+    1) Options use new ¨specs (this is simpler now).
+
+    1) The files path::``about.peuf`` replace the old ones path::``infos.peuf``.
+
+    1) The files path::``change-log`` and path::``99-major-change-log`` have been replaced by path::``changes`` for the technical ¨doc,  and path::``changes`` for the source.
+
+
+==
+12
+==
+
+**Technical signatures:** in the user ¨doc, the more general title verb::``:tech-sign:`` must be used such as to manage easily different languages.
+
+
+**New ¨specs.**
+
+    1) The case of the options of a package have been added.
+
+    1) The support of different languages has been treated.
+
+    1) Completion of the ¨specs for the special sections in the comments.
+
+    1) Several minor but important clarifications have been made in some sections talking about the coding.
+
+
+==
+03
+==
+
+**First version version::``0.0.0-beta``:** this document gathers all the ¨specs used to develop the suite of tools of ¨tns for ¨latex.

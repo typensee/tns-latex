@@ -1,0 +1,15 @@
+this::
+    date = 15/07/2021
+
+
+==============================
+Noms des macros "traductrices"
+==============================
+
+Les noms sont toujours construits suivant le même schéma. Voici un exemple éclairant venant du package ``bdoc``.
+
+    * Soit par exemple peuf::``exa_title = Example`` que l'on trouve dans path::``EN.peuf``.
+
+    * Dans path::``EN.sty`` sera ajoutée "automatiquement" la macro ``\bdoc@trans@exa@title``.
+
+Le schéma de nommage est du type ``\monpackage@trans@id@une@trad`` où peuf::``id_une_trad`` est un identifiant utilisé dans les fichiers path::``PEUF`` de traduction.

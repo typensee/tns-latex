@@ -1,5 +1,5 @@
 this::
-    date = 29/06/2021
+    date = 14/07/2021
 
 
 ===============
@@ -10,4 +10,4 @@ Les macros et les environnements ont prioritairement des noms utilisant des minu
 
 
 info::
-    Pour les macros et les environnements privés on utilise le nom du package comme préfixe afin d'éviter des conflits de noms avec d'autres packages.
+    Pour les macros et les environnements privés on utilise a minima le nom du package afin d'éviter des conflits de noms avec d'autres packages.

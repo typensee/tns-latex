@@ -1,0 +1,22 @@
+this::
+    date = 12/07/2021
+
+
+==========
+Deux ¨docs
+==========
+
+Chaque projet propose deux ¨docs : l'une technique
+((
+    Voir cf::``:?../comment/tech-doc.txt`` où est expliqué comment produire cette ¨doc technique.
+))
+qui s'adresse juste aux codeurs et l'autre de type tutoriel destinée aux utilisateurs. Cette dernière se tape via ¨latex
+((
+    Ceci permet de tester en situation réelle : voir cf::``:?../test.txt``.
+))
+via des petites régles à suivre que nous allons expliquer dans les sections suivantes.
+
+
+info::
+    La ¨doc de type tutoriel s'appuie sur les projets ¨bdoc et ¨macroenvsign.
+    Dans les sections suivantes nous n'allons pas parler de tous les outils proposés par ces deux sous-projets de ¨tnslatex.

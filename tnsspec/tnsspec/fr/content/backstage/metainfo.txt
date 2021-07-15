@@ -8,4 +8,4 @@ A propos
 
 content::
     ¨content/standalone.txt
-    ¨content/agregate.txt
+    ¨content/agregate.txt       

@@ -1,5 +1,5 @@
 this::
-    date = 03/07/2021
+    date = 15/07/2021
 
 
 ======
@@ -11,9 +11,10 @@ Pour le moment les tests sont rudimentaires
     Cela semble suffisant. Croisons les doigts... Ou fermons bien les yeux.
 )).
 
-    1) La documentation pour les utilisateurs est un test assez complet, et souvent suffisant, des fonctionnalités en situation.
+    1) La documentation pour les utilisateurs est l'ocassion d'un test assez complet, et souvent suffisant, des fonctionnalités en situation.
 
-    1) Quelques fichiers sont utilisés avec une galerie complète d'exemples. Ceux-ci sont nommés en utilisant le suffixe path::``-local`` pour indiquer aux outils automatisés de ne pas intégrer ces fichiers dans le produit final.
+    1) D'autres tests sont possibles en utilisant des dossiers nommés path::``test`` ou des fichiers de noms préfixés par path::``test-``.
+    Ces fichiers et dossiers ne seront pas incorporés au produit final.
 
 
 info::

@@ -1,31 +1,32 @@
 this::
-    date = 05/07/2021
+    date = 15/07/2021
 
 
 ===========================
 Pour les packages autonomes
 ===========================
 
-Chaque package indique un certain nombre d'¨infos générales. Pour les packages utilisables directement sans dépendance vis à vis d'autres packages de la suite ¨tnslatex, il faut proposer à la racine du dossier un fichier toujours nommé path::``infos.peuf`` et ayant le contenu minimal suivant.
+Chaque package indique un certain nombre d'¨infos générales. Pour les packages utilisables directement sans dépendance vis à vis d'autres packages de la suite ¨tnslatex, il faut proposer à la racine du dossier un fichier toujours nommé path::``about.peuf`` et ayant le contenu minimal suivant.
 
 peuf::
-    about::
-        desc   = Fictional package for this example.
-        author = Christophe BAL
+    general::
+        desc     = Fictional package for this example.
+
+        author   = Christophe BAL
 
         creation = 01/06/2020
-        licence  = XXX
-        need     = LaTeX2e
+        licence  = gnu 3
+
+        need     = latex2e
 
 
-Les outils automatisés "devinent" le nom de package via celui du dossier du code source.
-De plus la version en cours et sa date sont des informations déjà indiquées dans les journaux des changements
+Il faut savoir que les outils automatisés "devinent" le nom de package via celui du dossier du code source, et que le numéro de la version en cours et sa date sont des informations déjà indiquées dans les journaux des ¨chgts techniques
 ((
-    Voir cf::``changelog.txt``.
+    Voir cf::``:?../change-log.txt``.
 )).
-Enfin les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
+De plus les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
 ((
-    Voir cf::``dependancy.txt`` et cf::``small-code.txt``.
+    Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
 )).
 À l'aide de tout ceci les lignes suivantes seront produites de façon automatisée.
 

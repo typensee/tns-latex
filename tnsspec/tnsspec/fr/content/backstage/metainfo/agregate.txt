@@ -1,35 +1,21 @@
 this::
-    date = 03/07/2021
+    date = 15/07/2021
 
 
 =============================
 Pour les packages agrégateurs
 =============================
 
-Dans le fichier path::``infos.peuf``, en plus des informations générales propres à tout package il faut indiquer les noms de chaque package importé avec leur titre.
-Ces titres en anglais et aussi en français serviront pour la ¨doc non technique
-((
-    La ¨doc non technique n'est écrite qu'en français actuellement mais on ne sait jamais...
-))
-et au fichier path::``README.md`` du package agrégateur. L'ordre proposé dans les blocs peuf::``toc``
-((
-    peuf::``toc`` est pour "Table Of Content".
-))
-sera celui de la ¨doc obtenue en réunissant les diverses ¨doc non techniques et dans le fichier path::``README.md``.
+Dans le fichier path::``about.peuf``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc peuf::``toc`` en utilisant ``>`` pour indiquer que des packages de la suite ¨tns.
 
 peuf::
-    // about::
+    // general::
     //     ... etc. Voir la section précédente.
 
-    toc-fr::
-        tnsfictif_1 = Outils fictifs pour les créatifs
-        tnsfictif_3 = Outils dédiés aux besogneux
-        tnsfictif_2 = Outils créatifs plus spéctaculaires
-
-    toc-en::
-        tnsfictif_1 = Dummy tools for the creatives
-        tnsfictif_3 = Tools dedicated to the hard-workings
-        tnsfictif_2 = More spectacular creative tools
+    toc::
+        > tnsfictif_1
+        > tnsfictif_3
+        > tnsfictif_2
 
 
 warning::

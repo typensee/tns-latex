@@ -1,5 +1,0 @@
-==
-05
-==
-
-**First version version::``0.0.0-beta``:** this project is only usefull for the documentations of the ¨tns packages. At this time, just the French is supported.

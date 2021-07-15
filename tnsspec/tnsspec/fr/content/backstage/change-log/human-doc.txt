@@ -1,5 +1,5 @@
 this::
-    date = 03/07/2021
+    date = 15/07/2021
 
 
 =====================
@@ -7,15 +7,18 @@ Pour les utilisateurs
 =====================
 
 Cette ¨doc se tape via ¨latex et elle est pourrait être a priori traduite même si seul le français est maintenu par l'auteur.
-L'organisation se fait comme suit en notant que le sous-dossier path::``change-log`` se trouve dans le dossier path::``factory`` utilisé pour le ¨dev du code "morceau par morceau".
-Notez les noms utilisés pour les dossiers "année" et les fichiers "jour".
+L'organisation se fait comme suit en notant que le sous-dossier path::``changes`` se trouve dans le dossier path::``src`` utilisé pour le ¨dev du code "morceau par morceau".
+Notez les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour" (les suffixes path::``-FR`` sont pour la ¨doc en français).
 
-tree-path::
+path-tree::
     + tnsfictif
-        + factory
-            + change-log
+        + src
+            + changes
                 + 2021
-                    * 07-03[fr].tex
+                    + 07
+                        * 05-FR.tex
+                        * 14-FR.tex
+                        * 15-FR.tex
 
 
 warning::
@@ -29,7 +32,7 @@ latex::
         ajout de \docmacro{unemacro}.
     \end{doctopic}
 
-    \begin{doctopic}[ml]{Plusieurs changements}
+    \begin{doctopic}{Plusieurs changements}[t]
         \begin{itemize}
             \item Modification de \docmacro{uneautremacro}.
             \item Création de \docenv{unenv}.
@@ -43,9 +46,9 @@ Voici ce qu'il faut absolument savoir.
 
     1) Un ¨chgt court se tape directement via l'environnement latex::``\begin{doctopic} ... \end{doctopic}`` qui prend en argument un titre court et dont le contenu détaille les nouveautés.
 
-    1) Pour des ¨chgts plus longs il suffit d'utiliser l'option latex::``ml``
+    1) Pour des ¨chgts plus longs il suffit d'utiliser l'option latex::``t``
     ((
-        latex::``ml`` est pour "[m]ulti-[l]ignes".
+        latex::``t`` est pour "[t]itre".
     ))
     de l'environnement latex::``\begin{doctopic} ... \end{doctopic}``.
 
@@ -53,8 +56,4 @@ Voici ce qu'il faut absolument savoir.
 
 
 info::
-    Les outils automatisés produisent un fichier path::``only-last-change[fr]-local.tex`` directement compilable
-    ((
-        Ce fichier est facilement modifiable pour travailler sur d'autre jour si le besoin se fait sentir.
-    ))
-    pour tester le rendu des ¨chgts et éventuellement déboguer le contenu du fichier path::``07-03[fr].tex``.
+    Un fichier path::``test-one-date.tex`` directement compilable sert à tester et déboguer facilement le rendu des ¨chgts pour une date et une langue données.

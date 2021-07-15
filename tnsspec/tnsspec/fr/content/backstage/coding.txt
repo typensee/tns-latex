@@ -7,8 +7,10 @@ Méthodes de codage
 
 content::
     ¨content/small-code.txt
-    ¨content/docu.txt
-    ¨content/test.txt
-    ¨content/dependency.txt
+    ¨content/package.txt
+    ¨content/comment.txt
+    ¨content/user-doc.txt
     ¨content/no-conflict.txt
-    ¨content/comment-n-doc.txt
+    ¨content/lang.txt
+    ¨content/tool.txt
+    ¨content/test.txt

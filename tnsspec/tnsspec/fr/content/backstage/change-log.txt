@@ -7,6 +7,6 @@ Indiquer les changements
 ========================
 
 content::
-    ¨content/two-doc.txt
+    ¨content/two-docs.txt
     ¨content/technical-doc.txt
     ¨content/human-doc.txt

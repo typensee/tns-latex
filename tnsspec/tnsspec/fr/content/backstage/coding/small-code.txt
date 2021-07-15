@@ -1,5 +1,5 @@
 this::
-    date = 03/07/2021
+    date = 15/07/2021
 
 
 =========================
@@ -11,39 +11,76 @@ Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus 
 
 
 info::
-    L'automatisation prend en charge des éventuels fichiers spéciaux importés dans les codes ¨etou la ¨doc.
+    L'automatisation prend en charge des éventuels fichiers importés dans les codes ¨etou la ¨doc.
 
 
-Ce style de codage impose une organisation des fichiers. Voici un exemple avec un package fictif nommé path::``tnsfictif``.
+Ce style de codage impose une organisation des dossiers et des fichiers. Voici un exemple minimal pour un package fictif nommé ``tnsfictif`` (bien lire l'avertissement à la fin de cette section).
 
-tree-path::
+path-tree::
     + tnsfictif
-        + factory
-            + 01-alpha-et-omega
-                * 01-alpha[fr].tex
-                * 01-alpha.sty
-                * 02-omega[fr].tex
-                * 02-omega.sty
+        + src
+            * about.peuf
+            + alpha-et-omega3
+                * alpha-FR.tex
+                * alpha.sty
+                * omega3-FR.tex
+                * omega3.sty
 
-            + 02-poorlonesomecowboy
-                * lucky[fr].tex
+            + poor-lonesome-cowboy
+                * about.peuf
+                * lucky-FR.tex
                 * lucky.sty
-                * TEST-OK-local.tex
-                * LINKS-local.md
+                * rantanplan-FR.tex
+                * rantanplan.sty
 
 
 Expliquons les conventions à suivre.
 
     1) Le nom du dossier principal correspond au nom du package.
 
-    1) Le développement "morceau par morceau" se fait dans le dossier path::``factory``.
+    1) Le développement "morceau par morceau" se fait dans le dossier path::``src``.
 
-    1) Les dossiers et les fichiers sont lus de façon séquentielle en utilisant l'ordre lexicographique (ceci est important pour la ¨doc finale à destination des utilisateurs).
-
-    1) Chaque morceau de code se trouve dans un fichier path::``STY`` dont la documentation obligatoire est rédigée dans un fichier path::``TEX`` de même nom suivi du suffixe path::``[fr]`` pour la ¨doc en français
+    1) Chaque morceau de code se trouve dans un fichier path::``STY`` dont la documentation est rédigée dans un fichier path::``TEX`` de "même" nom suivi du suffixe path::``-FR`` pour la ¨doc en français
     ((
         Pour le moment la ¨doc non technique n'est écrite qu'en français mais n'insultons pas l'avenir.
     )).
 
-    1) Dès que l'on souhaite travailler avec un fichier ne devant pas se trouver dans le produit final, il faut utiliser un nom ayant pour suffixe path::``-local``.
-    Ainsi dans notre exemple fictif les fichiers path::``TEST-OK-local.tex`` et path::``LINKS-local.md`` n'apparaîtront pas dans le produit final.
+    1) Deux types d'ordre de lecture des dossiers et fichiers sont possibles
+    ((
+        Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organsier du code quand cela est indispensable.
+    )).
+
+        * Un dossier sans fichier path::``about.peuf`` sera analysé en utilisant l'ordre lexicographique usuel.
+
+        * Un dossier avec un fichier path::``about.peuf`` indique aux outils d'automatisations un ordre à suivre. Nous donnons ci-après les contenus des fichiers path::``src/about.peuf`` et path::``src/poor-lonesome-cowboy/about.peuf``.
+
+
+Le code suivant sert à analyser le dossier path::``poor-lonesome-cowboy`` avant path::``alpha-et-omega3``. Noter les ``+`` indiquant des dossiers.
+
+peuf::
+    ---
+    title = Contenu du fichier path::``src/about.peuf``
+    ---
+
+    + poor-lonesome-cowboy
+    + alpha-et-omega3
+
+
+Le code suivant permet de considérer le fichier path::``poor-lonesome-cowboy`` avant path::``alpha-et-omega3``. Noter les ``*`` indiquant des fichiers path::``STY`` sans leur extension.
+
+peuf::
+    ---
+    title = Contenu du fichier path::``src/poor-lonesome-cowboy/about.peuf``
+    ---
+
+    * lucky
+    * rantanplan
+
+
+warning::
+    Certains noms de dossiers et de fichiers ont une signification particulière. Voir les sections suivantes.
+
+        * cf::``:?../change-log.txt``
+        * cf::``:?../lang.txt``
+        * cf::``:?../tool.txt``
+        * cf::``:?../test.txt``

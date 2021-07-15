@@ -1,5 +1,5 @@
 ﻿this::
-    title   = Spécifications des packages ¨latex3 de la suite ¨tns
+    title   = Spécifications des packages ¨latex3 de la suite ¨tnslatex
     author  = Christophe, BAL
     mail    = projetmbc@gmail.com
 
@@ -15,7 +15,6 @@ abrev::
 
     content = content
 
-// TODO: cookiecutter ???
 
 content::
     ¨content/intro.txt

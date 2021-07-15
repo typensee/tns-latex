@@ -1,0 +1,28 @@
+this::
+    date = 15/07/2021
+
+
+==========================
+Des mots et des paramètres
+==========================
+
+Certaines subtilités imposent de passer par des macros : un cas typique est la gestion différente du double-point en français et en anglais, un cas pris en compte comme suit dans le fichier path::``FR.peuf``.
+
+peuf::
+    macro::
+    // #1: a text before a colon.
+        colon = #1~:
+
+
+Cette partie devient un peu plus technique mais elle est faisable par un traducteur ne connaissant pas ¨latex grâce au commentaire peuf::``// #1: a text before a colon.``
+((
+    Dans les fichiers path::``PEUF``, les commentaires doivent toujours commencer en début de ligne.
+)).
+
+
+info::
+    Les outils automatisés sont "assez malins" pour deviner la signature des macros liées aux langues.
+
+
+warning::
+    Pour le moment seules les macros codées sur une seule ligne sont prises en compte.

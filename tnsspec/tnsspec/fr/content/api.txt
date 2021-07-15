@@ -6,12 +6,13 @@ Interface utilisateur
 =====================
 
 content::
+    ¨content/packscope.txt
+    ¨content/agregate.txt
     ¨content/macroname.txt
     ¨content/starnostar.txt
     ¨content/argument.txt
     ¨content/option.txt
     ¨content/redef.txt
-    ¨content/luanolua.txt
+    ¨content/lang.txt
     ¨content/error.txt
-    ¨content/packscope.txt
-    ¨content/agregate.txt
+    ¨content/luanolua.txt

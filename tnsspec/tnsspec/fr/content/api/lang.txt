@@ -1,0 +1,9 @@
+this::
+    date = 15/07/2021
+
+
+===================
+Gestion des langues
+===================
+
+Par défaut l'anglais et le français sont toujours pris en compte. Le choix se fait via une option de package du type ``lang = FR`` ou ``lang = EN``.

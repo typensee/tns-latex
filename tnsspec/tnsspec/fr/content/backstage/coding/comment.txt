@@ -1,0 +1,10 @@
+abrev::
+    content = comment
+
+=================
+Commenter le code
+=================
+
+content::
+    ¨content/section.txt
+    ¨content/tech-doc.txt

@@ -1,0 +1,23 @@
+sentence::
+	in_EN             = in English
+
+	real_output_start = Start of the real rendering
+	real_output_end   = End of the real rendering
+
+	code_after_output = The previous rendering has been
+	                    obtained by using the following code.
+	output_after_code = Rendering of the previous code.
+
+	this_gives        = This produces
+
+	exa_title         = Example
+
+
+macro::
+// #1: a text before a colon.
+	colon = #1:
+
+// #1: year.
+// #2: month.
+// #3: day.
+	date = #1-#2-#3

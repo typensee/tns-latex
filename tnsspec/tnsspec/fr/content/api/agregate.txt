@@ -1,5 +1,5 @@
 this::
-    date = 03/07/2021
+    date = 14/07/2021
 
 
 ===========================
@@ -17,4 +17,4 @@ Pour des raisons pratiques certains packages en agrègent plein d'autres pour é
 
     * Il est possible de choisir de n'importer que certains packages ¨etou d'en exclure.
 
-    * La documentation agrège celles des différents packages importés afin de proposer toutes les informations au même endroit.
+    * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les informations au même endroit.

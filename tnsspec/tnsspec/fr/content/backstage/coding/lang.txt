@@ -1,0 +1,11 @@
+abrev::
+    content = lang
+
+==========================
+Prise en compte de langues
+==========================
+
+content::
+    ¨content/structure.txt
+    ¨content/translate.txt
+    ¨content/autoname.txt

@@ -1,5 +1,0 @@
-==
-03
-==
-
-**First version version::``0.0.0-beta``:** this document gathers all the specifications used to develop the suite of tools of ¨tns for ¨latex.
