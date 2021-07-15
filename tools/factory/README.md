@@ -11,7 +11,7 @@ English is not my native language, so be nice if you notice misunderstandings, m
 About
 =====
 
-Every documentation of the projects proposed by the monorepo `typensee-latex` are built by this project.
+All the `LaTeX` projects proposed by the monorepo `typensee-latex` are built by the `factory` project.
 
 
 <!-- :version-START: -->
