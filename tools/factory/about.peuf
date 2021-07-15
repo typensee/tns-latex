@@ -1,10 +1,11 @@
 general::
-    desc     = this package proposes tools for writing pure technical
-               documentations of ¨latex packages.
+    desc     = this project contains the tools used to build
+               the packages of the ¨tnslatex series.
 
     author   = Christophe BAL
 
-    creation = 05/07/2021
+    creation = ??/07/2021
     licence  = gnu 3
 
-    need     = latex2e
+    need     = python3 ;
+               bash

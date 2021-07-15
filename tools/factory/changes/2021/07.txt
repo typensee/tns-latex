@@ -2,4 +2,4 @@
 ??
 ==
 
-**First version version::``0.0.0-beta``:** this project ????
+**First version version::``0.0.0-beta``:** this project will build the  packages of the ¨tnslatex series.
