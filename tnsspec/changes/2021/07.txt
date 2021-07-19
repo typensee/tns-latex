@@ -1,8 +1,21 @@
 ==
+19
+==
+
+**New ¨specs.**
+
+    1) A ¨latex package of the ¨tnslatex series is indicated via peuf::``tnslatex = yes`` in the block peuf::``gene::...`` of the file path::``about.peuf``.
+
+    1) Files and folders with a name respecting the pattern path::``x-...-x`` are ignored.
+
+**Some minor important corrections and clarifications.**
+
+
+==
 15
 ==
 
-**New minor version version::``0.1)0-beta``:** see all the changes below and before this date.
+**New minor version version::``0.1.0-beta``:** see all the changes below and before this date.
 
 
 **New ¨specs.**
@@ -11,7 +24,7 @@
 
     1) Languages: ¨api and rules to name internal translating macros.
 
-    1) The file path::``test-one-date.tex`` alllows to test the displaying of changes in the user's ¨doc.
+    1) The file path::``test-one-date.tex`` allows to test the displaying of changes in the user's ¨doc.
 
 
 **Changes.**
@@ -20,9 +33,9 @@
 
     1) Options use new ¨specs (this is simpler now).
 
-    1) The files path::``about.peuf`` replace the old ones path::``infos.peuf``.
+    1) The file path::``about.peuf`` replaces the previous path::``infos.peuf``.
 
-    1) The files path::``change-log`` and path::``99-major-change-log`` have been replaced by path::``changes`` for the technical ¨doc,  and path::``changes`` for the source.
+    1) The two folders path::``change-log`` for the technical ¨doc, and path::``99-major-change-log`` for the user ¨doc have been both renamed path::``changes``.
 
 
 ==

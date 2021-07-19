@@ -1,10 +1,6 @@
 general::
-    author   = Christophe BAL
-    desc     = this document contains all the specifications used
-               to develop the tools proposed by the monorepo
-               ¨tnslatex.
-
-    creation = 03/07/2021
-    licence  = cc by nc sa 4.0
-
-    need     = tns
+    desc    = This document contains all the specifications used
+              to develop the tools proposed by the monorepo ¨tnslatex.
+    author  = Christophe BAL
+    licence = cc by nc sa 4.0
+    need    = tns

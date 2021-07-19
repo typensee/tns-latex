@@ -1,35 +1,42 @@
 this::
-    date = 15/07/2021
+    date = 19/07/2021
 
 
 ===========================
 Pour les packages autonomes
 ===========================
 
-Chaque package indique un certain nombre d'¨infos générales. Pour les packages utilisables directement sans dépendance vis à vis d'autres packages de la suite ¨tnslatex, il faut proposer à la racine du dossier un fichier toujours nommé path::``about.peuf`` et ayant le contenu minimal suivant.
+Chaque package indique un certain nombre d'¨infos générales. Pour les packages utilisables directement sans dépendance vis à vis d'autres packages de la suite ¨tnslatex, il faut **obligatoirement** proposer à la racine du dossier un fichier path::``about.peuf`` ayant le contenu minimal suivant.
 
 peuf::
     general::
+        tnslatex = yes
         desc     = Fictional package for this example.
-
         author   = Christophe BAL
-
-        creation = 01/06/2020
         licence  = gnu 3
-
         need     = latex2e
 
 
-Il faut savoir que les outils automatisés "devinent" le nom de package via celui du dossier du code source, et que le numéro de la version en cours et sa date sont des informations déjà indiquées dans les journaux des ¨chgts techniques
-((
-    Voir cf::``:?../change-log.txt``.
-)).
-De plus les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
-((
-    Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
-)).
-À l'aide de tout ceci les lignes suivantes seront produites de façon automatisée.
+info::
+    La déclaration peuf::``tnslatex = yes`` identifie bien entendu les packages de la suite ¨tnslatex. Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
 
+
+Le contenu du fichier path::``about.peuf`` peut sembler bien minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
+
+    1) Le nom de package est juste celui du dossier du code source.
+
+    1) La date de création et le numéro de la version en cours avec sa date sont des informations déjà indiquées dans les journaux des ¨chgts techniques
+    ((
+        Voir cf::``:?../change-log.txt``.
+    )).
+
+    1) Les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
+    ((
+        Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
+    )).
+
+
+Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites automatiquement.
 
 latex::
     % --------------------------------------------------------- %
@@ -43,9 +50,9 @@ latex::
 
     \NeedsTeXFormat{LaTeX2e}
 
-    \ProvidesExplPackage{tnsfictif} %
-                        {2020-06-01}%
-                        {0.0.0-beta}%
+    \ProvidesExplPackage{tnsfictif}   %
+                        {2020-06-01}  % Creation: 2018-05-01
+                        {10.2.9-beta} %
                         {Fictional package for this example.}
 
     % Le reste du code...

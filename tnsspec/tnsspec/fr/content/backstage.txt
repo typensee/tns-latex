@@ -9,4 +9,5 @@ content::
     ¨content/metainfo.txt
     ¨content/git.txt
     ¨content/change-log.txt
+    ¨content/ignore.txt
     ¨content/coding.txt

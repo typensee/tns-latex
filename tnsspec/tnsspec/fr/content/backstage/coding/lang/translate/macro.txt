@@ -1,12 +1,12 @@
 this::
-    date = 15/07/2021
+    date = 18/07/2021
 
 
 ==========================
 Des mots et des paramètres
 ==========================
 
-Certaines subtilités imposent de passer par des macros : un cas typique est la gestion différente du double-point en français et en anglais, un cas pris en compte comme suit dans le fichier path::``FR.peuf``.
+Certaines subtilités imposent de passer par des macros : un cas typique est la gestion du double-point en français et en anglais, un cas pris en compte comme suit dans le fichier path::``FR.peuf``.
 
 peuf::
     macro::
@@ -14,14 +14,15 @@ peuf::
         colon = #1~:
 
 
-Cette partie devient un peu plus technique mais elle est faisable par un traducteur ne connaissant pas ¨latex grâce au commentaire peuf::``// #1: a text before a colon.``
-((
-    Dans les fichiers path::``PEUF``, les commentaires doivent toujours commencer en début de ligne.
-)).
+A titre de comparaison, dans le fichier path::``EN.peuf``, on trouve ce qui suit.
+
+peuf::
+    macro::
+    // #1: a text before a colon.
+        colon = #1:
 
 
-info::
-    Les outils automatisés sont "assez malins" pour deviner la signature des macros liées aux langues.
+Cette partie devient plus technique comme le montre la nécessité d'indiquer un espace insécable ``~`` dans ``#1~:`` pour le français, et l'absence d'espace dans ``#1:`` pour l'anglais. Il faudra donc que codeur et traducteur travaillent de concert.
 
 
 warning::
