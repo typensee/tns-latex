@@ -12,12 +12,12 @@ from .toc    import *
 ###
 # prototype::
 #     anadir     = common.AnaDir ;  
-#                  a class with the ¨api contains in ``common.AnaDir``.
+#                  any class having the ¨api of ``common.AnaDir``.
 #     kindwanted = ; # See Python typing... 
 #                  the kind of ¨infos expected to be in the TOC.
 #
 #     return = ; # See Python typing...
-#              the list of the ``PPath`` of the sources of a package.
+#              the list of the ``PPath`` of the sources wanted.
 ###
 
 def srcdirs(
@@ -31,7 +31,7 @@ def srcdirs(
 
     about_src = About(anadir).build()
 
-# ``about.peuf`` found but some problems found.
+# ``about.peuf`` found but with some problems.
     if not anadir.success:
         return
 
@@ -45,7 +45,7 @@ def srcdirs(
         if not anadir.success:
             return
 
-        methodused = "TOC in the ``src`` folder"
+        methodused = f"TOC in ``{SRC_DIR_NAME}/{ABOUT_NAME}``"
 
 # No ``about.peuf``.
     else:
@@ -58,11 +58,12 @@ def srcdirs(
                 and
                 not relpath.name in PROTECTED_DIRS
             ):
-                subdirs.append(onesubdir)
+                if not ignorepath(onesubdir):
+                    subdirs.append(onesubdir)
                 
         subdirs.sort()
 
-        methodused = "automatic walk in the ``src`` folder"
+        methodused = f"automatic walk in ``{SRC_DIR_NAME}``"
 
 # No dir found!
     if not subdirs:
@@ -72,8 +73,9 @@ def srcdirs(
 
 # Some dirs found.
     plurial = "" if len(subdirs) == 1 else "s"
-    anadir.stepprint(
-        f"{len(subdirs)} source dir{plurial} found (method used: {methodused})"
+    
+    anadir.stepprints[0](
+        MESSAGE_SRC + f"{len(subdirs)} dir{plurial} from {methodused}."
     )
 
     return subdirs

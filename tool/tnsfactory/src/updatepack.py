@@ -12,7 +12,7 @@ from .toc         import *
 # ----------- #
 
 ###
-# This class updates a package.
+# This class builds or updates a package.
 #
 # info::
 #     Several errors can be printed in the log file. This allows to correct 
@@ -24,13 +24,13 @@ class UpdateOnePack(AnaDir):
 ###
 # prototype::
 #     monorepo   = ; # See Python typing...
-#                  the path of the directory of the monorepo to explore.
+#                  the path of the directory of the monorepo explored.
 #     dirpath    = ; # See Python typing...
 #                  the path of one package to build or update.
 #     kindwanted = _ in TOC.ALL_USER_KINDS; # See Python typing...
 #                  the kind of ¨infos allowed.
-#     stepprint  = ; # See Python typing...
-#                  the function used to print ¨infos in the terminal.
+#     stepprints = ; # See Python typing...
+#                  the functions used to print ¨infos in the terminal.
 #     logfile    = ; # See Python typing...
 #                  the path of the log file.
 ###
@@ -39,15 +39,15 @@ class UpdateOnePack(AnaDir):
         monorepo  : PPath,
         dirpath   : PPath,
         kindwanted: str,
-        stepprint : Callable[[str], None],
+        stepprints: List[Callable[[str], None]],
         logfile   : PPath
     ) -> None:
         super().__init__(
-            monorepo  = monorepo,
-            dirpath   = dirpath,
-            stepprint = stepprint,
-            logfile   = logfile,
-            needabout = True
+            monorepo   = monorepo,
+            dirpath    = dirpath,
+            stepprints = stepprints,
+            logfile    = logfile,
+            needabout  = True
         )
 
         self.kindwanted = kindwanted
@@ -60,20 +60,21 @@ class UpdateOnePack(AnaDir):
         self.success = True
 
 # About the package
-        self.stepprint(ABOUT_MESSAGE + "looking for metainfos.")
+        self.stepprints[0](MESSAGE_ABOUT + "looking for metainfos.")
 
         self.about = About(self).build()
         if not self.success:
             return
 
 # List of source dirs.
-        self.stepprint("Looking for sources.")
+        NL()
+        self.stepprints[0](MESSAGE_SRC + "searching...")
 
         anascrdir = AnaDir(
-            monorepo  = self.monorepo,
-            dirpath   = self.dirpath / SRC_DIR_NAME,
-            stepprint = self.stepprint,
-            logfile   = self.logfile
+            monorepo   = self.monorepo,
+            dirpath    = self.dirpath / SRC_DIR_NAME,
+            stepprints = self.stepprints,
+            logfile    = self.logfile
         )
          
         self.srcdirs = srcdirs(
@@ -84,7 +85,30 @@ class UpdateOnePack(AnaDir):
         if not self.success:
              return
 
-# Let's work on each dir.
+# Let's aanlyze each source dir.
         for onesrcdir in self.srcdirs:
-            print(onesrcdir) 
+            NL()
+            self.stepprints[0](
+                MESSAGE_SRC + f'analyzing "{self.dir_relpath / onesrcdir}".'
+            )
+
+
+            # exit()
+
+# No problem met, we can build everything.
+        if self.success:
+            NL()
+            self.stepprints[0](MESSAGE_FINAL_PROD + 'building.')
+
+
+
+
+
+
+            
+
+
+# Final build broken!
+            if not self.success:
+                CLEANNNNNN
 

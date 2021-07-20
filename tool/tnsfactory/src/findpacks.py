@@ -1,14 +1,6 @@
 #! /usr/bin/env python3
 
-# ----------------- #
-# -- DEV. "TEST" -- #
-# ----------------- #
-
-if __name__ == "__main__":
-    from common import *
-
-else:
-    from .common import *
+from .common import *
 
 
 # ----------- #
@@ -17,17 +9,17 @@ else:
 
 ###
 # prototype::
-#     monorepopath = ; # See Python typing...
-#                    the path of the directory of the monorepo to explore.
+#     monorepo = ; # See Python typing...
+#                the path of the directory of the monorepo to explore.
 #
 #     return = ; # See Python typing...
 #              the list of the ``PPath`` of the ¨tnslatex packages.
 ###
 
-def packdirs(monorepopath: PPath) -> List[PPath]:
+def packdirs(monorepo: PPath) -> List[PPath]:
     packsfound: List[PPath] = []
 
-    for subdir in monorepopath.walk("dir::"):
+    for subdir in monorepo.walk("dir::"):
 # A folder to analyze.
         if keepthisdir(subdir):
             packsfound.append(subdir)
@@ -41,18 +33,18 @@ def packdirs(monorepopath: PPath) -> List[PPath]:
 ###
 # prototype::
 #     dirpath = ; # See Python typing...
-#               the path of the directory to analyze or not.
+#               the path of the directory to keep or not.
 #
 #     return = ; # See Python typing...
-#              ``True`` for a directory to analyze, or 
+#              ``True`` for a directory to keep for analysis, or 
 #              ``False`` if the folder must be ignored.
 ###
 
 def keepthisdir(dirpath: PPath) -> bool:
-    if dirpath.name.startswith("x-") and dirpath.name.endswith("-x"):
+    if ignorepath(dirpath):
         return False
     
-# Looking for a ``about.peuf``.
+# Looking for an ``about.peuf`` file.
     for aboutfile in dirpath.walk("file::about.peuf"):
         return keepthisabout(aboutfile)
 
@@ -70,7 +62,7 @@ def keepthisdir(dirpath: PPath) -> bool:
 #              ``False`` in other cases.
 #
 # warning::
-#     Errors ares raised in if the path::``PEUF`` file is bad formatted.
+#     Errors ares raised if the path::``PEUF`` file is bad formatted.
 ###
 
 def keepthisabout(aboutfile: PPath) -> bool:
@@ -86,17 +78,3 @@ def keepthisabout(aboutfile: PPath) -> bool:
         return infos.get(GENE_TNSLATEX_TAG, None) == YES_TAG
 
     return False
-
-
-# ----------------- #
-# -- DEV. "TEST" -- #
-# ----------------- #
-
-if __name__ == "__main__":
-    projectdir = PPath(__file__)
-
-    while(not projectdir.name.startswith('typensee-latex')):
-        projectdir = projectdir.parent
-
-    for ppath in packdirs(projectdir):
-        print(ppath)

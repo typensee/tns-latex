@@ -15,17 +15,19 @@ class Logger:
     ERROR  :str = "ERROR"
     WARNING:str = "WARNING"
 
+    MAX_WIDTH: int = 80
+
 ###
 # prototype::
-#     updater = updatepack.UpdateOnePack ; 
-#               the instance used to update one package. 
+#     anadir = common.AnaDir ; 
+#              the instance used to update one package. 
 ###
     def __init__(
         self,
-        updater# Can't us the type UpdateOnePack (cyclic imports).
+        anadir# Can't use the type common.AnaDir (cyclic imports).
     ) -> None:
-        self.logfile     = updater.logfile
-        self.dir_relpath = updater.dir_relpath
+        self.logfile     = anadir.logfile
+        self.dir_relpath = anadir.dir_relpath
 
 ###
 # prototype::
@@ -35,6 +37,9 @@ class Logger:
 #               the message to append to the log file.
 #
 #     see = self.error , self.warning
+#
+# The text is hard wrapped suchas to respect the maximum width given by 
+# ``self.MAX_WIDTH``.
 ###
     def addtologfile(
         self,
@@ -45,7 +50,52 @@ class Logger:
             encoding = "utf8",
             mode     = "a"
         ) as logfile:
-            logfile.write(f'\n"{self.dir_relpath}" - {kind}: {message}')
+            logfile.write(self._hardwrap(kind, message))
+
+###
+# prototype::
+#     kind    = _ in [self.ERROR, self.WARNING] ; # See Python typing...
+#               the kind of message.
+#     message = ; # See Python typing...
+#               the message to append to the log file.
+#
+#     return = ; # See Python typing...
+#               the message hard wrapped.
+###
+    def _hardwrap(
+        self,
+        kind   : str,
+        message: str
+    ) -> str:
+        title = f'\n"{self.dir_relpath}" - {kind}: '
+        tab   = "\n" + " "*len(title)
+ 
+        maxwidth   = self.MAX_WIDTH - len(title)
+        shortlines = []
+
+        for block in message.split('\n'):
+            block   = [w.strip() for w in block.split(' ')]
+            lastline  = ""
+        
+            while(block):
+                word = block.pop(0)
+
+                len_lastline = len(lastline)
+                len_word     = len(word)
+
+                if len_lastline + len_word > maxwidth:
+                    shortlines.append(lastline)
+                    lastline = word
+
+                else:
+                    lastline += " "+ word
+
+            if lastline:
+                shortlines.append(lastline)
+
+        message = title + tab.join(shortlines)
+        
+        return message
 
 ###
 # prototype::

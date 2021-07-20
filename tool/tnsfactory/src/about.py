@@ -8,14 +8,14 @@ from .common import *
 # ----------- #
 
 ###
-# This class extracts ¨infos from the ``about.peuf`` of a package.
+# This class extracts ¨infos from the ``about.peuf`` file of a package.
 ###
 
 class About:
 ###
 # prototype::
 #     anadir = common.AnaDir ;  
-#              a class with the ¨api contains in ``common.AnaDir``.
+#              any class having the ¨api of ``common.AnaDir``.
 ###
     def __init__(
         self,
@@ -36,8 +36,7 @@ class About:
 
         if not aboutpath.is_file():
             if self.anadir.needabout:
-                self.anadir.error(ABOUT_MESSAGE + "no file found but required.")
-                self.anadir.success = False
+                self.anadir.error(MESSAGE_ABOUT + "no file found but required.")
 
             return
 
@@ -50,7 +49,7 @@ class About:
                 about = datas.mydict("std nosep nonb")
 
         except PeufError as e:
-            self.anadir.error(ABOUT_MESSAGE + "illegal file.")
+            self.anadir.error(MESSAGE_ABOUT + "illegal file.")
             return
 
 # Good keys for the ``general`` block?
@@ -76,7 +75,7 @@ class About:
                     pbkeys = ", ".join(pbkeys)
 
                     self.anadir.error(
-                        ABOUT_MESSAGE
+                        MESSAGE_ABOUT
                         + f"{kind.title()} key{plurial} {tab}-> "
                         + f"{pbkeys}."
                     )

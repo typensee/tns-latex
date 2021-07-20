@@ -1,12 +1,12 @@
 this::
-    date = 19/07/2021
+    date = 20/07/2021
 
 
 ===========================
 Pour les packages autonomes
 ===========================
 
-Chaque package indique un certain nombre d'¨infos générales. Pour les packages utilisables directement sans dépendance vis à vis d'autres packages de la suite ¨tnslatex, il faut **obligatoirement** proposer à la racine du dossier un fichier path::``about.peuf`` ayant le contenu minimal suivant.
+Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.peuf`` ayant le contenu minimal suivant.
 
 peuf::
     general::
@@ -36,7 +36,7 @@ Le contenu du fichier path::``about.peuf`` peut sembler bien minimal. Ceci vient
     )).
 
 
-Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites automatiquement.
+Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites automatiquement dans le fichier path::``STY`` final.
 
 latex::
     % --------------------------------------------------------- %

@@ -1,12 +1,12 @@
 this::
-    date = 15/07/2021
+    date = 20/07/2021
 
 
 =============================
 Pour les packages agrégateurs
 =============================
 
-Dans le fichier path::``about.peuf``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc peuf::``toc`` en utilisant ``>`` pour indiquer que des packages de la suite ¨tns.
+Dans le fichier path::``about.peuf``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc peuf::``toc`` en utilisant ``>`` pour indiquer les packages de la suite ¨tns.
 
 peuf::
     // general::
@@ -19,9 +19,4 @@ peuf::
 
 
 warning::
-    La recherche des packages se fait, si besoin, de façon récursive dans le dossier path::``typensee-latex`` tout en s'arrêtant au ¨1er dossier trouvé.
-    Il faut donc penser à cela lorsque l'on organise les codes sources.
-
-
-info::
-    Si les tables des matières ne sont pas cohérentes, les outils automatiques lèveront une erreur.
+    La recherche des packages se fait, si besoin, de façon récursive dans le dossier path::``typensee-latex`` en s'arrêtant au ¨1er dossier trouvé.

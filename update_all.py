@@ -21,7 +21,7 @@ with LOG_FILE.open(
     encoding = "utf8",
     mode     = "w"
  ) as logfile:
-    title = f'LOG FILE FOR THE MONOREPO "{MONOREPO_DIR.name}"'
+    title = f'LOG FILE - MONOREPO "{MONOREPO_DIR.name}"'
     deco  = "="*len(title)
     
     logfile.write(
@@ -30,7 +30,7 @@ f"""
 {title}
 {deco}
 
-START - TIME STAMP: {timestamp()}
+STARTING TIME STAMP: {timestamp()}
 """.lstrip())
 
 
@@ -38,9 +38,14 @@ START - TIME STAMP: {timestamp()}
 # -- TOOLS -- #
 # ----------- #
 
-MAIN_STEPS    = Step()
-SUB_STEPS     = Step(textit = lambda n, t: " "*4 + f"* {t}")
-SUB_SUB_STEPS = Step(textit = lambda n, t: " "*8 + f"+ {t}")
+MAIN_STEPS = Step()
+
+DECO_STEPS = [c for c in "*+"]
+
+for i, deco in enumerate(DECO_STEPS, 1):
+    exec(
+        f'SUB_{i}_STEPS = Step(textit = lambda n, t: " "*4*{i} + f"{deco} {{t}}")'
+    )
 
 
 # -------------------------- #
@@ -61,10 +66,10 @@ if allpacks:
 else:
     percentage = 0
 
-SUB_STEPS(
+SUB_1_STEPS(
     f"Total number of packages        = {len(allpacks)}"
 )
-SUB_STEPS(
+SUB_1_STEPS(
     f"Number of packages with changes = {len(packs_to_update)}"
     f"  -->  {percentage:.2f}%"
 )
@@ -88,18 +93,18 @@ else:
         updater = UpdateOnePack(
             monorepo   = MONOREPO_DIR,
             dirpath    = packchged, 
-            stepprint  = SUB_STEPS,
+            stepprints = [SUB_1_STEPS, SUB_2_STEPS],
             logfile    = LOG_FILE,
             kindwanted = TOC.KIND_DIR
         )
         updater.build()
 
         if updater.success:
-            SUB_STEPS("OK.")
+            SUB_1_STEPS("OK.")
         
         else:
             pbfound.append(updater.dir_relpath)
-            SUB_STEPS(f'PROBLEM with "{updater.dir_relpath}".')
+            SUB_1_STEPS(f'PROBLEM with "{updater.dir_relpath}".')
 
     NL()
     MAIN_STEPS("All changes have been treated.")
@@ -116,18 +121,18 @@ if pbfound:
     ASCII_FRAME(f"{len(pbfound)} PB{plurial} FOUND")
 
     NL()
-    SUB_STEPS(
+    SUB_1_STEPS(
         f'Look at "{MONOREPO_DIR.name}/{LOG_FILE - MONOREPO_DIR}"'
     )
 
     if plurial:
-        SUB_STEPS('List of problematic packages.')
+        SUB_1_STEPS('List of problematic packages.')
 
     else:
-        SUB_STEPS('Just one problematic package.')
+        SUB_1_STEPS('Just one problematic package.')
 
     for pbpack in pbfound:
-        SUB_SUB_STEPS(pbpack)
+        SUB_2_STEPS(pbpack)
 
 
 # ------------------------ #
@@ -139,7 +144,7 @@ with LOG_FILE.open(
     mode     = "a"
  ) as logfile:
     logfile.write("\n"*2)
-    logfile.write(f"END - TIME STAMP: {timestamp()}")
+    logfile.write(f"ENDING TIME STAMP: {timestamp()}")
 
 NL(2)
 ASCII_FRAME("TNSLATEX - ANALYSIS FINISHED")

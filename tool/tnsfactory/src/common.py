@@ -24,8 +24,9 @@ PROTECTED_DIRS = ["changes"]
 # -- MESSAGES -- #
 # -------------- #
 
-ABOUT_MESSAGE = f"``{ABOUT_NAME}`` file > "
-
+MESSAGE_ABOUT      = f"``{ABOUT_NAME}`` file > "
+MESSAGE_SRC        = "Source: "
+MESSAGE_FINAL_PROD = "Final product: "
 
 # ----------- #
 # -- ABOUT -- #
@@ -87,42 +88,59 @@ LATEX_FRAME_2 = lambda t: print(
 NL = lambda x = 0: print("" + "\n"*(x - 1))
 
 
-# ------------- #
-# -- CLASSES -- #
-# ------------- #
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
 
 ###
-# This class is used by classes working on directories.
+# prototype::
+#     onepath = ; # See Python typing...
+#               a path of a file or a directory.
+#     return  = ; # See Python typing...
+#               ``True`` for a file or a directory to ignore and
+#               ``False`` in the opposite case.
+###
+
+def ignorepath(onepath: PPath) -> bool:
+    return (
+        onepath.name.startswith("x-") 
+        and
+        onepath.name.endswith("-x")
+    )
+
+
+###
+# This class is used by classes analyzing directories.
 ###
 
 class AnaDir:
 ###
 # prototype::
-#     monorepo  = ; # See Python typing...
-#                      the path of the directory of the monorepo to explore.
-#     dirpath   = ; # See Python typing...
-#                      the path of one package to build or update.
-#     stepprint = ; # See Python typing...
-#                 the function used to print ¨infos in the terminal.
-#     logfile   = ; # See Python typing...
-#                 the path of the log file.
-#     needabout = ; # See Python typing...
-#                 ``True`` allows that ``about.peuf`` is missing,
-#                 contrary to ``False``.
+#     monorepo   = ; # See Python typing...
+#                  the path of the directory of the monorepo to explore.
+#     dirpath    = ; # See Python typing...
+#                  the path of one package to build or update.
+#     stepprints = ; # See Python typing...
+#                  the functions used to print ¨infos in the terminal.
+#     logfile    = ; # See Python typing...
+#                  the path of the log file.
+#     needabout  = ; # See Python typing...
+#                  ``True`` allows that ``about.peuf`` is missing,
+#                  contrary to ``False``.
 ###
     def __init__(
         self,
-        monorepo : PPath,
-        dirpath  : PPath,
-        stepprint: Callable[[str], None],
-        logfile  : PPath,
-        needabout: bool = False
+        monorepo  : PPath,
+        dirpath   : PPath,
+        stepprints: List[Callable[[str], None]],
+        logfile   : PPath,
+        needabout : bool = False
     ) -> None:
-        self.monorepo  = monorepo
-        self.dirpath   = dirpath
-        self.stepprint = stepprint
-        self.logfile   = logfile
-        self.needabout = needabout
+        self.monorepo   = monorepo
+        self.dirpath    = dirpath
+        self.stepprints = stepprints
+        self.logfile    = logfile
+        self.needabout  = needabout
 
         self.dir_relpath = dirpath - monorepo
         self.logger      = Logger(self)

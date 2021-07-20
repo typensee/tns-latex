@@ -8,7 +8,8 @@ from .common import *
 # ----------- #
 
 ###
-# This class extracts ¨infos from a toc form a ``about.peuf`` of a package.
+# This class extracts ¨infos from a toc inside an ``about.peuf`` 
+# file of a package.
 ###
 
 class TOC:
@@ -22,16 +23,21 @@ class TOC:
     KIND_PB   : str = "illegal"
     KIND_EMPTY: str = "empty"
 
-    ALL_USER_KINDS = [
+    ALL_USER_KINDS: List[str] = [
         KIND_DIR,
         KIND_FILE,
         KIND_PACK,
     ]
 
+    ALL_KINDS: List[str] = ALL_USER_KINDS + [
+        KIND_PB,
+        KIND_EMPTY,
+    ]
+
 ###
 # prototype::
 #     anadir     = common.AnaDir ;  
-#                  a class with the ¨api contains in ``common.AnaDir``.
+#                  any class having the ¨api of ``common.AnaDir``.
 #     kindwanted = ; # See Python typing... 
 #                  the kind of ¨infos expected to be in the TOC.
 ###
@@ -49,6 +55,12 @@ class TOC:
 #              the list of directories to analyze.
 ###
     def build(self) -> List[PPath]:
+# No TOC block!
+        if not TOC_TAG in self.anadir.about:
+            self.anadir.error(f"``{ABOUT_NAME}`` file: no TOC block!")
+            return
+
+# TOC block exists.
         assert(self.kindwanted in self.ALL_USER_KINDS)
 
         pathsfound: List[PPath] = []
@@ -63,7 +75,7 @@ class TOC:
                 continue
 
             if self.kindwanted != kindfound:
-                message = ABOUT_MESSAGE
+                message = MESSAGE_ABOUT
                 
                 if kindfound in self.ALL_USER_KINDS:
                     message += f"only {self.kindwanted}S allowed. "
@@ -72,8 +84,8 @@ class TOC:
                     message += f"illegal line. "
 
                 message += (
-                    f"See the line {nbline} (rel. nb): "
-                    f"...|{oneinfo}|..."
+                    f"\nSee the line {nbline} (rel. nb) with the following content:"
+                    f"\n<< {oneinfo} >>"
                 )
 
                 self.anadir.error(message)
@@ -81,9 +93,9 @@ class TOC:
 
             pathsfound.append(path)
 
-# Evmpty TOC.
+# Empty TOC.
         if not pathsfound:
-            self.anadir.error("``about.peuf`` file: empty TOC!")
+            self.anadir.error(f"``{ABOUT_NAME}`` file: empty TOC!")
             return
 
 # Everything seems ok.
@@ -92,7 +104,9 @@ class TOC:
 ###
 # prototype::
 #     return = ; # See Python typing...
-#              the list of directories to analyze.
+#              ``[kind, info]`` where ``kind`` belongs to ``self.ALL_KINDS`` and 
+#              info can be ``None`` in case of problem, or the text after
+#              the placeholder.
 ###
     def kindof(self, oneinfo: str):# -> List[str, str]:
         oneinfo = oneinfo.strip()

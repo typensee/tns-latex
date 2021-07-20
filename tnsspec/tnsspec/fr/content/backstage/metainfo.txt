@@ -7,5 +7,5 @@ A propos
 ========
 
 content::
-    ¨content/standalone.txt
+    ¨content/allpack.txt
     ¨content/agregate.txt       

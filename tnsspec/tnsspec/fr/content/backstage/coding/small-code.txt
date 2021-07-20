@@ -1,5 +1,5 @@
 this::
-    date = 19/07/2021
+    date = 20/07/2021
 
 
 =========================
@@ -7,7 +7,7 @@ Coder par petites touches
 =========================
 
 Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau".
-Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager.
+Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager et si nécessaire la ¨doc destinée aux utilisateurs.
 
 
 info::
@@ -21,17 +21,19 @@ path-tree::
         * about.peuf
         + src
             * about.peuf
+            + intro
+                * intro-FR.tex
             + alpha-et-omega3
                 * alpha-FR.tex
                 * alpha.sty
                 * omega3-FR.tex
                 * omega3.sty
-
             + poor-lonesome-cowboy
                 * about.peuf
-                * lucky-FR.tex
+                * lucky-1-FR.tex
+                * lucky-2-FR.tex
                 * lucky.sty
-                * notuseme.sty
+                * ignoreme.sty
                 * rantanplan-FR.tex
                 * rantanplan.sty
 
@@ -51,33 +53,44 @@ Expliquons les conventions à suivre.
         Pour le moment la ¨doc non technique n'est écrite qu'en français mais n'insultons pas l'avenir.
     )).
 
-    1) Tout fichier importé dans le code ou bien la ¨doc sera repéré et intégré dans le produit fini. Tout autre fichier sera ignoré.
+    1) Il est possible de juste rédiger des fichiers path::``TEX``. Dnas ce cas, il faut aussi respecter une profondeur `1` comme pour les fichiers path::``STY``. C'est le cas pour path::``intro/intro-FR.tex``.
 
-    1) Deux types d'ordre de lecture des dossiers et fichiers sont possibles
+    1) Tout fichier importé dans un code ou une ¨doc sera repéré et intégré dans le produit fini. Tout autre fichier sera ignoré.
+
+    1) Deux types de lecture ordonnée des dossiers et fichiers sont possibles
     ((
         Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
     )).
 
         * Un dossier sans fichier path::``about.peuf`` sera analysé en utilisant l'ordre lexicographique usuel.
-        Dans notre dexemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty``.
+        Dans notre dexemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty`` ainsi que path::``alpha-FR.tex`` et  path::``omega3-FR.tex``.
 
         * Dans un dossier, un fichier path::``about.peuf`` impose un ordre à suivre **mais aussi** les fichiers à analyser.
         Nous donnons ci-après les contenus des fichiers path::``src/about.peuf`` et path::``src/poor-lonesome-cowboy/about.peuf``.
 
 
-Le code suivant sert à analyser le dossier path::``poor-lonesome-cowboy`` avant path::``alpha-et-omega3``. Noter les ``+`` indiquant des dossiers.
+Le code suivant sert à analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre.
 
 peuf::
     ---
-    title = Contenu du fichier path::``src/about.peuf``
+    title = Bloc peuf::``toc`` du fichier path::``src/about.peuf``
     ---
 
     toc::
+        + intro
         + poor-lonesome-cowboy
         + alpha-et-omega3
 
 
-Le code suivant permet de considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty`` tout en ignorant path::``notuseme.sty`` (car ce dernier n'apparaît pas dans le bloc peuf::``toc::...``). Noter les ``*`` indiquant des fichiers path::``STY`` sans leur extension.
+info::
+    Retenir que les ``+`` indiquent des dossiers.
+
+
+Le code suivant permet de considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty`` tout en ignorant
+path::``ignoreme.sty`` car ce dernier n'apparaît pas dans le bloc peuf::``toc::...``
+((
+    Voir à ce sujet la toute fin de l'avertissement à la fin de cette section.
+)).
 
 peuf::
     ---
@@ -85,17 +98,27 @@ peuf::
     ---
 
     toc::
-        * lucky
-        * rantanplan
+        * lucky.sty
+        * rantanplan.sty
+
+
+Il faut aussi savoir tout fichier path::``TEX`` ayant un nom commençant par path::``lucky-`` ou path::``rantanplan-`` sera automatiquement intégré au projet final.
+Ceci correspond aux fichiers path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` et path::``rantanplan-FR.tex``.
+
+
+info::
+    Savoir que les ``*`` servent à donner des fichiers, mais aussi que pour chaque fichier path::``STY`` existe une régle d'importation automatique de fichiers path::``TEX`` associés.
 
 
 warning::
-    Certains noms de dossiers et de fichiers ont une signification particulière. Voir les sections suivantes.
+    Certains noms de dossiers ou de fichiers ont une signification particulière. Voir les sections suivantes.
 
-    * Voir cf::``:?../change-log.txt`` qui présente path::``src/changes``.
+    * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
 
-    * Voir cf::``:?../lang.txt`` qui présentent path::``locale`` et path::``translate``.
+    * cf::``:?../lang.txt`` parle path::``locale`` et path::``translate``.
 
-    * Voir cf::``:?../tool.txt`` qui présente l'usage de path::``tool``.
+    * cf::``:?../tool.txt`` explique l'usage de path::``tool``.
 
-    * Voir cf::``:?../test.txt`` qui présente l'usage de path::``test``.
+    * cf::``:?../test.txt`` montre l'emploi de path::``test``.
+
+    * cf::``:?../ignore.txt`` présente le motif path::``x-...-x``.
