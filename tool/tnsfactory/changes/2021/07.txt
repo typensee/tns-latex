@@ -2,4 +2,4 @@
 19 ??
 ==
 
-**First version version::``0.0.0-beta``:** this project will build and update the packages of the ¨tnslatex series.
+**First version version::``0.0.0-beta``:** this project builds and updates the packages of the ¨tnslatex series. At this time, the "agregating" package are not supported. 

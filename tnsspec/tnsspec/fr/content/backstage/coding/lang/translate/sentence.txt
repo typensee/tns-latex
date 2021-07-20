@@ -6,7 +6,7 @@ this::
 Juste des phrases
 =================
 
-Les lignes suivantes éctraites du fichier path::``FR.peuf`` de ¨bdoc montrent comment traduire des phrases "fixes" : tout se passe via un système de type peuf::``id_interne = La traduction`` (noter au passage la possibilité de faire des retours à la ligne dans une traduction tant que l'indentation de l'identifiant est respectée).
+Les lignes suivantes extraites du fichier path::``FR.peuf`` de ¨bdoc montrent comment traduire des phrases "fixes" : tout se passe via un système de type peuf::``id_interne = La traduction`` (noter au passage la possibilité de faire des retours à la ligne dans une traduction tant que l'indentation de l'identifiant est respectée).
 
 peuf::
     sentence::

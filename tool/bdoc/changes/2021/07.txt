@@ -5,7 +5,7 @@
 **A tiny factorization:** instead of using the ``most`` option in  ``\RequirePackage[most]{tcolorbox}``, we have added the library ``skins`` via ``\tcbuselibrary``.
 
 
-**A mini bug fixed:** the ugly hack for french quotes was an incomplete copy of some part of the ``babel`` package source code.
+**A mini bug fixed:** the ugly hack for french quotes was a partial copy of some part of the ``babel`` package source code.
 
     1) Right quote: ``\ignorespaces`` has been added at the end.
 

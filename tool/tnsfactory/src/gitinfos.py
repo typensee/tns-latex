@@ -17,30 +17,31 @@ else:
 
 ###
 # prototype::
-#     projpath = ; # See Python typing...
-#                the path of the directory of the monorepo to udate.
+#     monorepopath = ; # See Python typing...
+#                    the path of the directory of the monorepo to update.
+#     allpacks     = ; # See Python typing...
+#                    the list of the ``PPath`` of the ¨tnslatex packages.
 #
 #     return = ; # See Python typing...
 #              the list of the ``PPath`` of the packages to build or update.
 ###
 
-def packchanges(
-    projpath: PPath,
-    allpacks: List[PPath]
+def packschanged(
+    monorepopath: PPath,
+    allpacks    : List[PPath]
 ) -> List[PPath]:
-    with cd(projpath):
+    with cd(monorepopath):
         gitoutput = runthis("git a")
 
     packstoupdate: List[PPath] = []
 
     for packpath in allpacks:
-        packpath_str = str(packpath - projpath)
+        packpath_str = str(packpath - monorepopath)
         
         if packpath_str in gitoutput:
             packstoupdate.append(packpath)
 
     return packstoupdate
-
 
 
 # ----------------- #
@@ -57,5 +58,5 @@ if __name__ == "__main__":
         projectdir / "tool/bdoc",
     ]
 
-    for ppath in packchanges(projectdir, allpacks):
+    for ppath in packschanged(projectdir, allpacks):
         print(ppath)

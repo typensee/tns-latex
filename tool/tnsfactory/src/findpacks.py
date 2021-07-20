@@ -17,17 +17,17 @@ else:
 
 ###
 # prototype::
-#     projpath = ; # See Python typing...
-#                the path of the directory of the monorepo to explore.
+#     monorepopath = ; # See Python typing...
+#                    the path of the directory of the monorepo to explore.
 #
 #     return = ; # See Python typing...
-#              the list of the ``PPath`` of the packages to build or update.
+#              the list of the ``PPath`` of the ¨tnslatex packages.
 ###
 
-def packdirs(projpath: PPath) -> List[PPath]:
+def packdirs(monorepopath: PPath) -> List[PPath]:
     packsfound: List[PPath] = []
 
-    for subdir in projpath.walk("dir::"):
+    for subdir in monorepopath.walk("dir::"):
 # A folder to analyze.
         if keepthisdir(subdir):
             packsfound.append(subdir)
@@ -83,11 +83,7 @@ def keepthisabout(aboutfile: PPath) -> bool:
     if GENE_TAG in infos:
         infos = infos[GENE_TAG]
 
-        return (
-            GENE_TNSLATEX_TAG in infos
-            and
-            infos[GENE_TNSLATEX_TAG] == YES_TAG
-        )
+        return infos.get(GENE_TNSLATEX_TAG, None) == YES_TAG
 
     return False
 
