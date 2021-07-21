@@ -24,7 +24,10 @@ PROTECTED_DIRS = ["changes"]
 # -- MESSAGES -- #
 # -------------- #
 
-MESSAGE_ABOUT      = f"``{ABOUT_NAME}`` file > "
+MESSAGE_TEMPLATE_FILE = lambda name: f"``{name}`` file -> "
+
+MESSAGE_ABOUT      = MESSAGE_TEMPLATE_FILE(ABOUT_NAME)
+MESSAGE_SRC_ABOUT  = MESSAGE_TEMPLATE_FILE(f"{SRC_DIR_NAME}/{ABOUT_NAME}")
 MESSAGE_SRC        = "Source: "
 MESSAGE_FINAL_PROD = "Final product: "
 
@@ -36,7 +39,7 @@ TOC_TAG  = "toc"
 GENE_TAG = "general"
 
 ABOUT_PEUF_MODE = {
-    "keyval:: =": ":default:",
+    "keyval:: =": GENE_TAG,
     "verbatim"  : TOC_TAG,
 }
 
@@ -62,7 +65,9 @@ NO_TAG  = "no"
 # -- DECORATE -- #
 # -------------- #
 
-DECO = " "*4
+TAB = " "*4
+
+NL = lambda x = 0: print("" + "\n"*(x - 1))
 
 ASCII_FRAME = lambda t: print(
     withframe(
@@ -71,21 +76,16 @@ ASCII_FRAME = lambda t: print(
     )
 )
 
-LATEX_FRAME_1 = lambda t: print(
+for i in range(1, 3):
+    exec(
+    f"""
+LATEX_FRAME_{i} = lambda t: print(
     withframe(
         text  = t,
-        frame = ALL_FRAMES['latex_pretty_1']
+        frame = ALL_FRAMES['latex_pretty_{i}']
     )
 )
-
-LATEX_FRAME_2 = lambda t: print(
-    withframe(
-        text  = t,
-        frame = ALL_FRAMES['latex_pretty_2']
-    )
-)
-
-NL = lambda x = 0: print("" + "\n"*(x - 1))
+    """)
 
 
 # ----------- #
@@ -143,7 +143,7 @@ class AnaDir:
         self.needabout  = needabout
 
         self.dir_relpath = dirpath - monorepo
-        self.logger      = Logger(self)
+        self.logger      = Logger(logfile)
 
 ###
 # prototype::

@@ -5,6 +5,41 @@ from datetime import datetime
 from tool.tnsfactory.src import *
 
 
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+INIT_MONOREPO = True
+# INIT_MONOREPO = False
+
+
+# ----------- #
+# -- TOOLS -- #
+# ----------- #
+
+def tologfile(
+    lines: List[str],
+    mode : str = "a"
+) -> None:
+    global LOG_FILE
+
+    with LOG_FILE.open(
+        encoding = "utf8",
+        mode     = mode
+    ) as logfile:
+        for oneline in lines:
+            logfile.write(oneline)
+            logfile.write("\n")
+
+
+def timestamp(kind: str) -> None:
+    now = datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")
+
+    tologfile([
+        "",
+        f"{kind} TIME STAMP: {now}"
+    ]) 
+
 # --------------- #
 # -- CONSTANTS -- #
 # --------------- #
@@ -13,25 +48,21 @@ MONOREPO_DIR = PPath(__file__).parent
 LOG_FILE     = MONOREPO_DIR / "x-log-x.txt" 
 
 # New log file.
-timestamp = lambda: datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")
-
 LOG_FILE.touch()
 
-with LOG_FILE.open(
-    encoding = "utf8",
-    mode     = "w"
- ) as logfile:
-    title = f'LOG FILE - MONOREPO "{MONOREPO_DIR.name}"'
-    deco  = "="*len(title)
-    
-    logfile.write(
-f"""
-{deco}
-{title}
-{deco}
+title = f'LOG FILE - MONOREPO "{MONOREPO_DIR.name}"'
+deco  = "="*len(title)
 
-STARTING TIME STAMP: {timestamp()}
-""".lstrip())
+tologfile(
+    mode  = "w", # We want to erase a potential existing content.
+    lines = [
+        deco,
+        title,
+        deco,
+    ]
+)
+
+timestamp("STARTING")
 
 
 # ----------- #
@@ -44,8 +75,11 @@ DECO_STEPS = [c for c in "*+"]
 
 for i, deco in enumerate(DECO_STEPS, 1):
     exec(
-        f'SUB_{i}_STEPS = Step(textit = lambda n, t: " "*4*{i} + f"{deco} {{t}}")'
-    )
+    f"""
+SUB_{i}_STEPS = Step(
+    textit = lambda n, t: "{TAB}"*{i} + f"{deco} {{t}}"
+)
+    """)
 
 
 # -------------------------- #
@@ -58,21 +92,32 @@ ASCII_FRAME("TNSLATEX - STARTING THE ANALYSIS")
 NL()
 MAIN_STEPS("Looking for packages to build or update.")
 
-allpacks        = packdirs(MONOREPO_DIR)
-packs_to_update = packschanged(MONOREPO_DIR, allpacks)
+allpacks = packdirs(MONOREPO_DIR)
 
-if allpacks:
-    percentage = len(packs_to_update)/len(allpacks)*100
+if not allpacks:
+    packs_to_update = []
+
+    SUB_1_STEPS("No packages found.")
+
 else:
-    percentage = 0
+    SUB_1_STEPS(f"Total number of packages = {len(allpacks)}")
 
-SUB_1_STEPS(
-    f"Total number of packages        = {len(allpacks)}"
-)
-SUB_1_STEPS(
-    f"Number of packages with changes = {len(packs_to_update)}"
-    f"  -->  {percentage:.2f}%"
-)
+    if INIT_MONOREPO:
+        SUB_1_STEPS(f"Initialize the monorepo: all packages treated.")
+
+        packs_to_update = allpacks
+
+    else:
+        SUB_1_STEPS('Using "git a".')
+
+        packs_to_update = packschanged(MONOREPO_DIR, allpacks)
+
+        percentage = len(packs_to_update) / len(allpacks) * 100
+
+        SUB_1_STEPS(
+            f"Number of packages changed = {len(packs_to_update)}"
+            f"  -->  {percentage:.2f}%"
+        )
 
 
 # ------------------------- #
@@ -81,10 +126,16 @@ SUB_1_STEPS(
 
 pbfound = []
 
-if not packs_to_update:
+# Empty monorepo...
+if not allpacks:
+    ...
+
+# No pack to update.
+elif not packs_to_update:
     NL()
     MAIN_STEPS("No changes found.")
 
+# Some pack to update.
 else:
     for packchged in packs_to_update:
         NL()
@@ -98,6 +149,8 @@ else:
             kindwanted = TOC.KIND_DIR
         )
         updater.build()
+
+        NL()
 
         if updater.success:
             SUB_1_STEPS("OK.")
@@ -139,12 +192,7 @@ if pbfound:
 # -- NOTHING ELSE TO DO -- #
 # ------------------------ #
 
-with LOG_FILE.open(
-    encoding = "utf8",
-    mode     = "a"
- ) as logfile:
-    logfile.write("\n"*2)
-    logfile.write(f"ENDING TIME STAMP: {timestamp()}")
+timestamp("ENDING")
 
 NL(2)
 ASCII_FRAME("TNSLATEX - ANALYSIS FINISHED")

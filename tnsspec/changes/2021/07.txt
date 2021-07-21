@@ -5,7 +5,7 @@
 **Metainfos:** the ¨specs are clearer now.
 
 
-**¨latex and/or ¨sty files:** clear rules to keep or ignore this files have been clearly added.
+**¨latex and/or ¨sty files:** clear rules to keep or ignore this files have been added.
 
 
 ==

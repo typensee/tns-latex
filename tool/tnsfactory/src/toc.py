@@ -75,7 +75,7 @@ class TOC:
                 continue
 
             if self.kindwanted != kindfound:
-                message = MESSAGE_ABOUT
+                message = MESSAGE_SRC_ABOUT
                 
                 if kindfound in self.ALL_USER_KINDS:
                     message += f"only {self.kindwanted}S allowed. "
@@ -84,8 +84,10 @@ class TOC:
                     message += f"illegal line. "
 
                 message += (
-                    f"\nSee the line {nbline} (rel. nb) with the following content:"
-                    f"\n<< {oneinfo} >>"
+                    "\n" 
+                    f"See the line {nbline} (rel. nb) with the following content:"
+                    "\n" 
+                    f"-->|{oneinfo}|<--"
                 )
 
                 self.anadir.error(message)

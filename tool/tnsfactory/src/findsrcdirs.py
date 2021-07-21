@@ -67,9 +67,9 @@ def srcdirs(
 
 # No dir found!
     if not subdirs:
-        anadir.error("No source found.")
+        anadir.error("no source found.")
         anadir.success = False
-        return
+        return subdirs
 
 # Some dirs found.
     plurial = "" if len(subdirs) == 1 else "s"

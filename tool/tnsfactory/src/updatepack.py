@@ -53,7 +53,7 @@ class UpdateOnePack(AnaDir):
         self.kindwanted = kindwanted
 
 ###
-# This method is the bandleader.
+# Here is the great bandleader.
 ###
     def build(self) -> None:
 # Let's be optimism.
@@ -61,6 +61,8 @@ class UpdateOnePack(AnaDir):
 
 # About the package
         self.stepprints[0](MESSAGE_ABOUT + "looking for metainfos.")
+        
+        self.longinfo(f'Working on "{self.dir_relpath}"...')
 
         self.about = About(self).build()
         if not self.success:
@@ -87,13 +89,53 @@ class UpdateOnePack(AnaDir):
 
 # Let's aanlyze each source dir.
         for onesrcdir in self.srcdirs:
+            onesrcpath = self.dirpath / SRC_DIR_NAME / onesrcdir
+
             NL()
+
+# Does the dir exist?
+            if not onesrcpath.is_dir():
+                message = f'missing dir "{self.dir_relpath / onesrcdir}"'
+
+                self.stepprints[0](f'PROBLEM: {message}.')
+                self.error(message)
+                
+                continue
+
+# The dir exists.
             self.stepprints[0](
                 MESSAGE_SRC + f'analyzing "{self.dir_relpath / onesrcdir}".'
             )
 
+            anascrfile = AnaDir(
+                monorepo   = self.monorepo,
+                dirpath    = onesrcpath,
+                stepprints = self.stepprints,
+                logfile    = self.logfile
+            )
+         
+            self.longinfo(
+                message = f'Working on "{SRC_DIR_NAME}/{onesrcdir}".',
+                isitem  = True
+            )
 
-            # exit()
+            files = srcdirs(
+                anadir     = anascrfile,
+                kindwanted = TOC.KIND_FILE
+            )
+            
+            if not anascrfile.success:
+                self.success = False
+
+                if files == []:
+                    self.stepprints[0]("PROBLEM: no source found.")
+
+            
+            # print(files)
+        
+        if not self.success:
+            return
+        exit()
 
 # No problem met, we can build everything.
         if self.success:
@@ -111,4 +153,22 @@ class UpdateOnePack(AnaDir):
 # Final build broken!
             if not self.success:
                 CLEANNNNNN
-
+###
+# prototype::
+#     message = ; # See Python typing...
+#               ???
+#     isitem  = ; # See Python typing...
+#               ???
+###
+    def longinfo(
+        self,
+        message: str,
+        isitem : bool = False
+    ) -> None:
+        if isitem:
+            message = self.logger.ITEM + message
+        else:
+            self.logger.logfile_NL()
+        
+        self.logger.appendtologfile(message)
+        self.logger.logfile_NL()

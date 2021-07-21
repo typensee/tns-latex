@@ -41,6 +41,7 @@ def packdirs(monorepo: PPath) -> List[PPath]:
 ###
 
 def keepthisdir(dirpath: PPath) -> bool:
+# Dir. ignored.
     if ignorepath(dirpath):
         return False
     
