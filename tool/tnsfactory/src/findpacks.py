@@ -20,10 +20,14 @@ from .toc import *
 def packdirs(monorepo: PPath) -> List[PPath]:
     packsfound: List[PPath] = []
 
-    for subdir in monorepo.walk("dir::"):
+    for subdir in monorepo.iterdir():
 # A folder to analyze.
-        if keepthisdir(subdir):
-            packsfound.append(subdir)
+        if subdir.is_dir() and keepthis(subdir, TOC.KIND_DIR):
+            if istnspack(subdir):
+                packsfound.append(subdir)
+
+            else:
+                packsfound += packdirs(subdir)
 
 # Sort the result and return it.
     packsfound.sort()
@@ -37,15 +41,11 @@ def packdirs(monorepo: PPath) -> List[PPath]:
 #               the path of the directory to keep or not.
 #
 #     return = ; # See Python typing...
-#              ``True`` for a directory to keep for analysis, or 
-#              ``False`` if the folder must be ignored.
+#              ``True`` for a directory is a tnslatex, or 
+#              ``False`` in other cases.
 ###
 
-def keepthisdir(dirpath: PPath) -> bool:
-# Dir. ignored.
-    if ignorepath(dirpath, TOC.KIND_DIR):
-        return False
-    
+def istnspack(dirpath: PPath) -> bool:
 # Looking for an ``about.peuf`` file.
     for aboutfile in dirpath.walk("file::about.peuf"):
         return keepthisabout(aboutfile)

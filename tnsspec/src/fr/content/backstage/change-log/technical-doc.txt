@@ -1,5 +1,5 @@
 this::
-    date = 15/07/2021
+    date = 21/07/2021
 
 
 ================
@@ -35,4 +35,4 @@ tns::
 
 
 La date est indiquée via le titre tns::``01`` entouré des tns::``==``.
-Ensuite il faut retenir que le ¨chgt de version s'indique via tns::{{version::``0.0.0-beta``}} qui sera reconnu par les outils automatisés.
+Ensuite il faut retenir que le ¨chgt de version s'indique via tns::{{version::``0.0.0-beta``}} qui sera utilisé par les outils automatisés.

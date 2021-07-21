@@ -1,5 +1,5 @@
 this::
-    date = 15/07/2021
+    date = 21/07/2021
 
 
 =====================
@@ -57,3 +57,4 @@ Voici ce qu'il faut absolument savoir.
 
 info::
     Un fichier path::``test-one-date.tex`` directement compilable sert à tester et déboguer facilement le rendu des ¨chgts pour une date et une langue données.
+    Ce fichier ne fera pas partie du produit final.

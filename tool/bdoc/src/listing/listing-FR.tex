@@ -3,16 +3,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel, varioref}
 
-
 % USING OTHER TOOLS %
+
 \usepackage[lang = FR]{../main/main}
 \usepackage{../macroenv/macroenv}
 \usepackage{../inenglish/inenglish}
 \usepackage{../showcase/showcase}
 \usepackage{../rem-exa/rem-exa}
 
-
 % TESTING LOCAL IMPLEMENTATION %
+
 \usepackage{listing}
 
 
@@ -49,7 +49,6 @@
 }
 
 
-
 \begin{document}
 
 \section{Cas d'utilisation en \LaTeX}
@@ -61,8 +60,13 @@ La macro \docmacro{docilatex} permet de taper du code en ligne via un usage simi
 \begin{enumerate}
 	\item \docilatex+\docilatex|$a^b = c$|+ produit \docilatex|$a^b = c$| .
 
-	\item \docilatex#\docilatex+\docilatex|$a^b = c$|+# produit \docilatex+\docilatex|$a^b = c$|+ .
+	\item \docilatex+\docilatex|$a^b = c$|+ vient de \docilatex#\docilatex+\docilatex|$a^b = c$|+# .
 \end{enumerate}
+
+
+\begin{docrem}
+	Le nom de la macro \docmacro{docilatex} vient de \docquote{\docprewhy{i}{nline} \LaTeX} soit \docinEN{\LaTeX\ en ligne}.
+\end{docrem}
 
 
 % ------------------ %

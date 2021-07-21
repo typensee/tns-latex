@@ -1,5 +1,5 @@
 this::
-    date = 15/07/2021
+    date = 21/07/2021
 
 
 ======
@@ -13,7 +13,7 @@ Pour le moment les tests sont rudimentaires
 
     1) La documentation pour les utilisateurs est l'ocassion d'un test assez complet, et souvent suffisant, des fonctionnalités en situation.
 
-    1) D'autres tests sont possibles en utilisant des dossiers nommés path::``test`` ou des fichiers de noms préfixés par path::``test-``.
+    1) D'autres tests faits "maison" sont possibles en utilisant des dossiers nommés path::``tests`` ou des fichiers de noms préfixés par path::``tests-``.
     Ces fichiers et dossiers ne seront pas incorporés au produit final.
 
 

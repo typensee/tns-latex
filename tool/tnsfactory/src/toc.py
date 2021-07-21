@@ -3,6 +3,7 @@
 from .common import *
 from mistool.os_use import DIR_TAG, FILE_TAG
 
+
 # ----------- #
 # -- TOOLS -- #
 # ----------- #
@@ -41,7 +42,7 @@ class TOC:
 # prototype::
 #     anadir = common.AnaDir ;  
 #              any class having the ¨api of ``common.AnaDir``.
-#     kind   = _ self.LL_USER_KINDS ; # See Python typing... 
+#     kind   = _ in self.ALL_USER_KINDS ; # See Python typing... 
 #              the kind of ¨infos expected to be in the TOC.
 ###
     def __init__(
@@ -49,9 +50,6 @@ class TOC:
         anadir,# Can't use the type common.AnaDir (cyclic imports).
         kind: str
     ) -> None:
-        assert kind in self.ALL_USER_KINDS, \
-               f'kind = "{kind}" for TOC not in {self.ALL_USER_KINDS}.'
-
         self.anadir = anadir
         self.kind   = kind
 
@@ -67,8 +65,6 @@ class TOC:
             return
 
 # TOC block exists.
-        assert(self.kind in self.ALL_USER_KINDS)
-
         pathsfound: List[PPath] = []
 
         for nbline, oneinfo in enumerate(

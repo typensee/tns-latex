@@ -3,6 +3,7 @@
 from .about       import *
 from .common      import *
 from .logit       import *
+from .finalprod   import *
 from .findsrcdirs import *
 from .toc         import *
     
@@ -42,6 +43,9 @@ class UpdateOnePack(AnaDir):
         stepprints: List[Callable[[str], None]],
         logfile   : PPath
     ) -> None:
+        assert kind in TOC.ALL_USER_KINDS, \
+               f'kind = "{kind}" for TOC not in {self.ALL_USER_KINDS}.'
+
         super().__init__(
             monorepo   = monorepo,
             dirpath    = dirpath,
@@ -50,7 +54,11 @@ class UpdateOnePack(AnaDir):
             needabout  = True
         )
 
-        self.kind = kind
+        self.kind      = kind
+        self.finalprod = FinalProd(
+            anadir = self,
+            kind   = kind
+        )
 
 ###
 # Here is the great bandleader.
@@ -59,16 +67,54 @@ class UpdateOnePack(AnaDir):
 # Let's be optimism.
         self.success = True
 
-# About the package
+# Let's go!
+        for methodname in [
+            "build_about",
+            "build_srcdirs",
+            "analyze_srcdirs",
+        ]:
+            getattr(self, methodname)()
+
+            if not self.success:
+                return
+
+
+        OKKKK
+
+# No problem met, we can build everything.
+        NL()
+        self.stepprints[0](MESSAGE_FINAL_PROD + 'building.')
+
+
+
+
+
+
+            
+
+
+# Final build broken!
+        if not self.success:
+            CLEANNNNNN
+
+
+
+
+
+###
+# This method tries to analyze the ``about.peuf`` file of the package.
+###
+    def build_about(self) -> None:
         self.stepprints[0](MESSAGE_ABOUT + "looking for metainfos.")
-        
+
         self.loginfo(f'Working on "{self.dir_relpath}"...')
 
         self.about = About(self).build()
-        if not self.success:
-            return
 
-# List of source dirs.
+###
+# This method tries to find the folders of the sources of the package.
+###
+    def build_srcdirs(self) -> None:
         NL()
         self.stepprints[0](MESSAGE_SRC + "searching...")
 
@@ -83,19 +129,22 @@ class UpdateOnePack(AnaDir):
             anadir     = anascrdir,
             kind = TOC.KIND_DIR
         )
-        self.success = anascrdir.success
-        if not self.success:
-             return
 
-# Let's aanlyze each source dir.
+        self.success = anascrdir.success
+
+###
+# This method analyzes the sources of the package.
+###
+    def analyze_srcdirs(self) -> None:
         for onesrcdir in self.srcdirs:
-            onesrcpath = self.dirpath / SRC_DIR_NAME / onesrcdir
+            onesrcpath     = self.dirpath     / SRC_DIR_NAME / onesrcdir
+            onesrc_relpath = onesrcpath - self.monorepo
 
             NL()
 
 # Does the dir exist?
             if not onesrcpath.is_dir():
-                message = f'missing dir "{self.dir_relpath / onesrcdir}"'
+                message = f'missing dir "{onesrc_relpath}"'
 
                 self.stepprints[0](f'{MESSAGE_PROBLEM}: {message}.')
                 self.error(message)
@@ -104,7 +153,9 @@ class UpdateOnePack(AnaDir):
 
 # The dir exists.
             self.stepprints[0](
-                MESSAGE_SRC + f'analyzing "{self.dir_relpath / onesrcdir}".'
+                MESSAGE_SRC 
+                +
+                f'analyzing "{onesrc_relpath}".'
             )
 
             anascrfile = AnaDir(
@@ -115,7 +166,7 @@ class UpdateOnePack(AnaDir):
             )
          
             self.loginfo(
-                message  = f'Working on "{SRC_DIR_NAME}/{onesrcdir}".',
+                message  = f'Working on "{onesrc_relpath}".',
                 isitem   = True,
                 isnewdir = True
             )
@@ -128,40 +179,37 @@ class UpdateOnePack(AnaDir):
             if not anascrfile.success:
                 self.success = False
 
+# No file found.
             if files == []:
-                self.stepprints[0](f"{MESSAGE_WARNING}: no source found.")
+                message = "no source found."
+                
+                self.warning(message)
+                self.stepprints[0](f"{MESSAGE_WARNING}: {message}")
+                continue
 
-            
-            # print(files)
-        
-        if not self.success:
-            return
-        exit()
-
-# No problem met, we can build everything.
-        if self.success:
-            NL()
-            self.stepprints[0](MESSAGE_FINAL_PROD + 'building.')
+# Let's update the final product.
+            self.finalprod.addfiles(files)
 
 
 
 
 
 
-            
 
 
-# Final build broken!
-            if not self.success:
-                CLEANNNNNN
+
+
+
 ###
 # prototype::
 #     message = ; # See Python typing...
-#               ???
+#               the message to append to the log file.
 #     isitem  = ; # See Python typing...
-#               ???
+#               ``True`` indicates to print an item and
+#               ``False`` to no do that. 
 #     isnewdir = ; # See Python typing...
-#               ???
+#               ``True`` when starting to work on an new
+#               folder and ``False`` in other cases.
 ###
     def loginfo(
         self,

@@ -1,9 +1,12 @@
 this::
-    date = 18/07/2021
+    date = 21/07/2021
 
 
 =========
 À ignorer
 =========
 
-Tout dossier ou fichier ayant un nom ressemblant à path::``x-...-x`` est tout simplement ignoré par les outils automatiques.
+Tout dossier ou fichier ayant un nom ressemblant à path::``x-...-x`` est tout simplement ignoré par les outils automatiques
+((
+    L'idéal serait de tenir compte du path::`gitignore`` du projet mais ceci n'est pas prévu dans l'immédiat. 
+)).

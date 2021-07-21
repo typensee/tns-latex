@@ -1,5 +1,5 @@
 this::
-    date = 20/07/2021
+    date = 21/07/2021
 
 
 =========================
@@ -53,8 +53,8 @@ Expliquons les conventions à suivre.
         Pour le moment la ¨doc non technique n'est écrite qu'en français mais n'insultons pas l'avenir.
     )).
 
-    1) Il est possible de juste rédiger des fichiers path::``TEX``. Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY``.
-    Dans notre exemple fictif, c'est le cas pour path::``intro/intro-FR.tex``.
+    1) Il est possible de juste rédiger des fichiers path::``TEX``. Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY`` et indiquer la langue du ¨doc.
+    Dans notre exemple fictif, path::``intro/intro-FR.tex`` est accepté et considéré écrit en français.
 
     1) Tout fichier importé dans un code ou une ¨doc sera repéré et intégré dans le produit fini. Tout autre fichier sera ignoré.
 

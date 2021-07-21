@@ -11,10 +11,10 @@ from .toc    import *
 
 ###
 # prototype::
-#     anadir = common.AnaDir ;  
-#              any class having the ¨api of ``common.AnaDir``.
-#     kind   = ; # See Python typing... 
-#              the kind of ¨infos expected to be in the TOC.
+#     anadi r  = common.AnaDir ;  
+#                any class having the ¨api of ``common.AnaDir``.
+#     kind     = ; # See Python typing... 
+#                the kind of ¨infos expected to be in the TOC.
 #
 #     return = ; # See Python typing...
 #              the list of the ``PPath`` of the sources wanted.
@@ -45,7 +45,7 @@ def srcdirs(
         if not anadir.success:
             return
 
-        methodused = f"TOC in ``{SRC_DIR_NAME}/{ABOUT_NAME}``"
+        methodused = f"TOC in ``{anadir.dir_relpath / ABOUT_NAME}``"
 
 # No ``about.peuf`` with files or dirs to search.
     else:
@@ -60,31 +60,23 @@ def srcdirs(
                 continue
 
 # Something to ignore?
-            if ignorepath(onesubdir):
+            if not keepthis(onesubdir, kind):
                 continue
 
 # A folder to analyze.
-            if kind == TOC.KIND_DIR:
-                if not relpath.name in PROTECTED_DIRS:
-                    paths.append(onesubdir)
-
-            else:
-                paths.append(onesubdir)
+            paths.append(onesubdir)
                 
         paths.sort()
 
-        methodused = f"automatic walk in ``{SRC_DIR_NAME}``"
-
-# No dir found!
-    if not paths:
-        anadir.warning("no source found.")
-        return paths
+        methodused = f"automatic walk in ``{anadir.dir_relpath}``"
 
 # Some dirs found.
-    plurial = "" if len(paths) == 1 else "s"
-    
-    anadir.stepprints[0](
-        MESSAGE_SRC + f"{len(paths)} {kind}{plurial} from {methodused}."
-    )
+    if paths:
+        plurial = "" if len(paths) == 1 else "s"
+        
+        anadir.stepprints[0](
+            MESSAGE_SRC + f"{len(paths)} {kind}{plurial} from {methodused}."
+        )
 
+# Nothing more to do.
     return paths

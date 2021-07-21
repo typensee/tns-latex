@@ -12,6 +12,8 @@ from tool.tnsfactory.src import *
 INIT_MONOREPO = True
 # INIT_MONOREPO = False
 
+LANGS_SUPPORTED = ["FR"]
+
 
 # ----------- #
 # -- TOOLS -- #

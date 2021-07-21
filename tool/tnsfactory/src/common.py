@@ -1,8 +1,9 @@
 #! /usr/bin/env python3
 
 from typing import *
+import re
 
-from mistool.os_use import PPath, cd, runthis
+from mistool.os_use import PPath, cd, runthis, DIR_TAG, FILE_TAG
 from mistool.string_use import between
 from mistool.term_use import ALL_FRAMES, withframe, Step
 
@@ -15,14 +16,35 @@ from .logit import *
 # -- CODING -- #
 # ------------ #
 
-ABOUT_NAME     =  "about.peuf"
-SRC_DIR_NAME   =  "src"
+ABOUT_NAME   =  "about.peuf"
+SRC_DIR_NAME =  "src"
 
-PATTERN_PROTECTED_DIRS = [
-    "changes", 
-    "tool[s*]", 
-    "test[*s]"
+PATTERN_COMMON = [
+    "\\..+",
+    "x-.+-x",
 ]
+
+PATTERNS_SPECIAL = {
+    DIR_TAG: [
+        re.compile(f"^{p}$")
+        for p in PATTERN_COMMON + [
+            "changes", 
+            "tools", 
+            "tests"
+        ]
+    ],
+    FILE_TAG: [
+        re.compile(f"^{p}$")
+        for p in PATTERN_COMMON + [
+            "tools?-.*", 
+            "tests?-.*"
+        ]
+    ]
+}
+
+TEX_FILE_EXT    = "tex"
+STY_FILE_EXT    = "sty"
+FILE_EXT_WANTED = [TEX_FILE_EXT, STY_FILE_EXT]
 
 
 # -------------- #
@@ -38,6 +60,7 @@ MESSAGE_FINAL_PROD = "Final product: "
 
 MESSAGE_PROBLEM = "PROBLEM"
 MESSAGE_WARNING = "WARNING"
+
 
 # ----------- #
 # -- ABOUT -- #
@@ -74,8 +97,7 @@ NO_TAG  = "no"
 # -------------- #
 
 TAB = " "*4
-
-NL = lambda x = 0: print("" + "\n"*(x - 1))
+NL  = lambda x = 0: print("" + "\n"*(x - 1))
 
 ASCII_FRAME = lambda t: print(
     withframe(
@@ -104,28 +126,31 @@ LATEX_FRAME_{i} = lambda t: print(
 # prototype::
 #     onepath = ; # See Python typing...
 #               a path of a file or a directory.
-
-        # assert kind in TOC.ALL_PHYSICAL_KINDS, \
-        #        f'kind = "{kind}" for srcdirs not in {TOC.ALL_PHYSICAL_KINDS}.'
+#     kind    = _ in [DIR_TAG, FILE_TAG]; # See Python typing...
+#               the kind of infos wanted.
+#
 #     return  = ; # See Python typing...
-#               ``True`` for a file or a directory to ignore and
+#               ``True`` for a file or a directory to keep and
 #               ``False`` in the opposite case.
 ###
 
-def ignorepath(
+def keepthis(
     onepath: PPath,
     kind   : bool
 ) -> bool:
-# Ignoring pattern: x-...-x
-    if (
-        onepath.name.startswith("x-") 
-        and
-        onepath.name.endswith("-x")
-    ): 
+# Something to ignore?
+    if any(
+        not p.match(onepath.stem) is None
+        for p in PATTERNS_SPECIAL[kind]
+    ):
+        return False
+
+# Nothing more to do for folders.
+    if kind == DIR_TAG:
         return True
 
-# Let'skeep this file or dir.
-    return False
+# For files, we keep only TEX and STY files.
+    return onepath.ext in FILE_EXT_WANTED
 
 
 ###

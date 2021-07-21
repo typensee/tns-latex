@@ -1,5 +1,5 @@
 this::
-    date = 12/07/2021
+    date = 21/07/2021
 
 
 ==========
@@ -18,5 +18,4 @@ via des petites régles à suivre que nous allons expliquer dans les sections su
 
 
 info::
-    La ¨doc de type tutoriel s'appuie sur les projets ¨bdoc et ¨macroenvsign.
-    Dans les sections suivantes nous n'allons pas parler de tous les outils proposés par ces deux sous-projets de ¨tnslatex.
+    La ¨doc de type tutoriel s'appuie sur les projets ¨bdoc et ¨macroenvsign (se reporter aux ¨docs de ces deux packages).

@@ -2,7 +2,9 @@
 21
 ==
 
-**Dirs and files protected or to ignore:* some clarifications done.
+**Dirs and files protected or to ignore:* the special names all use a plurial form.
+
+**Names of path::``TEX`` files:** the need to indicate the language has been added.
 
 
 ==
