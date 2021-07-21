@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 from .common import *
+from .toc import *
 
 
 # ----------- #
@@ -42,7 +43,7 @@ def packdirs(monorepo: PPath) -> List[PPath]:
 
 def keepthisdir(dirpath: PPath) -> bool:
 # Dir. ignored.
-    if ignorepath(dirpath):
+    if ignorepath(dirpath, TOC.KIND_DIR):
         return False
     
 # Looking for an ``about.peuf`` file.

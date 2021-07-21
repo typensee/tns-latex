@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 from .common import *
-
+from mistool.os_use import DIR_TAG, FILE_TAG
 
 # ----------- #
 # -- TOOLS -- #
@@ -17,15 +17,18 @@ class TOC:
     ITEM_FILE: str = "*"
     ITEM_PACK: str = ">"
 
-    KIND_DIR  : str = "DIR"
-    KIND_FILE : str = "FILE"
-    KIND_PACK : str = "PACK"
+    KIND_DIR  : str = DIR_TAG
+    KIND_FILE : str = FILE_TAG
+    KIND_PACK : str = "pack"
     KIND_PB   : str = "illegal"
     KIND_EMPTY: str = "empty"
 
-    ALL_USER_KINDS: List[str] = [
+    ALL_PHYSICAL_KINDS: List[str] = [
         KIND_DIR,
-        KIND_FILE,
+        KIND_FILE
+    ]
+
+    ALL_USER_KINDS: List[str] = ALL_PHYSICAL_KINDS + [
         KIND_PACK,
     ]
 
@@ -36,18 +39,21 @@ class TOC:
 
 ###
 # prototype::
-#     anadir     = common.AnaDir ;  
-#                  any class having the ¨api of ``common.AnaDir``.
-#     kindwanted = ; # See Python typing... 
-#                  the kind of ¨infos expected to be in the TOC.
+#     anadir = common.AnaDir ;  
+#              any class having the ¨api of ``common.AnaDir``.
+#     kind   = _ self.LL_USER_KINDS ; # See Python typing... 
+#              the kind of ¨infos expected to be in the TOC.
 ###
     def __init__(
         self,
         anadir,# Can't use the type common.AnaDir (cyclic imports).
-        kindwanted: str
+        kind: str
     ) -> None:
-        self.anadir     = anadir
-        self.kindwanted = kindwanted
+        assert kind in self.ALL_USER_KINDS, \
+               f'kind = "{kind}" for TOC not in {self.ALL_USER_KINDS}.'
+
+        self.anadir = anadir
+        self.kind   = kind
 
 ###
 # prototype::
@@ -61,7 +67,7 @@ class TOC:
             return
 
 # TOC block exists.
-        assert(self.kindwanted in self.ALL_USER_KINDS)
+        assert(self.kind in self.ALL_USER_KINDS)
 
         pathsfound: List[PPath] = []
 
@@ -74,11 +80,11 @@ class TOC:
             if kindfound == self.KIND_EMPTY:
                 continue
 
-            if self.kindwanted != kindfound:
+            if self.kind != kindfound:
                 message = MESSAGE_SRC_ABOUT
                 
                 if kindfound in self.ALL_USER_KINDS:
-                    message += f"only {self.kindwanted}S allowed. "
+                    message += f"only {self.kind}S allowed. "
 
                 else:
                     message += f"illegal line. "
@@ -122,6 +128,8 @@ class TOC:
         firstchar, otherchars = oneinfo[0], oneinfo[1:].lstrip()
 
         for kind in self.ALL_USER_KINDS:
+            kind = kind.upper()
+
             if firstchar == getattr(self, f"ITEM_{kind}"):
                 return getattr(self, f"KIND_{kind}"), otherchars
             

@@ -27,7 +27,7 @@ class UpdateOnePack(AnaDir):
 #                  the path of the directory of the monorepo explored.
 #     dirpath    = ; # See Python typing...
 #                  the path of one package to build or update.
-#     kindwanted = _ in TOC.ALL_USER_KINDS; # See Python typing...
+#     kind       = _ in TOC.ALL_USER_KINDS; # See Python typing...
 #                  the kind of ¨infos allowed.
 #     stepprints = ; # See Python typing...
 #                  the functions used to print ¨infos in the terminal.
@@ -38,7 +38,7 @@ class UpdateOnePack(AnaDir):
         self,
         monorepo  : PPath,
         dirpath   : PPath,
-        kindwanted: str,
+        kind      : str,
         stepprints: List[Callable[[str], None]],
         logfile   : PPath
     ) -> None:
@@ -50,7 +50,7 @@ class UpdateOnePack(AnaDir):
             needabout  = True
         )
 
-        self.kindwanted = kindwanted
+        self.kind = kind
 
 ###
 # Here is the great bandleader.
@@ -62,7 +62,7 @@ class UpdateOnePack(AnaDir):
 # About the package
         self.stepprints[0](MESSAGE_ABOUT + "looking for metainfos.")
         
-        self.longinfo(f'Working on "{self.dir_relpath}"...')
+        self.loginfo(f'Working on "{self.dir_relpath}"...')
 
         self.about = About(self).build()
         if not self.success:
@@ -81,7 +81,7 @@ class UpdateOnePack(AnaDir):
          
         self.srcdirs = srcdirs(
             anadir     = anascrdir,
-            kindwanted = TOC.KIND_DIR
+            kind = TOC.KIND_DIR
         )
         self.success = anascrdir.success
         if not self.success:
@@ -97,7 +97,7 @@ class UpdateOnePack(AnaDir):
             if not onesrcpath.is_dir():
                 message = f'missing dir "{self.dir_relpath / onesrcdir}"'
 
-                self.stepprints[0](f'PROBLEM: {message}.')
+                self.stepprints[0](f'{MESSAGE_PROBLEM}: {message}.')
                 self.error(message)
                 
                 continue
@@ -114,21 +114,22 @@ class UpdateOnePack(AnaDir):
                 logfile    = self.logfile
             )
          
-            self.longinfo(
-                message = f'Working on "{SRC_DIR_NAME}/{onesrcdir}".',
-                isitem  = True
+            self.loginfo(
+                message  = f'Working on "{SRC_DIR_NAME}/{onesrcdir}".',
+                isitem   = True,
+                isnewdir = True
             )
 
             files = srcdirs(
-                anadir     = anascrfile,
-                kindwanted = TOC.KIND_FILE
+                anadir = anascrfile,
+                kind   = TOC.KIND_FILE
             )
             
             if not anascrfile.success:
                 self.success = False
 
-                if files == []:
-                    self.stepprints[0]("PROBLEM: no source found.")
+            if files == []:
+                self.stepprints[0](f"{MESSAGE_WARNING}: no source found.")
 
             
             # print(files)
@@ -159,14 +160,21 @@ class UpdateOnePack(AnaDir):
 #               ???
 #     isitem  = ; # See Python typing...
 #               ???
+#     isnewdir = ; # See Python typing...
+#               ???
 ###
-    def longinfo(
+    def loginfo(
         self,
-        message: str,
-        isitem : bool = False
+        message : str,
+        isitem  : bool = False,
+        isnewdir: bool = False,
     ) -> None:
         if isitem:
             message = self.logger.ITEM + message
+
+            if isnewdir:
+                self.logger.logfile_NL()
+
         else:
             self.logger.logfile_NL()
         

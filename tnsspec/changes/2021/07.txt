@@ -1,4 +1,11 @@
 ==
+21
+==
+
+**Dirs and files protected or to ignore:* some clarifications done.
+
+
+==
 20
 ==
 

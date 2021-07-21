@@ -11,10 +11,10 @@ from .toc    import *
 
 ###
 # prototype::
-#     anadir     = common.AnaDir ;  
-#                  any class having the ¨api of ``common.AnaDir``.
-#     kindwanted = ; # See Python typing... 
-#                  the kind of ¨infos expected to be in the TOC.
+#     anadir = common.AnaDir ;  
+#              any class having the ¨api of ``common.AnaDir``.
+#     kind   = ; # See Python typing... 
+#              the kind of ¨infos expected to be in the TOC.
 #
 #     return = ; # See Python typing...
 #              the list of the ``PPath`` of the sources wanted.
@@ -22,12 +22,12 @@ from .toc    import *
 
 def srcdirs(
     anadir,# Can't use the type common.AnaDir (cyclic imports).
-    kindwanted: str
+    kind: str
 ) -> List[PPath]:
 # Let's be optimism.
     anadir.success = True
 
-    subdirs:List[PPath] = []
+    paths:List[PPath] = []
 
     about_src = About(anadir).build()
 
@@ -37,9 +37,9 @@ def srcdirs(
 
 # Good ``about.peuf``.
     elif not anadir.about is None:
-        subdirs = TOC(
-            anadir     = anadir,
-            kindwanted = kindwanted
+        paths = TOC(
+            anadir = anadir,
+            kind   = kind
         ).build()
 
         if not anadir.success:
@@ -47,35 +47,44 @@ def srcdirs(
 
         methodused = f"TOC in ``{SRC_DIR_NAME}/{ABOUT_NAME}``"
 
-# No ``about.peuf``.
+# No ``about.peuf`` with files or dirs to search.
     else:
-        for onesubdir in anadir.dirpath.walk("dir::"):
-# A folder to analyze.
+        assert kind in TOC.ALL_PHYSICAL_KINDS, \
+               f'kind = "{kind}" for srcdirs not in {TOC.ALL_PHYSICAL_KINDS}.'
+
+        for onesubdir in anadir.dirpath.walk(f"{kind}::*"):
+# Directly in our folder?
             relpath = onesubdir - anadir.dirpath
             
-            if (
-                relpath.depth == 0
-                and
-                not relpath.name in PROTECTED_DIRS
-            ):
-                if not ignorepath(onesubdir):
-                    subdirs.append(onesubdir)
+            if relpath.depth != 0:
+                continue
+
+# Something to ignore?
+            if ignorepath(onesubdir):
+                continue
+
+# A folder to analyze.
+            if kind == TOC.KIND_DIR:
+                if not relpath.name in PROTECTED_DIRS:
+                    paths.append(onesubdir)
+
+            else:
+                paths.append(onesubdir)
                 
-        subdirs.sort()
+        paths.sort()
 
         methodused = f"automatic walk in ``{SRC_DIR_NAME}``"
 
 # No dir found!
-    if not subdirs:
-        anadir.error("no source found.")
-        anadir.success = False
-        return subdirs
+    if not paths:
+        anadir.warning("no source found.")
+        return paths
 
 # Some dirs found.
-    plurial = "" if len(subdirs) == 1 else "s"
+    plurial = "" if len(paths) == 1 else "s"
     
     anadir.stepprints[0](
-        MESSAGE_SRC + f"{len(subdirs)} dir{plurial} from {methodused}."
+        MESSAGE_SRC + f"{len(paths)} {kind}{plurial} from {methodused}."
     )
 
-    return subdirs
+    return paths

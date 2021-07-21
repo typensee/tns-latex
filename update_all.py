@@ -146,7 +146,7 @@ else:
             dirpath    = packchged, 
             stepprints = [SUB_1_STEPS, SUB_2_STEPS],
             logfile    = LOG_FILE,
-            kindwanted = TOC.KIND_DIR
+            kind       = TOC.KIND_DIR
         )
         updater.build()
 
@@ -157,7 +157,7 @@ else:
         
         else:
             pbfound.append(updater.dir_relpath)
-            SUB_1_STEPS(f'PROBLEM with "{updater.dir_relpath}".')
+            SUB_1_STEPS(f'{MESSAGE_PROBLEM} with "{updater.dir_relpath}".')
 
     NL()
     MAIN_STEPS("All changes have been treated.")

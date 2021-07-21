@@ -2,7 +2,7 @@
 
 from typing import *
 
-from mistool.os_use import cd, PPath, runthis
+from mistool.os_use import PPath, cd, runthis
 from mistool.string_use import between
 from mistool.term_use import ALL_FRAMES, withframe, Step
 
@@ -17,7 +17,12 @@ from .logit import *
 
 ABOUT_NAME     =  "about.peuf"
 SRC_DIR_NAME   =  "src"
-PROTECTED_DIRS = ["changes"]
+
+PATTERN_PROTECTED_DIRS = [
+    "changes", 
+    "tool[s*]", 
+    "test[*s]"
+]
 
 
 # -------------- #
@@ -30,6 +35,9 @@ MESSAGE_ABOUT      = MESSAGE_TEMPLATE_FILE(ABOUT_NAME)
 MESSAGE_SRC_ABOUT  = MESSAGE_TEMPLATE_FILE(f"{SRC_DIR_NAME}/{ABOUT_NAME}")
 MESSAGE_SRC        = "Source: "
 MESSAGE_FINAL_PROD = "Final product: "
+
+MESSAGE_PROBLEM = "PROBLEM"
+MESSAGE_WARNING = "WARNING"
 
 # ----------- #
 # -- ABOUT -- #
@@ -96,17 +104,28 @@ LATEX_FRAME_{i} = lambda t: print(
 # prototype::
 #     onepath = ; # See Python typing...
 #               a path of a file or a directory.
+
+        # assert kind in TOC.ALL_PHYSICAL_KINDS, \
+        #        f'kind = "{kind}" for srcdirs not in {TOC.ALL_PHYSICAL_KINDS}.'
 #     return  = ; # See Python typing...
 #               ``True`` for a file or a directory to ignore and
 #               ``False`` in the opposite case.
 ###
 
-def ignorepath(onepath: PPath) -> bool:
-    return (
+def ignorepath(
+    onepath: PPath,
+    kind   : bool
+) -> bool:
+# Ignoring pattern: x-...-x
+    if (
         onepath.name.startswith("x-") 
         and
         onepath.name.endswith("-x")
-    )
+    ): 
+        return True
+
+# Let'skeep this file or dir.
+    return False
 
 
 ###
