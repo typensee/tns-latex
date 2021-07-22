@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from tool.tnsfactory.src import *
+from tnstools.tnsfactory.src import *
 
 
 # ----------- #
