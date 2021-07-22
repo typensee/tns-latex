@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
 from typing import *
+
+from enum import Enum
 import re
 
 from mistool.os_use import PPath, cd, runthis, DIR_TAG, FILE_TAG
@@ -47,6 +49,39 @@ STY_FILE_EXT    = "sty"
 FILE_EXT_WANTED = [TEX_FILE_EXT, STY_FILE_EXT]
 
 
+def comment_section(title):
+    return f'% == {title} == %'
+
+COM_SECT_PACKAGE = "PACKAGE"
+COM_SECT_OPTIONS = "OPTIONS"
+COM_SECT_TOOLS   = "TOOLS"
+
+COM_SECT_EXTRAS = "EXTRAS"
+
+TEX_BEGIN_DOC =  "\\begin{document}"
+
+FILE_BLOCK = {
+# Special blocks for TEX files.
+    STY_FILE_EXT: [
+        comment_section(title)
+        for title in [
+            COM_SECT_PACKAGE,
+            COM_SECT_OPTIONS,
+            COM_SECT_TOOLS,
+        ]
+    ],
+# Special blocks for TEX files.
+    TEX_FILE_EXT: [
+        comment_section(title)
+        for title in [
+            COM_SECT_EXTRAS,
+        ]
+    ] + [
+        TEX_BEGIN_DOC
+    ], 
+}
+
+
 # -------------- #
 # -- MESSAGES -- #
 # -------------- #
@@ -55,11 +90,14 @@ MESSAGE_TEMPLATE_FILE = lambda name: f"``{name}`` file -> "
 
 MESSAGE_ABOUT      = MESSAGE_TEMPLATE_FILE(ABOUT_NAME)
 MESSAGE_SRC_ABOUT  = MESSAGE_TEMPLATE_FILE(f"{SRC_DIR_NAME}/{ABOUT_NAME}")
-MESSAGE_SRC        = "Source: "
-MESSAGE_FINAL_PROD = "Final product: "
+MESSAGE_SRC        = "Source"
+MESSAGE_FINAL_PROD = "Final Product"
 
-MESSAGE_PROBLEM = "PROBLEM"
-MESSAGE_WARNING = "WARNING"
+MESSAGE_ERROR     = "ERROR"
+MESSAGE_WARNING   = "WARNING"
+MESSAGE_WRONG_SRC = "BAD SOURCE"
+
+MESSAGE_WORKING_ON = "Working on"
 
 
 # ----------- #
@@ -121,6 +159,26 @@ LATEX_FRAME_{i} = lambda t: print(
 # ----------- #
 # -- TOOLS -- #
 # ----------- #
+
+###
+# This class colorize easily the terminal outputs.
+###
+
+# Source: GNU/Linux Mag. - Hors Série 115
+class ColorTerm(Enum):
+    normal :str = ''
+    error:str = '31'
+    warning:str = '34'
+
+    def colorit(self) -> None:
+        if self.value:
+            termcode = f"\x1b[1;{self.value}m"
+
+        else:
+            termcode = f"\x1b[0m"
+
+        print(termcode, end = "")
+
 
 ###
 # prototype::

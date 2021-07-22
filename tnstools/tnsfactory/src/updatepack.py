@@ -89,7 +89,7 @@ class UpdateOnePack(AnaDir):
     def build_about(self) -> None:
         self.stepprints[0](MESSAGE_ABOUT + "looking for metainfos.")
 
-        self.loginfo(f'Working on "{self.dir_relpath}"...')
+        self.loginfo(f'{MESSAGE_WORKING_ON} "{self.dir_relpath}"...')
 
         self.about = About(self).build()
 
@@ -98,7 +98,7 @@ class UpdateOnePack(AnaDir):
 ###
     def build_srcdirs(self) -> None:
         NL()
-        self.stepprints[0](MESSAGE_SRC + "searching...")
+        self.stepprints[0](f"{MESSAGE_SRC}: searching...")
 
         anascrdir = AnaDir(
             monorepo   = self.monorepo,
@@ -128,16 +128,14 @@ class UpdateOnePack(AnaDir):
             if not onesrcpath.is_dir():
                 message = f'missing dir "{onesrc_relpath}"'
 
-                self.stepprints[0](f'{MESSAGE_PROBLEM}: {message}.')
+                self.stepprints[0](f'{MESSAGE_ERROR}: {message}.')
                 self.error(message)
                 
                 continue
 
 # The dir exists.
             self.stepprints[0](
-                MESSAGE_SRC 
-                +
-                f'analyzing "{onesrc_relpath}".'
+                f'{MESSAGE_SRC}: analyzing "{onesrc_relpath}".'
             )
 
             anascrfile = AnaDir(
@@ -148,7 +146,7 @@ class UpdateOnePack(AnaDir):
             )
          
             self.loginfo(
-                message  = f'Working on "{onesrc_relpath}".',
+                message  = f'{MESSAGE_WORKING_ON} "{onesrc_relpath}".',
                 isitem   = True,
                 isnewdir = True
             )
@@ -167,10 +165,15 @@ class UpdateOnePack(AnaDir):
                 
                 self.warning(message)
                 self.stepprints[0](f"{MESSAGE_WARNING}: {message}")
+                
                 continue
 
 # Let's update the final product.
-            self.finalprod.addfiles(files)
+            self.stepprints[0](
+                f'{MESSAGE_FINAL_PROD}: building some parts...'
+            )
+
+            self.finalprod.anafiles(files)
 
 
 

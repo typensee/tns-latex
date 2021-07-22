@@ -78,9 +78,26 @@ DECO_STEPS = [c for c in "*+"]
 for i, deco in enumerate(DECO_STEPS, 1):
     exec(
     f"""
-SUB_{i}_STEPS = Step(
+_SUB_{i}_STEPS = Step(
     textit = lambda n, t: "{TAB}"*{i} + f"{deco} {{t}}"
 )
+
+def SUB_{i}_STEPS(message):
+    color_used = True
+
+    if MESSAGE_ERROR in message:
+        ColorTerm.error.colorit()
+    
+    elif MESSAGE_WARNING in message:
+        ColorTerm.warning.colorit()
+
+    else:
+        color_used = False
+
+    _SUB_{i}_STEPS(message)
+
+    if color_used:
+        ColorTerm.normal.colorit()
     """)
 
 
@@ -158,7 +175,8 @@ else:
         
         else:
             pbfound.append(updater.dir_relpath)
-            SUB_1_STEPS(f'{MESSAGE_PROBLEM} with "{updater.dir_relpath}".')
+
+            SUB_1_STEPS(f'{MESSAGE_ERROR} with "{updater.dir_relpath}".')
 
     NL()
     MAIN_STEPS("All changes have been treated.")
@@ -168,11 +186,25 @@ else:
 # -- PB FOUND? -- #
 # --------------- #
 
-if pbfound:
-    plurial = "" if len(pbfound) == 1 else "s"
+if not pbfound:
+    tologfile([
+        "",
+        f"NO {MESSAGE_WRONG_SRC} FOUND."
+    ]) 
 
+else:
+    plurial = "" if len(pbfound) == 1 else "s"
+    message = f"{len(pbfound)} {MESSAGE_WRONG_SRC}{plurial} FOUND"
+    
+    tologfile([
+        "",
+        message
+    ]) 
+
+    ColorTerm.error.colorit()
+    
     NL(2)
-    ASCII_FRAME(f"{len(pbfound)} PB{plurial} FOUND")
+    ASCII_FRAME(message)
 
     NL()
     SUB_1_STEPS(
@@ -186,7 +218,14 @@ if pbfound:
         SUB_1_STEPS('Just one problematic package.')
 
     for pbpack in pbfound:
-        SUB_2_STEPS(pbpack)
+        tologfile([
+            f"{TAB}- {pbpack}"
+        ]) 
+
+        SUB_2_STEPS(str(pbpack))
+
+    ColorTerm.normal.colorit()
+    
 
 
 # ------------------------ #

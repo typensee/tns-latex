@@ -1,5 +1,5 @@
 ==
-19 ??
+??
 ==
 
-**First version version::``0.0.0-beta``:** this project builds and updates the packages of the ¨tnslatex series. At this time, the "agregating" package are not supported. 
+**First version version::``0.0.0-beta``:** this project builds and updates the packages of the ¨tnslatex series. At this stage, the "agregating" packages, ¨latex classes and ¨macroenvsign are not supported. 

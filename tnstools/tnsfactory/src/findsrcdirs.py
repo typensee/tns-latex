@@ -75,7 +75,7 @@ def srcdirs(
         plurial = "" if len(paths) == 1 else "s"
         
         anadir.stepprints[0](
-            MESSAGE_SRC + f"{len(paths)} {kind}{plurial} from {methodused}."
+            f"{MESSAGE_SRC}: {len(paths)} {kind}{plurial} from {methodused}."
         )
 
 # Nothing more to do.
