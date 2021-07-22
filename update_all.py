@@ -147,8 +147,7 @@ else:
             monorepo   = MONOREPO_DIR,
             dirpath    = packchged, 
             stepprints = [SUB_1_STEPS, SUB_2_STEPS],
-            logfile    = LOG_FILE,
-            kind       = TOC.KIND_DIR
+            logfile    = LOG_FILE
         )
         updater.build()
 

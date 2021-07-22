@@ -28,8 +28,6 @@ class UpdateOnePack(AnaDir):
 #                  the path of the directory of the monorepo explored.
 #     dirpath    = ; # See Python typing...
 #                  the path of one package to build or update.
-#     kind       = _ in TOC.ALL_USER_KINDS; # See Python typing...
-#                  the kind of ¨infos allowed.
 #     stepprints = ; # See Python typing...
 #                  the functions used to print ¨infos in the terminal.
 #     logfile    = ; # See Python typing...
@@ -39,13 +37,9 @@ class UpdateOnePack(AnaDir):
         self,
         monorepo  : PPath,
         dirpath   : PPath,
-        kind      : str,
         stepprints: List[Callable[[str], None]],
         logfile   : PPath
     ) -> None:
-        assert kind in TOC.ALL_USER_KINDS, \
-               f'kind = "{kind}" for TOC not in {self.ALL_USER_KINDS}.'
-
         super().__init__(
             monorepo   = monorepo,
             dirpath    = dirpath,
@@ -54,11 +48,7 @@ class UpdateOnePack(AnaDir):
             needabout  = True
         )
 
-        self.kind      = kind
-        self.finalprod = FinalProd(
-            anadir = self,
-            kind   = kind
-        )
+        self.finalprod = FinalProd(self)
 
 ###
 # Here is the great bandleader.
@@ -79,23 +69,15 @@ class UpdateOnePack(AnaDir):
                 return
 
 
-        OKKKK
+#         OKKKK
 
-# No problem met, we can build everything.
-        NL()
-        self.stepprints[0](MESSAGE_FINAL_PROD + 'building.')
+# # No problem met, we can build everything.
+#         NL()
+#         self.stepprints[0](MESSAGE_FINAL_PROD + 'building.')       
 
-
-
-
-
-
-            
-
-
-# Final build broken!
-        if not self.success:
-            CLEANNNNNN
+# # Final build broken!
+#         if not self.success:
+#             CLEANNNNNN
 
 
 

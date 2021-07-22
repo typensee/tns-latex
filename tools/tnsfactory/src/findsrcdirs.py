@@ -11,10 +11,10 @@ from .toc    import *
 
 ###
 # prototype::
-#     anadi r  = common.AnaDir ;  
-#                any class having the ¨api of ``common.AnaDir``.
-#     kind     = ; # See Python typing... 
-#                the kind of ¨infos expected to be in the TOC.
+#     anadir = common.AnaDir ;  
+#              any class having the ¨api of ``common.AnaDir``.
+#     kind   = ; # See Python typing... 
+#              the kind of ¨infos expected to be in the TOC.
 #
 #     return = ; # See Python typing...
 #              the list of the ``PPath`` of the sources wanted.
