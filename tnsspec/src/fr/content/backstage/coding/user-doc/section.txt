@@ -1,5 +1,5 @@
 this::
-    date = 15/07/2021
+    date = 23/07/2021
 
 
 ================================
@@ -33,3 +33,8 @@ Lors de la production de la ¨doc au complet, une section dédiée "Toutes les f
 ))
 réutilisera les bons titres.
 Concrètement, pour l'exemple précédent il y aura une section nommée "Vecteurs" contenant une autre de titre "Norme" avec toutes les fiches techniques.
+
+
+warning::
+    Le repérage des sections est très basique : il interdit d'utiliser des macros comme ``\section`` dans un environnement de type listing ou verbatim.
+    Si besoin, il faudra taper ce type de contenu très spécifique dans un fichier isolé pour passer via des macros d'importation de contenu externe.

@@ -47,24 +47,21 @@ def srcdirs(
 
         methodused = f"TOC in ``{anadir.dir_relpath / ABOUT_NAME}``"
 
-# No ``about.peuf`` with files or dirs to search.
+# No ``about.peuf`` with files or dirs to use.
     else:
         assert kind in TOC.ALL_PHYSICAL_KINDS, \
                f'kind = "{kind}" for srcdirs not in {TOC.ALL_PHYSICAL_KINDS}.'
 
-        for onesubdir in anadir.dirpath.walk(f"{kind}::*"):
-# Directly in our folder?
-            relpath = onesubdir - anadir.dirpath
+        for fileordir in anadir.dirpath.walk(f"{kind}::*"):
+# Something to analyze directly in our folder?
+            relpath = fileordir - anadir.dirpath
             
-            if relpath.depth != 0:
-                continue
-
-# Something to ignore?
-            if not keepthis(onesubdir, kind):
-                continue
-
-# A folder to analyze.
-            paths.append(onesubdir)
+            if (
+                relpath.depth == 0 
+                and
+                keepthis(fileordir, kind)
+            ):
+                paths.append(fileordir)
                 
         paths.sort()
 

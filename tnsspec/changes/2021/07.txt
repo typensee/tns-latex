@@ -1,4 +1,11 @@
 ==
+23
+==
+
+**About ¨tech ¨doc:** it has been explained that the method used to find sections is so stupid that it forbids to type the section macros inside verbatim and listing environments. 
+
+
+==
 21
 ==
 

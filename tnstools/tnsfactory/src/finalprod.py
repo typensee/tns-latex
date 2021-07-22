@@ -67,6 +67,8 @@ class FinalProd:
     def newTEX(self) -> None:
         TEX
 
+        # \subsection{:tech-sign:}
+
 
 
 
@@ -82,6 +84,7 @@ class FinalProd:
 
 
 
+
 ###
 # Preparing the analysis of one file.
 ###
@@ -91,6 +94,7 @@ class FinalProd:
         self.find_blocks()
 
         from pprint import pprint;pprint(self.onefile_blocks)
+
 
 ###
 # Let's talk to the world...
@@ -106,6 +110,7 @@ class FinalProd:
             isitem  = True
         )
 
+
 ###
 # The lines of the file to analyze.
 ###
@@ -116,6 +121,7 @@ class FinalProd:
             mode     = "r"
         ) as onefile:
             self.onefile_lines = onefile.read().splitlines()
+
 
 ###
 # This method find all structural blocks useful for the final product.
@@ -131,23 +137,32 @@ class FinalProd:
 
 # A new block open.
             if kindofline:
-                lastsection = kindofline
+                message = ""
 
-                if lastsection in self.onefile_blocks:
+                if kindofline in self.onefile_blocks:
+                    message = f'"{kindofline}" can\'t be used more than one time.'
+
+# The section must resepct a sorting!
+                elif (
+                    lastsection
+                    and
+                    self.secblock.index(kindofline) <= self.secblock.index(lastsection)
+                ):
+                    message = f'"{kindofline}" can\'t be after "{lastsection}".'
+
+                if message:
                     self.anadir.success = False
-                    
-                    message = f'"{lastsection}" can\'t be used more than one time.'
 
                     self.anadir.error(message)
                     self.anadir.stepprints[0](f"{MESSAGE_ERROR}: {message}")
 
-                    return                
+                    return
+
+                lastsection = kindofline
 
 # Just one line excpet before the first block.
             elif lastsection:
                 self.onefile_blocks[lastsection].append(oneline)
-
-
 
 ###
 # prototype::
@@ -165,23 +180,12 @@ class FinalProd:
     ) -> str:
         oneline = oneline.strip()
 
-        if oneline in self.secblock:
 # Remove ``% ==`` and ``== %``
-            if "==" in oneline:
-                oneline = oneline.split("==")
-                oneline = oneline[1].strip()
+        if "==" in oneline:
+            oneline = oneline.split("==")
+            oneline = oneline[1].strip()
 
-# Human version of a LaTeX command.
-            else:
-                for last, new in [
-                    ("\\", ""),
-                    ("{" , "-"),
-                    ("}" , ""),
-                ]:
-                    oneline = oneline.replace(last, new)
-                
-                oneline = oneline.upper()
-
+        if oneline in self.secblock:
             return oneline
 
         return ""

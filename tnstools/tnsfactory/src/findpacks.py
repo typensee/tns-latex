@@ -10,17 +10,17 @@ from .toc import *
 
 ###
 # prototype::
-#     monorepo = ; # See Python typing...
-#                the path of the directory of the monorepo to explore.
+#     onedir = ; # See Python typing...
+#              the path of the directory of the onedir to explore.
 #
 #     return = ; # See Python typing...
 #              the list of the ``PPath`` of the ¨tnslatex packages.
 ###
 
-def packdirs(monorepo: PPath) -> List[PPath]:
+def packdirs(onedir: PPath) -> List[PPath]:
     packsfound: List[PPath] = []
 
-    for subdir in monorepo.iterdir():
+    for subdir in onedir.iterdir():
 # A folder to analyze.
         if subdir.is_dir() and keepthis(subdir, TOC.KIND_DIR):
             if istnspack(subdir):

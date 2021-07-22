@@ -49,9 +49,6 @@ STY_FILE_EXT    = "sty"
 FILE_EXT_WANTED = [TEX_FILE_EXT, STY_FILE_EXT]
 
 
-def comment_section(title):
-    return f'% == {title} == %'
-
 COM_SECT_PACKAGE = "PACKAGE"
 COM_SECT_OPTIONS = "OPTIONS"
 COM_SECT_TOOLS   = "TOOLS"
@@ -59,11 +56,13 @@ COM_SECT_TOOLS   = "TOOLS"
 COM_SECT_EXTRAS = "EXTRAS"
 
 TEX_BEGIN_DOC =  "\\begin{document}"
+TEX_END_DOC   =  "\\end{document}"
 
+# Z! Sorting must be respected.
 FILE_BLOCK = {
 # Special blocks for TEX files.
     STY_FILE_EXT: [
-        comment_section(title)
+        title
         for title in [
             COM_SECT_PACKAGE,
             COM_SECT_OPTIONS,
@@ -72,12 +71,13 @@ FILE_BLOCK = {
     ],
 # Special blocks for TEX files.
     TEX_FILE_EXT: [
-        comment_section(title)
+        title
         for title in [
             COM_SECT_EXTRAS,
         ]
     ] + [
-        TEX_BEGIN_DOC
+        TEX_BEGIN_DOC,
+        TEX_END_DOC,
     ], 
 }
 
@@ -167,7 +167,7 @@ LATEX_FRAME_{i} = lambda t: print(
 # Source: GNU/Linux Mag. - Hors Série 115
 class ColorTerm(Enum):
     normal :str = ''
-    error:str = '31'
+    error  :str = '31'
     warning:str = '34'
 
     def colorit(self) -> None:
@@ -207,7 +207,7 @@ def keepthis(
     if kind == DIR_TAG:
         return True
 
-# For files, we keep only TEX and STY files.
+# We keep only files with specific extensions.
     return onepath.ext in FILE_EXT_WANTED
 
 

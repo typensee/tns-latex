@@ -20,6 +20,46 @@
 \RequirePackage{hyperref}
 
 
+% == OPTIONS == %
+
+\ProvidesExplPackage{main}{}{}{}
+
+
+% -- OPTIONS - MESSAGES -- %
+
+\msg_set:nnnn { bdoc } { options-unknown-lang }
+    { Unknown ~ language. }
+    { Languages ~ supported: ~ [FR]-ench ~ and ~ [EN]-glish. }
+
+
+% -- OPTIONS - KEYS & VALUES -- %
+
+\keys_define:nn { bdoc } {
+    lang .choices:nn =
+        { FR, EN }
+        {
+            \tl_set:Nn \l_bdoc_opt_lang { \tl_use:N \l_keys_choice_tl }
+        },
+    lang .initial:n = EN,
+    lang / unknown .code:n =
+        \msg_error:nnxxx { bdoc } { options-unknown-lang }
+            { lang }             % Name of choice key
+            { FR, EN }           % Valid choices
+            { \exp_not:n {#1} }  % Invalid choice given
+}
+
+
+% -- OPTIONS - KEYS FROM THE LOADING OF THE PACKAGE -- %
+
+\ProcessKeysPackageOptions{ bdoc }
+
+
+% -- OPTIONS - IMPORT THE WANTED TRANSLATIONS -- %
+
+\input{../main/locale/\l_bdoc_opt_lang.sty}
+\input{../main/locale/tech-\l_bdoc_opt_lang.sty}
+
+
 % == TOOLS == %
 
 % -- SETTINGS - GENERAL -- %
@@ -76,44 +116,3 @@
 }
 
 \DeclareTOCStyleEntry[indentfollows = chapter]{tocline}{section}
-
-
-% == OPTIONS == %
-
-\ProvidesExplPackage{main}{}{}{}
-
-
-% -- OPTIONS - MESSAGES -- %
-
-\msg_set:nnnn { bdoc } { options-unknown-lang }
-    { Unknown ~ language. }
-    { Languages ~ supported: ~ [FR]-ench ~ and ~ [EN]-glish. }
-
-
-% -- OPTIONS - KEYS & VALUES -- %
-
-\keys_define:nn { bdoc } {
-    lang .choices:nn =
-        { FR, EN }
-        {
-            \tl_set:Nn \l_bdoc_opt_lang { \tl_use:N \l_keys_choice_tl }
-        },
-    lang .initial:n = EN,
-    lang / unknown .code:n =
-        \msg_error:nnxxx { bdoc } { options-unknown-lang }
-            { lang }             % Name of choice key
-            { FR, EN }           % Valid choices
-            { \exp_not:n {#1} }  % Invalid choice given
-}
-
-
-% -- OPTIONS - KEYS FROM THE LOADING OF THE PACKAGE -- %
-
-\ProcessKeysPackageOptions{ bdoc }
-
-
-% -- OPTIONS - IMPORT THE WANTED TRANSLATIONS -- %
-
-\input{../main/locale/\l_bdoc_opt_lang.sty}
-\input{../main/locale/tech-\l_bdoc_opt_lang.sty}
-
