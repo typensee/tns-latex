@@ -32,24 +32,33 @@ class About:
         self.anadir.about = None
 
 # File exists?
-        aboutpath = self.anadir.dirpath / ABOUT_NAME
+        about_path    = self.anadir.dirpath / ABOUT_NAME
+        about_relpath = about_path - self.anadir.monorepo
 
-        if not aboutpath.is_file():
+        if not about_path.is_file():
             if self.anadir.needabout:
-                self.anadir.error(MESSAGE_ABOUT + "no file found but required.")
+                self.anadir.problems.new_error(
+                    src_relpath = about_relpath,
+                    message     = f"{MESSAGE_ABOUT} no file found but required."
+                )
 
             return
 
 # Good peuf structure?
         try:
             with ReadBlock(
-                content = aboutpath,
+                content = about_path,
                 mode    = ABOUT_PEUF_MODE
             ) as datas:
                 about = datas.mydict("std nosep nonb")
 
         except PeufError as e:
-            self.anadir.error(MESSAGE_ABOUT + "illegal file.")
+            self.anadir.problems.new_error(
+                src_relpath = about_relpath,
+                message     = f"{MESSAGE_ABOUT} illegal file."
+            )
+
+            self.anadir.error(MESSAGE_ABOUT + "")
             return
 
 # Good keys for the ``general`` block?
@@ -74,10 +83,11 @@ class About:
                     pbkeys.sort()
                     pbkeys = ", ".join(pbkeys)
 
-                    self.anadir.error(
-                        MESSAGE_ABOUT
-                        + f"{kind.title()} key{plurial} {tab}-> "
-                        + f"{pbkeys}."
+                    self.anadir.problems.new_error(
+                        src_relpath = about_relpath,
+                        message     = MESSAGE_ABOUT
+                                    + f"{kind.title()} key{plurial} "
+                                    + f"{tab}-> {pbkeys}."
                     )
 
 # Everything seems ok.

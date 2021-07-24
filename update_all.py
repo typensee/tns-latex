@@ -37,9 +37,11 @@ def tologfile(
 def timestamp(kind: str) -> None:
     now = datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")
 
+    timeTXT = f"{kind} TIME STAMP: {now}"
+
     tologfile([
         "",
-        f"{kind} TIME STAMP: {now}"
+        ASCII_FRAME_2(timeTXT)
     ]) 
 
 # --------------- #
@@ -79,7 +81,7 @@ for i, deco in enumerate(DECO_STEPS, 1):
     exec(
     f"""
 _SUB_{i}_STEPS = Step(
-    textit = lambda n, t: "{TAB}"*{i} + f"{deco} {{t}}"
+    textit = lambda n, t: TAB_{i} + f"{deco} {{t}}"
 )
 
 def SUB_{i}_STEPS(message):
@@ -90,6 +92,9 @@ def SUB_{i}_STEPS(message):
     
     elif MESSAGE_WARNING in message:
         ColorTerm.warning.colorit()
+    
+    elif "OK" in message:
+        ColorTerm.OK.colorit()
 
     else:
         color_used = False
@@ -106,7 +111,7 @@ def SUB_{i}_STEPS(message):
 # -------------------------- #
 
 NL()
-ASCII_FRAME("TNSLATEX - STARTING THE ANALYSIS")
+print(ASCII_FRAME_1("TNSLATEX - STARTING THE ANALYSIS"))
 
 NL()
 MAIN_STEPS("Looking for packages to build or update.")
@@ -171,12 +176,16 @@ else:
         NL()
 
         if updater.success:
-            SUB_1_STEPS("OK.")
+            SUB_1_STEPS(f'OK for "{updater.dir_relpath}".')
         
-        else:
-            pbfound.append(updater.dir_relpath)
+        elif updater.problems.errorfound():
+            plurial = "S" if updater.problems.several_errors else ""
+            
+            SUB_1_STEPS(
+                f'{MESSAGE_ERROR}{plurial} with "{updater.dir_relpath}".'
+            )
 
-            SUB_1_STEPS(f'{MESSAGE_ERROR} with "{updater.dir_relpath}".')
+            
 
     NL()
     MAIN_STEPS("All changes have been treated.")
@@ -186,46 +195,16 @@ else:
 # -- PB FOUND? -- #
 # --------------- #
 
-if not pbfound:
-    tologfile([
-        "",
-        f"NO {MESSAGE_WRONG_SRC} FOUND."
-    ]) 
+if updater.problems.pbfound():
+    updater.problems.resume()
 
 else:
-    plurial = "" if len(pbfound) == 1 else "s"
-    message = f"{len(pbfound)} {MESSAGE_WRONG_SRC}{plurial} FOUND"
-    
+    title = f"NO {MESSAGE_WRONG_SRC} FOUND."
+
     tologfile([
         "",
-        message
+        ASCII_FRAME_2(title)
     ]) 
-
-    ColorTerm.error.colorit()
-    
-    NL(2)
-    ASCII_FRAME(message)
-
-    NL()
-    SUB_1_STEPS(
-        f'Look at "{MONOREPO_DIR.name}/{LOG_FILE - MONOREPO_DIR}"'
-    )
-
-    if plurial:
-        SUB_1_STEPS('List of problematic packages.')
-
-    else:
-        SUB_1_STEPS('Just one problematic package.')
-
-    for pbpack in pbfound:
-        tologfile([
-            f"{TAB}- {pbpack}"
-        ]) 
-
-        SUB_2_STEPS(str(pbpack))
-
-    ColorTerm.normal.colorit()
-    
 
 
 # ------------------------ #
@@ -235,5 +214,5 @@ else:
 timestamp("ENDING")
 
 NL(2)
-ASCII_FRAME("TNSLATEX - ANALYSIS FINISHED")
+print(ASCII_FRAME_1("TNSLATEX - ANALYSIS FINISHED"))
 NL()

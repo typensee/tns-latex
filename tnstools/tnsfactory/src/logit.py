@@ -12,12 +12,10 @@ from .common import *
 ###
 
 class Logger:
-    ERROR  :str = "ERROR"
-    WARNING:str = "WARNING"
-
     MAX_WIDTH: int = 80
 
-    ITEM: str = " "*4 + "- "
+    ITEM_0: str = " "*4 + "-"
+    ITEM_1: str = " "*8 + "+"
 
 ###
 # prototype::
@@ -28,14 +26,14 @@ class Logger:
         self,
         logfile: PPath
     ) -> None:
-        self.logfile = logfile
+        self.logfile: PPath = logfile
 
 ###
 # prototype::
 #     message = ; # See Python typing...
 #               the warning message to append to the log file.
 ###
-    def appendtologfile(self, message: str) -> None:
+    def appendthis(self, message) -> None:
         with self.logfile.open(
             encoding = "utf8",
             mode     = "a"
@@ -45,13 +43,33 @@ class Logger:
 ###
 # This method simply print an empty new line.
 ###
-    def logfile_NL(self) -> None:
-        self.appendtologfile("\n")
+    def NL(self, repeat = 1) -> None:
+        self.appendthis("\n"*repeat)
 
 ###
 # prototype::
-#     kind    = _ in [self.ERROR, self.WARNING] ; # See Python typing...
-#               the kind of message.
+#     message = ; # See Python typing...
+#               a message that has to be itemized.
+#     level   = (0); # See Python typing...
+#               the level of indentation.
+#
+#     return = ; # See Python typing...
+#              a message itemized.
+###
+    def itemize(self, 
+        message: str,
+        level  : int = 0
+    ) -> str:
+        item = getattr(self, f'ITEM_{level}')
+
+        return f'{item} {message}'
+
+###
+# prototype::
+#     context = ; # See Python typing...
+#               the context of problem.
+#     pb_nb   = ; # See Python typing...
+#               the number of the problem.
 #     message = ; # See Python typing...
 #               the message to append to the log file.
 #
@@ -60,15 +78,16 @@ class Logger:
 # The text is hard wrapped suchas to respect the maximum width given by 
 # ``self.MAX_WIDTH``.
 ###
-    def logthisinfos(
+    def newpb(
         self,
-        kind   : str,
+        context: str,
+        pb_nb  : int,
         message: str
     ) -> None:
-        title = f"{self.ITEM}{kind}: "
-        tab   = "\n" + " "*len(title)
+        context = f"{self.ITEM_1} {context} {pb_nb}: "
+        tab     = "\n" + " "*len(context)
  
-        maxwidth   = self.MAX_WIDTH - len(title)
+        maxwidth   = self.MAX_WIDTH - len(context)
         shortlines = []
 
         for block in message.split('\n'):
@@ -91,25 +110,8 @@ class Logger:
             if lastline:
                 shortlines.append(lastline)
         
-        message = title + tab.join(shortlines)
+        message = context + tab.join(shortlines)
         
 # Just add the wrapped message.
-        self.appendtologfile(message)
-        self.logfile_NL()
-
-###
-# prototype::
-#     message = ; # See Python typing...
-#               the error message to append to the log file.
-###
-    def error(self, message: str) -> None:
-        self.logthisinfos(self.ERROR, message)
-
-###
-# prototype::
-#     message = ; # See Python typing...
-#               the warning message to append to the log file.
-###
-    def warning(self, message: str) -> None:
-        self.logthisinfos(self.WARNING, message)
-
+        self.appendthis(message)
+        self.NL()

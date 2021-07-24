@@ -1,7 +1,5 @@
 #! /usr/bin/env python3
 
-from collections import defaultdict
-
 from .common import *
 
 
@@ -14,6 +12,8 @@ from .common import *
 ###
 
 class FinalProd:
+    XXX = "XXX"
+
 ###
 # prototype::
 #     anadir = common.AnaDir ;  
@@ -25,10 +25,20 @@ class FinalProd:
     ) -> None:
         self.anadir = anadir
 
-        self.onefile        = None
-        self.onefile_lines  = None
-        self.onefile_blocks = None
-        self.secblock       = None
+        self.packpath           = None
+        self.onefile            = None
+        self.onefile_relpath    = None
+        self.onefile_nb_n_lines = None
+        self.onefile_blocks     = None
+
+        self.final_blocks = {
+            ext: {
+                t: None
+                for t in titles
+                if t != TEX_END_DOC
+            }
+            for ext, titles in FILE_BLOCK.items()
+        }
 
 
 ###
@@ -38,8 +48,11 @@ class FinalProd:
 ###
     def anafiles(
         self,
-        files: List[PPath]
+        packpath: PPath,
+        files   : List[PPath]
     ) -> None:
+        self.packpath = packpath
+
         for self.onefile in files:
             self.ana_onefile()
 
@@ -49,8 +62,8 @@ class FinalProd:
             # if self.onefile.ext == STY_FILE_EXT:
             #     self.newSTY()
 
-            # elif self.onefile.ext == TEX_FILE_EXT:
-            #     self.newTEX()
+            if self.onefile.ext == TEX_FILE_EXT:
+                self.newTEX()
 
             # else:
             #     raise NotImplementedError(
@@ -65,9 +78,13 @@ class FinalProd:
 # Working on a TEX file.
 ###
     def newTEX(self) -> None:
-        TEX
+        if not TEX_BEGIN_DOC in self.onefile_blocks:
+            VIDE
+        
+        print(self.onefile_relpath)
+        print(self.onefile_blocks[TEX_BEGIN_DOC])
 
-        # \subsection{:tech-sign:}
+        # \subsection{:tech-sign:} <--- TEX_TECH_DYNA_SECTION
 
 
 
@@ -89,26 +106,12 @@ class FinalProd:
 # Preparing the analysis of one file.
 ###
     def ana_onefile(self) -> None:
+        self.onefile_relpath = self.onefile - self.packpath
+
         self.communicate()
         self.build_filelines()
         self.find_blocks()
-
-        from pprint import pprint;pprint(self.onefile_blocks)
-
-
-###
-# Let's talk to the world...
-###
-    def communicate(self) -> None:
-        message = (
-            f'{MESSAGE_WORKING_ON} the {self.onefile.ext.upper()} '
-            f'file "{self.onefile.name}".'
-        )
-        
-        self.anadir.loginfo(
-            message = message,
-            isitem  = True
-        )
+        self.strip_blocks()
 
 
 ###
@@ -120,7 +123,10 @@ class FinalProd:
             encoding = "utf-8",
             mode     = "r"
         ) as onefile:
-            self.onefile_lines = onefile.read().splitlines()
+            self.onefile_nb_n_lines  = [
+                (nbline, oneline.rstrip())
+                for nbline, oneline in enumerate(onefile, start = 1)
+            ]
 
 
 ###
@@ -132,7 +138,7 @@ class FinalProd:
 
         lastsection: str = ""
 
-        for oneline in self.onefile_lines:
+        for nbline, oneline in self.onefile_nb_n_lines :
             kindofline = self.kindof(oneline)
 
 # A new block open.
@@ -140,21 +146,34 @@ class FinalProd:
                 message = ""
 
                 if kindofline in self.onefile_blocks:
+                    kindofline = self._comment_section(kindofline)
+                    
                     message = f'"{kindofline}" can\'t be used more than one time.'
 
-# The section must resepct a sorting!
+# The section must respect a sorting!
                 elif (
                     lastsection
                     and
                     self.secblock.index(kindofline) <= self.secblock.index(lastsection)
                 ):
-                    message = f'"{kindofline}" can\'t be after "{lastsection}".'
+                    kindofline = self._comment_section(kindofline)
+                    
+                    message = f'"% == {kindofline} == %" can\'t be after "{lastsection}".'
 
+# Something wrong has been detected.
                 if message:
                     self.anadir.success = False
 
-                    self.anadir.error(message)
-                    self.anadir.stepprints[0](f"{MESSAGE_ERROR}: {message}")
+                    message += (
+                        f' Go to the line nb {nbline} in the file '
+                        f'"{self.onefile.name}".'
+                    )
+
+                    self.anadir.problems.new_error(
+                        src_relpath = self.onefile - self.anadir.monorepo,
+                        message     = f'{message}',
+                        level_term  = 2
+                    )
 
                     return
 
@@ -162,7 +181,24 @@ class FinalProd:
 
 # Just one line excpet before the first block.
             elif lastsection:
-                self.onefile_blocks[lastsection].append(oneline)
+                self.onefile_blocks[lastsection].append(
+                    (nbline, oneline)
+                )
+
+# We do not need TEX_END_DOC key (it is here just to simplify the coding).
+        if TEX_END_DOC in self.onefile_blocks:
+            del self.onefile_blocks[TEX_END_DOC]
+
+###
+# prototype::
+#     kind = ; # See Python typing... 
+#            short version of special section in comment.
+#
+#     return = ; # See Python typing... 
+#              long version of special section in comment.
+###
+    def _comment_section(self, kind: str) -> str:
+        return f'% == {kind} == %'
 
 ###
 # prototype::
@@ -183,9 +219,48 @@ class FinalProd:
 # Remove ``% ==`` and ``== %``
         if "==" in oneline:
             oneline = oneline.split("==")
+
+            if len(oneline) != 3:
+                return ""
+
             oneline = oneline[1].strip()
 
         if oneline in self.secblock:
             return oneline
 
         return ""
+
+
+###
+# This method removes initial and final lines.
+#
+# warning::
+#     We can't act on other empty lines because of the use of verbatim 
+#     or listing environment for example.
+###
+    def strip_blocks(self) -> None:
+        for section, content in self.onefile_blocks.items():
+            while(content[0][1] == ''):
+                content.pop(0)
+
+            while(content[-1][1] == ''):
+                content.pop(-1)
+
+###
+# Let's talk to the world...
+###
+    def communicate(self) -> None:
+        message = (
+            f'{MESSAGE_WORKING_ON} the {self.onefile.ext.upper()} '
+            f'file "{self.onefile.name}".'
+        )
+        
+        self.anadir.terminfo(
+            message = message,
+            level   = 1
+        )
+        
+        self.anadir.loginfo(
+            message = message,
+            isitem  = True
+        )

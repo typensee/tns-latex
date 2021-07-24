@@ -2,6 +2,7 @@
 
 from typing import *
 
+from collections import defaultdict
 from enum import Enum
 import re
 
@@ -58,6 +59,8 @@ COM_SECT_EXTRAS = "EXTRAS"
 TEX_BEGIN_DOC =  "\\begin{document}"
 TEX_END_DOC   =  "\\end{document}"
 
+TEX_TECH_DYNA_SECTION = ":tech-sign:"
+
 # Z! Sorting must be respected.
 FILE_BLOCK = {
 # Special blocks for TEX files.
@@ -85,6 +88,8 @@ FILE_BLOCK = {
 # -------------- #
 # -- MESSAGES -- #
 # -------------- #
+
+LOG_ID, TERM_ID = range(2)
 
 MESSAGE_TEMPLATE_FILE = lambda name: f"``{name}`` file -> "
 
@@ -134,24 +139,17 @@ NO_TAG  = "no"
 # -- DECORATE -- #
 # -------------- #
 
-TAB = " "*4
-NL  = lambda x = 0: print("" + "\n"*(x - 1))
+TAB_1 = " "*4
+TAB_2 = TAB_1*2
 
-ASCII_FRAME = lambda t: print(
-    withframe(
-        text  = t,
-        frame = ALL_FRAMES['ascii_star']
-    )
-)
+NL  = lambda x = 0: print("" + "\n"*(x - 1))
 
 for i in range(1, 3):
     exec(
     f"""
-LATEX_FRAME_{i} = lambda t: print(
-    withframe(
-        text  = t,
-        frame = ALL_FRAMES['latex_pretty_{i}']
-    )
+ASCII_FRAME_{i} = lambda t: withframe(
+    text  = t,
+    frame = ALL_FRAMES['pyba_title_{i}']
 )
     """)
 
@@ -169,6 +167,7 @@ class ColorTerm(Enum):
     normal :str = ''
     error  :str = '31'
     warning:str = '34'
+    OK     :str = '36'
 
     def colorit(self) -> None:
         if self.value:
@@ -247,25 +246,85 @@ class AnaDir:
         self.dir_relpath = dirpath - monorepo
         self.logger      = Logger(logfile)
 
+
 ###
 # prototype::
-#     message = ; # See Python typing...
-#               the error message to append to the log file.
+#     context    = _ in [MESSAGE_ERROR, MESSAGE_WARNING]; # See Python typing...
+#                  the kind of problem.
+#     message    = ; # See Python typing...
+#                  the error message to append to the log file.
+#     pb_nb      = ; # See Python typing...
+#                  the number of the problem.
+#     level_term = (1) ; # See Python typing...
+#                  the numer of tbabulation to use.
 ###
-    def error(
+    def new_pb(
         self,
-        message: str
+        context   : str,
+        message   : str,
+        pb_nb     : int,
+        level_term: int = 1
     ) -> None:
-        self.logger.error(message)
-        self.success = False
+        self.stepprints[level_term - 1](f'{context}: {message}.')
+
+        self.logger.newpb(
+            context = context,
+            pb_nb   = pb_nb,
+            message = message
+        )
+
+
+###
+# A newline in the log file.
+###
+    def logNL(self):
+        self.logger.NL()
 
 ###
 # prototype::
 #     message = ; # See Python typing...
-#               the warning message to append to the log file.
+#               the message to append to the log file.
+#     isitem  = ; # See Python typing...
+#               ``True`` indicates to print an item and
+#               ``False`` to no do that. 
+#     isnewdir = ; # See Python typing...
+#                ``True`` when starting to work on an new
+#                folder and ``False`` in other cases.
+#     level    = (0); # See Python typing...
+#                the level of indentation.
 ###
-    def warning(
+    def loginfo(
         self,
-        message: str
+        message : str,
+        isitem  : bool = False,
+        isnewdir: bool = False,
+        level   : int  = 0
     ) -> None:
-        self.logger.warning(message)
+        if isitem:
+            message = self.logger.itemize(
+                message = message,
+                level   = level
+            )
+
+            if isnewdir:
+                self.logNL()
+
+        else:
+            self.logNL()
+
+        self.logger.appendthis(message)
+        self.logNL()
+
+###
+# prototype::
+#     message = ; # See Python typing...
+#               the error message to print in the terminal.
+#     level   = ; # See Python typing...
+#               the level of indentation.
+###
+    def terminfo(
+        self,
+        message: str,
+        level  : int = 0
+    ) -> None:
+        self.stepprints[level](message)

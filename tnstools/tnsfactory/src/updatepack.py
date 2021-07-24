@@ -3,6 +3,7 @@
 from .about       import *
 from .common      import *
 from .logit       import *
+from .problems    import *
 from .finalprod   import *
 from .findsrcdirs import *
 from .toc         import *
@@ -48,6 +49,7 @@ class UpdateOnePack(AnaDir):
             needabout  = True
         )
 
+        self.problems  = Problems(self)
         self.finalprod = FinalProd(self)
 
 ###
@@ -73,7 +75,7 @@ class UpdateOnePack(AnaDir):
 
 # # No problem met, we can build everything.
 #         NL()
-#         self.stepprints[0](MESSAGE_FINAL_PROD + 'building.')       
+#         self.terminfo(MESSAGE_FINAL_PROD + 'building.')       
 
 # # Final build broken!
 #         if not self.success:
@@ -87,7 +89,7 @@ class UpdateOnePack(AnaDir):
 # This method tries to analyze the ``about.peuf`` file of the package.
 ###
     def build_about(self) -> None:
-        self.stepprints[0](MESSAGE_ABOUT + "looking for metainfos.")
+        self.terminfo(MESSAGE_ABOUT + "looking for metainfos.")
 
         self.loginfo(f'{MESSAGE_WORKING_ON} "{self.dir_relpath}"...')
 
@@ -98,7 +100,7 @@ class UpdateOnePack(AnaDir):
 ###
     def build_srcdirs(self) -> None:
         NL()
-        self.stepprints[0](f"{MESSAGE_SRC}: searching...")
+        self.terminfo(f"{MESSAGE_SRC}: searching...")
 
         anascrdir = AnaDir(
             monorepo   = self.monorepo,
@@ -108,14 +110,15 @@ class UpdateOnePack(AnaDir):
         )
          
         self.srcdirs = srcdirs(
-            anadir     = anascrdir,
-            kind = TOC.KIND_DIR
+            anadir = anascrdir,
+            kind   = TOC.KIND_DIR
         )
 
         self.success = anascrdir.success
 
 ###
-# This method analyzes the sources of the package.
+# This method analyzes the sources of the package and prepares the building
+# of the final sources. See ``self.finalprod.anafiles(files)``.
 ###
     def analyze_srcdirs(self) -> None:
         for onesrcdir in self.srcdirs:
@@ -126,15 +129,15 @@ class UpdateOnePack(AnaDir):
 
 # Does the dir exist?
             if not onesrcpath.is_dir():
-                message = f'missing dir "{onesrc_relpath}"'
-
-                self.stepprints[0](f'{MESSAGE_ERROR}: {message}.')
-                self.error(message)
-                
+                self.problems.new_error(
+                    src_relpath = onesrc_relpath,
+                    message     = f'missing dir "{onesrc_relpath}"'
+                )
+               
                 continue
 
 # The dir exists.
-            self.stepprints[0](
+            self.terminfo(
                 f'{MESSAGE_SRC}: analyzing "{onesrc_relpath}".'
             )
 
@@ -161,55 +164,19 @@ class UpdateOnePack(AnaDir):
 
 # No file found.
             if files == []:
-                message = "no source found."
-                
-                self.warning(message)
-                self.stepprints[0](f"{MESSAGE_WARNING}: {message}")
+                self.problems.new_warning(
+                    src_relpath = onesrc_relpath,
+                    message     = "no source found."
+                )
                 
                 continue
 
 # Let's update the final product.
-            self.stepprints[0](
+            self.terminfo(
                 f'{MESSAGE_FINAL_PROD}: building some parts...'
             )
 
-            self.finalprod.anafiles(files)
-
-
-
-
-
-
-
-
-
-
-
-###
-# prototype::
-#     message = ; # See Python typing...
-#               the message to append to the log file.
-#     isitem  = ; # See Python typing...
-#               ``True`` indicates to print an item and
-#               ``False`` to no do that. 
-#     isnewdir = ; # See Python typing...
-#               ``True`` when starting to work on an new
-#               folder and ``False`` in other cases.
-###
-    def loginfo(
-        self,
-        message : str,
-        isitem  : bool = False,
-        isnewdir: bool = False,
-    ) -> None:
-        if isitem:
-            message = self.logger.ITEM + message
-
-            if isnewdir:
-                self.logger.logfile_NL()
-
-        else:
-            self.logger.logfile_NL()
-        
-        self.logger.appendtologfile(message)
-        self.logger.logfile_NL()
+            self.finalprod.anafiles(
+                packpath = self.dirpath,
+                files    = files
+            )
