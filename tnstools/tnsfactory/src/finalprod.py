@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
-from .common import *
+from .common        import *
+from .extract_latex import *
 
 
 # ----------- #
@@ -12,8 +13,6 @@ from .common import *
 ###
 
 class FinalProd:
-    XXX = "XXX"
-
 ###
 # prototype::
 #     anadir = common.AnaDir ;  
@@ -31,19 +30,10 @@ class FinalProd:
         self.onefile_nb_n_lines = None
         self.onefile_blocks     = None
 
-        self.final_blocks = {
-            ext: {
-                t: None
-                for t in titles
-                if t != TEX_END_DOC
-            }
-            for ext, titles in FILE_BLOCK.items()
-        }
-
 
 ###
 # prototype::
-#     files = ; # See Python typing... 
+#     files = ; // See Python typing... 
 #             a list of source files.
 ###
     def anafiles(
@@ -54,6 +44,7 @@ class FinalProd:
         self.packpath = packpath
 
         for self.onefile in files:
+            self.onefile_relpath = self.onefile - self.packpath
             self.ana_onefile()
 
             if not self.anadir.success:
@@ -63,7 +54,13 @@ class FinalProd:
             #     self.newSTY()
 
             if self.onefile.ext == TEX_FILE_EXT:
-                self.newTEX()
+                buildtex = BuildTEX(self)
+                buildtex.build()
+
+                if not self.anadir.success:
+                    return
+
+                self.update_blocks(buildtex)
 
             # else:
             #     raise NotImplementedError(
@@ -75,43 +72,16 @@ class FinalProd:
 
 
 ###
-# Working on a TEX file.
-###
-    def newTEX(self) -> None:
-        if not TEX_BEGIN_DOC in self.onefile_blocks:
-            VIDE
-        
-        print(self.onefile_relpath)
-        print(self.onefile_blocks[TEX_BEGIN_DOC])
-
-        # \subsection{:tech-sign:} <--- TEX_TECH_DYNA_SECTION
-
-
-
-
-
-
-###
-# Working on a STY file.
-###
-    def newSTY(self) -> None:
-        STY
-
-
-
-
-
-
-###
 # Preparing the analysis of one file.
 ###
     def ana_onefile(self) -> None:
-        self.onefile_relpath = self.onefile - self.packpath
-
-        self.communicate()
-        self.build_filelines()
-        self.find_blocks()
-        self.strip_blocks()
+        for methodname in [
+            "communicate",
+            "build_filelines",
+            "find_blocks",
+            "strip_blocks",
+        ]:
+            getattr(self, methodname)()
 
 
 ###
@@ -128,6 +98,35 @@ class FinalProd:
                 for nbline, oneline in enumerate(onefile, start = 1)
             ]
 
+
+###
+# ???
+###
+    def update_blocks(
+        self,
+        buildfile
+    ) -> None:
+        fileblocks = self.anadir.final_blocks[buildfile.ext] 
+        
+        for kind, content in buildfile.final_blocks.items():
+            if not content:
+                continue
+
+            if fileblocks[kind]:
+                fileblocks[kind] += ['']*2
+            
+            src_info = f'Code from "{self.onefile_relpath}"'
+            deco     = '-'*(len(src_info) + 3*2)
+            deco     = f'% {deco} %'
+            src_info = f'% -- {src_info} -- %'
+            
+            fileblocks[kind] += [
+                deco,
+                src_info,
+                deco,
+                ""
+            ] + content
+    
 
 ###
 # This method find all structural blocks useful for the final product.
@@ -191,10 +190,10 @@ class FinalProd:
 
 ###
 # prototype::
-#     kind = ; # See Python typing... 
+#     kind = ; // See Python typing... 
 #            short version of special section in comment.
 #
-#     return = ; # See Python typing... 
+#     return = ; // See Python typing... 
 #              long version of special section in comment.
 ###
     def _comment_section(self, kind: str) -> str:
@@ -202,10 +201,10 @@ class FinalProd:
 
 ###
 # prototype::
-#     oneline = ; # See Python typing... 
+#     oneline = ; // See Python typing... 
 #               one line of source file.
 #
-#     return = ; # See Python typing... 
+#     return = ; // See Python typing... 
 #              a spectial title in comments or an empty string.
 #
 # This method find the kind of the line.
@@ -240,18 +239,16 @@ class FinalProd:
 ###
     def strip_blocks(self) -> None:
         for section, content in self.onefile_blocks.items():
-            while(content[0][1] == ''):
-                content.pop(0)
-
-            while(content[-1][1] == ''):
-                content.pop(-1)
+            for i in (-1, 0):
+                while(content and content[i][1] == ''):
+                    content.pop(i)
 
 ###
 # Let's talk to the world...
 ###
     def communicate(self) -> None:
         message = (
-            f'{MESSAGE_WORKING_ON} the {self.onefile.ext.upper()} '
+            f'{MESSAGE_WORKING} on the {self.onefile.ext.upper()} '
             f'file "{self.onefile.name}".'
         )
         

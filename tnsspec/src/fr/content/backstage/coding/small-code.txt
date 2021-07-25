@@ -1,5 +1,5 @@
 this::
-    date = 21/07/2021
+    date = 25/07/2021
 
 
 =========================
@@ -7,7 +7,7 @@ Coder par petites touches
 =========================
 
 Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau".
-Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager et si nécessaire la ¨doc destinée aux utilisateurs.
+Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager et aussi si nécessaire la ¨doc destinée aux utilisateurs.
 
 
 info::
@@ -108,7 +108,7 @@ Ceci correspond aux fichiers path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` 
 
 
 info::
-    Savoir que les ``*`` servent à donner des fichiers mais aussi que pour chaque fichier path::``STY`` existe une régle d'importation automatique de fichiers path::``TEX`` associés.
+    Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité. Ceci peut s'avérer utile pour un document path::``TEX`` non associé à un code path::``STY`` présentant juste différentes fonctionnalités.
 
 
 warning::

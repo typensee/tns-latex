@@ -1,0 +1,24 @@
+this::
+    date = 25/07/2021
+
+
+===================
+Resources utilisées
+===================
+
+Que ce soit pour un package, une classe ou une ¨doc, il est très courant d'utiliser des resources externes sous forme de ficghiers images, de fichiers de configuration... ¨etc.
+Le système retenu pour intéger ces fichiers au produit fini est des plus basiques : tout dossier qui n'est pas ignoré
+((
+    Se reporter à l'avertissement à la fin de cf::``:?/small-code.txt``  pour les dossier qui seront toujours ignorés.
+))
+est intégré au projet final.
+
+
+Simple ! En fait oui et non car cela demande de ne travailler qu'avec des chemins relatifs mais normalment on le fait tous... Ce point est important car dans les codes sources seront cherchés des motifs du type ``{chemin/vers/ce/super/fichier}`` pour les adapter à l'organisation du produit fini
+((    
+    Si besoin, ce système pourra être affiné à l'avenir...
+)).
+
+
+info::
+    Ce choix correspond à l'usage fait en ¨latex pour insérer une image via des ``\input`` ou des ``\includegraphics`` par exemple.

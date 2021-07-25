@@ -69,43 +69,6 @@ tologfile(
 timestamp("STARTING")
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
-
-MAIN_STEPS = Step()
-
-DECO_STEPS = [c for c in "*+"]
-
-for i, deco in enumerate(DECO_STEPS, 1):
-    exec(
-    f"""
-_SUB_{i}_STEPS = Step(
-    textit = lambda n, t: TAB_{i} + f"{deco} {{t}}"
-)
-
-def SUB_{i}_STEPS(message):
-    color_used = True
-
-    if MESSAGE_ERROR in message:
-        ColorTerm.error.colorit()
-    
-    elif MESSAGE_WARNING in message:
-        ColorTerm.warning.colorit()
-    
-    elif "OK" in message:
-        ColorTerm.OK.colorit()
-
-    else:
-        color_used = False
-
-    _SUB_{i}_STEPS(message)
-
-    if color_used:
-        ColorTerm.normal.colorit()
-    """)
-
-
 # -------------------------- #
 # -- FINDING THE PACKAGES -- #
 # -------------------------- #
@@ -163,7 +126,7 @@ elif not packs_to_update:
 else:
     for packchged in packs_to_update:
         NL()
-        MAIN_STEPS(f'Working on "{packchged - MONOREPO_DIR}".')
+        MAIN_STEPS(f'{MESSAGE_WORKING} inside "{packchged - MONOREPO_DIR}".')
 
         updater = UpdateOnePack(
             monorepo   = MONOREPO_DIR,
@@ -184,8 +147,6 @@ else:
             SUB_1_STEPS(
                 f'{MESSAGE_ERROR}{plurial} with "{updater.dir_relpath}".'
             )
-
-            
 
     NL()
     MAIN_STEPS("All changes have been treated.")

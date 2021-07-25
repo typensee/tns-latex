@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-from sys import settrace
+from .config import *
 from .common import *
 
 
@@ -185,7 +185,7 @@ class Problems:
             print(
                 'Look at the log file '
                 f'"{self.anadir.logfile - self.anadir.monorepo}"'
-                ' for details.'
+                ' and/or above for details.'
             )
             NL()
 

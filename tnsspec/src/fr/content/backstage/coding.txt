@@ -7,6 +7,7 @@ Méthodes de codage
 
 content::
     ¨content/small-code.txt
+    ¨content/resource.txt
     ¨content/package.txt
     ¨content/comment.txt
     ¨content/user-doc.txt

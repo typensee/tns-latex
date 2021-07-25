@@ -49,8 +49,19 @@ class UpdateOnePack(AnaDir):
             needabout  = True
         )
 
-        self.problems  = Problems(self)
-        self.finalprod = FinalProd(self)
+        self.final_blocks = {
+            ext: {
+                t: []
+                for t in titles
+                if t != TEX_END_DOC
+            }
+            for ext, titles in FILE_BLOCK.items()
+        }
+
+        self.final_blocks[TEX_FILE_EXT][LATEX_TECH_SIGN_TITLE] = []
+
+        for ext in FILE_BLOCK:
+            self.final_blocks[ext][EXTRA_RESOURCES] = []
 
 ###
 # Here is the great bandleader.
@@ -91,7 +102,7 @@ class UpdateOnePack(AnaDir):
     def build_about(self) -> None:
         self.terminfo(MESSAGE_ABOUT + "looking for metainfos.")
 
-        self.loginfo(f'{MESSAGE_WORKING_ON} "{self.dir_relpath}"...')
+        self.loginfo(f'{MESSAGE_WORKING} inside "{self.dir_relpath}"...')
 
         self.about = About(self).build()
 
@@ -149,7 +160,7 @@ class UpdateOnePack(AnaDir):
             )
          
             self.loginfo(
-                message  = f'{MESSAGE_WORKING_ON} "{onesrc_relpath}".',
+                message  = f'{MESSAGE_WORKING} inside "{onesrc_relpath}".',
                 isitem   = True,
                 isnewdir = True
             )
@@ -180,3 +191,8 @@ class UpdateOnePack(AnaDir):
                 packpath = self.dirpath,
                 files    = files
             )
+
+        from pprint import pprint;
+        print(EXTRA_RESOURCES)
+        pprint(self.final_blocks[TEX_FILE_EXT][EXTRA_RESOURCES])
+        exit()

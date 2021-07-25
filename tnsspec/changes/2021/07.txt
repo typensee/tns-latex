@@ -1,4 +1,17 @@
 ==
+25
+==
+
+**About ¨tech ¨doc:** we focus on the fact that technical sections must be inside the same human file documentation of the macros and environments of which the signatures are given. 
+
+
+**About human ¨doc:** the possibility to write the title of a section on at most two lines has been added. 
+
+
+**Extra files:** the process used to import extra files has been explained.
+
+
+==
 23
 ==
 
