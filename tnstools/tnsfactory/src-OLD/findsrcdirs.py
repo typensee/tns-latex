@@ -21,6 +21,7 @@ from .toc    import *
 ###
 
 def srcdirs(
+    updateonepack,
     anadir,# Can't use the type common.AnaDir (cyclic imports).
     kind: str
 ) -> List[PPath]:
@@ -36,11 +37,19 @@ def srcdirs(
         return
 
 # Good ``about.peuf``.
-    elif not anadir.about is None:
-        paths = TOC(
+    if not anadir.about is None:
+        toc = TOC(
             anadir = anadir,
             kind   = kind
-        ).build()
+        )
+
+        paths = toc.build()
+
+        if kind == toc.kind:
+            anadir.problems.new_error(
+                src_relpath = anadir.dir_relpath,
+                message     = f'"{kind}" expected in TOC but "{toc.kind}" found'
+            ) 
 
         if not anadir.success:
             return

@@ -46,12 +46,9 @@ def packdirs(onedir: PPath) -> List[PPath]:
 ###
 
 def istnspack(dirpath: PPath) -> bool:
-# Looking for an ``about.peuf`` file.
-    for aboutfile in dirpath.walk("file::about.peuf"):
-        return keepthisabout(aboutfile)
+    aboutpath = dirpath / "about.peuf"
 
-# No ``about.peuf`` found.
-    return False
+    return aboutpath.is_file() and keepthisabout(aboutpath)
 
 
 ###

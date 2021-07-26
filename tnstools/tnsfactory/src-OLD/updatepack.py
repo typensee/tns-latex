@@ -75,6 +75,7 @@ class UpdateOnePack(AnaDir):
             "build_about",
             "build_srcdirs",
             "analyze_srcdirs",
+            "manage_resources",
         ]:
             getattr(self, methodname)()
 
@@ -121,8 +122,9 @@ class UpdateOnePack(AnaDir):
         )
          
         self.srcdirs = srcdirs(
-            anadir = anascrdir,
-            kind   = TOC.KIND_DIR
+            updateonepack = self,
+            anadir        = anascrdir,
+            kind          = TOC.KIND_DIR
         )
 
         self.success = anascrdir.success
@@ -133,7 +135,7 @@ class UpdateOnePack(AnaDir):
 ###
     def analyze_srcdirs(self) -> None:
         for onesrcdir in self.srcdirs:
-            onesrcpath     = self.dirpath     / SRC_DIR_NAME / onesrcdir
+            onesrcpath     = self.dirpath / SRC_DIR_NAME / onesrcdir
             onesrc_relpath = onesrcpath - self.monorepo
 
             NL()
@@ -192,7 +194,15 @@ class UpdateOnePack(AnaDir):
                 files    = files
             )
 
-        from pprint import pprint;
-        print(EXTRA_RESOURCES)
-        pprint(self.final_blocks[TEX_FILE_EXT][EXTRA_RESOURCES])
-        exit()
+
+###
+# Th
+###
+    def manage_resources(self):
+        ...
+
+
+        # from pprint import pprint;
+        # print(EXTRA_RESOURCES)
+        # pprint(self.final_blocks[TEX_FILE_EXT][EXTRA_RESOURCES])
+        # exit()

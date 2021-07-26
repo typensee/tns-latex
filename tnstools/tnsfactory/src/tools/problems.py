@@ -1,29 +1,42 @@
 #! /usr/bin/env python3
 
-from .config import *
-from .common import *
+from collections import defaultdict
+
+from mistool.os_use import PPath
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
+# -------------- #
+# -- MESSAGES -- #
+# -------------- #
+
+MESSAGE_ERROR   = "ERROR"
+MESSAGE_WARNING = "WARNING"
+
+
+# ---------------- #
+# -- MAIN CLASS -- #
+# ---------------- #
 
 ###
-# This class is used to store ¨infos about errors and warnings emitted.
+# This class is used to store ¨infos about errors and warnings emitted 
+# during all the process.
+#
+# warning::
+#     This class must work whatever the context of use!
 ###
 
 class Problems:
 ###
 # prototype::
-#     anadir = common.AnaDir ;  
-#              any class having the ¨api of ``common.AnaDir``.
+#     speaker = speaker.Speaker ;  
+#               the class used to speak on the terminal and in the log file.
 ###
     def __init__(
         self,
-        anadir,# Can't use the type common.AnaDir (cyclic imports).
+        speaker # Can't use the type speaker.Speaker.
     ):
-        self.anadir = anadir
-        
+        self.speaker = speaker
+
 # We use the ordered feature of dict suchas to treat warnings before
 # errors in the summaries.
         self._problems: dict = {
@@ -31,60 +44,71 @@ class Problems:
             MESSAGE_ERROR  : defaultdict(list), # After WARNING!
         }
 
-        self._pb_nb       = 0
-        self._nb_of_errs  = 0
-        self._nb_of_warns = 0
+        self.nb_pbs      = 0
+        self.nb_errors   = 0
+        self.nb_warnings = 0
+
 
 ###
 # prototype::
-#     retun = ; # See Python typing...
-#             ``True`` if at least one error has been found and
-#             ``False` otherwise.
+#     return = ; # See Python typing...
+#              ``True`` if at least one error has been found and
+#              ``False` otherwise.
 ###
+    @property
     def errorfound(self) -> bool:
-        return bool(self._problems[MESSAGE_ERROR])
+        return self.nb_errors != 0
 
 ###
 # prototype::
-#     retun = ; # See Python typing...
-#             ``True`` if at least on error or one warning has been
-#             found and ``False` otherwise.
+#     return = ; # See Python typing...
+#              ``True`` if at least one warning has been found and
+#              ``False` otherwise.
 ###
+    @property
+    def warningfound(self) -> bool:
+        return self.nb_warnings != 0
+
+###
+# prototype::
+#     return = ; # See Python typing...
+#              ``True`` if at least on error or one warning has been
+#              found and ``False` otherwise.
+###
+    @property
     def pbfound(self) -> bool:
         return (
-            self.errorfound()
+            self.errorfound
             or
-            bool(self._problems[MESSAGE_WARNING])
+            self.warningfound
         )
 
 ###
 # prototype::
-#     src_relpath = ; # See Python typing...
-#                   the path of the source within the problem has been found.
-#     context     = _ in [MESSAGE_ERROR, MESSAGE_WARNING] ; # See Python typing...
-#                   the kind of problem.
-#     message     = ; # See Python typing...
-#                   the message explaining the problem.
-#     level_term  = (1) ; # See Python typing...
-#                   the numer of tbabulation to use.
+#     return = ; # See Python typing...
+#              ``True`` if there several erros and ``False`` otherwise.
 ###
-    def _new_pb(
-        self,
-        src_relpath: PPath,
-        context    : str,
-        message    : str,
-        level_term : int = 2
-    ) -> None:
-        self._pb_nb += 1
+    @property
+    def several_warnings(self) -> bool:
+        return self.nb_warnings > 1
 
-        self.anadir.new_pb(
-            context    = context,
-            message    = message,
-            level_term = level_term,
-            pb_nb      = self._pb_nb
-        )
+###
+# prototype::
+#     return = ; # See Python typing...
+#              ``True`` if there several erros and ``False`` otherwise.
+###
+    @property
+    def several_errors(self) -> bool:
+        return self.nb_errors > 1
 
-        self._problems[context][src_relpath].append(self._pb_nb)
+
+
+
+
+
+
+
+
 
 ###
 # prototype::
@@ -99,9 +123,9 @@ class Problems:
         self,
         src_relpath: PPath,
         message    : str,
-        level_term : int = 2
+        level_term : int = 1
     ):
-        self._nb_of_errs += 1
+        self.nb_errors += 1
 
         self._new_pb(
             src_relpath = src_relpath,
@@ -123,9 +147,9 @@ class Problems:
         self,
         src_relpath: PPath,
         message    : str,
-        level_term : int = 2
+        level_term : int = 1
     ):
-        self._nb_of_warns += 1
+        self.nb_warnings += 1
 
         self._new_pb(
             src_relpath = src_relpath,
@@ -137,21 +161,35 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; # See Python typing...
-#              ``True`` if there several erros and ``False`` otherwise.
+#     src_relpath = ; # See Python typing...
+#                   the path of the source within the problem has been found.
+#     context     = _ in [MESSAGE_ERROR, MESSAGE_WARNING] ; # See Python typing...
+#                   the kind of problem.
+#     message     = ; # See Python typing...
+#                   the message explaining the problem.
+#     level_term  = (1) ; # See Python typing...
+#                   the numer of tbabulation to use.
 ###
-    @property
-    def several_warnings(self) -> bool:
-        return self._nb_of_warns != 1
+    def _new_pb(
+        self,
+        src_relpath: PPath,
+        context    : str,
+        message    : str,
+        level_term : int = 2
+    ) -> None:
+        self._pb_nb += 1
+        self._problems[context][src_relpath].append(self._pb_nb)
 
-###
-# prototype::
-#     return = ; # See Python typing...
-#              ``True`` if there several erros and ``False`` otherwise.
-###
-    @property
-    def several_errors(self) -> bool:
-        return self._nb_of_errs != 1
+        self.speaker.new_pb(
+            src_relpath = src_relpath,
+            context     = context,
+            message     = message,
+            level_term  = level_term,
+            pb_nb       = self._pb_nb
+        )
+
+
+
 
 ###
 # This method ask to print two different summaries, one for the terminal
@@ -190,7 +228,7 @@ class Problems:
             NL()
 
             self.anadir.loginfo(title)
-            self.anadir.logNL()
+            self.anadir.logger.NL()
 
 # The paths and the numbers of their problems.
             for relpath in sorted(pbs):
@@ -228,3 +266,4 @@ class Problems:
                 )
                 
         ColorTerm.normal.colorit()
+

@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 
-from enum import Enum
+
 import re
 
 from mistool.os_use   import DIR_TAG, FILE_TAG
-from mistool.term_use import ALL_FRAMES, withframe, Step
+
 
 
 # ------------- #
@@ -53,9 +53,6 @@ MESSAGE_SRC_ABOUT  = MESSAGE_TEMPLATE_FILE(f"{SRC_DIR_NAME}/{ABOUT_NAME}")
 MESSAGE_SRC        = "Source"
 MESSAGE_FINAL_PROD = "Final Product"
 
-
-MESSAGE_ERROR     = "ERROR"
-MESSAGE_WARNING   = "WARNING"
 MESSAGE_WRONG_SRC = "BAD SOURCE"
 
 
@@ -93,19 +90,6 @@ NO_TAG  = "no"
 # -- DECORATE -- #
 # -------------- #
 
-TAB_1 = " "*4
-TAB_2 = TAB_1*2
-
-NL  = lambda x = 0: print("" + "\n"*(x - 1))
-
-for i in range(1, 3):
-    exec(
-    f"""
-ASCII_FRAME_{i} = lambda t: withframe(
-    text  = t,
-    frame = ALL_FRAMES['pyba_title_{i}']
-)
-    """)
 
 
 # --------------------- #
@@ -193,61 +177,4 @@ LATEX_TECH_SECTIONS = {
     for section in LATEX_SECTIONS
 }
 
-
-# -------------------- #
-# -- TERMINAL TOOLS -- #
-# -------------------- #
-
-###
-# This class colorize easily the terminal outputs.
-###
-
-# Source: GNU/Linux Mag. - Hors Série 115
-class ColorTerm(Enum):
-    normal :str = ''
-    error  :str = '31'
-    warning:str = '34'
-    OK     :str = '36'
-
-    def colorit(self) -> None:
-        if self.value:
-            termcode = f"\x1b[1;{self.value}m"
-
-        else:
-            termcode = f"\x1b[0m"
-
-        print(termcode, end = "")
-
-
-MAIN_STEPS = Step()
-
-DECO_STEPS = [c for c in "*+"]
-
-for i, deco in enumerate(DECO_STEPS, 1):
-    exec(
-    f"""
-_SUB_{i}_STEPS = Step(
-    textit = lambda n, t: TAB_{i} + f"{deco} {{t}}"
-)
-
-def SUB_{i}_STEPS(message):
-    color_used = True
-
-    if MESSAGE_ERROR in message:
-        ColorTerm.error.colorit()
-    
-    elif MESSAGE_WARNING in message:
-        ColorTerm.warning.colorit()
-    
-    elif "OK" in message:
-        ColorTerm.OK.colorit()
-
-    else:
-        color_used = False
-
-    _SUB_{i}_STEPS(message)
-
-    if color_used:
-        ColorTerm.normal.colorit()
-    """)
 

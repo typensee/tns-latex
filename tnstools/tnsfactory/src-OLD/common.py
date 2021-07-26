@@ -90,7 +90,6 @@ class AnaDir:
         self.finalprod = FinalProd(self)
 
 
-
 ###
 # prototype::
 #     context    = _ in [MESSAGE_ERROR, MESSAGE_WARNING]; // See Python typing...
@@ -109,20 +108,17 @@ class AnaDir:
         pb_nb     : int,
         level_term: int = 1
     ) -> None:
-        self.stepprints[level_term - 1](f'{context}: {message}.')
-
+        self.terminfo(
+            message = f'{context}: {message}.',
+            level   = level_term - 1
+        )
+        
         self.logger.newpb(
             context = context,
             pb_nb   = pb_nb,
             message = message
         )
 
-
-###
-# A newline in the log file. This just an "helper" method.
-###
-    def logNL(self):
-        self.logger.NL()
 
 ###
 # prototype::
@@ -151,13 +147,13 @@ class AnaDir:
             )
 
             if isnewdir:
-                self.logNL()
+                self.logger.NL()
 
         else:
-            self.logNL()
+            self.logger.NL()
 
         self.logger.appendthis(message)
-        self.logNL()
+        self.logger.NL()
 
 ###
 # prototype::

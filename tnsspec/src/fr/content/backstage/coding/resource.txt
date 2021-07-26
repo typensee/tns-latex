@@ -14,11 +14,12 @@ Le système retenu pour intéger ces fichiers au produit fini est des plus basiq
 est intégré au projet final.
 
 
-Simple ! En fait oui et non car cela demande de ne travailler qu'avec des chemins relatifs mais normalment on le fait tous... Ce point est important car dans les codes sources seront cherchés des motifs du type ``{chemin/vers/ce/super/fichier}`` pour les adapter à l'organisation du produit fini
+Simple ! En fait oui et non car cela demande de ne travailler qu'avec des chemins relatifs mais normalment on le fait tous... Ce point est important car dans les codes sources seront cherchés bêtement des motifs du type ``{chemin/vers/ce/super/fichier}`` pour les adapter à l'organisation du produit fini
 ((    
-    Si besoin, ce système pourra être affiné à l'avenir...
+    Si besoin, ce système pourra être affiné à l'avenir... Ceci étant ce la est amplement suffisant dans `99.999 %` des cas.
 )).
+Ce choix correspond à l'usage fait en ¨latex pour insérer une image via des ``\input`` ou des ``\includegraphics`` par exemple.
 
 
 info::
-    Ce choix correspond à l'usage fait en ¨latex pour insérer une image via des ``\input`` ou des ``\includegraphics`` par exemple.
+    Si vraiement vous souhaitez afficher ``{chemin/vers/ce/super/fichier}`` en verbatim, une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/super/fichier }`` avec des espaces inutiles.

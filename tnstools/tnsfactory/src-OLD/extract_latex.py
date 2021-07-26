@@ -187,8 +187,6 @@ class BuildTEX:
 
 # No corresponding title...
         if not title:
-            self.anadir.success = False
-            
             self.anadir.problems.new_error(
                 src_relpath = self.file_relpath,
                 message     = (
@@ -230,8 +228,6 @@ class BuildTEX:
 
 # One problem found.
         if message:
-            self.anadir.success = False
-            
             self.anadir.problems.new_error(
                 src_relpath = self.file_relpath,
                 message     = message

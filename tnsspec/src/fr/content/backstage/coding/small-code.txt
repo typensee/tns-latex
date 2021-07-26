@@ -48,15 +48,11 @@ Expliquons les conventions à suivre.
 
     1) Chaque fichier path::``STY`` codant un morceau du package doit se trouver dans un sous-dossier de profondeur `1` de path::``src``. Bien noter que l'on travaille directement dans un sous-dossier sans passer via des sous-sous-dossiers contenant le fichier path::``STY``.
 
-    1) Pour chaque fichier path::``STY`` codant un morceau du package, il faut rédiger une documentation dans un fichier path::``TEX`` de "même" nom suivi du suffixe path::``-FR`` pour la ¨doc en français
-    ((
-        Pour le moment la ¨doc non technique n'est écrite qu'en français mais n'insultons pas l'avenir.
-    )).
-
-    1) Il est possible de juste rédiger des fichiers path::``TEX``. Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY`` et indiquer la langue du ¨doc.
+    1) Il est possible de juste rédiger des fichiers path::``TEX`` pour par exemple documenter des fonctionnalités.
+    Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY`` et indiquer la langue du ¨doc.
     Dans notre exemple fictif, path::``intro/intro-FR.tex`` est accepté et considéré écrit en français.
 
-    1) Tout fichier importé dans un code ou une ¨doc sera repéré et intégré dans le produit fini. Tout autre fichier sera ignoré.
+    1) Des fichiers ressources peuvent être utilisés : voir cf::``:?/resource.txt`` pour en savoir plus.
 
     1) Deux types de lecture ordonnée des dossiers et fichiers sont possibles
     ((
@@ -66,8 +62,8 @@ Expliquons les conventions à suivre.
         * Un dossier sans fichier path::``about.peuf`` sera analysé en utilisant l'ordre lexicographique usuel.
         Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty`` ainsi que path::``alpha-FR.tex`` suivi de path::``omega3-FR.tex``.
 
-        * Dans un dossier, un fichier path::``about.peuf`` impose un ordre à suivre **mais aussi** les fichiers à analyser.
-        Nous donnons ci-après les contenus des fichiers path::``src/about.peuf`` et path::``src/poor-lonesome-cowboy/about.peuf``.
+        * Dans un dossier, un fichier path::``about.peuf`` impose un ordre à suivre **mais aussi** les fichiers à analyser automatiquement.
+        Nous donnons ci-après les contenus des fichiers path::``src/about.peuf`` et path::``src/poor-lonesome-cowboy/about.peuf`` puis des explications.
 
 
 Le code suivant sert à analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre.
@@ -103,12 +99,12 @@ peuf::
         * rantanplan.sty
 
 
-Il faut aussi savoir tout fichier path::``TEX`` ayant un nom commençant par path::``lucky-`` ou path::``rantanplan-`` sera automatiquement intégré au projet final.
+Il faut aussi savoir que tout fichier path::``TEX`` ayant un nom commençant par path::``lucky-`` ou path::``rantanplan-`` sera automatiquement intégré au projet final.
 Ceci correspond aux fichiers path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` et path::``rantanplan-FR.tex``.
 
 
 info::
-    Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité. Ceci peut s'avérer utile pour un document path::``TEX`` non associé à un code path::``STY`` présentant juste différentes fonctionnalités.
+    Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité. Ceci peut s'avérer utile pour un document path::``TEX`` non associé à un code path::``STY`` mais présentant rapidement différentes fonctionnalités.
 
 
 warning::
