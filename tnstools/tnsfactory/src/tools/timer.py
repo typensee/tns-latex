@@ -22,6 +22,7 @@ def timestamp(
     timeTXT = f"{kind} TIME STAMP: {now}"
 
     speaker.title(
-        title = timeTXT,
-        level = 2
+        title   = timeTXT,
+        level   = 2,
+        with_NL = False
     )

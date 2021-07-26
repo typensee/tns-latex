@@ -46,21 +46,22 @@ SPK_ACTIONS_NO_ARG         = []
 SPK_ACTIONS_NO_ARG_ALLOWED = []
 
 for kind, names in {
-    "no_arg":[
+    "no_arg": [
         "forlog",
         "forterm",
         "forall",
     ],
-    "no_arg_allowed":[
+    "no_arg_allowed": [
         "NL",
+        "style",
     ],
-    "arg":[
+    "arg": [
         "print",
         "title",
         "step",
         "problem",
     ],
-    "var":[
+    "var": [
         "message",
         "title",
         "level",
@@ -86,6 +87,12 @@ SPK_ACTIONS_{kind.upper()}.append("{onename}")
             ''')
 
 
+for ctxt in CONTEXTS:
+    exec(
+    f'''
+SPK_STYLE_{ctxt.upper()} = "{ctxt}"
+    ''')
+
 # ---------------- #
 # -- MAIN CLASS -- #
 # ---------------- #
@@ -98,7 +105,7 @@ SPK_ACTIONS_{kind.upper()}.append("{onename}")
 #     This class must work whatever the context of use!
 ###
 
-class Speaker(LogSpeaker, TermSpeaker):
+class Speaker(AbstractSpeaker):
     OUTPUT_LOG  = "log"
     OUTPUT_TERM = "term"
     OUTPUT_ALL  = [OUTPUT_LOG, OUTPUT_TERM]
@@ -112,14 +119,16 @@ class Speaker(LogSpeaker, TermSpeaker):
         self,
         logfile: PPath
     ):
-# The MRO makes the use of the init of LogSpekare as expected...
-        super().__init__(
-            logfile  = logfile,
-            maxwidth = MAX_WIDTH
-        )
+# Here we do not need the use of ``super().__init__()``.
+        self._speakers = {
+            self.OUTPUT_LOG : LogSpeaker(
+                logfile  = logfile,
+                maxwidth = MAX_WIDTH
+            ),
+            self.OUTPUT_TERM: TermSpeaker(),
+        }
 
         self._outputs = self.OUTPUT_ALL
-        self._nb_step = 0
 
 ###
 # This method sets an only "LOG FILE" output.
@@ -149,7 +158,7 @@ class Speaker(LogSpeaker, TermSpeaker):
 ###
     def NL(self, repeat = 1) -> None:
         for out in self._outputs:
-            getattr(self, f'{out}_NL')(repeat)
+            self._speakers[out].NL(repeat)
 
 ###
 # prototype::
@@ -167,25 +176,40 @@ class Speaker(LogSpeaker, TermSpeaker):
         tab    : str = ""
     ) -> None:
         for out in self._outputs:
-            getattr(self, f'{out}_print')(
+            self._speakers[out].print(
                 message = message,
                 tab     = tab
             )
 
+###
+# prototype::
+#     context = _ in interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#               a context for formatting ¨infos.
+###
+    def style(self, context: str = CONTEXT_NORMAL) -> None:
+        for out in self._outputs:
+            self._speakers[out].style(context)
+
 
 ###
 # prototype::
-#     title  = ; // See Python typing...
-#              the title.
-#     level  = _ in [1,2] (1); // See Python typing...
-#              the level of of the title.
+#     title   = ; // See Python typing...
+#               the title.
+#     level   = _ in [1,2] (1); // See Python typing...
+#               the level of of the title.
+#     with_NL = (False); // See Python typing...
+#               this allows to not add a new line after the title 
+#               (this is used for time stamps in the log file).
 ###
     def title(self, 
-        title: str,
-        level: int  = 1
+        title  : str,
+        level  : int  = 1,
+        with_NL: bool = True,
     ) -> None:
         self.print(ASCII_FRAME[level](title))
-        self.NL()
+
+        if with_NL:
+            self.NL()
 
 ###
 # prototype::
@@ -199,27 +223,35 @@ class Speaker(LogSpeaker, TermSpeaker):
         message: str,
         level  : int = 0,
     ) -> None:
-        item = self.stepitem(level)
+        for out in self._outputs:
+            item = self.stepitem(
+                out   = out,
+                level = level
+            )
 
-        self.print(
-            message = f'{item}{message}',
-            tab     = " "*len(item)
-        )
+            self._speakers[out].print(
+                message = f'{item}{message}',
+                tab     = " "*len(item)
+            )
 
 ###
 # prototype::
+#     out   = ; // See Python typing...
+#             the kind of speaker.
 #     level = _ in [0..3] (0); // See Python typing...
 #             the level of step indicating where ``0`` is for automatic 
 #             numbered enumerations.
 ###
-    def stepitem(self,
+    def stepitem(
+        self,
+        out  : str,
         level: int = 0,
     ) -> None:
 # Enumeration...
         if level == 0:
-            self._nb_step += 1
+            self._speakers[out].nb_step += 1
 
-            return f'{self._nb_step}) '
+            return f'{self._speakers[out].nb_step}) '
 
 # Basic item
         return f'{ITEM[level]} '
@@ -243,14 +275,20 @@ class Speaker(LogSpeaker, TermSpeaker):
         message: str,
         level  : int = 0
     ) -> None:
-        context = f"{self.stepitem(level)}[{pb_id}] {context}: "
-        tab     = " "*len(context)
- 
+        for out in self._outputs:
+            item = self.stepitem(
+                out   = out,
+                level = level
+            )
+
+            item_ctxt = f"{item}[ {pb_id} ] {context}: "
+            tab       = " "*len(item_ctxt)
+    
  # TODO : focusing via self.style(None par défaut cf log file et remise à zréo sinon ERROR, MESSAGE du ColorTerm)
-        self.print(
-            message = f'{context}{message}',
-            tab     = tab
-        )
+            self._speakers[out].print(
+                message = f'{item_ctxt}{message}',
+                tab     = tab
+            )
 
 
 ###

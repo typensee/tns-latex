@@ -2,6 +2,7 @@
 
 from mistool.os_use import PPath
 
+from .interface import *
 
 # ---------------- #
 # -- MAIN CLASS -- #
@@ -11,7 +12,7 @@ from mistool.os_use import PPath
 # This class implements methiods to print ¨infos in the log file.
 ###
 
-class LogSpeaker:
+class LogSpeaker(AbstractSpeaker):
 ###
 # prototype::
 #     logfile  = ; // See Python typing...  
@@ -24,6 +25,8 @@ class LogSpeaker:
         logfile : PPath,
         maxwidth: int
     ):
+        super().__init__()
+
         self.logfile  = logfile
         self.maxwidth = maxwidth
 
@@ -90,7 +93,6 @@ class LogSpeaker:
         return "\n".join(shortlines)
 
 
-
 ###
 # prototype::
 #     message = ; // See Python typing...
@@ -102,7 +104,7 @@ class LogSpeaker:
 #               for ``self.log_NL``, and otherwise False asks to use
 #               the hard wrapping.
 ###
-    def log_print(
+    def print(
         self,
         message: str,
         tab    : str = "",
@@ -121,9 +123,9 @@ class LogSpeaker:
                         message = message,
                         tab     = tab
                     )
-                    + # Wrapping strippes the message...
-                    "\n"
                 )
+# Hard wrapping stripes the message...
+                logfile.write("\n")
 
 ###
 # prototype::
@@ -132,8 +134,8 @@ class LogSpeaker:
 #
 # This method simply append an empty new line to the log file.
 ###
-    def log_NL(self, repeat = 1) -> None:
-        self.log_print(
-            message = "\n"*(repeat + 1),
+    def NL(self, repeat: int = 1) -> None:
+        self.print(
+            message = "\n"*repeat,
             nowrap  = True
         )

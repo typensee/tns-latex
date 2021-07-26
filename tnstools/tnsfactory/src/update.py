@@ -31,6 +31,7 @@ class Update:
         self.problems = Problems(self.speaker)
         self.success  = None
 
+
 ###
 # Here is the great bandleader.
 ###
@@ -94,6 +95,7 @@ class Update:
                          SPK_VAR_LEVEL: 2}),
 # Log file output.
             SPK_FORLOG,
+            SPK_NL
         )
 
         timestamp(
@@ -116,12 +118,12 @@ class Update:
         self.speaker.receipe(
 # Terminal output.
             SPK_FORALL,
+            (SPK_STYLE, SPK_STYLE_ERROR),
             SPK_NL,
             (SPK_PROBLEM, {SPK_VAR_MESSAGE: "No packages found.",
-                        SPK_VAR_CONTEXT  : "ERROR", SPK_VAR_PB_ID  : 666}),
-            SPK_NL,
-            (SPK_PROBLEM, {SPK_VAR_MESSAGE: "No packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages packages found.",
-                        SPK_VAR_CONTEXT  : "ERROR", SPK_VAR_PB_ID  : 666}),
+                           SPK_VAR_CONTEXT: "ERROR", 
+                           SPK_VAR_PB_ID  : 0}),
+            SPK_STYLE,
         )
 
 

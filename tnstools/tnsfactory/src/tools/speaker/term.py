@@ -4,6 +4,7 @@ from enum import Enum
 
 from mistool.os_use import PPath
 
+from .interface import *
 
 # ----------- #
 # -- TOOLS -- #
@@ -15,10 +16,11 @@ from mistool.os_use import PPath
 
 # Source: GNU/Linux Mag. - Hors Série 115
 class ColorTerm(Enum):
+# See ``interface.CONTEXTS.``
     normal :str = ''
     error  :str = '31'
     warning:str = '34'
-    OK     :str = '36'
+    good   :str = '36'
 
     def colorit(self) -> None:
         if self.value:
@@ -38,16 +40,18 @@ class ColorTerm(Enum):
 # This class implements methiods to print ¨infos on the terminal.
 ###
 
-class TermSpeaker:
+class TermSpeaker(AbstractSpeaker):
+    def __init__(self):
+        super().__init__()
 
 ###
 # prototype::
 #     repeat = (1) ; // See Python typing...
 #              the numebr of empty lines wanted.
 #
-# This method simply prints empty new lines in the terminal.
+# This method simply prints some new empty lines in the terminal.
 ###
-    def term_NL(self, repeat:int = 1) -> None:
+    def NL(self, repeat: int = 1) -> None:
         print("\n"*(repeat - 1))
 
 ###
@@ -62,9 +66,17 @@ class TermSpeaker:
 #     a general API to make feel us happy when coding).
 #     The argument tab is used by ``speaker_log.LogSpeaker``.
 ###
-    def term_print(
+    def print(
         self,
         message: str,
         tab    : str = ""
     ) -> None:
         print(message)
+
+###
+# prototype::
+#     context = _ in interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#               a context implemented via ``ColorTerm``.
+###
+    def style(self, context: str = CONTEXT_NORMAL) -> None:
+        getattr(ColorTerm, context).colorit()
