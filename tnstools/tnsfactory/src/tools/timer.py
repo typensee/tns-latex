@@ -21,8 +21,10 @@ def timestamp(
 
     timeTXT = f"{kind} TIME STAMP: {now}"
 
+    speaker.forlog()
     speaker.title(
         title   = timeTXT,
         level   = 2,
         with_NL = False
     )
+    speaker.forall()

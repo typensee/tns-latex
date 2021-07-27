@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-from mistool.os_use import PPath
+from abc import ABCMeta, abstractmethod
 
 
 # --------------- #
@@ -25,9 +25,21 @@ CONTEXTS = [
 # This class ???
 ###
 
-class AbstractSpeaker:
+class AbstractSpeaker(metaclass=ABCMeta):
+# Source to have a real interface: 
+#     * https://realpython.com/python-interface/#using-abcabcmeta
+    @classmethod
+    def __subclasshook__(cls, subclass):
+        return (
+            hasattr(subclass, 'print') and 
+            callable(subclass.print) 
+            and 
+            hasattr(subclass, 'NL') and 
+            callable(subclass.NL)
+        )
+
+# We need an attribut for numbered steps.
     def __init__(self):
-# This attribut will be used for numbered steps.
         self.nb_step = 0
 
 ###
@@ -41,21 +53,23 @@ class AbstractSpeaker:
 #               for ``self.log_NL``, and otherwise False asks to use
 #               the hard wrapping.
 ###
+    @abstractmethod
     def print(
         self,
         message: str,
         tab    : str = "",
         nowrap : bool = False
     ) -> None:
-        raise NotImplementedError()
+        raise NotImplementedError
 
 ###
 # prototype::
 #     repeat = (1) ; // See Python typing...
 #              the numebr of empty lines wanted.
 ###
+    @abstractmethod
     def NL(self, repeat: int = 1) -> None:
-        raise NotImplementedError()
+        raise NotImplementedError
 
 ###
 # prototype::

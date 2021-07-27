@@ -2,9 +2,8 @@
 
 from enum import Enum
 
-from mistool.os_use import PPath
-
 from .interface import *
+
 
 # ----------- #
 # -- TOOLS -- #
@@ -15,7 +14,7 @@ from .interface import *
 ###
 
 # Source: GNU/Linux Mag. - Hors Série 115
-class ColorTerm(Enum):
+class ColorStylist(Enum):
 # See ``interface.CONTEXTS.``
     normal :str = ''
     error  :str = '31'
@@ -32,6 +31,23 @@ class ColorTerm(Enum):
         print(termcode, end = "")
 
 
+class BWStylist(Enum):
+# See ``interface.CONTEXTS.``
+    normal :str = ''
+    error  :str = 'x'
+    warning:str = 'x'
+    good   :str = 'x'
+
+    def colorit(self) -> None:
+        if self.value:
+            termcode = "\033[1m"
+
+        else:
+            termcode = "\033[0m"
+
+        print(termcode, end = "")
+
+
 # ---------------- #
 # -- MAIN CLASS -- #
 # ---------------- #
@@ -41,8 +57,13 @@ class ColorTerm(Enum):
 ###
 
 class TermSpeaker(AbstractSpeaker):
-    def __init__(self):
+    def __init__(
+        self,
+        stylist
+    ):
         super().__init__()
+
+        self.stylist = stylist
 
 ###
 # prototype::
@@ -79,4 +100,4 @@ class TermSpeaker(AbstractSpeaker):
 #               a context implemented via ``ColorTerm``.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
-        getattr(ColorTerm, context).colorit()
+        getattr(self.stylist, context).colorit()

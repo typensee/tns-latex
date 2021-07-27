@@ -2,6 +2,7 @@
 
 from tools import *
 
+
 # ---------------- #
 # -- MAIN CLASS -- #
 # ---------------- #
@@ -25,11 +26,18 @@ class Update:
         monorepo: PPath,
         initrepo: bool
     ) -> None:
+
         self.monorepo = monorepo
 
-        self.speaker  = Speaker(logfile = monorepo / "x-LOG-LATEX-MONOREPO-x.txt")
+        self.speaker  = Speaker(
+            logfile = monorepo / "x-LOG-LATEX-MONOREPO-x.txt",
+            # stylist = ColorStylist
+            stylist = BWStylist
+        )
+
         self.problems = Problems(self.speaker)
         self.success  = None
+
 
 
 ###
@@ -61,22 +69,27 @@ class Update:
     def open_session(self):
 # Just say "Hello."
         self.speaker.receipe(
-# Terminal output.
+# Title for the monorepo.
+            (SPK_STYLE, SPK_STYLE_GOOD),
             SPK_FORTERM,
             SPK_NL,
             (SPK_TITLE, f'TNS LIKE MONOREPO "{self.monorepo.name}"'),
+            #
+            SPK_FORLOG,
+            (SPK_TITLE, f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'),
+            #
+            SPK_FORALL,
+            SPK_STYLE,
+# Title for the start.
+            SPK_FORTERM,
             (SPK_TITLE, {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
                          SPK_VAR_LEVEL: 2}),
-# Log file output.
-            SPK_FORLOG,
-            (SPK_TITLE, f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"')
         )
 
         timestamp(
             speaker = self.speaker,
             kind    = "STARTING"
         )
-        self.speaker.forall()
 
 
 ###
@@ -88,7 +101,7 @@ class Update:
 
 # Just say "Good bye!"
         self.speaker.receipe(
-            # Terminal output.
+# Terminal output.
             SPK_FORTERM,
             SPK_NL,
             (SPK_TITLE, {SPK_VAR_TITLE: "ANALYSIS FINISHED", 
@@ -140,11 +153,15 @@ if __name__ =="__main__":
 
     LANGS_SUPPORTED = ["FR"]
 
-    MONOREPO = PPath(__file__)
+    if "typensee-latex" in __file__:
+        MONOREPO = PPath(__file__)
 
-    while(not MONOREPO.name.startswith("typensee-latex")):
-        MONOREPO = MONOREPO.parent
-        
+        while(not MONOREPO.name.startswith("typensee-latex")):
+            MONOREPO = MONOREPO.parent
+
+    else:
+        NOT_IMPLEMENTED
+
     update = Update(
         monorepo = MONOREPO,
         initrepo = INIT_REPO

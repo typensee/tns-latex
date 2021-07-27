@@ -117,7 +117,8 @@ class Speaker(AbstractSpeaker):
 ###
     def __init__(
         self,
-        logfile: PPath
+        logfile: PPath,
+        stylist
     ):
 # Here we do not need the use of ``super().__init__()``.
         self._speakers = {
@@ -125,7 +126,9 @@ class Speaker(AbstractSpeaker):
                 logfile  = logfile,
                 maxwidth = MAX_WIDTH
             ),
-            self.OUTPUT_TERM: TermSpeaker(),
+            self.OUTPUT_TERM: TermSpeaker(
+                stylist = stylist
+            ),
         }
 
         self._outputs = self.OUTPUT_ALL
