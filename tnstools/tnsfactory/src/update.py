@@ -29,11 +29,10 @@ class Update:
         initrepo: bool,
         style   : str 
     ) -> None:
-
         self.monorepo = monorepo
 
         self.speaker  = Speaker(
-            logfile = monorepo / "x-LOG-LATEX-MONOREPO-x.txt",
+            logfile = monorepo / f"x-{monorepo.name}-x.log",
             style   = style
         )
 
@@ -70,22 +69,22 @@ class Update:
 ###
     def open_session(self):
 # Just say "Hello."
-        self.speaker.receipe(
+        self.speaker.recipe(
 # Title for the monorepo.
-            (SPK_STYLE, SPK_STYLE_GOOD),
+            SPK_STYLE_GOOD,
             SPK_FORTERM,
             SPK_NL,
-            (SPK_TITLE, f'TNS LIKE MONOREPO "{self.monorepo.name}"'),
+            {SPK_VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
             #
             SPK_FORLOG,
-            (SPK_TITLE, f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'),
+            {SPK_VAR_TITLE: f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
             #
             SPK_FORALL,
-            SPK_STYLE,
+            SPK_STYLE_NORMAL,
 # Title for the start.
             SPK_FORTERM,
-            (SPK_TITLE, {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
-                         SPK_VAR_LEVEL: 2}),
+            {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
+             SPK_VAR_LEVEL: 2},
         )
 
         timestamp(
@@ -102,12 +101,12 @@ class Update:
 # TODO résumé ici !!!
 
 # Just say "Good bye!"
-        self.speaker.receipe(
+        self.speaker.recipe(
 # Terminal output.
             SPK_FORTERM,
             SPK_NL,
-            (SPK_TITLE, {SPK_VAR_TITLE: "ANALYSIS FINISHED", 
-                         SPK_VAR_LEVEL: 2}),
+            {SPK_VAR_TITLE: "ANALYSIS FINISHED", 
+             SPK_VAR_LEVEL: 2},
 # Log file output.
             SPK_FORLOG,
             SPK_NL
@@ -124,25 +123,20 @@ class Update:
 # This method looks for packages to work on.
 ###
     def findpacks(self):
-        self.speaker.receipe(
+        self.speaker.recipe(
 # Terminal output.
             SPK_FORTERM,
-            (SPK_STEP, "Looking for packages to build or update."),
+            {SPK_VAR_STEP_INFO: "Looking for packages to build or update."},
         )
 
-        self.speaker.receipe(
+        self.speaker.recipe(
 # Terminal output.
             SPK_FORALL,
-            (SPK_STYLE, SPK_STYLE_ERROR),
             SPK_NL,
-            (SPK_PROBLEM, {SPK_VAR_MESSAGE: "No packages found.",
-                           SPK_VAR_CONTEXT: "ERROR", 
-                           SPK_VAR_PB_ID  : 0}),
-            SPK_STYLE,
+            {SPK_VAR_CONTEXT: CONTEXT_ERROR,
+             SPK_VAR_INFO: "No packages found.",
+             SPK_VAR_PB_ID  : 0},
         )
-
-
-
 
 
 # ---------- #
@@ -167,7 +161,7 @@ if __name__ =="__main__":
     update = Update(
         monorepo = MONOREPO,
         initrepo = INIT_REPO,
-        style    = SPK_GLOBAL_STYLE_COLOR,
-        # style    = SPK_GLOBAL_STYLE_BW
+        # style    = SPK_GLOBAL_STYLE_COLOR,
+        style    = SPK_GLOBAL_STYLE_BW
     )
     update.build()

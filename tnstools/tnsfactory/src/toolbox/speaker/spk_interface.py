@@ -7,20 +7,27 @@ from abc import ABCMeta, abstractmethod
 # -- CONSTANTS -- #
 # --------------- #
 
-CONTEXT_NORMAL = "normal"
+# -- INTERFACE - AUTO CODE - START -- #
 
-CONTEXTS = [
-    "error",
-    "warning",
-    "good",
+CONTEXT_NORMAL = "normal"
+CONTEXT_ERROR = "error"
+CONTEXT_WARNING = "warning"
+CONTEXT_GOOD = "good"
+
+ALL_CONTEXTS = [
     CONTEXT_NORMAL,
+    CONTEXT_ERROR,
+    CONTEXT_WARNING,
+    CONTEXT_GOOD
 ]
+
+# -- INTERFACE - AUTO CODE - END -- #
 
 
 SPK_GLOBAL_STYLE_COLOR = "color"
 SPK_GLOBAL_STYLE_BW    = "balck & white"
 
-SPK_GLOBAL_STYLES = [
+SPK_GLOBAL_ALL_STYLES = [
     SPK_GLOBAL_STYLE_COLOR,
     SPK_GLOBAL_STYLE_BW,
 ]
@@ -65,7 +72,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
         self,
         style: str
     ):
-        assert(style in SPK_GLOBAL_STYLES)
+        assert(style in SPK_GLOBAL_ALL_STYLES)
         
         self.global_style = style
         self.nbstep       = 0
@@ -104,7 +111,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     context = _ in CONTEXTS (CONTEXT_NORMAL) ; // See Python typing...
+#     context = _ in ALL_CONTEXTS (CONTEXT_NORMAL) ; // See Python typing...
 #               a context for formatting ¨infos.
 #
 #

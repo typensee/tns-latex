@@ -18,8 +18,8 @@ class ColorStylist(Enum):
 # See ``interface.CONTEXTS.``
     normal :str = ''
     error  :str = '31'
-    warning:str = '34'
-    good   :str = '36'
+    warning:str = '96'
+    good   :str = '94'
 
     def colorit(self) -> None:
         if self.value:

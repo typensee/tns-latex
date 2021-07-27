@@ -27,14 +27,12 @@ TAB = [
 ]
 
 
-ASCII_FRAME = [None]
+ASCII_FRAME = {}
 
 for i in range(1, 3):
-    ASCII_FRAME.append(
-        lambda t: withframe(
-            text  = t,
-            frame = ALL_FRAMES[f'pyba_title_{i}']
-        )
+    ASCII_FRAME[i] = lambda t: withframe(
+        text  = t,
+        frame = ALL_FRAMES[f'pyba_title_{i}']
     )
 
 
@@ -53,27 +51,28 @@ SPK_PRINT = "print"
 SPK_TITLE = "title"
 SPK_STEP = "step"
 SPK_PROBLEM = "problem"
-SPK_VAR_MESSAGE = "message"
+SPK_VAR_STEP_INFO = "step_info"
 SPK_VAR_TITLE = "title"
 SPK_VAR_LEVEL = "level"
-SPK_VAR_PB_ID = "pb_id"
 SPK_VAR_CONTEXT = "context"
+SPK_VAR_INFO = "info"
+SPK_VAR_PB_ID = "pb_id"
 
 SPK_ACTIONS_NO_ARG = [
     SPK_FORLOG,
     SPK_FORTERM,
     SPK_FORALL,
-]
-
-SPK_ACTIONS_NO_ARG_ALLOWED = [
     SPK_NL,
     SPK_STYLE,
 ]
 
-SPK_STYLE_ERROR = "error"
-SPK_STYLE_WARNING = "warning"
-SPK_STYLE_GOOD = "good"
-SPK_STYLE_NORMAL = "normal"
+
+SPK_STYLE_NORMAL = CONTEXT_NORMAL
+SPK_STYLE_ERROR = CONTEXT_ERROR
+SPK_STYLE_WARNING = CONTEXT_WARNING
+SPK_STYLE_GOOD = CONTEXT_GOOD
+
+SPK_ALL_STYLES = ALL_CONTEXTS
 
 # -- RECIPES - AUTO CODE - END -- #
 
@@ -202,15 +201,15 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     message  = ; // See Python typing...
-#                one message.
-#     level    = _ in [0..3] (0); // See Python typing...
-#                the level of step indicating where ``0`` is for automatic 
-#                numbered enumerations.
+#     step_info  = ; // See Python typing...
+#                  one short info.
+#     level      = _ in [0..3] (0); // See Python typing...
+#                  the level of step indicating where ``0`` is for automatic 
+#                  numbered enumerations.
 ###
     def step(self, 
-        message: str,
-        level  : int = 0,
+        step_info: str,
+        level    : int = 0,
     ) -> None:
         for out in self._outputs:
             item = self.stepitem(
@@ -219,7 +218,7 @@ class Speaker(AbstractSpeaker):
             )
 
             self._speakers[out].print(
-                message = f'{item}{message}',
+                message = f'{item}{step_info}',
                 tab     = " "*len(item)
             )
 
@@ -261,9 +260,11 @@ class Speaker(AbstractSpeaker):
         self,
         context: str,
         pb_id  : int,
-        message: str,
+        info   : str,
         level  : int = 0
     ) -> None:
+        self.style(context)
+
         for out in self._outputs:
             item = self.stepitem(
                 out   = out,
@@ -273,11 +274,12 @@ class Speaker(AbstractSpeaker):
             item_ctxt = f"{item}[ {pb_id} ] {context}: "
             tab       = " "*len(item_ctxt)
     
- # TODO : focusing via self.style(None par défaut cf log file et remise à zréo sinon ERROR, MESSAGE du ColorTerm)
             self._speakers[out].print(
-                message = f'{item_ctxt}{message}',
+                message = f'{item_ctxt}{info}',
                 tab     = tab
             )
+
+        self.style(SPK_STYLE_NORMAL)
 
 
 ###
@@ -287,19 +289,19 @@ class Speaker(AbstractSpeaker):
 # 
 # This method allows to indicate recipes to apply suchas to simplify 
 # the "speaking". Here is an exemple of use followed by the actions 
-# actualy done.
+# actualy done (some actions have short version expressions).
 #
 # python::
 #     self.speaker.receipe(
 #         SPEAKER_FOR_TERM,
 #         SPEAKER_NL,
 #         (SPEAKER_TITLE, f'MONOREPO "{self.monorepo.name}"'),
-#         (SPEAKER_TITLE, {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
-#                          SPK_VAR_LEVEL: 2}),
+#         {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
+#                          SPK_VAR_LEVEL: 2}, # A short version here!
 #     )
 #
 # This says to do the following actions.
-
+#
 # python::
 #     self.speaker.forterm()
 #     self.speaker.NL()
@@ -309,18 +311,49 @@ class Speaker(AbstractSpeaker):
 #         level = 2
 #     )
 ###
-    def receipe(self, *args) -> None:
+    def recipe(self, *args) -> None:
         for action in args:
 # No arg actions.
             if action in SPK_ACTIONS_NO_ARG:
                 getattr(self, action)()
                 continue
-            
-# Actions with args.
-            action_args = []
-            action_kwargs = {}
 
-            if not action in SPK_ACTIONS_NO_ARG_ALLOWED:
+# Just a style.
+            if action in SPK_ALL_STYLES:
+                action_args   = [action]
+                action_kwargs = {}  
+                action        = SPK_STYLE    
+
+# A string short version just to print.
+            elif type(action) == str:
+                self.print(action)
+                continue
+
+# A dict short version: we have to guess the action.
+            elif type(action) == dict:
+                action_args   = []
+                action_kwargs = action   
+
+                if SPK_VAR_TITLE in action:
+                    action = SPK_TITLE
+
+                elif SPK_VAR_STEP_INFO in action:
+                    action = SPK_STEP
+
+                elif SPK_VAR_CONTEXT in action:
+                    action = SPK_PROBLEM
+
+                else:
+                    raise ValueError(
+                          "impossible to guess the action with the dict:\n"
+                        + repr(action)
+                    )
+
+# Actions given with args.
+            else:
+                action_args   = []
+                action_kwargs = {}
+
                 action, *extras = action
 
 # ``extras`` is just on dict.

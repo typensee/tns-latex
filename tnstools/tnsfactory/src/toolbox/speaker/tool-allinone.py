@@ -13,7 +13,8 @@ from spk_interface import *
 
 # Esay-to-update configuration.
 
-FILE = PPath(__file__).parent / "allinone.py"
+FILE = PPath(__file__)
+FILE = FILE.parent / FILE.name.replace('tool-', '')
 
 CONFIG = """
 no_arg::
@@ -32,11 +33,12 @@ arg::
     problem
 
 var::
-    message
+    step_info
     title
     level
-    pb_id
     context
+    info
+    pb_id
 """
 
 
@@ -49,10 +51,10 @@ COMMENT_TAG_START = f'# -- {COMMENT_TAG} - START -- #'
 COMMENT_TAG_END   = f'# -- {COMMENT_TAG} - END -- #'
 
 
-SRC_ACTIONS                = []
-SRC_ACTIONS_NO_ARG         = []
-SRC_ACTIONS_NO_ARG_ALLOWED = []
-SRC_STYLES                 = []
+SRC_ACTIONS        = []
+SRC_ACTIONS_NO_ARG = []
+
+SRC_STYLES = []          
 
 
 with ReadBlock(
@@ -70,17 +72,15 @@ with ReadBlock(
 
             SRC_ACTIONS.append(f'{varname} = "{onename}"')
 
-            if kind == "no_arg":
+            if kind in ["no_arg", "no_arg_allowed"]:
                 SRC_ACTIONS_NO_ARG.append(varname)
 
-            elif kind == "no_arg_allowed":
-                SRC_ACTIONS_NO_ARG_ALLOWED.append(varname)
 
-
-for ctxt in CONTEXTS:
-    SRC_STYLES.append(
-        f'SPK_STYLE_{ctxt.upper()} = "{ctxt}"'
-    )
+for ctxt in ALL_CONTEXTS:
+    varname   = f'SPK_STYLE_{ctxt.upper()}'
+    valuename = f'CONTEXT_{ctxt.upper()}'
+    
+    SRC_STYLES.append(f'{varname} = {valuename}')
 
 
 # Let's nuild the source code.
@@ -95,10 +95,6 @@ SRC_ACTIONS_NO_ARG = "\n".join(
     for code in SRC_ACTIONS_NO_ARG
 )
 
-SRC_ACTIONS_NO_ARG_ALLOWED = "\n".join(
-    f'{TAB}{code},'
-    for code in SRC_ACTIONS_NO_ARG_ALLOWED
-)
 
 SRC_STYLES = "\n".join(SRC_STYLES)
 
@@ -110,11 +106,10 @@ SPK_ACTIONS_NO_ARG = [
 {SRC_ACTIONS_NO_ARG}
 ]
 
-SPK_ACTIONS_NO_ARG_ALLOWED = [
-{SRC_ACTIONS_NO_ARG_ALLOWED}
-]
 
 {SRC_STYLES}
+
+SPK_ALL_STYLES = ALL_CONTEXTS
 '''
 
 
