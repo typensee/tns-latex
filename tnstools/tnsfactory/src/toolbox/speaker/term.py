@@ -59,7 +59,7 @@ class BWStylist(Enum):
 class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     style = _ in spk_interface.ALL_STYLES; // See Python typing...
+#     style = _ in interface.ALL_STYLES; // See Python typing...
 #             a global style for the output.
 ###
     def __init__(
@@ -69,8 +69,8 @@ class TermSpeaker(AbstractSpeaker):
         super().__init__(style)
 
         self.stylist = {
-            SPK_GLOBAL_STYLE_COLOR: ColorStylist,
-            SPK_GLOBAL_STYLE_BW   : BWStylist
+            GLOBAL_STYLE_COLOR: ColorStylist,
+            GLOBAL_STYLE_BW   : BWStylist
         }[self.global_style]
 
 

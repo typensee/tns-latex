@@ -20,7 +20,7 @@ class Update:
 #               ``True`` forces to work on all packages without using
 #               term::``git a`` and False uses git to focus only on
 #               recent changes.
-#     style    = _ in spk_interface.SPK_GLOBAL_STYLES; // See Python typing...  
+#     style    = _ in interface.GLOBAL_STYLES; // See Python typing...  
 #                a global style for the output.
 ###
     def __init__(
@@ -71,20 +71,20 @@ class Update:
 # Just say "Hello."
         self.speaker.recipe(
 # Title for the monorepo.
-            SPK_STYLE_GOOD,
-            SPK_FORTERM,
-            SPK_NL,
-            {SPK_VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
+            CONTEXT_GOOD,
+            FORTERM,
+            NL,
+            {VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
             #
-            SPK_FORLOG,
-            {SPK_VAR_TITLE: f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
+            FORLOG,
+            {VAR_TITLE: f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
             #
-            SPK_FORALL,
-            SPK_STYLE_NORMAL,
+            FORALL,
+            CONTEXT_NORMAL,
 # Title for the start.
-            SPK_FORTERM,
-            {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
-             SPK_VAR_LEVEL: 2},
+            FORTERM,
+            {VAR_TITLE: "STARTING THE ANALYSIS", 
+             VAR_LEVEL: 2},
         )
 
         timestamp(
@@ -103,13 +103,13 @@ class Update:
 # Just say "Good bye!"
         self.speaker.recipe(
 # Terminal output.
-            SPK_FORTERM,
-            SPK_NL,
-            {SPK_VAR_TITLE: "ANALYSIS FINISHED", 
-             SPK_VAR_LEVEL: 2},
+            FORTERM,
+            NL,
+            {VAR_TITLE: "ANALYSIS FINISHED", 
+             VAR_LEVEL: 2},
 # Log file output.
-            SPK_FORLOG,
-            SPK_NL
+            FORLOG,
+            NL
         )
 
         timestamp(
@@ -125,17 +125,17 @@ class Update:
     def findpacks(self):
         self.speaker.recipe(
 # Terminal output.
-            SPK_FORTERM,
-            {SPK_VAR_STEP_INFO: "Looking for packages to build or update."},
+            FORTERM,
+            {VAR_STEP_INFO: "Looking for packages to build or update."},
         )
 
         self.speaker.recipe(
 # Terminal output.
-            SPK_FORALL,
-            SPK_NL,
-            {SPK_VAR_CONTEXT: CONTEXT_ERROR,
-             SPK_VAR_INFO: "No packages found.",
-             SPK_VAR_PB_ID  : 0},
+            FORALL,
+            NL,
+            {VAR_CONTEXT: CONTEXT_ERROR,
+             VAR_INFO: "No packages found.",
+             VAR_PB_ID  : 0},
         )
 
 
@@ -161,7 +161,7 @@ if __name__ =="__main__":
     update = Update(
         monorepo = MONOREPO,
         initrepo = INIT_REPO,
-        # style    = SPK_GLOBAL_STYLE_COLOR,
-        style    = SPK_GLOBAL_STYLE_BW
+        style    = GLOBAL_STYLE_COLOR,
+        # style    = GLOBAL_STYLE_BW
     )
     update.build()

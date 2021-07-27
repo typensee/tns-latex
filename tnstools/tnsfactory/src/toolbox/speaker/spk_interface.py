@@ -24,12 +24,12 @@ ALL_CONTEXTS = [
 # -- INTERFACE - AUTO CODE - END -- #
 
 
-SPK_GLOBAL_STYLE_COLOR = "color"
-SPK_GLOBAL_STYLE_BW    = "balck & white"
+GLOBAL_STYLE_COLOR = "color"
+GLOBAL_STYLE_BW    = "balck & white"
 
-SPK_GLOBAL_ALL_STYLES = [
-    SPK_GLOBAL_STYLE_COLOR,
-    SPK_GLOBAL_STYLE_BW,
+GLOBAL_ALL_STYLES = [
+    GLOBAL_STYLE_COLOR,
+    GLOBAL_STYLE_BW,
 ]
 
 
@@ -72,7 +72,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
         self,
         style: str
     ):
-        assert(style in SPK_GLOBAL_ALL_STYLES)
+        assert(style in GLOBAL_ALL_STYLES)
         
         self.global_style = style
         self.nbstep       = 0

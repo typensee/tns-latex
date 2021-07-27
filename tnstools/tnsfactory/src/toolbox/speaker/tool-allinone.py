@@ -54,8 +54,6 @@ COMMENT_TAG_END   = f'# -- {COMMENT_TAG} - END -- #'
 SRC_ACTIONS        = []
 SRC_ACTIONS_NO_ARG = []
 
-SRC_STYLES = []          
-
 
 with ReadBlock(
     content = CONFIG,
@@ -64,23 +62,16 @@ with ReadBlock(
     for kind, names in datas.mydict("std nosep nonb").items():
         for onename in names:
             if kind == "var":
-                suffix = f'_{kind.upper()}'
+                suffix = f'{kind.upper()}_'
             else:
                 suffix = ""
 
-            varname = f'SPK{suffix}_{onename.upper()}'
+            varname = f'{suffix}{onename.upper()}'
 
             SRC_ACTIONS.append(f'{varname} = "{onename}"')
 
             if kind in ["no_arg", "no_arg_allowed"]:
                 SRC_ACTIONS_NO_ARG.append(varname)
-
-
-for ctxt in ALL_CONTEXTS:
-    varname   = f'SPK_STYLE_{ctxt.upper()}'
-    valuename = f'CONTEXT_{ctxt.upper()}'
-    
-    SRC_STYLES.append(f'{varname} = {valuename}')
 
 
 # Let's nuild the source code.
@@ -96,20 +87,12 @@ SRC_ACTIONS_NO_ARG = "\n".join(
 )
 
 
-SRC_STYLES = "\n".join(SRC_STYLES)
-
-
 CODE = f'''
 {SRC_ACTIONS}
 
-SPK_ACTIONS_NO_ARG = [
+ACTIONS_NO_ARG = [
 {SRC_ACTIONS_NO_ARG}
 ]
-
-
-{SRC_STYLES}
-
-SPK_ALL_STYLES = ALL_CONTEXTS
 '''
 
 

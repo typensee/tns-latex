@@ -42,37 +42,29 @@ for i in range(1, 3):
 
 # -- RECIPES - AUTO CODE - START -- #
 
-SPK_FORLOG = "forlog"
-SPK_FORTERM = "forterm"
-SPK_FORALL = "forall"
-SPK_NL = "NL"
-SPK_STYLE = "style"
-SPK_PRINT = "print"
-SPK_TITLE = "title"
-SPK_STEP = "step"
-SPK_PROBLEM = "problem"
-SPK_VAR_STEP_INFO = "step_info"
-SPK_VAR_TITLE = "title"
-SPK_VAR_LEVEL = "level"
-SPK_VAR_CONTEXT = "context"
-SPK_VAR_INFO = "info"
-SPK_VAR_PB_ID = "pb_id"
+FORLOG = "forlog"
+FORTERM = "forterm"
+FORALL = "forall"
+NL = "NL"
+STYLE = "style"
+PRINT = "print"
+TITLE = "title"
+STEP = "step"
+PROBLEM = "problem"
+VAR_STEP_INFO = "step_info"
+VAR_TITLE = "title"
+VAR_LEVEL = "level"
+VAR_CONTEXT = "context"
+VAR_INFO = "info"
+VAR_PB_ID = "pb_id"
 
-SPK_ACTIONS_NO_ARG = [
-    SPK_FORLOG,
-    SPK_FORTERM,
-    SPK_FORALL,
-    SPK_NL,
-    SPK_STYLE,
+ACTIONS_NO_ARG = [
+    FORLOG,
+    FORTERM,
+    FORALL,
+    NL,
+    STYLE,
 ]
-
-
-SPK_STYLE_NORMAL = CONTEXT_NORMAL
-SPK_STYLE_ERROR = CONTEXT_ERROR
-SPK_STYLE_WARNING = CONTEXT_WARNING
-SPK_STYLE_GOOD = CONTEXT_GOOD
-
-SPK_ALL_STYLES = ALL_CONTEXTS
 
 # -- RECIPES - AUTO CODE - END -- #
 
@@ -171,7 +163,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = _ in interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#     context = _ in interface.ALL_CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
 #               a context for formatting ¨infos.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -279,7 +271,7 @@ class Speaker(AbstractSpeaker):
                 tab     = tab
             )
 
-        self.style(SPK_STYLE_NORMAL)
+        self.style(CONTEXT_NORMAL)
 
 
 ###
@@ -296,8 +288,8 @@ class Speaker(AbstractSpeaker):
 #         SPEAKER_FOR_TERM,
 #         SPEAKER_NL,
 #         (SPEAKER_TITLE, f'MONOREPO "{self.monorepo.name}"'),
-#         {SPK_VAR_TITLE: "STARTING THE ANALYSIS", 
-#                          SPK_VAR_LEVEL: 2}, # A short version here!
+#         {VAR_TITLE: "STARTING THE ANALYSIS", 
+#                          VAR_LEVEL: 2}, # A short version here!
 #     )
 #
 # This says to do the following actions.
@@ -314,15 +306,15 @@ class Speaker(AbstractSpeaker):
     def recipe(self, *args) -> None:
         for action in args:
 # No arg actions.
-            if action in SPK_ACTIONS_NO_ARG:
+            if action in ACTIONS_NO_ARG:
                 getattr(self, action)()
                 continue
 
 # Just a style.
-            if action in SPK_ALL_STYLES:
+            if action in ALL_CONTEXTS:
                 action_args   = [action]
                 action_kwargs = {}  
-                action        = SPK_STYLE    
+                action        = STYLE    
 
 # A string short version just to print.
             elif type(action) == str:
@@ -334,14 +326,14 @@ class Speaker(AbstractSpeaker):
                 action_args   = []
                 action_kwargs = action   
 
-                if SPK_VAR_TITLE in action:
-                    action = SPK_TITLE
+                if VAR_TITLE in action:
+                    action = TITLE
 
-                elif SPK_VAR_STEP_INFO in action:
-                    action = SPK_STEP
+                elif VAR_STEP_INFO in action:
+                    action = STEP
 
-                elif SPK_VAR_CONTEXT in action:
-                    action = SPK_PROBLEM
+                elif VAR_CONTEXT in action:
+                    action = PROBLEM
 
                 else:
                     raise ValueError(
