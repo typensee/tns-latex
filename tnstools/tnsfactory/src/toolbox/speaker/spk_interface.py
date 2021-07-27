@@ -17,6 +17,15 @@ CONTEXTS = [
 ]
 
 
+SPK_GLOBAL_STYLE_COLOR = "color"
+SPK_GLOBAL_STYLE_BW    = "balck & white"
+
+SPK_GLOBAL_STYLES = [
+    SPK_GLOBAL_STYLE_COLOR,
+    SPK_GLOBAL_STYLE_BW,
+]
+
+
 # ---------------- #
 # -- MAIN CLASS -- #
 # ---------------- #
@@ -30,17 +39,37 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #     * https://realpython.com/python-interface/#using-abcabcmeta
     @classmethod
     def __subclasshook__(cls, subclass):
-        return (
-            hasattr(subclass, 'print') and 
-            callable(subclass.print) 
-            and 
-            hasattr(subclass, 'NL') and 
-            callable(subclass.NL)
+        goodinterface = all(
+            hasattr(subclass, methodname) and 
+            callable(getattr(subclass, methodname)) 
+            for methodname in [
+                'print',
+                'NL',
+            ]
         )
 
-# We need an attribut for numbered steps.
-    def __init__(self):
-        self.nb_step = 0
+        return goodinterface
+
+
+###
+# prototype::
+#     style  = _ in ALL_STYLES; // See Python typing...
+#              a global style for the output. Internally this style is stored 
+#              in the attribut ``global_style``.
+# 
+# warning::
+#     An attribut ``nbstep`` is created: it is for the first level 
+#     numbered steps.
+###
+    def __init__(
+        self,
+        style: str
+    ):
+        assert(style in SPK_GLOBAL_STYLES)
+        
+        self.global_style = style
+        self.nbstep       = 0
+
 
 ###
 # prototype::
@@ -62,6 +91,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
     ) -> None:
         raise NotImplementedError
 
+
 ###
 # prototype::
 #     repeat = (1) ; // See Python typing...
@@ -71,6 +101,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
     def NL(self, repeat: int = 1) -> None:
         raise NotImplementedError
 
+
 ###
 # prototype::
 #     context = _ in CONTEXTS (CONTEXT_NORMAL) ; // See Python typing...
@@ -78,7 +109,16 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #
 #
 # info::
-#     This method can't be omitted.
+#     This method do not need to be implemented.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
+# Help for debuging.
+#         print(self.__class__)
         ...
+
+
+###
+# This method reset the number of numbered steps.
+###
+    def reset_nbstep(self) -> None:
+        self.nbstep = 0

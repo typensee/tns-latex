@@ -27,71 +27,56 @@ TAB = [
 ]
 
 
-ASCII_FRAME = {}
+ASCII_FRAME = [None]
 
 for i in range(1, 3):
-    exec(
-    f'''
-ASCII_FRAME[{i}] = lambda t: withframe(
-    text  = t,
-    frame = ALL_FRAMES[f'pyba_title_{i}']
-)
-    ''')
+    ASCII_FRAME.append(
+        lambda t: withframe(
+            text  = t,
+            frame = ALL_FRAMES[f'pyba_title_{i}']
+        )
+    )
+
 
 # ------------------ #
-# -- FOR RECIEPES -- #
+# -- FOR RECIPES -- #
 # ------------------ #
 
-SPK_ACTIONS_NO_ARG         = []
-SPK_ACTIONS_NO_ARG_ALLOWED = []
+# -- RECIPES - AUTO CODE - START -- #
 
-for kind, names in {
-    "no_arg": [
-        "forlog",
-        "forterm",
-        "forall",
-    ],
-    "no_arg_allowed": [
-        "NL",
-        "style",
-    ],
-    "arg": [
-        "print",
-        "title",
-        "step",
-        "problem",
-    ],
-    "var": [
-        "message",
-        "title",
-        "level",
-        "pb_id",
-        "context",
-    ],
-}.items():
-    for onename in names:
-        if kind == "var":
-            suffix = f'_{kind.upper()}'
-        else:
-            suffix = ""
+SPK_FORLOG = "forlog"
+SPK_FORTERM = "forterm"
+SPK_FORALL = "forall"
+SPK_NL = "NL"
+SPK_STYLE = "style"
+SPK_PRINT = "print"
+SPK_TITLE = "title"
+SPK_STEP = "step"
+SPK_PROBLEM = "problem"
+SPK_VAR_MESSAGE = "message"
+SPK_VAR_TITLE = "title"
+SPK_VAR_LEVEL = "level"
+SPK_VAR_PB_ID = "pb_id"
+SPK_VAR_CONTEXT = "context"
 
-        exec(
-        f'''
-SPK{suffix}_{onename.upper()} = "{onename}"
-        ''')
+SPK_ACTIONS_NO_ARG = [
+    SPK_FORLOG,
+    SPK_FORTERM,
+    SPK_FORALL,
+]
 
-        if kind in ["no_arg", "no_arg_allowed"]:
-            exec(
-            f'''
-SPK_ACTIONS_{kind.upper()}.append("{onename}")
-            ''')
+SPK_ACTIONS_NO_ARG_ALLOWED = [
+    SPK_NL,
+    SPK_STYLE,
+]
 
+SPK_STYLE_ERROR = "error"
+SPK_STYLE_WARNING = "warning"
+SPK_STYLE_GOOD = "good"
+SPK_STYLE_NORMAL = "normal"
 
-for ctxt in CONTEXTS:
-    exec(
-    f'''
-SPK_STYLE_{ctxt.upper()} = "{ctxt}"
-    ''')
+# -- RECIPES - AUTO CODE - END -- #
+
 
 # ---------------- #
 # -- MAIN CLASS -- #
@@ -118,16 +103,17 @@ class Speaker(AbstractSpeaker):
     def __init__(
         self,
         logfile: PPath,
-        stylist
+        style  : str
     ):
 # Here we do not need the use of ``super().__init__()``.
         self._speakers = {
             self.OUTPUT_LOG : LogSpeaker(
                 logfile  = logfile,
-                maxwidth = MAX_WIDTH
+                maxwidth = MAX_WIDTH,
+                style    = style
             ),
             self.OUTPUT_TERM: TermSpeaker(
-                stylist = stylist
+                style = style
             ),
         }
 
@@ -252,9 +238,9 @@ class Speaker(AbstractSpeaker):
     ) -> None:
 # Enumeration...
         if level == 0:
-            self._speakers[out].nb_step += 1
+            self._speakers[out].nbstep += 1
 
-            return f'{self._speakers[out].nb_step}) '
+            return f'{self._speakers[out].nbstep}) '
 
 # Basic item
         return f'{ITEM[level]} '
@@ -349,5 +335,5 @@ class Speaker(AbstractSpeaker):
                 else:
                     action_args = extras
 
-# Let's call the good actuion.
+# Let's call the good action.
             getattr(self, action)(*action_args, **action_kwargs)

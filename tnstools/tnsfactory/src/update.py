@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-from tools import *
+from toolbox import *
 
 
 # ---------------- #
@@ -20,19 +20,21 @@ class Update:
 #               ``True`` forces to work on all packages without using
 #               term::``git a`` and False uses git to focus only on
 #               recent changes.
+#     style    = _ in spk_interface.SPK_GLOBAL_STYLES; // See Python typing...  
+#                a global style for the output.
 ###
     def __init__(
         self,
         monorepo: PPath,
-        initrepo: bool
+        initrepo: bool,
+        style   : str 
     ) -> None:
 
         self.monorepo = monorepo
 
         self.speaker  = Speaker(
             logfile = monorepo / "x-LOG-LATEX-MONOREPO-x.txt",
-            # stylist = ColorStylist
-            stylist = BWStylist
+            style   = style
         )
 
         self.problems = Problems(self.speaker)
@@ -164,6 +166,8 @@ if __name__ =="__main__":
 
     update = Update(
         monorepo = MONOREPO,
-        initrepo = INIT_REPO
+        initrepo = INIT_REPO,
+        style    = SPK_GLOBAL_STYLE_COLOR,
+        # style    = SPK_GLOBAL_STYLE_BW
     )
     update.build()

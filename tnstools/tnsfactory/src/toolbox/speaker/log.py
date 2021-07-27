@@ -2,7 +2,7 @@
 
 from mistool.os_use import PPath
 
-from .interface import *
+from .spk_interface import *
 
 
 # ---------------- #
@@ -20,13 +20,16 @@ class LogSpeaker(AbstractSpeaker):
 #                the path of the log file.
 #     maxwidth = ; // See Python typing...  
 #                the maximum number of characters on the same line.
+#     style    = _ in spk_interface.ALL_STYLES; // See Python typing...
+#                a global style for the output.
 ###
     def __init__(
         self,
         logfile : PPath,
-        maxwidth: int
+        maxwidth: int,
+        style   : str
     ):
-        super().__init__()
+        super().__init__(style)
 
         self.logfile  = logfile
         self.maxwidth = maxwidth

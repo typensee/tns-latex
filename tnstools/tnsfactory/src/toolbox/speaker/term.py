@@ -2,7 +2,7 @@
 
 from enum import Enum
 
-from .interface import *
+from .spk_interface import *
 
 
 # ----------- #
@@ -57,13 +57,22 @@ class BWStylist(Enum):
 ###
 
 class TermSpeaker(AbstractSpeaker):
+###
+# prototype::
+#     style = _ in spk_interface.ALL_STYLES; // See Python typing...
+#             a global style for the output.
+###
     def __init__(
         self,
-        stylist
+        style
     ):
-        super().__init__()
+        super().__init__(style)
 
-        self.stylist = stylist
+        self.stylist = {
+            SPK_GLOBAL_STYLE_COLOR: ColorStylist,
+            SPK_GLOBAL_STYLE_BW   : BWStylist
+        }[self.global_style]
+
 
 ###
 # prototype::
