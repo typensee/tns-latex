@@ -5,62 +5,89 @@ from enum import Enum
 from .spk_interface import *
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
+# -------------- #
+# -- STYLISTS -- #
+# -------------- #
 
 ###
-# This class colorize easily the terminal outputs.
+# prototype::
+#     value    = ; // See Python typing...
+#                the style code choosen.
+#     codetemp = ; // See Python typing...
+#                a template that will be updated with the vaue of 
+#                the color code.
+#     normcode = ; // See Python typing...
+#                the code for the normal style.
+#
+# This function is just a basic factorization for the code of the stylists.
+###
+
+def _colorit(
+    value   : str,
+    codetemp: str,
+    normcode: str,
+) -> None:
+    if value:
+        termcode = codetemp.format(value = value)
+
+    else:
+        termcode = normcode
+
+    print(termcode, end = "")
+
+
+###
+# This class "colorizes" easily the terminal outputs.
 ###
 
 # Source: GNU/Linux Mag. - Hors Série 115
+
 class ColorStylist(Enum):
-# See ``interface.CONTEXTS.``
+# See ``spk_interface.ALL_CONTEXTS.``
     normal :str = ''
     error  :str = '31'
     warning:str = '96'
     good   :str = '94'
 
     def colorit(self) -> None:
-        if self.value:
-            termcode = f"\x1b[1;{self.value}m"
+        _colorit(
+            value    = self.value,
+            codetemp = '\x1b[1;{value}m',
+            normcode = '\x1b[0m'
+        )
 
-        else:
-            termcode = f"\x1b[0m"
-
-        print(termcode, end = "")
-
+###
+# This class uses a "black and white" style for the terminal outputs.
+###
 
 class BWStylist(Enum):
-# See ``interface.CONTEXTS.``
+# See ``spk_interface.ALL_CONTEXTS.``
     normal :str = ''
     error  :str = 'x'
     warning:str = 'x'
     good   :str = 'x'
 
     def colorit(self) -> None:
-        if self.value:
-            termcode = "\033[1m"
-
-        else:
-            termcode = "\033[0m"
-
-        print(termcode, end = "")
+        _colorit(
+            value    = self.value,
+            codetemp = '\033[1m',
+            normcode = '\033[0m'
+        )
 
 
-# ---------------- #
-# -- MAIN CLASS -- #
-# ---------------- #
+# ------------------ #
+# -- TERM SPEAKER -- #
+# ------------------ #
 
 ###
-# This class implements methiods to print ¨infos on the terminal.
+# This class implements methods to print ¨infos on the terminal.
 ###
 
 class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     style = _ in interface.ALL_STYLES; // See Python typing...
-#             a global style for the output.
+#     style = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
+#             a global style for the outputs.
 ###
     def __init__(
         self,
@@ -79,7 +106,7 @@ class TermSpeaker(AbstractSpeaker):
 #     repeat = (1) ; // See Python typing...
 #              the numebr of empty lines wanted.
 #
-# This method simply prints some new empty lines in the terminal.
+# This method simply prints ``repeat`` empty lines on the terminal.
 ###
     def NL(self, repeat: int = 1) -> None:
         print("\n"*(repeat - 1))
@@ -87,26 +114,32 @@ class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
 #     message = ; // See Python typing...
-#               the message to print in the terminal.
+#               the message to print on the terminal.
 #     tab     = (""); // See Python typing...
 #               a possible tabulation to use for each new line created.
+#     nowrap  = (False); // See Python typing...
+#               ``True`` avoids the hard wrapping and otherwise 
+#               ``False`` asks to use the hard wrapping.
 #
 # warning::
-#     The tabulation is not used in the terminal (but we have to use 
-#     a general API to make feel us happy when coding).
-#     The argument tab is used by ``speaker_log.LogSpeaker``.
+#     The arguments ``tab`` and ``nowrap`` are not used with the terminal 
+#     speaker but we have to use a general API to make feel us happy when
+#     coding (this arguments are used by ``log.LogSpeaker``).
 ###
     def print(
         self,
         message: str,
-        tab    : str = ""
+        tab    : str = "",
+        nowrap : bool = False
     ) -> None:
         print(message)
 
 ###
 # prototype::
-#     context = _ in interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
-#               a context implemented via ``ColorTerm``.
+#     context = _ in spk_interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#               a context to format some outputs
+#
+#     see = ``ColorStylist`` and ``BWStylist``.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         getattr(self.stylist, context).colorit()

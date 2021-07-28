@@ -8,11 +8,12 @@ from datetime import datetime
 
 ###
 # prototype::
-#     speaker = speaker.Speaker ;  
+#     speaker = speaker.allinone.Speaker ;  
 #               the class used to speak on the terminal and in the log file.
 #     kind    = ; # See Python typing...
 #               the kind of time stamp ("START" and "END" for us).
 ###
+
 def timestamp(
     speaker, # Can't use the type speaker.Speaker.
     kind: str
@@ -22,9 +23,11 @@ def timestamp(
     timeTXT = f"{kind} TIME STAMP: {now}"
 
     speaker.forlog()
+
     speaker.title(
         title   = timeTXT,
         level   = 2,
         with_NL = False
     )
+
     speaker.forall()

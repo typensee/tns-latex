@@ -13,33 +13,9 @@ from spk_interface import *
 
 # Esay-to-update configuration.
 
-FILE = PPath(__file__)
-FILE = FILE.parent / FILE.name.replace('tool-', '')
-
-CONFIG = """
-no_arg::
-    forlog
-    forterm
-    forall
-
-no_arg_allowed::
-    NL
-    style
-
-arg::
-    print
-    title
-    step
-    problem
-
-var::
-    step_info
-    title
-    level
-    context
-    info
-    pb_id
-"""
+THIS_FILE = PPath(__file__)
+FILE_PY   = THIS_FILE.parent / THIS_FILE.name.replace('tool-', '')
+FILE_PEUF = THIS_FILE.parent / 'tool-config' / FILE_PY.with_ext('peuf').name
 
 
 # Let's contruct.
@@ -56,11 +32,14 @@ SRC_ACTIONS_NO_ARG = []
 
 
 with ReadBlock(
-    content = CONFIG,
+    content = FILE_PEUF,
     mode    = "verbatim"
 ) as datas:
     for kind, names in datas.mydict("std nosep nonb").items():
         for onename in names:
+            if not onename:
+                continue
+
             if kind == "var":
                 suffix = f'{kind.upper()}_'
             else:
@@ -96,9 +75,9 @@ ACTIONS_NO_ARG = [
 '''
 
 
-# Let's update the file.
+# Let's update the FILE_PY.
 
-with FILE.open(
+with FILE_PY.open(
     encoding = "utf-8",
     mode     = "r"
 ) as file:
@@ -115,7 +94,7 @@ before, _ , after = between(
 )
 
 
-with FILE.open(
+with FILE_PY.open(
     encoding = "utf-8",
     mode     = "w"
 ) as file:

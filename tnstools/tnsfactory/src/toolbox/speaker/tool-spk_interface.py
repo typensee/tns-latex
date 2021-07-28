@@ -11,16 +11,9 @@ from orpyste.data       import ReadBlock
 
 # Esay-to-update configuration.
 
-FILE = PPath(__file__)
-FILE = FILE.parent / FILE.name.replace('tool-', '')
-
-CONFIG = """
-ctxts::
-    normal
-    error
-    warning
-    good
-"""
+THIS_FILE = PPath(__file__)
+FILE_PY   = THIS_FILE.parent / THIS_FILE.name.replace('tool-', '')
+FILE_PEUF = THIS_FILE.parent / 'tool-config' / FILE_PY.with_ext('peuf').name
 
 
 # Let's contruct.
@@ -37,10 +30,13 @@ ALL_CONTEXTS = []
 
 
 with ReadBlock(
-    content = CONFIG,
+    content = FILE_PEUF,
     mode    = "verbatim"
 ) as datas:
     for onename in datas.mydict("std nosep nonb")['ctxts']:
+        if not onename:
+            continue
+
         varname = f'CONTEXT_{onename.upper()}'
 
         CONTEXTS.append(f'{varname} = "{onename}"')
@@ -68,7 +64,7 @@ ALL_CONTEXTS = [
 
 # Let's update the file.
 
-with FILE.open(
+with FILE_PY.open(
     encoding = "utf-8",
     mode     = "r"
 ) as file:
@@ -85,7 +81,7 @@ before, _ , after = between(
 )
 
 
-with FILE.open(
+with FILE_PY.open(
     encoding = "utf-8",
     mode     = "w"
 ) as file:

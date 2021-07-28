@@ -5,12 +5,12 @@ from mistool.os_use import PPath
 from .spk_interface import *
 
 
-# ---------------- #
-# -- MAIN CLASS -- #
-# ---------------- #
+# ----------------- #
+# -- LOG SPEAKER -- #
+# ----------------- #
 
 ###
-# This class implements methiods to print ¨infos in the log file.
+# This class implements methods to print ¨infos in the log file.
 ###
 
 class LogSpeaker(AbstractSpeaker):
@@ -20,8 +20,8 @@ class LogSpeaker(AbstractSpeaker):
 #                the path of the log file.
 #     maxwidth = ; // See Python typing...  
 #                the maximum number of characters on the same line.
-#     style    = _ in spk_interface.ALL_STYLES; // See Python typing...
-#                a global style for the output.
+#     style    = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
+#                a global style for the outputs.
 ###
     def __init__(
         self,
@@ -66,6 +66,9 @@ class LogSpeaker(AbstractSpeaker):
 # info::
 #     The method works on single lines so if the message uses back returns,
 #     thoses ones will be respected.
+#
+# warning::
+#     The last empty lines are stripped.
 ###
     def hardwrap(
         self,
@@ -100,13 +103,12 @@ class LogSpeaker(AbstractSpeaker):
 ###
 # prototype::
 #     message = ; // See Python typing...
-#               a message to be hard wrapped.
+#               a message to print in the log file.
 #     tab     = (""); // See Python typing...
-#               a possible tab to us each a new line is created.
+#               a possible tabulation to use for each new line created.
 #     nowrap  = (False); // See Python typing...
-#               ``True`` avoids the hard wrapping which is needed for
-#               for ``self.log_NL``, and otherwise False asks to use
-#               the hard wrapping.
+#               ``True`` avoids the hard wrapping and otherwise 
+#               ``False`` asks to use the hard wrapping.
 ###
     def print(
         self,
@@ -128,6 +130,7 @@ class LogSpeaker(AbstractSpeaker):
                         tab     = tab
                     )
                 )
+
 # Hard wrapping stripes the message...
                 logfile.write("\n")
 
@@ -136,7 +139,7 @@ class LogSpeaker(AbstractSpeaker):
 #     repeat = (1) ; // See Python typing...
 #              the numebr of empty lines wanted.
 #
-# This method simply append an empty new line to the log file.
+# This method simply append ``repeat`` empty new lines to the log file.
 ###
     def NL(self, repeat: int = 1) -> None:
         self.print(

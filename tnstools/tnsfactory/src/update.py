@@ -20,7 +20,7 @@ class Update:
 #               ``True`` forces to work on all packages without using
 #               term::``git a`` and False uses git to focus only on
 #               recent changes.
-#     style    = _ in interface.GLOBAL_STYLES; // See Python typing...  
+#     style    = _ in spk_interface.GLOBAL_STYLES; // See Python typing...  
 #                a global style for the output.
 ###
     def __init__(

@@ -6,6 +6,7 @@ from mistool.term_use import ALL_FRAMES, withframe
 from .log  import *
 from .term import *
 
+
 # -------------- #
 # -- DECORATE -- #
 # -------------- #
@@ -69,16 +70,16 @@ ACTIONS_NO_ARG = [
 # -- RECIPES - AUTO CODE - END -- #
 
 
-# ---------------- #
-# -- MAIN CLASS -- #
-# ---------------- #
+# ------------- #
+# -- SPEAKER -- #
+# ------------- #
 
 ###
-# This class is used to "speak": ¨infos are printed on the terminal and 
-# in a log file.
+# This class is used to "speak": the ¨infos are printed on the terminal 
+# and in a log file.
 #
 # warning::
-#     This class must work whatever the context of use!
+#     This class must work in any context of use!
 ###
 
 class Speaker(AbstractSpeaker):
@@ -89,6 +90,8 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     logfile = ; // See Python typing...  
+#               the path of the log file.
+#     style   = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...  
 #               the path of the log file.
 ###
     def __init__(
@@ -110,20 +113,21 @@ class Speaker(AbstractSpeaker):
 
         self._outputs = self.OUTPUT_ALL
 
+
 ###
-# This method sets an only "LOG FILE" output.
+# This method is to use only a "LOG FILE" output.
 ###
     def forlog(self) -> None:
         self._outputs = [self.OUTPUT_LOG]
 
 ###
-# This method sets an only "TERM" output.
+# This method is to use only a "TERM" output.
 ###
     def forterm(self) -> None:
         self._outputs = [self.OUTPUT_TERM]
 
 ###
-# This method sets all the outputs.
+# This method is to use only all the outputs.
 ###
     def forall(self) -> None:
         self._outputs = self.OUTPUT_ALL
@@ -134,9 +138,9 @@ class Speaker(AbstractSpeaker):
 #     repeat = (1) ; // See Python typing...
 #              the numebr of empty lines wanted.
 #
-# This method simply prints empty new lines in the ouputs wanted.
+# This method simply prints ``repeat`` empty new lines in all the ouputs wanted.
 ###
-    def NL(self, repeat = 1) -> None:
+    def NL(self, repeat: int = 1) -> None:
         for out in self._outputs:
             self._speakers[out].NL(repeat)
 
@@ -146,9 +150,6 @@ class Speaker(AbstractSpeaker):
 #               the message to print in the terminal.
 #     tab     = (""); // See Python typing...
 #               a possible tabulation to use for each new line created.
-#
-# info::
-#     This method will be helpful when using several speakers.
 ###
     def print(
         self,
@@ -163,7 +164,7 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = _ in interface.ALL_CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#     context = _ in spk_interface.ALL_CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
 #               a context for formatting ¨infos.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -174,12 +175,15 @@ class Speaker(AbstractSpeaker):
 ###
 # prototype::
 #     title   = ; // See Python typing...
-#               the title.
+#               the content of the title.
 #     level   = _ in [1,2] (1); // See Python typing...
-#               the level of of the title.
-#     with_NL = (False); // See Python typing...
-#               this allows to not add a new line after the title 
-#               (this is used for time stamps in the log file).
+#               the level of the title.
+#     with_NL = (True); // See Python typing...
+#               ``True`` asks to add a new line after the title and
+#               ``False`` to not do this 
+#
+# info::
+#     For example, ``with_NL`` is used to print time stamps in the log file.
 ###
     def title(self, 
         title  : str,
@@ -244,7 +248,7 @@ class Speaker(AbstractSpeaker):
 #     pb_id   = ; // See Python typing...
 #               the number of the problem.
 #     message = ; // See Python typing...
-#               the message to append to the log file.
+#               the message to print.
 #     level    = _ in [0..3] (0); // See Python typing...
 #                the level of the step indicating the problem.
 ###
@@ -289,7 +293,7 @@ class Speaker(AbstractSpeaker):
 #         SPEAKER_NL,
 #         (SPEAKER_TITLE, f'MONOREPO "{self.monorepo.name}"'),
 #         {VAR_TITLE: "STARTING THE ANALYSIS", 
-#                          VAR_LEVEL: 2}, # A short version here!
+#          VAR_LEVEL: 2}, # A short version here!
 #     )
 #
 # This says to do the following actions.
@@ -304,24 +308,26 @@ class Speaker(AbstractSpeaker):
 #     )
 ###
     def recipe(self, *args) -> None:
+# In most cases, to call the good action with its good arguments we will use: 
+# ``getattr(self, action)(*action_args, **action_kwargs)``.
         for action in args:
-# No arg actions.
+# An action with no arg.
             if action in ACTIONS_NO_ARG:
                 getattr(self, action)()
                 continue
 
-# Just a style.
-            if action in ALL_CONTEXTS:
+# Just a context.
+            elif action in ALL_CONTEXTS:
                 action_args   = [action]
                 action_kwargs = {}  
                 action        = STYLE    
 
-# A string short version just to print.
+# A "string short version" that is not a context: this will just be printed.
             elif type(action) == str:
                 self.print(action)
                 continue
 
-# A dict short version: we have to guess the action.
+# A "dict short version": we have to guess the action.
             elif type(action) == dict:
                 action_args   = []
                 action_kwargs = action   
@@ -360,5 +366,7 @@ class Speaker(AbstractSpeaker):
                 else:
                     action_args = extras
 
-# Let's call the good action.
+# End of the so clever analysis :-) .
+#
+# We can call the good action with the good args.
             getattr(self, action)(*action_args, **action_kwargs)

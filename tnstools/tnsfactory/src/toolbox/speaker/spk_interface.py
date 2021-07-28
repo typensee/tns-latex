@@ -27,23 +27,23 @@ ALL_CONTEXTS = [
 GLOBAL_STYLE_COLOR = "color"
 GLOBAL_STYLE_BW    = "balck & white"
 
-GLOBAL_ALL_STYLES = [
+ALL_GLOBAL_STYLES = [
     GLOBAL_STYLE_COLOR,
     GLOBAL_STYLE_BW,
 ]
 
 
-# ---------------- #
-# -- MAIN CLASS -- #
-# ---------------- #
+# -------------------------------- #
+# -- ABSTRACT / INTERFACE CLASS -- #
+# -------------------------------- #
 
 ###
-# This class ???
+# This abtract/interface class defines the common ¨api of the speakers.
 ###
 
 class AbstractSpeaker(metaclass=ABCMeta):
 # Source to have a real interface: 
-#     * https://realpython.com/python-interface/#using-abcabcmeta
+#     * https://realpython.com/python-interface/#using-abcabcmeta 
     @classmethod
     def __subclasshook__(cls, subclass):
         goodinterface = all(
@@ -57,22 +57,21 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
         return goodinterface
 
-
 ###
 # prototype::
-#     style  = _ in ALL_STYLES; // See Python typing...
-#              a global style for the output. Internally this style is stored 
-#              in the attribut ``global_style``.
+#     style  = _ in ALL_GLOBAL_STYLES; // See Python typing...
+#              a global style for the output. Internally this style is  
+#              stored in the attribut ``global_style``.
 # 
 # warning::
-#     An attribut ``nbstep`` is created: it is for the first level 
-#     numbered steps.
+#     An attribut ``nbstep`` is also created: it is used to number 
+#     the zero level steps.
 ###
     def __init__(
         self,
         style: str
     ):
-        assert(style in GLOBAL_ALL_STYLES)
+        assert(style in ALL_GLOBAL_STYLES)
         
         self.global_style = style
         self.nbstep       = 0
@@ -81,13 +80,15 @@ class AbstractSpeaker(metaclass=ABCMeta):
 ###
 # prototype::
 #     message = ; // See Python typing...
-#               a message to be hard wrapped.
+#               a message to add as it.
 #     tab     = (""); // See Python typing...
-#               a possible tab to us each a new line is created.
+#               a possible tabulation to use for each new line created.
 #     nowrap  = (False); // See Python typing...
-#               ``True`` avoids the hard wrapping which is needed for
-#               for ``self.log_NL``, and otherwise False asks to use
-#               the hard wrapping.
+#               ``True`` avoids the hard wrapping and otherwise 
+#               ``False`` asks to use the hard wrapping.
+#
+# info::
+#     The argument ``nowrap`` is useful for log files.
 ###
     @abstractmethod
     def print(
@@ -97,7 +98,6 @@ class AbstractSpeaker(metaclass=ABCMeta):
         nowrap : bool = False
     ) -> None:
         raise NotImplementedError
-
 
 ###
 # prototype::
@@ -110,22 +110,22 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 
 ###
+# This method simpliy resets to `0` the number of numbered steps.
+###
+    def reset_nbstep(self) -> None:
+        self.nbstep = 0
+
+###
 # prototype::
 #     context = _ in ALL_CONTEXTS (CONTEXT_NORMAL) ; // See Python typing...
 #               a context for formatting ¨infos.
 #
 #
 # info::
-#     This method do not need to be implemented.
+#     This method doesn't need to be implemented (some speaker has no style 
+#     like the log like ones).
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
 # Help for debuging.
 #         print(self.__class__)
         ...
-
-
-###
-# This method reset the number of numbered steps.
-###
-    def reset_nbstep(self) -> None:
-        self.nbstep = 0
