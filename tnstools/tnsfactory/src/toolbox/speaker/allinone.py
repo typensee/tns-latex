@@ -43,21 +43,15 @@ for i in range(1, 3):
 
 # -- RECIPES - AUTO CODE - START -- #
 
-FORLOG = "forlog"
+FORLOG  = "forlog"
 FORTERM = "forterm"
-FORALL = "forall"
-NL = "NL"
-STYLE = "style"
-PRINT = "print"
-TITLE = "title"
-STEP = "step"
+FORALL  = "forall"
+NL      = "NL"
+STYLE   = "style"
+PRINT   = "print"
+TITLE   = "title"
+STEP    = "step"
 PROBLEM = "problem"
-VAR_STEP_INFO = "step_info"
-VAR_TITLE = "title"
-VAR_LEVEL = "level"
-VAR_CONTEXT = "context"
-VAR_INFO = "info"
-VAR_PB_ID = "pb_id"
 
 ACTIONS_NO_ARG = [
     FORLOG,
@@ -66,6 +60,13 @@ ACTIONS_NO_ARG = [
     NL,
     STYLE,
 ]
+
+VAR_STEP_INFO = "step_info"
+VAR_TITLE     = "title"
+VAR_LEVEL     = "level"
+VAR_CONTEXT   = "context"
+VAR_INFO      = "info"
+VAR_PB_ID     = "pb_id"
 
 # -- RECIPES - AUTO CODE - END -- #
 

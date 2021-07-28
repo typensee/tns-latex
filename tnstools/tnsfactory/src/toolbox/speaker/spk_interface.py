@@ -9,10 +9,10 @@ from abc import ABCMeta, abstractmethod
 
 # -- INTERFACE - AUTO CODE - START -- #
 
-CONTEXT_NORMAL = "normal"
-CONTEXT_ERROR = "error"
+CONTEXT_NORMAL  = "normal"
+CONTEXT_ERROR   = "error"
 CONTEXT_WARNING = "warning"
-CONTEXT_GOOD = "good"
+CONTEXT_GOOD    = "good"
 
 ALL_CONTEXTS = [
     CONTEXT_NORMAL,
@@ -94,7 +94,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
     def print(
         self,
         message: str,
-        tab    : str = "",
+        tab    : str  = "",
         nowrap : bool = False
     ) -> None:
         raise NotImplementedError

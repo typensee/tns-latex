@@ -113,7 +113,7 @@ class LogSpeaker(AbstractSpeaker):
     def print(
         self,
         message: str,
-        tab    : str = "",
+        tab    : str  = "",
         nowrap : bool = False
     ) -> None:
         with self.logfile.open(

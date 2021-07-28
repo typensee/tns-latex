@@ -33,15 +33,27 @@ with ReadBlock(
     content = FILE_PEUF,
     mode    = "verbatim"
 ) as datas:
+    allnames = []
+    maxlen   = 0
+
     for onename in datas.mydict("std nosep nonb")['ctxts']:
         if not onename:
             continue
 
-        varname = f'CONTEXT_{onename.upper()}'
+        allnames.append(onename)
 
-        CONTEXTS.append(f'{varname} = "{onename}"')
+        lenname = len(onename)
+
+        if lenname > maxlen:
+            maxlen = lenname
+
+for onename in allnames:
+    varname = f'CONTEXT_{onename.upper()}'
+    spaces  = " "*(maxlen - len(onename))
+
+    CONTEXTS.append(f'{varname}{spaces} = "{onename}"')
             
-        ALL_CONTEXTS.append(varname)
+    ALL_CONTEXTS.append(varname)
 
 
 # Let's nuild the source code.

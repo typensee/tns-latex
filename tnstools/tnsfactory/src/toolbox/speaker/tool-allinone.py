@@ -27,30 +27,68 @@ COMMENT_TAG_START = f'# -- {COMMENT_TAG} - START -- #'
 COMMENT_TAG_END   = f'# -- {COMMENT_TAG} - END -- #'
 
 
-SRC_ACTIONS        = []
+ACTION_TAG = 'action'
+VAR_TAG    = 'var'
+
+SRC_ACTIONS_OR_VARS = {
+    ACTION_TAG: [],
+    VAR_TAG   : [],
+}
+
+SRC_MAXLEN_ACTIONS_OR_VARS = {
+    ACTION_TAG: 0,
+    VAR_TAG   : 0,
+}
+
 SRC_ACTIONS_NO_ARG = []
 
 
 with ReadBlock(
     content = FILE_PEUF,
     mode    = "verbatim"
-) as datas:
+) as datas: 
+    config = {}
+    
     for kind, names in datas.mydict("std nosep nonb").items():
+        config[kind] = []
+
         for onename in names:
             if not onename:
                 continue
 
-            if kind == "var":
-                suffix = f'{kind.upper()}_'
+            config[kind].append(onename)
+
+            lenname = len(onename)
+
+            if kind == VAR_TAG:
+                thistype =  VAR_TAG
+            
             else:
-                suffix = ""
+                thistype = ACTION_TAG
+            
+            if lenname > SRC_MAXLEN_ACTIONS_OR_VARS[thistype]:
+                SRC_MAXLEN_ACTIONS_OR_VARS[thistype] = lenname
 
-            varname = f'{suffix}{onename.upper()}'
 
-            SRC_ACTIONS.append(f'{varname} = "{onename}"')
+for kind, names in config.items():
+    for onename in names:
+        lenname = len(onename)
 
-            if kind in ["no_arg", "no_arg_allowed"]:
-                SRC_ACTIONS_NO_ARG.append(varname)
+        if kind == VAR_TAG:
+            thistype = kind
+            suffix   = f'{kind.upper()}_'
+
+        else:
+            thistype = ACTION_TAG
+            suffix   = ""
+
+        varname = f'{suffix}{onename.upper()}'
+        spaces  = " "*(SRC_MAXLEN_ACTIONS_OR_VARS[thistype] - lenname)
+
+        SRC_ACTIONS_OR_VARS[thistype].append(f'{varname}{spaces} = "{onename}"')
+
+        if kind in ["no_arg", "no_arg_allowed"]:
+            SRC_ACTIONS_NO_ARG.append(varname)
 
 
 # Let's nuild the source code.
@@ -58,7 +96,8 @@ with ReadBlock(
 TAB = " "*4
 
 
-SRC_ACTIONS = "\n".join(SRC_ACTIONS)
+for key, vals in SRC_ACTIONS_OR_VARS.items():
+    SRC_ACTIONS_OR_VARS[key] = "\n".join(vals)
 
 SRC_ACTIONS_NO_ARG = "\n".join(
     f'{TAB}{code},'
@@ -67,11 +106,13 @@ SRC_ACTIONS_NO_ARG = "\n".join(
 
 
 CODE = f'''
-{SRC_ACTIONS}
+{SRC_ACTIONS_OR_VARS[ACTION_TAG]}
 
 ACTIONS_NO_ARG = [
 {SRC_ACTIONS_NO_ARG}
 ]
+
+{SRC_ACTIONS_OR_VARS[VAR_TAG]}
 '''
 
 

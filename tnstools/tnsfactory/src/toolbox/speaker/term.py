@@ -14,12 +14,12 @@ from .spk_interface import *
 #     value    = ; // See Python typing...
 #                the style code choosen.
 #     codetemp = ; // See Python typing...
-#                a template that will be updated with the vaue of 
-#                the color code.
+#                a template that will be updated with the value of 
+#                the style code.
 #     normcode = ; // See Python typing...
 #                the code for the normal style.
 #
-# This function is just a basic factorization for the code of the stylists.
+# This function is just a basic factorization for coding the stylists.
 ###
 
 def _colorit(
@@ -129,7 +129,7 @@ class TermSpeaker(AbstractSpeaker):
     def print(
         self,
         message: str,
-        tab    : str = "",
+        tab    : str  = "",
         nowrap : bool = False
     ) -> None:
         print(message)
