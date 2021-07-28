@@ -61,10 +61,14 @@ ACTIONS_NO_ARG = [
     STYLE,
 ]
 
-VAR_STEP_INFO = "step_info"
-VAR_TITLE     = "title"
-VAR_LEVEL     = "level"
+VAR_REPEAT    = "repeat"
+VAR_MESSAGE   = "message"
+VAR_TAB       = "tab"
 VAR_CONTEXT   = "context"
+VAR_TITLE     = "title"
+VAR_WITH_NL   = "with_NL"
+VAR_LEVEL     = "level"
+VAR_STEP_INFO = "step_info"
 VAR_INFO      = "info"
 VAR_PB_ID     = "pb_id"
 
@@ -184,7 +188,8 @@ class Speaker(AbstractSpeaker):
 #               ``False`` to not do this 
 #
 # info::
-#     For example, ``with_NL`` is used to print time stamps in the log file.
+#     For example, ``with_NL`` is used to print the very last time stamps 
+#     in the log file.
 ###
     def title(self, 
         title  : str,
@@ -209,7 +214,7 @@ class Speaker(AbstractSpeaker):
         level    : int = 0,
     ) -> None:
         for out in self._outputs:
-            item = self.stepitem(
+            item = self._stepitem(
                 out   = out,
                 level = level
             )
@@ -227,7 +232,7 @@ class Speaker(AbstractSpeaker):
 #             the level of step indicating where ``0`` is for automatic 
 #             numbered enumerations.
 ###
-    def stepitem(
+    def _stepitem(
         self,
         out  : str,
         level: int = 0,
@@ -263,12 +268,12 @@ class Speaker(AbstractSpeaker):
         self.style(context)
 
         for out in self._outputs:
-            item = self.stepitem(
+            item = self._stepitem(
                 out   = out,
                 level = level
             )
 
-            item_ctxt = f"{item}[ {pb_id} ] {context}: "
+            item_ctxt = f"{item}[ #{pb_id} ] {context.upper()}: "
             tab       = " "*len(item_ctxt)
     
             self._speakers[out].print(

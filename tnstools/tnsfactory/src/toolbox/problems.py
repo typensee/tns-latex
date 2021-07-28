@@ -4,54 +4,49 @@ from collections import defaultdict
 
 from mistool.os_use import PPath
 
+from .speaker import *
+
 
 # -------------- #
-# -- MESSAGES -- #
+# -- PROBLEMS -- #
 # -------------- #
-
-MESSAGE_ERROR   = "ERROR"
-MESSAGE_WARNING = "WARNING"
-
-
-# ---------------- #
-# -- MAIN CLASS -- #
-# ---------------- #
 
 ###
 # This class is used to store ¨infos about errors and warnings emitted 
 # during all the process.
 #
 # warning::
-#     This class must work whatever the context of use!
+#     This class must work whatever the context of use is!
 ###
 
 class Problems:
 ###
 # prototype::
-#     speaker = speaker.Speaker ;  
+#     speaker = speaker.allinone.Speaker ;  
 #               the class used to speak on the terminal and in the log file.
 ###
     def __init__(
         self,
-        speaker # Can't use the type speaker.Speaker.
+        speaker:Speaker # Can't use the type speaker.Speaker.
     ):
         self.speaker = speaker
 
 # We use the ordered feature of dict suchas to treat warnings before
 # errors in the summaries.
         self._problems: dict = {
-            MESSAGE_WARNING: defaultdict(list), # Before ERROR!
-            MESSAGE_ERROR  : defaultdict(list), # After WARNING!
+            CONTEXT_WARNING: defaultdict(list), # Before ERROR!
+            CONTEXT_ERROR  : defaultdict(list), # After WARNING!
         }
 
-        self.nb_pbs      = 0
         self.nb_errors   = 0
         self.nb_warnings = 0
+
+        self._pb_id = 0
 
 
 ###
 # prototype::
-#     return = ; # See Python typing...
+#     return = ; // See Python typing...
 #              ``True`` if at least one error has been found and
 #              ``False` otherwise.
 ###
@@ -61,7 +56,7 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; # See Python typing...
+#     return = ; // See Python typing...
 #              ``True`` if at least one warning has been found and
 #              ``False` otherwise.
 ###
@@ -71,9 +66,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; # See Python typing...
-#              ``True`` if at least on error or one warning has been
-#              found and ``False` otherwise.
+#     return = ; // See Python typing...
+#              ``True`` if at least on error or one warning has been found and
+#              ``False` otherwise.
 ###
     @property
     def pbfound(self) -> bool:
@@ -85,8 +80,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; # See Python typing...
-#              ``True`` if there several erros and ``False`` otherwise.
+#     return = ; // See Python typing...
+#              ``True`` if there are several warnings and
+#              ``False`` otherwise.
 ###
     @property
     def several_warnings(self) -> bool:
@@ -94,101 +90,93 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; # See Python typing...
-#              ``True`` if there several erros and ``False`` otherwise.
+#     return = ; // See Python typing...
+#              ``True`` if there are several erros and
+#              ``False`` otherwise.
 ###
     @property
     def several_errors(self) -> bool:
         return self.nb_errors > 1
 
 
-
-
-
-
-
-
-
-
 ###
 # prototype::
-#     src_relpath = ; # See Python typing...
+#     src_relpath = ; // See Python typing...
 #                   the path of the source within the error has been found.
-#     message     = ; # See Python typing...
-#                   the message explaining the error.
-#     level_term  = (1) ; # See Python typing...
-#                   the numer of tbabulation to use.
+#     info        = ; // See Python typing...
+#                   the info explaining the error.
+#     level       = _ in [0..3] (0); // See Python typing...
+#                   the level of the step indicating the problem.
 ###
     def new_error(
         self,
         src_relpath: PPath,
-        message    : str,
-        level_term : int = 1
+        info       : str,
+        level      : int = 0
     ):
         self.nb_errors += 1
 
         self._new_pb(
             src_relpath = src_relpath,
-            context     = MESSAGE_ERROR,
-            message     = message,
-            level_term  = level_term
+            context     = CONTEXT_ERROR,
+            info        = info,
+            level       = level
         )
 
 ###
 # prototype::
-#     src_relpath = ; # See Python typing...
+#     src_relpath = ; // See Python typing...
 #                   the path of the source within the warning has been found.
-#     message     = ; # See Python typing...
-#                   the message explaining the warning.
-#     level_term  = (1) ; # See Python typing...
-#                   the numer of tbabulation to use.
+#     info        = ; // See Python typing...
+#                   the info explaining the warning.
+#     level       = _ in [0..3] (0); // See Python typing...
+#                   the level of the step indicating the problem.
 ###
     def new_warning(
         self,
         src_relpath: PPath,
-        message    : str,
-        level_term : int = 1
+        info       : str,
+        level      : int = 0
     ):
         self.nb_warnings += 1
 
         self._new_pb(
             src_relpath = src_relpath,
-            context     = MESSAGE_WARNING,
-            message     = message,
-            level_term  = level_term
+            context     = CONTEXT_WARNING,
+            info        = info,
+            level       = level
         )
-
 
 ###
 # prototype::
-#     src_relpath = ; # See Python typing...
+#     src_relpath = ; // See Python typing...
 #                   the path of the source within the problem has been found.
-#     context     = _ in [MESSAGE_ERROR, MESSAGE_WARNING] ; # See Python typing...
+#     context     = _ in [speaker.spk_interface.CONTEXT_ERROR, 
+#                         speaker.spk_interface.CONTEXT_WARNING] ; 
 #                   the kind of problem.
-#     message     = ; # See Python typing...
-#                   the message explaining the problem.
-#     level_term  = (1) ; # See Python typing...
-#                   the numer of tbabulation to use.
+#     info        = ; // See Python typing...
+#                   the info explaining the problem.
+#     level       = _ in [0..3] (0); // See Python typing...
+#                   the level of the step indicating the problem.
 ###
     def _new_pb(
         self,
         src_relpath: PPath,
         context    : str,
-        message    : str,
-        level_term : int = 2
+        info       : str,
+        level      : int = 2
     ) -> None:
-        self._pb_nb += 1
-        self._problems[context][src_relpath].append(self._pb_nb)
+# Let's store the problems internally.
+        self._pb_id += 1
+        self._problems[context][src_relpath].append(self._pb_id)
 
-        self.speaker.new_pb(
-            src_relpath = src_relpath,
+# Let's talk to the world...
+        self.speaker.problem(
             context     = context,
-            message     = message,
-            level_term  = level_term,
-            pb_nb       = self._pb_nb
+            info        = info,
+            level       = level,
+            pb_id       = self._pb_id
         )
-
-
 
 
 ###
@@ -196,17 +184,12 @@ class Problems:
 # and another for the log file.
 ###
     def resume(self) -> None:
-        for kind, pbs in self._problems.items():
+        for context, pbs in self._problems.items():
             if not pbs:
                 continue
 
-            if kind == MESSAGE_ERROR:
-                colorize = ColorTerm.error.colorit
-            else:
-                colorize = ColorTerm.warning.colorit
-
-# Title
-            if getattr(self, f'several_{kind.lower()}s') == True:
+# Header
+            if getattr(self, f'several_{context.lower()}s') == True:
                 before  = "SEVERAL "
                 plurial = "S"
     
@@ -214,21 +197,21 @@ class Problems:
                 before  = "ONE "
                 plurial = ""
 
-            title = ASCII_FRAME_2(f"{before}{kind}{plurial} FOUND")
-
-            colorize()
-            NL(2)
-            print(title)
-            NL(2)
-            print(
-                'Look at the log file '
-                f'"{self.anadir.logfile - self.anadir.monorepo}"'
-                ' and/or above for details.'
+            self.speaker.recipe(
+                #
+                FORALL,
+                    context,
+                    NL,
+                    {VAR_TITLE: f'{before}{context.upper()}{plurial} FOUND',
+                     VAR_LEVEL: 2},
+                #
+                FORTERM,
+                    'Look at the log file and/or above for details.',
+                    NL,
             )
-            NL()
 
-            self.anadir.loginfo(title)
-            self.anadir.logger.NL()
+# The problems (cardinality + refs).
+            exit()
 
 # The paths and the numbers of their problems.
             for relpath in sorted(pbs):
@@ -241,7 +224,7 @@ class Problems:
                 self.anadir.terminfo(relpath_str)
 
                 self.anadir.loginfo(
-                    message = relpath_str, 
+                    info = relpath_str, 
                     isitem  = True
                 )
 
@@ -249,21 +232,18 @@ class Problems:
                 nb_pbs  = len(list_nb_pbs)
                 plurial = "" if nb_pbs == 1 else "s"
 
-                message = f'{nb_pbs} {kind}{plurial} found.'
+                info = f'{nb_pbs} {kind}{plurial} found.'
 
                 colorize()
                 self.anadir.terminfo(
-                    message = message, 
+                    info = info, 
                     level   = 1
                 )
 
-                message += f' See {kind.lower()}{plurial} {list_nb_pbs}.'
+                info += f' See {kind.lower()}{plurial} {list_nb_pbs}.'
                 
                 self.anadir.loginfo(
-                    message = message, 
+                    info = info, 
                     isitem  = True,
                     level   = 1
                 )
-                
-        ColorTerm.normal.colorit()
-

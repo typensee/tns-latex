@@ -3,24 +3,25 @@
 from toolbox import *
 
 
-# ---------------- #
-# -- MAIN CLASS -- #
-# ---------------- #
+# ------------- #
+# -- UPDATER -- #
+# ------------- #
 
 ###
-# This class manages the different processes need to work update 
+# This class manages the different processes need to update 
 # any LaTeX monorepo respecting the ¨tns way of coding.
 ###
+
 class Update:
 ###
 # prototype::
 #     monorepo = ; // See Python typing...  
 #               the path of the directory of the monorepo.
 #     initrepo = ; // See Python typing...  
-#               ``True`` forces to work on all packages without using
-#               term::``git a`` and False uses git to focus only on
-#               recent changes.
-#     style    = _ in spk_interface.GLOBAL_STYLES; // See Python typing...  
+#                ``True`` forces to work on all packages without using
+#                term::``git a`` and False uses git to focus only on
+#                recent changes.
+#     style    = _ in speaker.spk_interface.ALL_GLOBAL_STYLES; 
 #                a global style for the output.
 ###
     def __init__(
@@ -30,6 +31,7 @@ class Update:
         style   : str 
     ) -> None:
         self.monorepo = monorepo
+        self.initrepo = initrepo
 
         self.speaker  = Speaker(
             logfile = monorepo / f"x-{monorepo.name}-x.log",
@@ -38,7 +40,6 @@ class Update:
 
         self.problems = Problems(self.speaker)
         self.success  = None
-
 
 
 ###
@@ -51,16 +52,16 @@ class Update:
 # Let's go!
         self.open_session()
 
+# Let's work.
         for methodname in [
             "findpacks",
         ]:
             getattr(self, methodname)()
 
             if not self.success:
-                self.close_session()
-                return
+                break
 
-# Everything seems ok...
+# We must close and clean the dirty things.
         self.close_session()
 
 
@@ -71,72 +72,80 @@ class Update:
 # Just say "Hello."
         self.speaker.recipe(
 # Title for the monorepo.
-            CONTEXT_GOOD,
+            #
+            #FORALL,  # Defaul setting!
+                CONTEXT_GOOD,
+            #
             FORTERM,
-            NL,
-            {VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
+                NL,
+                {VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
             #
             FORLOG,
-            {VAR_TITLE: f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
+                {VAR_TITLE: f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
             #
             FORALL,
-            CONTEXT_NORMAL,
+                CONTEXT_NORMAL,
 # Title for the start.
+            #
             FORTERM,
-            {VAR_TITLE: "STARTING THE ANALYSIS", 
-             VAR_LEVEL: 2},
+                {VAR_TITLE: "STARTING THE ANALYSIS", VAR_LEVEL: 2},
         )
 
+# A time stamp.
         timestamp(
             speaker = self.speaker,
             kind    = "STARTING"
         )
-
 
 ###
 # This method first cleans the monorepo and then indicates the end 
 # of the process.
 ###
     def close_session(self):
-# TODO résumé ici !!!
+# TODO clean !!!!
+
+# Summary of the problems met.
+        self.problems.resume()
 
 # Just say "Good bye!"
         self.speaker.recipe(
-# Terminal output.
+            #
+            FORALL,
+                NL,
+# Title for the end.
+            #
             FORTERM,
-            NL,
-            {VAR_TITLE: "ANALYSIS FINISHED", 
-             VAR_LEVEL: 2},
-# Log file output.
-            FORLOG,
-            NL
+                {VAR_TITLE: "ANALYSIS FINISHED", VAR_LEVEL: 2},
         )
 
+# A time stamp.
         timestamp(
             speaker = self.speaker,
-            kind    = "ENDING"
+            kind    = "ENDING",
+            with_NL = False
         )
-        self.speaker.forall()
 
 
 ###
-# This method looks for packages to work on.
+# This method looks for packages that will be analyzed.
 ###
     def findpacks(self):
-        self.speaker.recipe(
-# Terminal output.
-            FORTERM,
-            {VAR_STEP_INFO: "Looking for packages to build or update."},
-        )
+        action = "" if self.initrepo else " or update"
 
         self.speaker.recipe(
 # Terminal output.
+            #
             FORALL,
-            NL,
-            {VAR_CONTEXT: CONTEXT_ERROR,
-             VAR_INFO: "No packages found.",
-             VAR_PB_ID  : 0},
+                {VAR_STEP_INFO: f'Looking for packages to create{action}.'},
+                NL,
         )
+
+# No package to update.
+        self.problems.new_warning(
+            src_relpath = self.monorepo,
+            info        = f'no packages to create{action} found.',
+        )
+        
 
 
 # ---------- #
@@ -156,7 +165,9 @@ if __name__ =="__main__":
             MONOREPO = MONOREPO.parent
 
     else:
-        NOT_IMPLEMENTED
+        raise Exception(
+            "call the script from a working directory containing the monorepo."
+        )
 
     update = Update(
         monorepo = MONOREPO,

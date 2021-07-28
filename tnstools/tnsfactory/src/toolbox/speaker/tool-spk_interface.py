@@ -47,6 +47,7 @@ with ReadBlock(
         if lenname > maxlen:
             maxlen = lenname
 
+
 for onename in allnames:
     varname = f'CONTEXT_{onename.upper()}'
     spaces  = " "*(maxlen - len(onename))

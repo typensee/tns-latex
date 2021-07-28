@@ -14,9 +14,26 @@ arg::
     problem
 
 var::
-    step_info
-    title
-    level
+// NL
+    repeat
+
+// print
+    message
+    tab
+
+// style + problem
     context
+
+// title
+    title
+    with_NL
+
+// title + step + problem
+    level
+
+// step
+    step_info
+
+// problem
     info
     pb_id

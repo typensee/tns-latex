@@ -58,13 +58,13 @@ with ReadBlock(
 
             config[kind].append(onename)
 
-            lenname = len(onename)
-
             if kind == VAR_TAG:
                 thistype =  VAR_TAG
             
             else:
                 thistype = ACTION_TAG
+            
+            lenname = len(onename)
             
             if lenname > SRC_MAXLEN_ACTIONS_OR_VARS[thistype]:
                 SRC_MAXLEN_ACTIONS_OR_VARS[thistype] = lenname
@@ -72,8 +72,6 @@ with ReadBlock(
 
 for kind, names in config.items():
     for onename in names:
-        lenname = len(onename)
-
         if kind == VAR_TAG:
             thistype = kind
             suffix   = f'{kind.upper()}_'
@@ -83,7 +81,7 @@ for kind, names in config.items():
             suffix   = ""
 
         varname = f'{suffix}{onename.upper()}'
-        spaces  = " "*(SRC_MAXLEN_ACTIONS_OR_VARS[thistype] - lenname)
+        spaces  = " "*(SRC_MAXLEN_ACTIONS_OR_VARS[thistype] - len(onename))
 
         SRC_ACTIONS_OR_VARS[thistype].append(f'{varname}{spaces} = "{onename}"')
 
