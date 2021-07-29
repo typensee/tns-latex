@@ -18,21 +18,23 @@ class LogSpeaker(AbstractSpeaker):
 # prototype::
 #     logfile  = ; // See Python typing...  
 #                the path of the log file.
-#     maxwidth = ; // See Python typing...  
-#                the maximum number of characters on the same line.
 #     style    = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
 #                a global style for the outputs.
+#     maxwidth = ; // See Python typing...
+#                the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
         logfile : PPath,
+        style   : str,
         maxwidth: int,
-        style   : str
     ):
-        super().__init__(style)
+        super().__init__(
+            style    = style,
+            maxwidth = maxwidth
+        )
 
-        self.logfile  = logfile
-        self.maxwidth = maxwidth
+        self.logfile = logfile
 
         self.reset_logfile()
 

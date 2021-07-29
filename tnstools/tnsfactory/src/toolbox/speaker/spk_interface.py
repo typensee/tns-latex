@@ -59,16 +59,20 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     style  = _ in ALL_GLOBAL_STYLES; // See Python typing...
-#              a global style for the output. Internally this style is  
-#              stored in the attribut ``global_style``.
+#     style    = _ in ALL_GLOBAL_STYLES; // See Python typing...
+#                a global style for the output. Internally this style is  
+#                stored in the attribut ``global_style``.
+#     maxwidth = ; // See Python typing...
+#                the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
-        style: str
+        style   : str,
+        maxwidth: int = 80
     ):
         assert(style in ALL_GLOBAL_STYLES)
-        
+
+        self.maxwidth     = maxwidth
         self.global_style = style
 
 
@@ -142,7 +146,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
                 len_lastline = len(lastline)
                 len_word     = len(oneword)
 
-                if len_lastline + len_word > self.maxwidth :
+                if len_lastline + len_word >= self.maxwidth :
                     shortlines.append(lastline)
                     lastline = tab
 

@@ -199,7 +199,7 @@ class Update:
         if not self.srcpaths:
             self.success = False
 
-            for _ in range(15):
+            for _ in range(25):
                 self.new_warning(
                     src_relpath = self.rel_monorepo / "2",
                     info        = f'no packages found to be {actiontodo}.',

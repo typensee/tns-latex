@@ -86,14 +86,20 @@ class BWStylist(Enum):
 class TermSpeaker(AbstractSpeaker):
 ###
 # prototype::
-#     style = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
-#             a global style for the outputs.
+#     style    = _ in spk_interface.ALL_GLOBAL_STYLES; // See Python typing...
+#                a global style for the outputs.
+#     maxwidth = ; // See Python typing...
+#                the maw width expected for hard wrapped contents.
 ###
     def __init__(
         self,
-        style
+        style,
+        maxwidth: int = 80
     ):
-        super().__init__(style)
+        super().__init__(
+            style    = style,
+            maxwidth = maxwidth
+        )
 
         self.stylist = {
             GLOBAL_STYLE_COLOR: ColorStylist,

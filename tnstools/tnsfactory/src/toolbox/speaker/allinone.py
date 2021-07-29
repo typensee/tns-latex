@@ -11,8 +11,6 @@ from .term import *
 # -- DECORATE -- #
 # -------------- #
 
-MAX_WIDTH: int = 80
-
 # The zero level item will never be used but is simplifies 
 # the coding of the API.
 ITEM = [
@@ -101,18 +99,20 @@ class Speaker(AbstractSpeaker):
 ###
     def __init__(
         self,
-        logfile: PPath,
-        style  : str
+        logfile : PPath,
+        style   : str,
+        maxwidth: int = 80
     ):
 # Here we do not need the use of ``super().__init__()``.
         self._speakers = {
             self.OUTPUT_LOG : LogSpeaker(
                 logfile  = logfile,
-                maxwidth = MAX_WIDTH,
-                style    = style
+                style    = style,
+                maxwidth = maxwidth,
             ),
             self.OUTPUT_TERM: TermSpeaker(
-                style = style
+                style    = style,
+                maxwidth = maxwidth,
             ),
         }
     
@@ -121,26 +121,26 @@ class Speaker(AbstractSpeaker):
             for out in self.OUTPUT_ALL
         }
 
-        self._outputs = self.OUTPUT_ALL
+        self._current_outputs = self.OUTPUT_ALL
 
 
 ###
 # This method is to use only a "LOG FILE" output.
 ###
     def forlog(self) -> None:
-        self._outputs = [self.OUTPUT_LOG]
+        self._current_outputs = [self.OUTPUT_LOG]
 
 ###
 # This method is to use only a "TERM" output.
 ###
     def forterm(self) -> None:
-        self._outputs = [self.OUTPUT_TERM]
+        self._current_outputs = [self.OUTPUT_TERM]
 
 ###
 # This method is to use only all the outputs.
 ###
     def forall(self) -> None:
-        self._outputs = self.OUTPUT_ALL
+        self._current_outputs = self.OUTPUT_ALL
 
 
 ###
@@ -151,7 +151,7 @@ class Speaker(AbstractSpeaker):
 # This method simply prints ``repeat`` empty new lines in all the ouputs wanted.
 ###
     def NL(self, repeat: int = 1) -> None:
-        for out in self._outputs:
+        for out in self._current_outputs:
             self._speakers[out].NL(repeat)
 
 ###
@@ -160,7 +160,7 @@ class Speaker(AbstractSpeaker):
 #            a text to communicate.
 ###
     def print(self, text: str) -> None:
-        for out in self._outputs:
+        for out in self._current_outputs:
             self._speakers[out].print(text)
 
 ###
@@ -169,7 +169,7 @@ class Speaker(AbstractSpeaker):
 #               a context for formatting ¨infos.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
-        for out in self._outputs:
+        for out in self._current_outputs:
             self._speakers[out].style(context)
 
 
@@ -209,7 +209,7 @@ class Speaker(AbstractSpeaker):
         step_info: str,
         level    : int = 0,
     ) -> None:
-        for out in self._outputs:
+        for out in self._current_outputs:
             item = self._stepitem(
                 out   = out,
                 level = level
@@ -226,7 +226,7 @@ class Speaker(AbstractSpeaker):
 # This method simpliy resets to `0` the number of numbered steps.
 ###
     def _reset_nbstep(self) -> None:
-        for out in self._outputs:
+        for out in self._current_outputs:
             self.nbsteps[out] = 0
 
 ###
@@ -272,7 +272,7 @@ class Speaker(AbstractSpeaker):
     ) -> None:
         self.style(context)
 
-        for out in self._outputs:
+        for out in self._current_outputs:
             self.step(
                 step_info = f'[ #{pb_id} ] {context.upper()}: {info}',
                 level     = level
