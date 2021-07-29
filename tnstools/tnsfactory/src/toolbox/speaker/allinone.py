@@ -43,34 +43,34 @@ for i in range(1, 3):
 
 # -- RECIPES - AUTO CODE - START -- #
 
+FORALL  = "forall"
 FORLOG  = "forlog"
 FORTERM = "forterm"
-FORALL  = "forall"
 NL      = "NL"
-STYLE   = "style"
 PRINT   = "print"
-TITLE   = "title"
-STEP    = "step"
 PROBLEM = "problem"
+STEP    = "step"
+STYLE   = "style"
+TITLE   = "title"
 
 ACTIONS_NO_ARG = [
+    FORALL,
     FORLOG,
     FORTERM,
-    FORALL,
     NL,
     STYLE,
 ]
 
-VAR_REPEAT    = "repeat"
-VAR_MESSAGE   = "message"
-VAR_TAB       = "tab"
 VAR_CONTEXT   = "context"
+VAR_INFO      = "info"
+VAR_LEVEL     = "level"
+VAR_PB_ID     = "pb_id"
+VAR_REPEAT    = "repeat"
+VAR_STEP_INFO = "step_info"
+VAR_TAB       = "tab"
+VAR_TEXT      = "text"
 VAR_TITLE     = "title"
 VAR_WITH_NL   = "with_NL"
-VAR_LEVEL     = "level"
-VAR_STEP_INFO = "step_info"
-VAR_INFO      = "info"
-VAR_PB_ID     = "pb_id"
 
 # -- RECIPES - AUTO CODE - END -- #
 
@@ -115,6 +115,11 @@ class Speaker(AbstractSpeaker):
                 style = style
             ),
         }
+    
+        self.nbsteps = {
+            out: 0
+            for out in self.OUTPUT_ALL
+        }
 
         self._outputs = self.OUTPUT_ALL
 
@@ -151,21 +156,12 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     message = ; // See Python typing...
-#               the message to print in the terminal.
-#     tab     = (""); // See Python typing...
-#               a possible tabulation to use for each new line created.
+#     text = ; // See Python typing...
+#            a text to communicate.
 ###
-    def print(
-        self,
-        message: str,
-        tab    : str = ""
-    ) -> None:
+    def print(self, text: str) -> None:
         for out in self._outputs:
-            self._speakers[out].print(
-                message = message,
-                tab     = tab
-            )
+            self._speakers[out].print(text)
 
 ###
 # prototype::
@@ -219,10 +215,19 @@ class Speaker(AbstractSpeaker):
                 level = level
             )
 
-            self._speakers[out].print(
-                message = f'{item}{step_info}',
-                tab     = " "*len(item)
+            text = self._speakers[out].hardwrap(
+                text = f'{item}{step_info}',
+                tab  = " "*len(item)
             )
+
+            self._speakers[out].print(text)
+
+###
+# This method simpliy resets to `0` the number of numbered steps.
+###
+    def _reset_nbstep(self) -> None:
+        for out in self._outputs:
+            self.nbsteps[out] = 0
 
 ###
 # prototype::
@@ -239,9 +244,9 @@ class Speaker(AbstractSpeaker):
     ) -> None:
 # Enumeration...
         if level == 0:
-            self._speakers[out].nbstep += 1
+            self.nbsteps[out] += 1
 
-            return f'{self._speakers[out].nbstep}) '
+            return f'{self.nbsteps[out]}) '
 
 # Basic item
         return f'{ITEM[level]} '
@@ -268,17 +273,9 @@ class Speaker(AbstractSpeaker):
         self.style(context)
 
         for out in self._outputs:
-            item = self._stepitem(
-                out   = out,
-                level = level
-            )
-
-            item_ctxt = f"{item}[ #{pb_id} ] {context.upper()}: "
-            tab       = " "*len(item_ctxt)
-    
-            self._speakers[out].print(
-                message = f'{item_ctxt}{info}',
-                tab     = tab
+            self.step(
+                step_info = f'[ #{pb_id} ] {context.upper()}: {info}',
+                level     = level
             )
 
         self.style(CONTEXT_NORMAL)

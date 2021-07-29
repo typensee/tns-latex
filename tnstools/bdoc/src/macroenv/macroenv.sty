@@ -5,14 +5,16 @@
 %%%
 % prototype::
 %     arg = #1 ;
-%           the name of an environment
+%           the name of a package
 %
-% ``\docenv{myenv}`` prints verb::``\begin{myenv} ... \end{myenv}`` where
-% the spaces are secable.
+% ``\docpack{mypack}`` prints verb::``mypack``.
+%
+% info::
+%     This macro is more semantic than useful.
 %%%
 
-\NewDocumentCommand{ \docenv }{ m }{%
-    \texttt{\textbackslash{}begin\{#1\} \!...\! \textbackslash{}end\{#1\}}%
+\NewDocumentCommand{ \docpack }{ m }{%
+\texttt{#1}%
 }
 
 %%%
@@ -30,17 +32,18 @@
 %%%
 % prototype::
 %     arg = #1 ;
-%           the name of a package
+%           the name of an environment
 %
-% ``\docpack{mypack}`` prints verb::``mypack``.
-%
-% info::
-%     This macro is more semantic than useful.
+% ``\docenv{myenv}`` prints verb::``\begin{myenv} ... \end{myenv}`` where
+% the spaces are secable.
 %%%
 
-\NewDocumentCommand{ \docpack }{ m }{%
-    \texttt{#1}%
+\NewDocumentCommand{ \docenv }{ m }{%
+    \texttt{\textbackslash{}begin\{#1\} \!...\! \textbackslash{}end\{#1\}}%
 }
+
+
+% -- EXPLAIN - PREFIXES & SUFFIXES -- %
 
 %%%
 % prototype::
@@ -53,11 +56,8 @@
 %%%
 
 \NewDocumentCommand{ \docprewhy }{ mm }{%
-    \textbf{\docpre{#1}}-#2%
+\textbf{\docpre{#1}}-#2%
 }
-
-
-% -- EXPLAIN - PREFIXES & SUFFIXES -- %
 
 %%%
 % prototype::

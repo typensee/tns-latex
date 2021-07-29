@@ -95,11 +95,11 @@ TAB = " "*4
 
 
 for key, vals in SRC_ACTIONS_OR_VARS.items():
-    SRC_ACTIONS_OR_VARS[key] = "\n".join(vals)
+    SRC_ACTIONS_OR_VARS[key] = "\n".join(sorted(vals))
 
 SRC_ACTIONS_NO_ARG = "\n".join(
     f'{TAB}{code},'
-    for code in SRC_ACTIONS_NO_ARG
+    for code in sorted(SRC_ACTIONS_NO_ARG)
 )
 
 

@@ -9,27 +9,27 @@ from abc import ABCMeta, abstractmethod
 
 # -- INTERFACE - AUTO CODE - START -- #
 
-CONTEXT_NORMAL  = "normal"
 CONTEXT_ERROR   = "error"
-CONTEXT_WARNING = "warning"
 CONTEXT_GOOD    = "good"
+CONTEXT_NORMAL  = "normal"
+CONTEXT_WARNING = "warning"
 
 ALL_CONTEXTS = [
-    CONTEXT_NORMAL,
     CONTEXT_ERROR,
-    CONTEXT_WARNING,
-    CONTEXT_GOOD
+    CONTEXT_GOOD,
+    CONTEXT_NORMAL,
+    CONTEXT_WARNING
 ]
 
 # -- INTERFACE - AUTO CODE - END -- #
 
 
-GLOBAL_STYLE_COLOR = "color"
 GLOBAL_STYLE_BW    = "balck & white"
+GLOBAL_STYLE_COLOR = "color"
 
 ALL_GLOBAL_STYLES = [
-    GLOBAL_STYLE_COLOR,
     GLOBAL_STYLE_BW,
+    GLOBAL_STYLE_COLOR,
 ]
 
 
@@ -62,10 +62,6 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #     style  = _ in ALL_GLOBAL_STYLES; // See Python typing...
 #              a global style for the output. Internally this style is  
 #              stored in the attribut ``global_style``.
-# 
-# warning::
-#     An attribut ``nbstep`` is also created: it is used to number 
-#     the zero level steps.
 ###
     def __init__(
         self,
@@ -74,29 +70,15 @@ class AbstractSpeaker(metaclass=ABCMeta):
         assert(style in ALL_GLOBAL_STYLES)
         
         self.global_style = style
-        self.nbstep       = 0
 
 
 ###
 # prototype::
-#     message = ; // See Python typing...
-#               a message to add as it.
-#     tab     = (""); // See Python typing...
-#               a possible tabulation to use for each new line created.
-#     nowrap  = (False); // See Python typing...
-#               ``True`` avoids the hard wrapping and otherwise 
-#               ``False`` asks to use the hard wrapping.
-#
-# info::
-#     The argument ``nowrap`` is useful for log files.
+#     text   = ; // See Python typing...
+#              a text to add as it.
 ###
     @abstractmethod
-    def print(
-        self,
-        message: str,
-        tab    : str  = "",
-        nowrap : bool = False
-    ) -> None:
+    def print(self, text: str,) -> None:
         raise NotImplementedError
 
 ###
@@ -108,12 +90,6 @@ class AbstractSpeaker(metaclass=ABCMeta):
     def NL(self, repeat: int = 1) -> None:
         raise NotImplementedError
 
-
-###
-# This method simpliy resets to `0` the number of numbered steps.
-###
-    def reset_nbstep(self) -> None:
-        self.nbstep = 0
 
 ###
 # prototype::
@@ -129,3 +105,52 @@ class AbstractSpeaker(metaclass=ABCMeta):
 # Help for debuging.
 #         print(self.__class__)
         ...
+
+
+###
+# prototype::
+#     text = ; // See Python typing...
+#            a text to be hard wrapped.
+#     tab  = (""); // See Python typing...
+#            a possible tabulation to use for each new line created.
+#
+#     return -> ; // See Python typing...
+#               a wrapped message of maximal width ``self.maxwidth``.
+###
+    def hardwrap(
+        self,
+        text: str,
+        tab : str = ""
+    ) -> str:
+        shortlines = []
+
+        for oneline in text.split('\n'):
+            words = [w.strip() for w in oneline.split(' ')]
+
+            if shortlines:
+                lastline = tab
+            
+            else:
+                lastline = ""
+
+            lastline += words.pop(0)
+
+
+            while(words):
+                oneword = words.pop(0)
+
+                len_lastline = len(lastline)
+                len_word     = len(oneword)
+
+                if len_lastline + len_word > self.maxwidth :
+                    shortlines.append(lastline)
+                    lastline = tab
+
+                else:
+                    lastline += " "
+                    
+                lastline += oneword
+
+            shortlines.append(lastline)
+
+        return "\n".join(shortlines)

@@ -61,9 +61,9 @@ for onename in allnames:
 
 TAB = " "*4
 
-CONTEXTS = "\n".join(CONTEXTS)
+CONTEXTS = "\n".join(sorted(CONTEXTS))
 
-ALL_CONTEXTS = f',\n{TAB}'.join(ALL_CONTEXTS)
+ALL_CONTEXTS = f',\n{TAB}'.join(sorted(ALL_CONTEXTS))
 
 
 CODE = f'''

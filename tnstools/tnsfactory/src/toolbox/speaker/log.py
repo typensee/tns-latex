@@ -55,84 +55,19 @@ class LogSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     message = ; // See Python typing...
-#               a message to be hard wrapped.
-#     tab     = (""); // See Python typing...
-#               a possible tabulation to use for each new line created.
-#
-#     return = ; // See Python typing...
-#              a wrapped message of maximal width ``self.maxwidth``.
-#
-# info::
-#     The method works on single lines so if the message uses back returns,
-#     thoses ones will be respected.
-#
-# warning::
-#     The last empty lines are stripped.
-###
-    def hardwrap(
-        self,
-        message: str,
-        tab    : str = ""
-    ) -> str:
-        shortlines = []
-
-        for block in message.split('\n'):
-            block    = [w.strip() for w in block.split(' ')]
-            lastline = block.pop(0)
-        
-            while(block):
-                word = block.pop(0)
-
-                len_lastline = len(lastline)
-                len_word     = len(word)
-
-                if len_lastline + len_word >= self.maxwidth :
-                    shortlines.append(lastline)
-                    lastline = tab + word
-
-                else:
-                    lastline += " " + word
-
-            if lastline:
-                shortlines.append(lastline)
-        
-        return "\n".join(shortlines)
-
-
-###
-# prototype::
-#     message = ; // See Python typing...
-#               a message to print in the log file.
-#     tab     = (""); // See Python typing...
-#               a possible tabulation to use for each new line created.
-#     nowrap  = (False); // See Python typing...
-#               ``True`` avoids the hard wrapping and otherwise 
-#               ``False`` asks to use the hard wrapping.
+#     text   = ; // See Python typing...
+#              a text to print as it in the log file.
 ###
     def print(
-        self,
-        message: str,
-        tab    : str  = "",
-        nowrap : bool = False
+        self, text  : str,
     ) -> None:
         with self.logfile.open(
             encoding = "utf8",
             mode     = "a"
         ) as logfile:
-            if nowrap:
-                logfile.write(message)
+            logfile.write(text)
+            logfile.write("\n")
 
-            else:
-                logfile.write(
-                    self.hardwrap(
-                        message = message,
-                        tab     = tab
-                    )
-                )
-
-# Hard wrapping stripes the message...
-                logfile.write("\n")
 
 ###
 # prototype::
@@ -142,7 +77,4 @@ class LogSpeaker(AbstractSpeaker):
 # This method simply append ``repeat`` empty new lines to the log file.
 ###
     def NL(self, repeat: int = 1) -> None:
-        self.print(
-            message = "\n"*repeat,
-            nowrap  = True
-        )
+        self.print("\n"*repeat)

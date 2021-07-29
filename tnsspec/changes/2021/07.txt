@@ -1,4 +1,11 @@
 ==
+29
+==
+
+**Resources:** some explications have been added to explain the choice of a so basic technic of search of the extra files.
+
+
+==
 25
 ==
 
@@ -8,7 +15,7 @@
 **About human ¨doc:** the possibility to write the title of a section on at most two lines has been added. 
 
 
-**Extra files:** the process used to import extra files has been explained.
+**Resources:** the process used to import extra files has been explained.
 
 
 ==

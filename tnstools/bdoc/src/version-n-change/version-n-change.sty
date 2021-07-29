@@ -29,8 +29,9 @@
 %     arg = #1 ;
 %           a date YYYY-MM-DD
 %
-% This macros set the string values of ``\l_bdoc_date_year_str``,
-% ``\l_bdoc_date_month_str`` and ``\l_bdoc_date_day_str`` from the argument.
+% This macro set the string values of ``\l_bdoc_date_year_str``,
+% ``\l_bdoc_date_month_str`` and ``\l_bdoc_date_day_str`` using
+% a basic parsing of the date argument.
 %%%
 
 \NewDocumentCommand{ \l_bdoc_good_date } { m } {
@@ -51,7 +52,7 @@
 %     arg = #4 ;
 %           the last negative spacing 
 %
-% This macros factorizes the printing of the changes in the right margin.
+% This macro factorizes the printing of the changes in the right margin.
 %%%
 
 \NewDocumentCommand{ \l_bdoc_new_change_margin }{ mmmm }{

@@ -1,6 +1,12 @@
 #! /usr/bin/env python3
 
+# texplate
+# beaulivre
+# PyLuaTeX
+
 from collections import defaultdict
+
+from natsort import natsorted
 
 from mistool.os_use import PPath
 
@@ -31,6 +37,10 @@ class Problems:
     ):
         self.speaker = speaker
 
+# ---------
+# WARNING !
+# ---------
+# 
 # We use the ordered feature of dict suchas to treat warnings before
 # errors in the summaries.
         self._problems: dict = {
@@ -46,9 +56,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; // See Python typing...
-#              ``True`` if at least one error has been found and
-#              ``False` otherwise.
+#     return -> ; // See Python typing...
+#               ``True`` if at least one error has been found and
+#               ``False` otherwise.
 ###
     @property
     def errorfound(self) -> bool:
@@ -56,9 +66,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; // See Python typing...
-#              ``True`` if at least one warning has been found and
-#              ``False` otherwise.
+#     return -> ; // See Python typing...
+#               ``True`` if at least one warning has been found and
+#               ``False` otherwise.
 ###
     @property
     def warningfound(self) -> bool:
@@ -66,9 +76,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; // See Python typing...
-#              ``True`` if at least on error or one warning has been found and
-#              ``False` otherwise.
+#     return -> ; // See Python typing...
+#               ``True`` if at least on error or one warning has been found and
+#               ``False` otherwise.
 ###
     @property
     def pbfound(self) -> bool:
@@ -80,9 +90,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; // See Python typing...
-#              ``True`` if there are several warnings and
-#              ``False`` otherwise.
+#     return -> ; // See Python typing...
+#               ``True`` if there are several warnings and
+#               ``False`` otherwise.
 ###
     @property
     def several_warnings(self) -> bool:
@@ -90,9 +100,9 @@ class Problems:
 
 ###
 # prototype::
-#     return = ; // See Python typing...
-#              ``True`` if there are several erros and
-#              ``False`` otherwise.
+#     return -> ; // See Python typing...
+#               ``True`` if there are several erros and
+#               ``False`` otherwise.
 ###
     @property
     def several_errors(self) -> bool:
@@ -189,61 +199,54 @@ class Problems:
                 continue
 
 # Header
-            if getattr(self, f'several_{context.lower()}s') == True:
-                before  = "SEVERAL "
-                plurial = "S"
-    
-            else:
-                before  = "ONE "
-                plurial = ""
+            total_nb_pbs = getattr(self, f'nb_{context.lower()}s')
+
+            plurial = "S" if total_nb_pbs > 1 else ""
 
             self.speaker.recipe(
                 #
                 FORALL,
                     context,
                     NL,
-                    {VAR_TITLE: f'{before}{context.upper()}{plurial} FOUND',
+                    {VAR_TITLE:
+                        f'{total_nb_pbs} {context.upper()}{plurial} FOUND',
                      VAR_LEVEL: 2},
                 #
                 FORTERM,
                     'Look at the log file and/or above for details.',
                     NL,
+                FORALL,
             )
 
 # The problems (cardinality + refs).
-            exit()
+            for onepath_str in natsorted([
+                str(p) for p in pbs
+            ]):
+                this_ctxt_pb_ids = pbs[PPath(onepath_str)]
+                nb_this_ctxt_pbs = len(this_ctxt_pb_ids)
 
-# The paths and the numbers of their problems.
-            for relpath in sorted(pbs):
-                list_nb_pbs = pbs[relpath]
+                plurial = "s" if nb_this_ctxt_pbs > 1 else ""
 
-
-                relpath_str =  f'"{relpath}"'
-
-                colorize()
-                self.anadir.terminfo(relpath_str)
-
-                self.anadir.loginfo(
-                    info = relpath_str, 
-                    isitem  = True
+                self.speaker.recipe(
+                    #
+                    # FORALL # See before.
+                        {VAR_STEP_INFO: f'"{onepath_str}"', 
+                         VAR_LEVEL    : 1},
                 )
-
-
-                nb_pbs  = len(list_nb_pbs)
-                plurial = "" if nb_pbs == 1 else "s"
-
-                info = f'{nb_pbs} {kind}{plurial} found.'
-
-                colorize()
-                self.anadir.terminfo(
-                    info = info, 
-                    level   = 1
-                )
-
-                info += f' See {kind.lower()}{plurial} {list_nb_pbs}.'
                 
-                self.anadir.loginfo(
-                    info = info, 
-                    isitem  = True,
-                    level   = 1
+                self.speaker.recipe(
+                    #
+                    # FORALL # See before.
+                        {VAR_STEP_INFO: (
+                            f'{nb_this_ctxt_pbs} {context}{plurial}.'
+                            '\n'
+                            f'See: {this_ctxt_pb_ids}.'), 
+                         VAR_LEVEL    : 2},
                 )
+
+# Back to a nomral context.
+        self.speaker.recipe(
+                #
+                FORALL,
+                    CONTEXT_NORMAL
+        )

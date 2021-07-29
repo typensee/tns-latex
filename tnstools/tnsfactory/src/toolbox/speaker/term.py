@@ -113,26 +113,11 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     message = ; // See Python typing...
-#               the message to print on the terminal.
-#     tab     = (""); // See Python typing...
-#               a possible tabulation to use for each new line created.
-#     nowrap  = (False); // See Python typing...
-#               ``True`` avoids the hard wrapping and otherwise 
-#               ``False`` asks to use the hard wrapping.
-#
-# warning::
-#     The arguments ``tab`` and ``nowrap`` are not used with the terminal 
-#     speaker but we have to use a general API to make feel us happy when
-#     coding (this arguments are used by ``log.LogSpeaker``).
+#     text   = ; // See Python typing...
+#              a text to print as it on the terminal.
 ###
-    def print(
-        self,
-        message: str,
-        tab    : str  = "",
-        nowrap : bool = False
-    ) -> None:
-        print(message)
+    def print(self, text: str) -> None:
+        print(text)
 
 ###
 # prototype::
@@ -143,3 +128,28 @@ class TermSpeaker(AbstractSpeaker):
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         getattr(self.stylist, context).colorit()
+
+
+###
+# prototype::
+#     text = ; // See Python typing...
+#            a text to be hard wrapped.
+#     tab  = (""); // See Python typing...
+#            a possible tabulation to use for each new line created.
+#
+#     return -> ; // See Python typing...
+#               a wrapped message of maximal width ``self.maxwidth``.
+#
+# info::
+#     For the treminal the hard wrapping only takes care of tabulation 
+#     for back returns.
+###
+    def hardwrap(
+        self,
+        text: str,
+        tab : str = ""
+    ) -> str:
+        lines = text.split('\n')
+
+        return f'\n{tab}'.join(lines)
+

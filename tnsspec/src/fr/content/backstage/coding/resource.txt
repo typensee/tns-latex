@@ -1,25 +1,25 @@
 this::
-    date = 25/07/2021
+    date = 29/07/2021
 
 
 ===================
 Resources utilisées
 ===================
 
-Que ce soit pour un package, une classe ou une ¨doc, il est très courant d'utiliser des resources externes sous forme de ficghiers images, de fichiers de configuration... ¨etc.
+Que ce soit pour un package, une classe ou une ¨doc, il est très courant d'utiliser des resources externes sous forme de fichiers "image", de fichiers de configuration... ¨etc.
 Le système retenu pour intéger ces fichiers au produit fini est des plus basiques : tout dossier qui n'est pas ignoré
 ((
-    Se reporter à l'avertissement à la fin de cf::``:?/small-code.txt``  pour les dossier qui seront toujours ignorés.
+    Se reporter à l'avertissement à la fin de cf::``:?/small-code.txt``  pour les dossiers qui seront toujours ignorés.
 ))
 est intégré au projet final.
 
 
-Simple ! En fait oui et non car cela demande de ne travailler qu'avec des chemins relatifs mais normalment on le fait tous... Ce point est important car dans les codes sources seront cherchés bêtement des motifs du type ``{chemin/vers/ce/super/fichier}`` pour les adapter à l'organisation du produit fini
-((    
-    Si besoin, ce système pourra être affiné à l'avenir... Ceci étant ce la est amplement suffisant dans `99.999 %` des cas.
+Simple ! En fait oui et non car cela demande de ne travailler qu'avec des chemins relatifs mais normalement on le fait tous... Ce point est important car dans les codes sources seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter à l'organisation du produit fini.
+Ce choix correspond à l'usage fait en ¨latex pour insérer une image via des ``\input`` ou des ``\includegraphics`` par exemple mais aussi grâce à des macros "maison" qu'il est impossible de prendre en compte de façon automatique
+((
+    Par exemple, dans le package ¨bdoc sont définies les macros ``\inputdoclatex``, ``\inputdoclatexflat``, ``\inputdoclatexalon`` et ``\inputdoclatexreal`` qui prennent toutses en argument un chemin vars un fichier.
 )).
-Ce choix correspond à l'usage fait en ¨latex pour insérer une image via des ``\input`` ou des ``\includegraphics`` par exemple.
 
 
 info::
-    Si vraiement vous souhaitez afficher ``{chemin/vers/ce/super/fichier}`` en verbatim, une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/super/fichier }`` avec des espaces inutiles.
+    Si vraiement vous souhaitez afficher ``{chemin/vers/ce/superbe/fichier}`` en verbatim, une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles.

@@ -31,6 +31,8 @@ def timestamp(
 
     speaker.recipe(
         FORLOG,
-            {VAR_TITLE: timeTXT, VAR_LEVEL: 2, VAR_WITH_NL: with_NL},
+            {VAR_TITLE  : timeTXT, 
+             VAR_LEVEL  : 2, 
+             VAR_WITH_NL: with_NL},
         FORALL,
     )
