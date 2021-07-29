@@ -147,8 +147,8 @@ class TermSpeaker(AbstractSpeaker):
 #               a wrapped message of maximal width ``self.maxwidth``.
 #
 # info::
-#     For the terminal the hard wrapping only manage tabulation for
-#     back returns.
+#     We redefine the method ``hardwrap`` because in a terminal, the
+#     hard wrapping consists only to add tabulations "to" each new line.
 ###
     def hardwrap(
         self,

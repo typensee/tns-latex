@@ -1,7 +1,10 @@
 #! /usr/bin/env python3
 
-from .common import *
-from mistool.os_use import DIR_TAG, FILE_TAG
+from typing import *
+
+from mistool.os_use import PPath, DIR_TAG, FILE_TAG
+
+from orpyste.data import ReadBlock
 
 
 # ----------- #

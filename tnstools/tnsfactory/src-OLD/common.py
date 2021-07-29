@@ -20,37 +20,6 @@ from .problems  import *
 # ----------- #
 
 ###
-# prototype::
-#     onepath = ; // See Python typing...
-#               a path of a file or a directory.
-#     kind    = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
-#               the kind of infos wanted.
-#
-#     return  = ; // See Python typing...
-#               ``True`` for a file or a directory to keep and
-#               ``False`` in the opposite case.
-###
-
-def keepthis(
-    onepath: PPath,
-    kind   : bool
-) -> bool:
-# Something to ignore?
-    if any(
-        not p.match(onepath.stem) is None
-        for p in PATTERNS_SPECIAL[kind]
-    ):
-        return False
-
-# Nothing more to do for folders.
-    if kind == DIR_TAG:
-        return True
-
-# We keep only files with specific extensions.
-    return onepath.ext in FILE_EXT_WANTED
-
-
-###
 # This class is used by classes analyzing directories.
 ###
 

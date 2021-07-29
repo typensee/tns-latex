@@ -1,20 +1,5 @@
 #! /usr/bin/env python3
 
-# # Title for the monorepo.
-#             #FORALL,  # Defaul setting!
-#                 CONTEXT_GOOD,
-#             #
-#             FORTERM,
-#                 NL,
-#                 {VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
-#             #
-#             FORLOG,
-#                 {VAR_TITLE:
-#                     f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
-#             # 
-
-
-
 from toolbox import *
 
 
@@ -27,40 +12,40 @@ from toolbox import *
 # any LaTeX monorepo respecting the ¨tns way of coding.
 ###
 
-class Update(SearchSources):
+class Update(SearchPack):
 ###
 # prototype::
-#     monorepo = ; // See Python typing...  
-#               the path of the directory of the monorepo.
-#     initrepo = ; // See Python typing...  
-#                ``True`` forces to work on all packages without using
-#                term::``git a`` and False uses git to focus only on
-#                recent changes.
-#     speaker  = ; // See Python typing...  
-#                an instance of ``toolbox.speaker.allinone.Speaker`` 
-#                is used to communicate small ¨infos.
-#     problems = ; // See Python typing...  
-#                an instance of ``toolbox.Problems`` that manages a basic 
-#                history of the problems found.
-#     srcpaths = ( [] ); // See Python typing...  
-#                a list of the source paths to analyze. This argument  
-#                can be used when calling ``Update`` after another process 
-#                has already found the sources to analyze.
+#     monorepo    = ; // See Python typing...  
+#                   the path of the directory of the monorepo.
+#     initrepo    = ; // See Python typing...  
+#                   ``True`` forces to work on all packages without using
+#                   term::``git a`` and False uses git to focus only on
+#                   recent changes.
+#     speaker     = ; // See Python typing...  
+#                   an instance of ``toolbox.speaker.allinone.Speaker`` 
+#                   is used to communicate small ¨infos.
+#     problems    = ; // See Python typing...  
+#                   an instance of ``toolbox.Problems`` that manages 
+#                   a basic history of the problems found.
+#     packs_paths = ( [] ); // See Python typing...  
+#                   a list of the source paths to analyze. This argument 
+#                   can be used when calling ``Update`` after another 
+#                   process has already found the sources to analyze.
 ###
     def __init__(
         self,
-        monorepo: PPath,
-        initrepo: bool,
-        speaker : Speaker,
-        problems: Problems,
-        srcpaths: List[PPath] = [],
+        monorepo   : PPath,
+        initrepo   : bool,
+        speaker    : Speaker,
+        problems   : Problems,
+        packs_paths: List[PPath] = [],
     ) -> None:
         super().__init__(
-            monorepo = monorepo,
-            initrepo = initrepo,
-            speaker  = speaker ,
-            problems = problems,
-            srcpaths = srcpaths
+            monorepo    = monorepo,
+            initrepo    = initrepo,
+            speaker     = speaker ,
+            problems    = problems,
+            packs_paths = packs_paths
         )
 
 
@@ -181,6 +166,24 @@ if __name__ =="__main__":
     
     problems = Problems(speaker)
 
+
+# Title for the monorepo.
+    speaker.recipe(
+        #FORALL,  # Defaul setting!
+            CONTEXT_GOOD,
+        #
+        FORTERM,
+            NL,
+            {VAR_TITLE: f'TNS LIKE MONOREPO "{MONOREPO.name}"'},
+        #
+        FORLOG,
+            {VAR_TITLE:
+                f'LOG FILE - TNS LIKE MONOREPO "{MONOREPO.name}"'},
+        #
+        FORALL,
+            CONTEXT_NORMAL
+    )
+    
 
     update = Update(
         monorepo = MONOREPO,

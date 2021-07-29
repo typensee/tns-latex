@@ -1,3 +1,5 @@
 from typing import *
 
-from .srcmanager import *
+from .searchpack import *
+from .gitinfos   import *
+from .toc        import *

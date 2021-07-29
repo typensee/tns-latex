@@ -11,32 +11,6 @@ from mistool.os_use   import DIR_TAG, FILE_TAG
 # -- SOURCES -- #
 # ------------- #
 
-ABOUT_NAME   =  "about.peuf"
-SRC_DIR_NAME =  "src"
-
-PATTERN_COMMON = [
-    "\\..+",
-    "x-.+-x",
-]
-
-PATTERNS_SPECIAL = {
-    DIR_TAG: [
-        re.compile(f"^{p}$")
-        for p in PATTERN_COMMON + [
-            "changes", 
-            "tools", 
-            "tests"
-        ]
-    ],
-    FILE_TAG: [
-        re.compile(f"^{p}$")
-        for p in PATTERN_COMMON + [
-            "tools?-.*", 
-            "tests?-.*"
-        ]
-    ]
-}
-
 
 # -------------- #
 # -- MESSAGES -- #
@@ -59,31 +33,6 @@ MESSAGE_WRONG_SRC = "BAD SOURCE"
 # ----------- #
 # -- ABOUT -- #
 # ----------- #
-
-TOC_TAG  = "toc"
-GENE_TAG = "general"
-
-ABOUT_PEUF_MODE = {
-    "keyval:: =": GENE_TAG,
-    "verbatim"  : TOC_TAG,
-}
-
-GENE_TNSLATEX_TAG = "tnslatex"
-GENE_DESC_TAG     = "desc"
-GENE_AUTHOR_TAG   = "author"
-GENE_LICENCE_TAG  = "licence"
-GENE_NEED_TAG     = "need"
-
-GENE_ALL_TAGS = set([
-    GENE_TNSLATEX_TAG,
-    GENE_DESC_TAG    ,
-    GENE_AUTHOR_TAG  ,
-    GENE_LICENCE_TAG ,
-    GENE_NEED_TAG    ,
-])
-
-YES_TAG = "yes"
-NO_TAG  = "no"
 
 
 # -------------- #
