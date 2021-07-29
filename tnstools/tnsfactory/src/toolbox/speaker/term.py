@@ -95,7 +95,7 @@ class TermSpeaker(AbstractSpeaker):
         self,
         style,
         maxwidth: int = 80
-    ):
+    ) -> None:
         super().__init__(
             style    = style,
             maxwidth = maxwidth
@@ -147,8 +147,8 @@ class TermSpeaker(AbstractSpeaker):
 #               a wrapped message of maximal width ``self.maxwidth``.
 #
 # info::
-#     For the treminal the hard wrapping only takes care of tabulation 
-#     for back returns.
+#     For the terminal the hard wrapping only manage tabulation for
+#     back returns.
 ###
     def hardwrap(
         self,

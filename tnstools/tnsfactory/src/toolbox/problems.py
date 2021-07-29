@@ -34,7 +34,7 @@ class Problems:
     def __init__(
         self,
         speaker:Speaker # Can't use the type speaker.Speaker.
-    ):
+    ) -> None:
         self.speaker = speaker
 
 # ---------
@@ -123,7 +123,7 @@ class Problems:
         src_relpath: PPath,
         info       : str,
         level      : int = 0
-    ):
+    ) -> None:
         self.nb_errors += 1
 
         self._new_pb(
@@ -147,7 +147,7 @@ class Problems:
         src_relpath: PPath,
         info       : str,
         level      : int = 0
-    ):
+    ) -> None:
         self.nb_warnings += 1
 
         self._new_pb(
@@ -210,11 +210,12 @@ class Problems:
                     NL,
                     {VAR_TITLE:
                         f'{total_nb_pbs} {context.upper()}{plurial} FOUND',
-                     VAR_LEVEL: 2},
+                     VAR_LEVEL  : 2,
+                     VAR_WITH_NL: False},
                 #
                 FORTERM,
-                    'Look at the log file and/or above for details.',
                     NL,
+                    'Look at the log file and/or above for details.',
                 FORALL,
             )
 
@@ -230,6 +231,7 @@ class Problems:
                 self.speaker.recipe(
                     #
                     # FORALL # See before.
+                        NL,
                         {VAR_STEP_INFO: f'"{onepath_str}"', 
                          VAR_LEVEL    : 1},
                 )
@@ -240,7 +242,7 @@ class Problems:
                         {VAR_STEP_INFO: (
                             f'{nb_this_ctxt_pbs} {context}{plurial}.'
                             '\n'
-                            f'See: {this_ctxt_pb_ids}.'), 
+                            f'See #.: {this_ctxt_pb_ids}.'), 
                          VAR_LEVEL    : 2},
                 )
 

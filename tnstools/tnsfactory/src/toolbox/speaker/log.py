@@ -28,7 +28,7 @@ class LogSpeaker(AbstractSpeaker):
         logfile : PPath,
         style   : str,
         maxwidth: int,
-    ):
+    ) -> None:
         super().__init__(
             style    = style,
             maxwidth = maxwidth
@@ -41,7 +41,7 @@ class LogSpeaker(AbstractSpeaker):
 ###
 # This method produces a new empty log file.
 ###
-    def reset_logfile(self):
+    def reset_logfile(self) -> None:
 # Empty an existing log file.
         if self.logfile.is_file():
             with self.logfile.open(
@@ -79,4 +79,4 @@ class LogSpeaker(AbstractSpeaker):
 # This method simply append ``repeat`` empty new lines to the log file.
 ###
     def NL(self, repeat: int = 1) -> None:
-        self.print("\n"*repeat)
+        self.print("\n"*(repeat - 1))

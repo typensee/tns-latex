@@ -45,7 +45,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
 # Source to have a real interface: 
 #     * https://realpython.com/python-interface/#using-abcabcmeta 
     @classmethod
-    def __subclasshook__(cls, subclass):
+    def __subclasshook__(cls, subclass) -> None:
         goodinterface = all(
             hasattr(subclass, methodname) and 
             callable(getattr(subclass, methodname)) 
@@ -69,7 +69,7 @@ class AbstractSpeaker(metaclass=ABCMeta):
         self,
         style   : str,
         maxwidth: int = 80
-    ):
+    ) -> None:
         assert(style in ALL_GLOBAL_STYLES)
 
         self.maxwidth     = maxwidth

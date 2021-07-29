@@ -102,7 +102,7 @@ class Speaker(AbstractSpeaker):
         logfile : PPath,
         style   : str,
         maxwidth: int = 80
-    ):
+    ) -> None:
 # Here we do not need the use of ``super().__init__()``.
         self._speakers = {
             self.OUTPUT_LOG : LogSpeaker(
@@ -184,8 +184,8 @@ class Speaker(AbstractSpeaker):
 #               ``False`` to not do this 
 #
 # info::
-#     For example, ``with_NL`` is used to print the very last time stamps 
-#     in the log file.
+#     ``with_NL`` is used to resume problems found, or to print 
+#     the very last time stamps in the log file.
 ###
     def title(self, 
         title  : str,
@@ -272,11 +272,10 @@ class Speaker(AbstractSpeaker):
     ) -> None:
         self.style(context)
 
-        for out in self._current_outputs:
-            self.step(
-                step_info = f'[ #{pb_id} ] {context.upper()}: {info}',
-                level     = level
-            )
+        self.step(
+            step_info = f'[ #{pb_id} ] {context.upper()}: {info}',
+            level     = level
+        )
 
         self.style(CONTEXT_NORMAL)
 

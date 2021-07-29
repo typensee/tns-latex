@@ -1,1 +1,3 @@
-from .lookfor import *
+from typing import *
+
+from .srcmanager import *
