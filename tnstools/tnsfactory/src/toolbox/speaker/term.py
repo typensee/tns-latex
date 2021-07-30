@@ -143,8 +143,8 @@ class TermSpeaker(AbstractSpeaker):
 #     tab  = (""); // See Python typing...
 #            a possible tabulation to use for each new line created.
 #
-#     return -> ; // See Python typing...
-#               a wrapped message of maximal width ``self.maxwidth``.
+#     :return: = ; // See Python typing...
+#                a wrapped message of maximal width ``self.maxwidth``.
 #
 # info::
 #     We redefine the method ``hardwrap`` because in a terminal, the

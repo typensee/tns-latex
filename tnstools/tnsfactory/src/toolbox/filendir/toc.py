@@ -1,22 +1,20 @@
 #! /usr/bin/env python3
 
-from typing import *
+from ..base import *
 
-from mistool.os_use import PPath, DIR_TAG, FILE_TAG
-
-from orpyste.data import ReadBlock
+from .config import *
 
 
-# ----------- #
-# -- TOOLS -- #
-# ----------- #
+# ----------------------------------------- #
+# -- LOOK FOR A TOC INSIDE AN ABOUT FILE -- #
+# ----------------------------------------- #
 
 ###
-# This class extracts ¨infos from a toc inside an ``about.peuf`` 
-# file of a package.
+# This class extracts ¨infos from a toc inside an ``about.peuf`` file 
+# of a package.
 ###
 
-class TOC:
+class TOC(BaseCom):
     ITEM_DIR : str = "+"
     ITEM_FILE: str = "*"
     ITEM_PACK: str = ">"
@@ -43,22 +41,15 @@ class TOC:
 
 ###
 # prototype::
-#     anadir = common.AnaDir ;  
-#              any class having the ¨api of ``common.AnaDir``.
-#     kind   = _ in self.ALL_USER_KINDS ; # See Python typing... 
-#              the kind of ¨infos expected to be in the TOC.
+#     kind = _ in self.ALL_USER_KINDS ; # See Python typing... 
+#            the kind of ¨infos expected to be in the TOC.
 ###
-    def __init__(
-        self,
-        anadir,# Can't use the type common.AnaDir (cyclic imports).
-        kind: str
-    ) -> None:
-        self.anadir = anadir
-        self.kind   = kind
+    def __init__(self, kind: str) -> None:
+        self.kind = kind
 
 ###
 # prototype::
-#     return = ; # See Python typing...
+#     :return: = ; # See Python typing...
 #              the list of directories to analyze.
 ###
     def build(self) -> List[PPath]:
@@ -110,7 +101,7 @@ class TOC:
 
 ###
 # prototype::
-#     return = ; # See Python typing...
+#     :return: = ; # See Python typing...
 #              ``[kind, info]`` where ``kind`` belongs to ``self.ALL_KINDS`` and 
 #              info can be ``None`` in case of problem, or the text after
 #              the placeholder.

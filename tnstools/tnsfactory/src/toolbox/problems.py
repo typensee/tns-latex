@@ -56,9 +56,9 @@ class Problems:
 
 ###
 # prototype::
-#     return -> ; // See Python typing...
-#               ``True`` if at least one error has been found and
-#               ``False` otherwise.
+#     :return: = ; // See Python typing...
+#                ``True`` if at least one error has been found and
+#                ``False` otherwise.
 ###
     @property
     def errorfound(self) -> bool:
@@ -66,9 +66,9 @@ class Problems:
 
 ###
 # prototype::
-#     return -> ; // See Python typing...
-#               ``True`` if at least one warning has been found and
-#               ``False` otherwise.
+#     :return: = ; // See Python typing...
+#                ``True`` if at least one warning has been found and
+#                ``False` otherwise.
 ###
     @property
     def warningfound(self) -> bool:
@@ -76,9 +76,9 @@ class Problems:
 
 ###
 # prototype::
-#     return -> ; // See Python typing...
-#               ``True`` if at least on error or one warning has been found and
-#               ``False` otherwise.
+#     :return: = ; // See Python typing...
+#                ``True`` if at least on error or one warning has been found and
+#                ``False` otherwise.
 ###
     @property
     def pbfound(self) -> bool:
@@ -90,9 +90,9 @@ class Problems:
 
 ###
 # prototype::
-#     return -> ; // See Python typing...
-#               ``True`` if there are several warnings and
-#               ``False`` otherwise.
+#     :return: = ; // See Python typing...
+#                ``True`` if there are several warnings and
+#                ``False`` otherwise.
 ###
     @property
     def several_warnings(self) -> bool:
@@ -100,9 +100,9 @@ class Problems:
 
 ###
 # prototype::
-#     return -> ; // See Python typing...
-#               ``True`` if there are several erros and
-#               ``False`` otherwise.
+#     :return: = ; // See Python typing...
+#                ``True`` if there are several erros and
+#                ``False`` otherwise.
 ###
     @property
     def several_errors(self) -> bool:

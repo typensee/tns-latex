@@ -1,31 +1,3 @@
-allpacks = packdirs(MONOREPO_DIR)
-
-if not allpacks:
-    packs_to_update = []
-
-    SUB_1_STEPS("No packages found.")
-
-else:
-    SUB_1_STEPS(f"Total number of packages = {len(allpacks)}")
-
-    if INIT_MONOREPO:
-        SUB_1_STEPS(f"Initialize the monorepo: all packages treated.")
-
-        packs_to_update = allpacks
-
-    else:
-        SUB_1_STEPS('Using "git a".')
-
-        packs_to_update = packschanged(MONOREPO_DIR, allpacks)
-
-        percentage = len(packs_to_update) / len(allpacks) * 100
-
-        SUB_1_STEPS(
-            f"Number of packages changed = {len(packs_to_update)}"
-            f"  -->  {percentage:.2f}%"
-        )
-
-
 # ------------------------- #
 # -- UPDATE EACH PACKAGE -- #
 # ------------------------- #

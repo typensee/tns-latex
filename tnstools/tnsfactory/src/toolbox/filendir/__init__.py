@@ -1,5 +1,8 @@
 from typing import *
 
-from .searchpack import *
-from .gitinfos   import *
-from .toc        import *
+from .config import *
+
+from .search import *
+from .pack   import *
+from .git    import *
+from .toc    import *

@@ -23,7 +23,6 @@ ALL_CONTEXTS = [
 
 # -- INTERFACE - AUTO CODE - END -- #
 
-
 GLOBAL_STYLE_BW    = "balck & white"
 GLOBAL_STYLE_COLOR = "color"
 
@@ -118,8 +117,8 @@ class AbstractSpeaker(metaclass=ABCMeta):
 #     tab  = (""); // See Python typing...
 #            a possible tabulation to use for each new line created.
 #
-#     return -> ; // See Python typing...
-#               a wrapped message of maximal width ``self.maxwidth``.
+#     :return: = ; // See Python typing...
+#                a wrapped message of maximal width ``self.maxwidth``.
 ###
     def hardwrap(
         self,

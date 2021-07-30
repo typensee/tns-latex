@@ -50,16 +50,6 @@ class Update(SearchPack):
 
 
 ###
-# prototype::
-#     see = speaker.allinone.Speaker.recipe
-# 
-# This method is just an esay-to-use wrapper.
-###
-    def recipe(self, *args, **kwargs) -> None:
-        self.speaker.recipe(*args, **kwargs)
-
-
-###
 # Here is the great bandleader.
 ###
     def build(self) -> None:
@@ -71,7 +61,7 @@ class Update(SearchPack):
 
 # Let's work.
         for methodname in [
-            "search", # See ``filendir.srcmanager.SearchSources``.
+            "search", # See ``filendir.pack.SearchPack``.
         ]:
             getattr(self, methodname)()
 
@@ -139,7 +129,7 @@ class Update(SearchPack):
 
 if __name__ =="__main__":
     INIT_REPO = True
-    # INIT_REPO = False
+    INIT_REPO = False
 
     LANGS_SUPPORTED = ["FR"]
 
