@@ -72,10 +72,10 @@ class UpdateOnePack(AnaDir):
 
 # Let's go!
         for methodname in [
-            "build_about",
-            "build_srcdirs",
-            "analyze_srcdirs",
-            "manage_resources",
+            "build_about"      ,
+            "build_srcdirs"    ,
+            "analyze_srcdirs"  ,
+            "manage_resources" ,
         ]:
             getattr(self, methodname)()
 

@@ -20,10 +20,6 @@ class BaseCom:
 # prototype::
 #     monorepo    = ; // See Python typing...  
 #                   the path of the directory of the monorepo.
-#     initrepo    = ; // See Python typing...  
-#                   ``True`` forces to work on all packages without using
-#                   term::``git a`` and False uses git to focus only on
-#                   recent changes.
 #     speaker     = ; // See Python typing...  
 #                   an instance of ``toolbox.speaker.allinone.Speaker`` 
 #                   is used to communicate small ¨infos.
@@ -34,11 +30,9 @@ class BaseCom:
     def __init__(
         self,
         monorepo: PPath,
-        initrepo: bool,
         speaker : Speaker,
         problems: Problems,
     ) -> None:
-        self.initrepo         = initrepo
         self.monorepo         = monorepo
         self.monorepo_relpath = PPath(monorepo.name)
 
@@ -49,13 +43,12 @@ class BaseCom:
 
 ###
 # prototype::
-#     :see: = problems.Problems.new_error
+#     :see: = problems.Problems.new_warning
 # 
 # This method is just an easy-to-use wrapper.
 ###
-    def new_error(self, *args, **kwargs):
-        self.success = False
-        self.problems.new_error(*args, **kwargs)
+    def new_critical(self, *args, **kwargs):
+        self.problems.new_critical(*args, **kwargs)
 
 ###
 # prototype::
@@ -65,6 +58,16 @@ class BaseCom:
 ###
     def new_warning(self, *args, **kwargs):
         self.problems.new_warning(*args, **kwargs)
+
+###
+# prototype::
+#     :see: = problems.Problems.new_error
+# 
+# This method is just an easy-to-use wrapper.
+###
+    def new_error(self, *args, **kwargs):
+        self.success = False
+        self.problems.new_error(*args, **kwargs)
 
 ###
 # prototype::

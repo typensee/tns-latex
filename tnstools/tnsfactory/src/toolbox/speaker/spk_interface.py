@@ -9,12 +9,14 @@ from abc import ABCMeta, abstractmethod
 
 # -- INTERFACE - AUTO CODE - START -- #
 
-CONTEXT_ERROR   = "error"
-CONTEXT_GOOD    = "good"
-CONTEXT_NORMAL  = "normal"
-CONTEXT_WARNING = "warning"
+CONTEXT_CRITICAL = "critical"
+CONTEXT_ERROR    = "error"
+CONTEXT_GOOD     = "good"
+CONTEXT_NORMAL   = "normal"
+CONTEXT_WARNING  = "warning"
 
 ALL_CONTEXTS = [
+    CONTEXT_CRITICAL,
     CONTEXT_ERROR,
     CONTEXT_GOOD,
     CONTEXT_NORMAL,

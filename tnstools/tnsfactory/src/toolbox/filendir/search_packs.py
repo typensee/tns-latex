@@ -11,7 +11,7 @@ from .search import *
 # ???
 ###
 
-class SearchPack(SearchDirFile):
+class SearchPacks(SearchDirFile):
 
 ###
 # prototype::
@@ -42,11 +42,11 @@ class SearchPack(SearchDirFile):
     ) -> None:
         super().__init__(        
             monorepo = monorepo,
-            initrepo = initrepo,
             speaker  = speaker,
             problems = problems
         )
 
+        self.initrepo    = initrepo
         self.packs_paths = packs_paths
 
 
@@ -86,7 +86,8 @@ class SearchPack(SearchDirFile):
             return
 
 # Sources have been found.
-        plurial = "s" if len(self.packs_paths) > 1 else ""
+        nbpacks = len(self.packs_paths)
+        plurial = "s" if nbpacks > 1 else ""
 
         if self.initrepo:
             self.recipe(
@@ -94,13 +95,11 @@ class SearchPack(SearchDirFile):
                 {VAR_STEP_INFO: (
                     f'Initialize the monorepo:'
                      '\n'
-                    f'{len(self.packs_paths)} package{plurial} '
+                    f'{nbpacks} package{plurial} '
                      'will be treated.')},
             )
 
         else:
-            nb_possible_packs = len(self.packs_paths)
-
             self.recipe(
 #            FORALL, # Default context.
                 {VAR_STEP_INFO: 'Using "git a".'},
@@ -108,22 +107,22 @@ class SearchPack(SearchDirFile):
 
             self.gitpaths()
 
-            nb_packschanged = len(self.packs_paths)
+            nbpacks_changed = len(self.packs_paths)
 
-            if nb_packschanged == 0:
+            if nbpacks_changed == 0:
                 self.recipe(
 #            FORALL, # Default context.
                     {VAR_STEP_INFO: 'No change found.',
-                     VAR_LEVEL: 1},
+                     VAR_LEVEL    : 1},
                 )
 
             else:
-                percentage = nb_packschanged / nb_possible_packs * 100
+                percentage = nbpacks_changed / nbpacks * 100
 
                 self.recipe(
 #            FORALL, # Default context.
                     {VAR_STEP_INFO: (
-                        f'Number of packages changed = {nb_packschanged}'
+                        f'Number of packages changed = {nbpacks_changed}'
                         f'  -->  {percentage:.2f}%'),
                      VAR_LEVEL: 1},
                 )

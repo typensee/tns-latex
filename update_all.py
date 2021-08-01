@@ -1,18 +1,3 @@
-# ------------------------- #
-# -- UPDATE EACH PACKAGE -- #
-# ------------------------- #
-
-pbfound = []
-
-# Empty monorepo...
-if not allpacks:
-    ...
-
-# No pack to update.
-elif not packs_to_update:
-    NL()
-    MAIN_STEPS("No changes found.")
-
 # Some pack to update.
 else:
     for packchged in packs_to_update:

@@ -12,7 +12,7 @@ from toolbox import *
 # any LaTeX monorepo respecting the ¨tns way of coding.
 ###
 
-class Update(SearchPack):
+class Update(SearchPacks):
 ###
 # prototype::
 #     monorepo    = ; // See Python typing...  
@@ -129,7 +129,7 @@ class Update(SearchPack):
 
 if __name__ =="__main__":
     INIT_REPO = True
-    INIT_REPO = False
+    # INIT_REPO = False
 
     LANGS_SUPPORTED = ["FR"]
 

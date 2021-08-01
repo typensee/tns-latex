@@ -44,10 +44,11 @@ def _colorit(
 
 class ColorStylist(Enum):
 # See ``spk_interface.ALL_CONTEXTS.``
-    normal :str = ''
-    error  :str = '31'
-    warning:str = '96'
-    good   :str = '94'
+    normal  : str = ''
+    good    : str = '96'
+    warning : str = '94'
+    critical: str = '95'
+    error   : str = '31'
 
     def colorit(self) -> None:
         _colorit(
@@ -62,15 +63,16 @@ class ColorStylist(Enum):
 
 class BWStylist(Enum):
 # See ``spk_interface.ALL_CONTEXTS.``
-    normal :str = ''
-    error  :str = 'x'
-    warning:str = 'x'
-    good   :str = 'x'
+    normal  : str = ''
+    good    : str = '1m'
+    warning : str = '3m'
+    critical: str = '1m'
+    error   : str = '3m\033[1m'
 
     def colorit(self) -> None:
         _colorit(
             value    = self.value,
-            codetemp = '\033[1m',
+            codetemp = '\033[{value}',
             normcode = '\033[0m'
         )
 

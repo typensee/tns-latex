@@ -44,25 +44,17 @@ class Problems:
 # We use the ordered feature of dict suchas to treat warnings before
 # errors in the summaries.
         self._problems: dict = {
-            CONTEXT_WARNING: defaultdict(list), # Before ERROR!
-            CONTEXT_ERROR  : defaultdict(list), # After WARNING!
+            CONTEXT_WARNING : defaultdict(list), # Before ERROR and CRITICAL!
+            CONTEXT_CRITICAL: defaultdict(list), # Before ERROR!
+            CONTEXT_ERROR   : defaultdict(list),
         }
 
-        self.nb_errors   = 0
-        self.nb_warnings = 0
+        self.nb_warnings  = 0
+        self.nb_criticals = 0
+        self.nb_errors    = 0
 
         self._pb_id = 0
 
-
-###
-# prototype::
-#     :return: = ; // See Python typing...
-#                ``True`` if at least one error has been found and
-#                ``False` otherwise.
-###
-    @property
-    def errorfound(self) -> bool:
-        return self.nb_errors != 0
 
 ###
 # prototype::
@@ -77,15 +69,37 @@ class Problems:
 ###
 # prototype::
 #     :return: = ; // See Python typing...
+#                ``True`` if at least one "critical" has been found and
+#                ``False` otherwise.
+###
+    @property
+    def criticalfound(self) -> bool:
+        return self.nb_warnings != 0
+
+###
+# prototype::
+#     :return: = ; // See Python typing...
+#                ``True`` if at least one error has been found and
+#                ``False` otherwise.
+###
+    @property
+    def errorfound(self) -> bool:
+        return self.nb_errors != 0
+
+###
+# prototype::
+#     :return: = ; // See Python typing...
 #                ``True`` if at least on error or one warning has been found and
 #                ``False` otherwise.
 ###
     @property
     def pbfound(self) -> bool:
         return (
-            self.errorfound
-            or
             self.warningfound
+            or
+            self.criticalfound
+            or
+            self.errorfound
         )
 
 ###
@@ -101,6 +115,16 @@ class Problems:
 ###
 # prototype::
 #     :return: = ; // See Python typing...
+#                ``True`` if there are several "criticals" and
+#                ``False`` otherwise.
+###
+    @property
+    def several_criticals(self) -> bool:
+        return self.nb_criticals > 1
+
+###
+# prototype::
+#     :return: = ; // See Python typing...
 #                ``True`` if there are several erros and
 #                ``False`` otherwise.
 ###
@@ -108,30 +132,6 @@ class Problems:
     def several_errors(self) -> bool:
         return self.nb_errors > 1
 
-
-###
-# prototype::
-#     src_relpath = ; // See Python typing...
-#                   the path of the source within the error has been found.
-#     info        = ; // See Python typing...
-#                   the info explaining the error.
-#     level       = _ in [0..3] (0); // See Python typing...
-#                   the level of the step indicating the problem.
-###
-    def new_error(
-        self,
-        src_relpath: PPath,
-        info       : str,
-        level      : int = 0
-    ) -> None:
-        self.nb_errors += 1
-
-        self._new_pb(
-            src_relpath = src_relpath,
-            context     = CONTEXT_ERROR,
-            info        = info,
-            level       = level
-        )
 
 ###
 # prototype::
@@ -153,6 +153,54 @@ class Problems:
         self._new_pb(
             src_relpath = src_relpath,
             context     = CONTEXT_WARNING,
+            info        = info,
+            level       = level
+        )
+
+###
+# prototype::
+#     src_relpath = ; // See Python typing...
+#                   the path of the source within the warning has been found.
+#     info        = ; // See Python typing...
+#                   the info explaining the "critical".
+#     level       = _ in [0..3] (0); // See Python typing...
+#                   the level of the step indicating the problem.
+###
+    def new_critical(
+        self,
+        src_relpath: PPath,
+        info       : str,
+        level      : int = 0
+    ) -> None:
+        self.nb_criticals += 1
+
+        self._new_pb(
+            src_relpath = src_relpath,
+            context     = CONTEXT_CRITICAL,
+            info        = info,
+            level       = level
+        )
+
+###
+# prototype::
+#     src_relpath = ; // See Python typing...
+#                   the path of the source within the error has been found.
+#     info        = ; // See Python typing...
+#                   the info explaining the error.
+#     level       = _ in [0..3] (0); // See Python typing...
+#                   the level of the step indicating the problem.
+###
+    def new_error(
+        self,
+        src_relpath: PPath,
+        info       : str,
+        level      : int = 0
+    ) -> None:
+        self.nb_errors += 1
+
+        self._new_pb(
+            src_relpath = src_relpath,
+            context     = CONTEXT_ERROR,
             info        = info,
             level       = level
         )

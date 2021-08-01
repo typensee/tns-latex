@@ -27,10 +27,6 @@ class SearchDirFile(BaseCom):
 # prototype::
 #     monorepo    = ; // See Python typing...  
 #                   the path of the directory of the monorepo.
-#     initrepo    = ; // See Python typing...  
-#                   ``True`` forces to work on all packages without using
-#                   term::``git a`` and False uses git to focus only on
-#                   recent changes.
 #     speaker     = ; // See Python typing...  
 #                   an instance of ``toolbox.speaker.allinone.Speaker`` 
 #                   is used to communicate small ¨infos.
@@ -41,13 +37,11 @@ class SearchDirFile(BaseCom):
     def __init__(
         self,
         monorepo: PPath,
-        initrepo: bool,
         speaker : Speaker,
         problems: Problems,
     ) -> None:
         super().__init__(
             monorepo    = monorepo,
-            initrepo    = initrepo,
             speaker     = speaker ,
             problems    = problems,
         )
