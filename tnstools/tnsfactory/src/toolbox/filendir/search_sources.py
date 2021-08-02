@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from .search import *
-from .toc    import *
+from .search_base import *
+from .toc         import *
 
 
 # ---------------- #
@@ -12,7 +12,7 @@ from .toc    import *
 # ???
 ###
 
-class SearchSrcDirs(SearchDirFile):
+class SearchSources(SearchDirFile):
 
 ###
 # prototype::
@@ -133,6 +133,9 @@ class SearchSrcDirs(SearchDirFile):
                 kind     = FILE_TAG,
                 level    = 2
             )
+
+            if not self.success:
+                return
             
             self.src_files += self._temp_src_files
 
@@ -185,9 +188,25 @@ class SearchSrcDirs(SearchDirFile):
         if not getattr(self, attrname):
             self.new_critical(
                 src_relpath = onedir_rel,
-                info        = f'No source found inside :\n"{onedir_rel}"!',
+                info        = f'No source found inside :\n"{onedir_rel}"',
                 level       = 2 
             )
+
+# A source found but that is not real.
+        for onesrc in getattr(self, attrname):
+            if not self.exists(
+                source = onesrc,
+                kind   = kind
+            ):
+                onesrc_rel = onesrc - self.monorepo
+
+                self.new_error(
+                    src_relpath = onesrc_rel,
+                    info        = f'missing {kind} source:\n"{onesrc_rel}"',
+                    level       = 2 
+                )
+
+                return
 
 # Let's talk to the world...
         nb_sources         = len(getattr(self, attrname))
@@ -209,6 +228,20 @@ class SearchSrcDirs(SearchDirFile):
                     f'{nb_sources} source {kind}{plurial} found{log_message_method}.',
                  VAR_LEVEL: level},
         )
+
+###
+# ???
+###
+    def exists(
+        self, 
+        source: PPath,
+        kind  : str,
+    ):
+        if kind == DIR_TAG:
+            return source.is_dir()
+
+        return source.is_file()
+
 ###
 # ???
 ###
@@ -219,7 +252,7 @@ class SearchSrcDirs(SearchDirFile):
         kind    : str,
         level   : int
     ) -> bool:
-# No about file.
+# No about file
         if not self.has_about(onedir):
             return False
 
@@ -241,9 +274,10 @@ class SearchSrcDirs(SearchDirFile):
             return 
 
 # Try to work with a TOC.
+# TODO une seule instance que l'on reset !!!
         toc = TOC(
             monorepo = self.monorepo,
-            package  = self.package,
+            onedir   = onedir,
             speaker  = self.speaker ,
             problems = self.problems,
             infos    = infos,
@@ -255,7 +289,7 @@ class SearchSrcDirs(SearchDirFile):
         if not toc.has_toc():
             self.new_warning(
                 src_relpath = self.relpackage,
-                info        = 'No TOC inside the about file.',
+                info        = 'no TOC inside the about file.',
                 level       = level
             )
 

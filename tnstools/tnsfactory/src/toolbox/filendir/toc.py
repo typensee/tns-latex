@@ -11,7 +11,7 @@ from .config import *
 
 ###
 # This class extracts ¨infos from a toc inside an ``about.peuf`` file 
-# of a package.
+# of a onedir.
 ###
 
 class TOC(BaseCom):
@@ -43,8 +43,8 @@ class TOC(BaseCom):
 # prototype::
 #     monorepo = ; // See Python typing...  
 #                the path of the directory of the monorepo.
-#     package  = ; // See Python typing...
-#                the path of one package to analyze.
+#     onedir  = ; // See Python typing...
+#                the path of one onedir to analyze.
 #     speaker  = ; // See Python typing...
 #                an instance of ``toolbox.speaker.allinone.Speaker`` 
 #                is used to communicate small ¨infos.
@@ -62,7 +62,7 @@ class TOC(BaseCom):
     def __init__(
         self,
         monorepo: PPath,
-        package : PPath,
+        onedir  : PPath,
         speaker : Speaker,
         problems: Problems,
         infos   : dict,
@@ -75,12 +75,12 @@ class TOC(BaseCom):
             problems = problems,
         )
 
-        self.package = package
+        self.onedir = onedir
         
         self.infos = infos
         self.kind  = kind
        
-        self.level  = level
+        self.level = level
 
 
 ###
@@ -130,7 +130,7 @@ class TOC(BaseCom):
                 )
 
                 self.new_error(
-                    src_relpath = self.package - self.monorepo,
+                    src_relpath = self.onedir - self.monorepo,
                     info        = message,
                     level       = self.level
                 )
@@ -142,7 +142,7 @@ class TOC(BaseCom):
 # Empty TOC.
         if not pathsfound:
             self.new_error(
-                src_relpath = self.package - self.monorepo,
+                src_relpath = self.onedir - self.monorepo,
                 info        = 'about file: empty TOC!',
                 level       = self.level
             )

@@ -128,7 +128,7 @@ class Update(SearchPacks):
 ###
     def ana_eachpacks(self) -> None:
         for onepack in self.packs_paths:
-            searchcodes = SearchSrcDirs(
+            searchcodes = SearchSources(
                 monorepo = self.monorepo,
                 package  = onepack,
                 speaker  = self.speaker,
