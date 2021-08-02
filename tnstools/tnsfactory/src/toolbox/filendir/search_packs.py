@@ -153,17 +153,15 @@ class SearchPacks(SearchDirFile):
     def recbuild_packpaths(self, onedir: PPath) -> List[PPath]:
         packsfound: List[PPath] = []
 
-        for subdir in onedir.iterdir():
-# A folder to analyze.
-            if self.is_kept(
-                onepath = subdir,
-                kind    = DIR_TAG
-            ):
-                if self.is_pack(subdir):
-                    packsfound.append(subdir)
+        for subdir in self.iterIO(
+            onedir = onedir,
+            kind   = DIR_TAG
+        ):
+            if self.is_pack(subdir):
+                packsfound.append(subdir)
 
-                else:
-                    packsfound += self.recbuild_packpaths(subdir)
+            else:
+                packsfound += self.recbuild_packpaths(subdir)
 
         return packsfound
 

@@ -41,13 +41,25 @@ class SearchDirFile(BaseCom):
         problems: Problems,
     ) -> None:
         super().__init__(
-            monorepo    = monorepo,
-            speaker     = speaker ,
-            problems    = problems,
+            monorepo = monorepo,
+            speaker  = speaker ,
+            problems = problems,
         )
 
-        self.about = None
+        self.last_about = None
 
+
+###
+# ???
+###
+    def iterIO(self, onedir: PPath, kind: str) -> Iterator[PPath]:
+        for fileordir in onedir.iterdir():
+# Something to analyze directly in our folder?
+            if self.is_kept(
+                onepath = fileordir,
+                kind    = kind
+            ):
+                yield fileordir
 
 ###
 # prototype::
@@ -104,37 +116,43 @@ class SearchDirFile(BaseCom):
 #     If no about file is found, the value of ``self.about`` is ``None``.
 ###
     def has_about(self, onedir: PPath) -> bool:
-        self.about = onedir / ABOUT_NAME
+        self.last_about = onedir / ABOUT_NAME
 
-        if self.about.is_file():
+        if self.last_about.is_file():
             return True
 
-        self.about = None
+        self.last_about = None
 
         return False
 
 ###
 # prototype::
+#     level = _ in [0..3] (0); // See Python typing...
+#             the level of step indicating where ``0`` is for automatic 
+#             numbered enumerations (this for emitting errors).
+#
 #     :return: = ; // See Python typing...
 #                the "semantic dict" content of the ``about.peuf`` file.
 #
 # warning:
-#     Use ``self.has_about`` before the call of this method.
+#     ``self.has_about``  **must** be used just before the call of 
+#     this method.
 ###
-    def about_content(self) -> dict:
+    def about_content(self, level: int = 0) -> dict:
         try:
             with ReadBlock(
-                content = self.about,
+                content = self.last_about,
                 mode    = ABOUT_PEUF_MODE
             ) as datas:
                 infos = datas.mydict("std nosep nonb")
     
         except ASTError:
-            relpath = self.about - self.monorepo
+            relpath = self.last_about - self.monorepo
 
             self.new_error(
                 src_relpath = relpath,
-                info        = f'about file "{relpath}" bad formatted.'
+                info        = f'about file "{relpath}" bad formatted.',
+                level       = level
             )
             return 
 

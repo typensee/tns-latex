@@ -67,7 +67,7 @@ class Update(SearchPacks):
 # Let's work.
         for methodname in [
             "search_packs", # See ``filendir.search_packs.SearchPacks``.
-            "ana_eachpacks",
+            "ana_eachpacks", # TODO: manage_resources
         ]:
             getattr(self, methodname)()
 
@@ -128,7 +128,7 @@ class Update(SearchPacks):
 ###
     def ana_eachpacks(self) -> None:
         for onepack in self.packs_paths:
-            searchcodes = SearchCodes(
+            searchcodes = SearchSrcDirs(
                 monorepo = self.monorepo,
                 package  = onepack,
                 speaker  = self.speaker,
@@ -136,6 +136,9 @@ class Update(SearchPacks):
             )
 
             searchcodes.extract()
+
+            for p in searchcodes.src_files:
+                print(p.name)
 
 
 # ---------- #

@@ -41,28 +41,71 @@ class TOC(BaseCom):
 
 ###
 # prototype::
-#     kind = _ in self.ALL_USER_KINDS ; # See Python typing... 
-#            the kind of ¨infos expected to be in the TOC.
+#     monorepo = ; // See Python typing...  
+#                the path of the directory of the monorepo.
+#     package  = ; // See Python typing...
+#                the path of one package to analyze.
+#     speaker  = ; // See Python typing...
+#                an instance of ``toolbox.speaker.allinone.Speaker`` 
+#                is used to communicate small ¨infos.
+#     problems = ; // See Python typing...
+#                an instance of ``toolbox.Problems`` that manages 
+#                a basic history of the problems found.
+#     infos = _ in self.ALL_USER_KINDS ; # See Python typing... 
+#             a dict returned by the method ``search.SearchDirFile.about_content``.
+#     kind  = _ in self.ALL_USER_KINDS ; # See Python typing... 
+#             the kind of ¨infos expected to be in the TOC.
+#     level = _ in [0..3] (0); // See Python typing...
+#             the level of step indicating where ``0`` is for automatic 
+#             numbered enumerations.
 ###
-    def __init__(self, kind: str) -> None:
-        self.kind = kind
+    def __init__(
+        self,
+        monorepo: PPath,
+        package : PPath,
+        speaker : Speaker,
+        problems: Problems,
+        infos   : dict,
+        kind    : str,
+        level   : int
+    ) -> None:
+        super().__init__(
+            monorepo = monorepo,
+            speaker  = speaker ,
+            problems = problems,
+        )
+
+        self.package = package
+        
+        self.infos = infos
+        self.kind  = kind
+       
+        self.level  = level
+
 
 ###
 # prototype::
 #     :return: = ; # See Python typing...
-#              the list of directories to analyze.
+#                ``True`` if a key ``toc`` exits and ``False`` otherwise.
 ###
-    def build(self) -> List[PPath]:
-# No TOC block!
-        if not TOC_TAG in self.anadir.about:
-            self.anadir.error(f"``{ABOUT_NAME}`` file: no TOC block!")
-            return
+    def has_toc(self) -> bool:
+        return TOC_TAG in self.infos
 
+###
+# prototype::
+#     :return: = ; # See Python typing...
+#                the list of directories to analyze.
+#
+# info::
+#     We know that the TOC block exists (this has been treated before using 
+#     this method).
+###
+    def extract(self) -> List[PPath]:
 # TOC block exists.
         pathsfound: List[PPath] = []
 
         for nbline, oneinfo in enumerate(
-            self.anadir.about[TOC_TAG],
+            self.infos[TOC_TAG],
             1
         ):
             kindfound, path = self.kindof(oneinfo)
@@ -71,40 +114,51 @@ class TOC(BaseCom):
                 continue
 
             if self.kind != kindfound:
-                message = MESSAGE_SRC_ABOUT
+                message = "Problem with the about file. "
                 
                 if kindfound in self.ALL_USER_KINDS:
-                    message += f"only {self.kind}S allowed. "
+                    message += f'Only {self.kind}s allowed.'
 
                 else:
-                    message += f"illegal line. "
+                    message += f'Illegal line.'
 
                 message += (
                     "\n" 
                     f"See the line {nbline} (rel. nb) with the following content:"
                     "\n" 
-                    f"-->|{oneinfo}|<--"
+                    f'" {oneinfo} "'
                 )
 
-                self.anadir.error(message)
+                self.new_error(
+                    src_relpath = self.package - self.monorepo,
+                    info        = message,
+                    level       = self.level
+                )
+
                 return
 
             pathsfound.append(path)
 
 # Empty TOC.
         if not pathsfound:
-            self.anadir.error(f"``{ABOUT_NAME}`` file: empty TOC!")
+            self.new_error(
+                src_relpath = self.package - self.monorepo,
+                info        = 'about file: empty TOC!',
+                level       = self.level
+            )
+
             return
 
 # Everything seems ok.
         return pathsfound
 
+
 ###
 # prototype::
 #     :return: = ; # See Python typing...
-#              ``[kind, info]`` where ``kind`` belongs to ``self.ALL_KINDS`` and 
-#              info can be ``None`` in case of problem, or the text after
-#              the placeholder.
+#                ``[kind, info]`` where ``kind`` belongs to ``self.ALL_KINDS`` and 
+#                info can be ``None`` in case of problem, or the text after
+#                the placeholder.
 ###
     def kindof(self, oneinfo: str):# -> List[str, str]:
         oneinfo = oneinfo.strip()
