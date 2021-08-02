@@ -43,15 +43,31 @@ class SearchSources(SearchDirFile):
         self.package    = package
         self.relpackage = package - self.monorepo
     
-        self.src_package    = package / SRC_DIR_NAME
-        self.src_relpackage = self.src_package - self.monorepo
+        self.src_package            = package / SRC_DIR_NAME
+        self.src_relpackage         = self.src_package - self.monorepo
         
-        self.src_dirs       : List[PPath] = []
-        self.src_files      : List[PPath] = []
+        self.src_dirs : List[PPath]       = []
+        self.src_files: List[PPath]       = []
         self._temp_src_files: List[PPath] = []
 
         self._toc_used = False
         
+        self.sections: List[str] = ['']*NB_LATEX_SECTIONS
+
+        self.final_blocks = {
+            ext: {
+                t: []
+                for t in titles
+                if t != TEX_END_DOC
+            }
+            for ext, titles in FILE_BLOCK.items()
+        }
+
+        self.final_blocks[TEX_FILE_EXT][LATEX_TECH_SIGN_TITLE] = []
+
+        for ext in FILE_BLOCK:
+            self.final_blocks[ext][EXTRA_RESOURCES] = []
+
 
 ###
 # Here is the great bandleader.
