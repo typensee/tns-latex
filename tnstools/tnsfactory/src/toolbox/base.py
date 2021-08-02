@@ -38,17 +38,7 @@ class BaseCom:
 
         self.speaker  = speaker
         self.problems = problems
-        self.success  = None
-
-
-###
-# prototype::
-#     :see: = problems.Problems.new_warning
-# 
-# This method is just an easy-to-use wrapper.
-###
-    def new_critical(self, *args, **kwargs):
-        self.problems.new_critical(*args, **kwargs)
+        self.success  = True
 
 ###
 # prototype::
@@ -58,6 +48,21 @@ class BaseCom:
 ###
     def new_warning(self, *args, **kwargs):
         self.problems.new_warning(*args, **kwargs)
+
+###
+# prototype::
+#     :see: = problems.Problems.new_warning
+# 
+# This method is just an easy-to-use wrapper.
+#
+# info::
+#     The difference between a warning and a critical is that a critical is 
+#     a warning that blocks one part of the process but not all the process.
+#     It is a kind of weak error or very strong warning.
+###
+    def new_critical(self, *args, **kwargs):
+        self.success = False
+        self.problems.new_critical(*args, **kwargs)
 
 ###
 # prototype::

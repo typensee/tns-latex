@@ -252,19 +252,17 @@ class Problems:
             plurial = "S" if total_nb_pbs > 1 else ""
 
             self.speaker.recipe(
-                #
-                FORALL,
+            # FORALL, CONTEXT_NORMAL,  # Default setting!
                     context,
                     NL,
                     {VAR_TITLE:
                         f'{total_nb_pbs} {context.upper()}{plurial} FOUND',
                      VAR_LEVEL  : 2,
                      VAR_WITH_NL: False},
-                #
+            #
                 FORTERM,
                     NL,
                     'Look at the log file and/or above for details.',
-                FORALL,
             )
 
 # The problems (cardinality + refs).
@@ -277,26 +275,19 @@ class Problems:
                 plurial = "s" if nb_this_ctxt_pbs > 1 else ""
 
                 self.speaker.recipe(
-                    #
-                    # FORALL # See before.
-                        NL,
-                        {VAR_STEP_INFO: f'"{onepath_str}"', 
-                         VAR_LEVEL    : 1},
+                # FORALL, CONTEXT_NORMAL,  # Default setting!
+                    context,
+                    NL,
+                    {VAR_STEP_INFO: f'"{onepath_str}"', 
+                     VAR_LEVEL    : 1},
                 )
                 
                 self.speaker.recipe(
-                    #
-                    # FORALL # See before.
-                        {VAR_STEP_INFO: (
-                            f'{nb_this_ctxt_pbs} {context}{plurial}.'
-                            '\n'
-                            f'See #.: {this_ctxt_pb_ids}.'), 
-                         VAR_LEVEL    : 2},
+                # FORALL, CONTEXT_NORMAL,  # Default setting!
+                    context,
+                    {VAR_STEP_INFO: (
+                        f'{nb_this_ctxt_pbs} {context}{plurial}.'
+                        '\n'
+                        f'See #.: {this_ctxt_pb_ids}.'), 
+                     VAR_LEVEL    : 2},
                 )
-
-# Back to a nomral context.
-        self.speaker.recipe(
-                #
-                FORALL,
-                    CONTEXT_NORMAL
-        )

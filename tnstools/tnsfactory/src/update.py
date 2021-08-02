@@ -1,5 +1,10 @@
 #! /usr/bin/env python3
 
+
+# https://levelup.gitconnected.com/20-python-tips-that-everyone-must-know-bcba3bb6d024
+# https://ezioguga.medium.com/speed-up-your-workflows-with-github-actions-b3928069443f
+
+
 from toolbox import *
 
 
@@ -61,7 +66,8 @@ class Update(SearchPacks):
 
 # Let's work.
         for methodname in [
-            "search", # See ``filendir.pack.SearchPack``.
+            "search_packs", # See ``filendir.search_packs.SearchPacks``.
+            "ana_eachpacks",
         ]:
             getattr(self, methodname)()
 
@@ -78,8 +84,7 @@ class Update(SearchPacks):
     def open_session(self) -> None:
 # Just say "Hello."
         self.recipe(
-# Title for the start.
-            #
+        # Title for the start.
             FORTERM,
                 {VAR_TITLE: "STARTING THE ANALYSIS", 
                  VAR_LEVEL: 2},
@@ -103,11 +108,9 @@ class Update(SearchPacks):
 
 # Just say "Good bye!"
         self.recipe(
-            #
-            FORALL,
+        # FORALL, CONTEXT_NORMAL,  # Default setting!
                 NL,
-# Title for the end.
-            #
+        # Title for the end.
             FORTERM,
                 {VAR_TITLE: "ANALYSIS FINISHED", 
                  VAR_LEVEL: 2},
@@ -120,14 +123,26 @@ class Update(SearchPacks):
             with_NL = False
         )
 
-        
+###
+# ???
+###
+    def ana_eachpacks(self) -> None:
+        for onepack in self.packs_paths:
+            searchcodes = SearchCodes(
+                monorepo = self.monorepo,
+                package  = onepack,
+                speaker  = self.speaker,
+                problems = self.problems
+            )
+
+            searchcodes.extract()
 
 
 # ---------- #
 # -- TEST -- #
 # ---------- #
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     INIT_REPO = True
     # INIT_REPO = False
 
@@ -149,7 +164,7 @@ if __name__ =="__main__":
 #     style    = _ in speaker.spk_interface.ALL_GLOBAL_STYLES; 
 #                a global style for the output.     
     speaker = Speaker(
-        logfile = MONOREPO / f"x-{MONOREPO.name}-x.log",
+        logfile = MONOREPO / f"{MONOREPO.name}.tns.log",
         style   = GLOBAL_STYLE_COLOR,
         # style   = GLOBAL_STYLE_BW
     )
@@ -159,7 +174,7 @@ if __name__ =="__main__":
 
 # Title for the monorepo.
     speaker.recipe(
-        #FORALL,  # Defaul setting!
+        # FORALL, CONTEXT_NORMAL,  # Default setting!
             CONTEXT_GOOD,
         #
         FORTERM,
@@ -169,9 +184,6 @@ if __name__ =="__main__":
         FORLOG,
             {VAR_TITLE:
                 f'LOG FILE - TNS LIKE MONOREPO "{MONOREPO.name}"'},
-        #
-        FORALL,
-            CONTEXT_NORMAL
     )
     
 

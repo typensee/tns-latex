@@ -1,5 +1,4 @@
 general::
-
     tnslatex = yes
     desc     = This package proposes tools for writing "human friendly"
               documentations of ¨latex packages.

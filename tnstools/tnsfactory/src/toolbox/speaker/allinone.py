@@ -308,8 +308,16 @@ class Speaker(AbstractSpeaker):
 #         title = "STARTING THE ANALYSIS",
 #         level = 2
 #     )
+#
+# info::
+#     One recipe always start and finishes in an "for all" normal context. 
+#     This is not optimal but simplifies the writting of recipes.
 ###
     def recipe(self, *args) -> None:
+# Default "for all" normal context.  
+        self.forall()
+        self.style()
+
 # In most cases, to call the good action with its good arguments we will use: 
 # ``getattr(self, action)(*action_args, **action_kwargs)``.
         for action in args:
@@ -372,3 +380,7 @@ class Speaker(AbstractSpeaker):
 #
 # We can call the good action with the good args.
             getattr(self, action)(*action_args, **action_kwargs)
+
+# Default "for all" normal context.  
+        self.forall()
+        self.style()

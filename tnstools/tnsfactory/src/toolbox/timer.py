@@ -30,9 +30,9 @@ def timestamp(
     timeTXT = f"{kind} TIME STAMP: {now}"
 
     speaker.recipe(
+    # FORALL, CONTEXT_NORMAL,  # Default setting!
         FORLOG,
             {VAR_TITLE  : timeTXT, 
              VAR_LEVEL  : 2, 
              VAR_WITH_NL: with_NL},
-        FORALL,
     )

@@ -46,43 +46,7 @@ class SearchDirFile(BaseCom):
             problems    = problems,
         )
 
-        self.packs_paths = []
-
-
-###
-# This methods builds the sorted list of the ``PPath`` of the ¨tnslatex  
-# packages to analyze.
-###
-    def buildpaths(self) -> None:
-        self.packs_paths = self.rec_buildpaths(self.monorepo)
-        self.packs_paths.sort()
-
-###
-# prototype::
-#     onedir = ; // See Python typing...
-#              the path of a directory to explore.
-#
-#     :return: = ; // See Python typing...
-#                the **unsorted** list of the ``PPath`` of the ¨tnslatex 
-#                like packages to analyze.
-###
-    def rec_buildpaths(self, onedir: PPath) -> List[PPath]:
-        packsfound: List[PPath] = []
-
-        for subdir in onedir.iterdir():
-# A folder to analyze.
-            if (
-                subdir.is_dir() 
-                and 
-                self.is_not_ignored(subdir, DIR_TAG)
-            ):
-                if self.is_tnspack(subdir):
-                    packsfound.append(subdir)
-
-                else:
-                    packsfound += self.rec_buildpaths(subdir)
-
-        return packsfound
+        self.about = None
 
 
 ###
@@ -96,11 +60,20 @@ class SearchDirFile(BaseCom):
 #                ``True`` for a file or a directory to keep and
 #                ``False`` in the opposite case.
 ###
-    def is_not_ignored(
+    def is_kept(
         self,
         onepath: PPath,
         kind   : str
     ) -> bool:
+# Good kind?
+        if kind == DIR_TAG:
+            if not onepath.is_dir():
+                return False
+
+        else:
+            if not onepath.is_file():
+                return False
+
 # Something to ignore?
         if any(
             not p.match(onepath.stem) is None
@@ -122,61 +95,47 @@ class SearchDirFile(BaseCom):
 #              the path of the directory to keep or not.
 #
 #     :return: = ; // See Python typing...
-#                ``True`` for a directory which is a ¨tnslatex like one, or 
+#                ``True`` for a directory whit  an ``about.peuf`` file, or 
 #                ``False`` in other cases.
+#
+# This method manages the value of the attribut ``self.about``.
+#
+# warning::
+#     If no about file is found, the value of ``self.about`` is ``None``.
 ###
-    def is_tnspack(self, onedir: PPath) -> bool:
-        aboutpath = onedir / ABOUT_NAME
+    def has_about(self, onedir: PPath) -> bool:
+        self.about = onedir / ABOUT_NAME
 
-        return aboutpath.is_file() and self.is_about_tnspack(aboutpath)
+        if self.about.is_file():
+            return True
+
+        self.about = None
+
+        return False
 
 ###
 # prototype::
-#     aboutfile = ; // See Python typing...
-#                 the path of an ``about.peuf`` file.
-#
 #     :return: = ; // See Python typing...
-#                ``True`` if the ``about.peuf`` indicates a ¨tnslatex package,
-#                and ``False`` in other cases.
+#                the "semantic dict" content of the ``about.peuf`` file.
+#
+# warning:
+#     Use ``self.has_about`` before the call of this method.
 ###
-    def is_about_tnspack(self, aboutfile: PPath) -> bool:
+    def about_content(self) -> dict:
         try:
             with ReadBlock(
-                content = aboutfile,
+                content = self.about,
                 mode    = ABOUT_PEUF_MODE
             ) as datas:
                 infos = datas.mydict("std nosep nonb")
     
         except ASTError:
-            relpath = aboutfile - self.monorepo
-            
+            relpath = self.about - self.monorepo
+
             self.new_error(
                 src_relpath = relpath,
                 info        = f'about file "{relpath}" bad formatted.'
             )
-            return False
+            return 
 
-        if GENE_TAG in infos:
-            infos = infos[GENE_TAG]
-
-            return infos.get(GENE_TNSLATEX_TAG, None) == YES_TAG
-
-        return False
-
-###
-# This method update ``self.packs_paths`` with the list of the ``PPath`` 
-# of the packages changed from the ¨git point of view.
-###
-    def gitpaths(self) -> None:
-        with cd(self.monorepo):
-            gitoutput = runthis("git a")
-
-        packstoupdate: List[PPath] = []
-
-        for packpath in self.packs_paths:
-            packpath_str = str(packpath - self.monorepo)
-            
-            if packpath_str in gitoutput:
-                packstoupdate.append(PPath(packpath))
-
-        self.packs_paths = packstoupdate
+        return infos
