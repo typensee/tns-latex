@@ -121,8 +121,8 @@ class TermSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text   = ; // See Python typing...
-#              a text to print as it on the terminal.
+#     text = ; // See Python typing...
+#            a text to print as it on the terminal.
 ###
     def print(self, text: str) -> None:
         print(text)
@@ -132,7 +132,7 @@ class TermSpeaker(AbstractSpeaker):
 #     context = _ in spk_interface.CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
 #               a context to format some outputs
 #
-#     see = ``ColorStylist`` and ``BWStylist``.
+#     :see: = ``ColorStylist`` and ``BWStylist``.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
         getattr(self.stylist, context).colorit()

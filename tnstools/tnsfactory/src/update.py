@@ -26,9 +26,6 @@ class Update(SearchPacks):
 #                   ``True`` forces to work on all packages without using
 #                   term::``git a`` and False uses git to focus only on
 #                   recent changes.
-#     speaker     = ; // See Python typing...  
-#                   an instance of ``toolbox.speaker.allinone.Speaker`` 
-#                   is used to communicate small ¨infos.
 #     problems    = ; // See Python typing...  
 #                   an instance of ``toolbox.Problems`` that manages 
 #                   a basic history of the problems found.
@@ -41,14 +38,12 @@ class Update(SearchPacks):
         self,
         monorepo   : PPath,
         initrepo   : bool,
-        speaker    : Speaker,
         problems   : Problems,
         packs_paths: List[PPath] = [],
     ) -> None:
         super().__init__(
             monorepo    = monorepo,
             initrepo    = initrepo,
-            speaker     = speaker ,
             problems    = problems,
             packs_paths = packs_paths
         )
@@ -66,8 +61,8 @@ class Update(SearchPacks):
 
 # Let's work.
         for methodname in [
-            "search_packs", # See ``filendir.search_packs.SearchPacks``.
-            "ana_eachpacks", # TODO: manage_resources
+            "search_packs" , # See ``filendir.search_packs.SearchPacks``.
+            "analyze_packs",
         ]:
             getattr(self, methodname)()
 
@@ -84,6 +79,18 @@ class Update(SearchPacks):
     def open_session(self) -> None:
 # Just say "Hello."
         self.recipe(
+                CONTEXT_GOOD,
+            #
+            FORTERM,
+                NL,
+                {VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
+            #
+            FORLOG,
+                {VAR_TITLE:
+                    f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
+        )
+
+        self.recipe(
         # Title for the start.
             FORTERM,
                 {VAR_TITLE: "STARTING THE ANALYSIS", 
@@ -92,7 +99,7 @@ class Update(SearchPacks):
 
 # A time stamp.
         timestamp(
-            speaker = self.speaker,
+            speaker = self.problems.speaker,
             kind    = "STARTING"
         )
 
@@ -108,7 +115,6 @@ class Update(SearchPacks):
 
 # Just say "Good bye!"
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
                 NL,
         # Title for the end.
             FORTERM,
@@ -118,7 +124,7 @@ class Update(SearchPacks):
 
 # A time stamp.
         timestamp(
-            speaker = self.speaker,
+            speaker = self.problems.speaker,
             kind    = "ENDING",
             with_NL = False
         )
@@ -126,12 +132,12 @@ class Update(SearchPacks):
 ###
 # ???
 ###
-    def ana_eachpacks(self) -> None:
+    def analyze_packs(self) -> None:
+ # TODO: manage_resources
         for onepack in self.packs_paths:
             searchcodes = SearchSources(
                 monorepo = self.monorepo,
                 package  = onepack,
-                speaker  = self.speaker,
                 problems = self.problems
             )
 
@@ -174,26 +180,9 @@ if __name__ == "__main__":
     
     problems = Problems(speaker)
 
-
-# Title for the monorepo.
-    speaker.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
-            CONTEXT_GOOD,
-        #
-        FORTERM,
-            NL,
-            {VAR_TITLE: f'TNS LIKE MONOREPO "{MONOREPO.name}"'},
-        #
-        FORLOG,
-            {VAR_TITLE:
-                f'LOG FILE - TNS LIKE MONOREPO "{MONOREPO.name}"'},
-    )
-    
-
     update = Update(
         monorepo = MONOREPO,
         initrepo = INIT_REPO,
-        speaker  = speaker,
         problems = problems
     )
 

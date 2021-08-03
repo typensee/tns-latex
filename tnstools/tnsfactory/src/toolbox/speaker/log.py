@@ -57,8 +57,8 @@ class LogSpeaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     text   = ; // See Python typing...
-#              a text to print as it in the log file.
+#     text = ; // See Python typing...
+#            a text to print as it in the log file.
 ###
     def print(
         self, text  : str,

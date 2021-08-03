@@ -4,5 +4,4 @@ from .config import *
 
 from .search_packs   import *
 from .search_sources import *
-from .git            import *
 from .toc            import *

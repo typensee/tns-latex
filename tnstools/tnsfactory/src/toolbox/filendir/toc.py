@@ -43,27 +43,24 @@ class TOC(BaseCom):
 # prototype::
 #     monorepo = ; // See Python typing...  
 #                the path of the directory of the monorepo.
-#     onedir  = ; // See Python typing...
-#                the path of one onedir to analyze.
-#     speaker  = ; // See Python typing...
-#                an instance of ``toolbox.speaker.allinone.Speaker`` 
-#                is used to communicate small ¨infos.
+#     onedir   = ; // See Python typing...
+#                the p
+#     level    = _ in [0..3] (0); // See Python typing...
+#                the level of step indicating where ``0`` is for automatic 
+#                numbered enumerations.ath of one onedir to analyze.
 #     problems = ; // See Python typing...
 #                an instance of ``toolbox.Problems`` that manages 
 #                a basic history of the problems found.
-#     infos = _ in self.ALL_USER_KINDS ; # See Python typing... 
-#             a dict returned by the method ``search.SearchDirFile.about_content``.
-#     kind  = _ in self.ALL_USER_KINDS ; # See Python typing... 
-#             the kind of ¨infos expected to be in the TOC.
-#     level = _ in [0..3] (0); // See Python typing...
-#             the level of step indicating where ``0`` is for automatic 
-#             numbered enumerations.
+#     infos    = _ in self.ALL_USER_KINDS ; // See Python typing... 
+#                a dict returned by the method 
+#                ``search.SearchDirFile.about_content``.
+#     kind     = _ in self.ALL_USER_KINDS ; // See Python typing... 
+#                the kind of ¨infos expected to be in the TOC.
 ###
     def __init__(
         self,
         monorepo: PPath,
         onedir  : PPath,
-        speaker : Speaker,
         problems: Problems,
         infos   : dict,
         kind    : str,
@@ -71,7 +68,6 @@ class TOC(BaseCom):
     ) -> None:
         super().__init__(
             monorepo = monorepo,
-            speaker  = speaker ,
             problems = problems,
         )
 
@@ -85,7 +81,7 @@ class TOC(BaseCom):
 
 ###
 # prototype::
-#     :return: = ; # See Python typing...
+#     :return: = ; // See Python typing...
 #                ``True`` if a key ``toc`` exits and ``False`` otherwise.
 ###
     def has_toc(self) -> bool:
@@ -93,16 +89,16 @@ class TOC(BaseCom):
 
 ###
 # prototype::
-#     :return: = ; # See Python typing...
-#                the list of directories to analyze.
+#     :return: = ; // See Python typing...
+#                the list of "string" paths of the sources to analyze.
 #
 # info::
 #     We know that the TOC block exists (this has been treated before using 
 #     this method).
 ###
-    def extract(self) -> List[PPath]:
+    def extract(self) -> List[str]:
 # TOC block exists.
-        pathsfound: List[PPath] = []
+        pathsfound: List[str] = []
 
         for nbline, oneinfo in enumerate(
             self.infos[TOC_TAG],
@@ -113,6 +109,7 @@ class TOC(BaseCom):
             if kindfound == self.KIND_EMPTY:
                 continue
 
+# Bad TOC: wrong kind for an ¨io object.
             if self.kind != kindfound:
                 message = "Problem with the about file. "
                 
@@ -137,6 +134,15 @@ class TOC(BaseCom):
 
                 return
 
+# Complete short names for STY files.
+            if (
+                self.kind == self.KIND_FILE 
+                and
+                not '.' in path
+            ):
+                path = f'{path}.{STY_FILE_EXT}'
+
+# A new path found.
             pathsfound.append(path)
 
 # Empty TOC.
@@ -155,7 +161,7 @@ class TOC(BaseCom):
 
 ###
 # prototype::
-#     :return: = ; # See Python typing...
+#     :return: = ; // See Python typing...
 #                ``[kind, info]`` where ``kind`` belongs to ``self.ALL_KINDS`` and 
 #                info can be ``None`` in case of problem, or the text after
 #                the placeholder.

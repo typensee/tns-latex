@@ -5,9 +5,9 @@ from typing import *
 from ..filendir import TEX_FILE_EXT, STY_FILE_EXT
 
 
-# --------------------- #
-# -- TEX/STY SOURCES -- #
-# --------------------- #
+# -------------------- #
+# -- TEX/STY CODING -- #
+# -------------------- #
 
 STY_SECT_PACKAGE = "PACKAGE"
 STY_SECT_OPTIONS = "OPTIONS"

@@ -79,8 +79,8 @@ class AbstractSpeaker(metaclass=ABCMeta):
 
 ###
 # prototype::
-#     text   = ; // See Python typing...
-#              a text to add as it.
+#     text = ; // See Python typing...
+#            a text to add as it.
 ###
     @abstractmethod
     def print(self, text: str,) -> None:

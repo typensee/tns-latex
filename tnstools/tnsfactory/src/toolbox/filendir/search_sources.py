@@ -4,12 +4,13 @@ from .search_base import *
 from .toc         import *
 
 
-# ---------------- #
-# -- ??? -- #
-# ---------------- #
+# ----------------------------------------------- #
+# -- FILE SOURCES OF A SINGLE TNS LIKE PACKAGE -- #
+# ----------------------------------------------- #
 
 ###
-# ???
+# This class looks for sources insie a ¨tnslatex like package that 
+# will be analyzed later.
 ###
 
 class SearchSources(SearchDirFile):
@@ -20,9 +21,6 @@ class SearchSources(SearchDirFile):
 #                the path of the directory of the monorepo.
 #     package  = ; // See Python typing...
 #                the path of one package to analyze.
-#     speaker  = ; // See Python typing...
-#                an instance of ``toolbox.speaker.allinone.Speaker`` 
-#                is used to communicate small ¨infos.
 #     problems = ; // See Python typing...
 #                an instance of ``toolbox.Problems`` that manages 
 #                a basic history of the problems found.
@@ -31,12 +29,10 @@ class SearchSources(SearchDirFile):
         self,
         monorepo: PPath,
         package : PPath,
-        speaker : Speaker,
         problems: Problems,
     ) -> None:
         super().__init__(        
             monorepo = monorepo,
-            speaker  = speaker,
             problems = problems
         )
 
@@ -54,11 +50,10 @@ class SearchSources(SearchDirFile):
         
 
 ###
-# Here is the great bandleader.
+# Here is the big little bandleader.
 ###
     def extract(self) -> None:
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             NL,
             {VAR_STEP_INFO: f'Working inside "{self.relpackage}".'}
         )
@@ -75,11 +70,11 @@ class SearchSources(SearchDirFile):
 
 
 ###
-# ???
+# This method updates ``self.src_dirs`` with the list of the source 
+# directories found.
 ###
     def find_srcdirs(self) -> None:
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             FORTERM,
                 {VAR_STEP_INFO: 'Searching for sources...',
                  VAR_LEVEL    : 1},
@@ -95,8 +90,8 @@ class SearchSources(SearchDirFile):
 
 
 ###
-# This method analyzes the sources of the package and prepares the building
-# of the final sources. See ``self.finalprod.anafiles(files)``.
+# This method analyzes the file sources of the package and prepares the building
+# of the final sources.
 ###
     def find_srcfiles(self) -> None:
         self.src_files = []
@@ -104,7 +99,6 @@ class SearchSources(SearchDirFile):
         for onesrcdir in self.src_dirs:
             onesrcdir_rel = onesrcdir - self.monorepo
             self.recipe(
-            # FORALL, CONTEXT_NORMAL,  # Default setting!
                 NL,
                 {VAR_STEP_INFO: f'Working in "{onesrcdir_rel}".',
                  VAR_LEVEL    : 1},
@@ -125,7 +119,18 @@ class SearchSources(SearchDirFile):
 
 
 ###
-# ???
+# prototype::
+#     onedir   = ; // See Python typing...
+#                a directory where to look for sources.
+#     attrname = ; // See Python typing...
+#                the name of the attribut that will store the list of paths found.
+#     kind     = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
+#                the kind of sources wanted.
+#     level    = _ in [0..3] (0); // See Python typing...
+#                the level of step indicating where ``0`` is for automatic 
+#                numbered enumerations.
+#
+# This method is an abstraction to analyze either file sources, or dir. sources.
 ###
     def build_sources(
         self, 
@@ -202,7 +207,6 @@ class SearchSources(SearchDirFile):
         )
 
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             FORTERM,
                 {VAR_STEP_INFO:
                     f'{nb_sources} source {kind}{plurial} found.',
@@ -214,20 +218,37 @@ class SearchSources(SearchDirFile):
         )
 
 ###
-# ???
+# prototype::
+#     source = ; // See Python typing...
+#              the path of a source.
+#     kind   = _ in [DIR_TAG, FILE_TAG] ; // See Python typing...
+#              the kind of source.
+#
+#     :return: = ; // See Python typing...
+#                ``True`` if the source physically exists and
+#                ``False`` otherwise.
 ###
     def exists(
         self, 
         source: PPath,
         kind  : str,
-    ):
+    ) -> bool:
         if kind == DIR_TAG:
             return source.is_dir()
 
         return source.is_file()
 
 ###
-# ???
+# prototype::
+#     onedir   = ; // See Python typing...
+#                a directory where to look for sources given in a about file.
+#     attrname = ; // See Python typing...
+#                the name of the attribut that will store the list of paths found.
+#     kind     = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
+#                the kind of sources wanted.
+#     level    = _ in [0..3] (0); // See Python typing...
+#                the level of step indicating where ``0`` is for automatic 
+#                numbered enumerations.
 ###
     def from_about(
         self, 
@@ -242,7 +263,6 @@ class SearchSources(SearchDirFile):
 
 # An about file.
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             FORTERM,
                 {VAR_STEP_INFO: 'One about file found. Looking for metainfos.',
                  VAR_LEVEL    : level},
@@ -258,11 +278,9 @@ class SearchSources(SearchDirFile):
             return 
 
 # Try to work with a TOC.
-# TODO une seule instance que l'on reset !!!
         toc = TOC(
             monorepo = self.monorepo,
             onedir   = onedir,
-            speaker  = self.speaker ,
             problems = self.problems,
             infos    = infos,
             kind     = kind,
@@ -281,7 +299,6 @@ class SearchSources(SearchDirFile):
 
 # One TOC inside the about file.
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             FORTERM,
                 {VAR_STEP_INFO: 'Using TOC from the about file...',
                  VAR_LEVEL    : level},
@@ -292,9 +309,9 @@ class SearchSources(SearchDirFile):
 # Something wrong has happened.
         if not toc.success:
             self.success = toc.success
-            return 
+            return
 
-# ???
+# We go from the string names to the real paths.
         paths = [
             onedir / p
             for p in strpaths
@@ -306,7 +323,16 @@ class SearchSources(SearchDirFile):
         return True
 
 ###
-# ???
+# prototype::
+#     onedir   = ; // See Python typing...
+#                a directory where to look in for sources automatically.
+#     attrname = ; // See Python typing...
+#                the name of the attribut that will store the list of paths found.
+#     kind     = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
+#                the kind of sources wanted.
+#     level    = _ in [0..3] (0); // See Python typing...
+#                the level of step indicating where ``0`` is for automatic 
+#                numbered enumerations.
 ###
     def from_auto(
         self, 
@@ -316,7 +342,6 @@ class SearchSources(SearchDirFile):
         level   : int
     ) -> None:
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             {VAR_STEP_INFO: f'Automatic search of {kind} sources.',
              VAR_LEVEL    : level},
         )
@@ -324,8 +349,9 @@ class SearchSources(SearchDirFile):
         paths = []
 
         for subdir in self.iterIO(
-            onedir = onedir,
-            kind   = kind
+            onedir      = onedir,
+            kind        = kind,
+            main_reldir = self.relpackage
         ):
             paths.append(subdir)
 

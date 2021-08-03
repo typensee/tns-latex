@@ -7,6 +7,19 @@ import re
 from mistool.os_use import PPath, DIR_TAG, FILE_TAG
 
 
+# -------------------- #
+# -- LANG SUPPORTED -- #
+# -------------------- #
+
+LANG_FR = "FR"
+LANG_EN = "EN"
+
+ALL_LANGS =[
+    LANG_FR, 
+    LANG_EN
+]
+
+
 # ----------- #
 # -- ABOUT -- #
 # ----------- #
@@ -68,13 +81,24 @@ PATTERNS_SPECIAL = {
 }
 
 
-# --------------------- #
-# -- TEX/STY SOURCES -- #
-# --------------------- #
+# --------------------------- #
+# -- EXTENSIONS OF SOURCES -- #
+# --------------------------- #
 
-TEX_FILE_EXT    = "tex"
-STY_FILE_EXT    = "sty"
-FILE_EXT_WANTED = [TEX_FILE_EXT, STY_FILE_EXT]
+TEX_FILE_EXT = "tex"
+STY_FILE_EXT = "sty"
+
+FILE_EXT_WANTED = [ 
+    STY_FILE_EXT,
+    TEX_FILE_EXT,
+]
+
+
+PATTERN_LATEX_DOC = '|'.join(ALL_LANGS)
+PATTERN_LATEX_DOC = re.compile(
+    f"^.*-({PATTERN_LATEX_DOC})$"
+)
+    
 
 
 # --------------- #

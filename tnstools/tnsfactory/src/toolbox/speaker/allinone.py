@@ -165,7 +165,8 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     context = _ in spk_interface.ALL_CONTEXTS (interface.CONTEXT_NORMAL) ; // See Python typing...
+#     context = _ in spk_interface.ALL_CONTEXTS 
+#               (interface.CONTEXT_NORMAL) ; // See Python typing...
 #               a context for formatting ¨infos.
 ###
     def style(self, context: str = CONTEXT_NORMAL) -> None:
@@ -199,11 +200,11 @@ class Speaker(AbstractSpeaker):
 
 ###
 # prototype::
-#     step_info  = ; // See Python typing...
-#                  one short info.
-#     level      = _ in [0..3] (0); // See Python typing...
-#                  the level of step indicating where ``0`` is for automatic 
-#                  numbered enumerations.
+#     step_info = ; // See Python typing...
+#                 one short info.
+#     level     = _ in [0..3] (0); // See Python typing...
+#                 the level of step indicating where ``0`` is for automatic 
+#                 numbered enumerations.
 ###
     def step(self, 
         step_info: str,
@@ -260,8 +261,8 @@ class Speaker(AbstractSpeaker):
 #               the number of the problem.
 #     message = ; // See Python typing...
 #               the message to print.
-#     level    = _ in [0..3] (0); // See Python typing...
-#                the level of the step indicating the problem.
+#     level   = _ in [0..3] (0); // See Python typing...
+#               the level of the step indicating the problem.
 ###
     def problem(
         self,
@@ -308,6 +309,7 @@ class Speaker(AbstractSpeaker):
 #         title = "STARTING THE ANALYSIS",
 #         level = 2
 #     )
+#
 #
 # info::
 #     One recipe always start and finishes in an "for all" normal context. 

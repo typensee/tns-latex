@@ -28,12 +28,13 @@ from .speaker import *
 class Problems:
 ###
 # prototype::
-#     speaker = speaker.allinone.Speaker ;  
-#               the class used to speak on the terminal and in the log file.
+#     speaker = ; // See Python typing...  
+#               an instance of ``toolbox.speaker.allinone.Speaker`` 
+#               is used to communicate small ¨infos.
 ###
     def __init__(
         self,
-        speaker:Speaker # Can't use the type speaker.Speaker.
+        speaker: Speaker,
     ) -> None:
         self.speaker = speaker
 
@@ -252,7 +253,6 @@ class Problems:
             plurial = "S" if total_nb_pbs > 1 else ""
 
             self.speaker.recipe(
-            # FORALL, CONTEXT_NORMAL,  # Default setting!
                     context,
                     NL,
                     {VAR_TITLE:
@@ -275,7 +275,6 @@ class Problems:
                 plurial = "s" if nb_this_ctxt_pbs > 1 else ""
 
                 self.speaker.recipe(
-                # FORALL, CONTEXT_NORMAL,  # Default setting!
                     context,
                     NL,
                     {VAR_STEP_INFO: f'"{onepath_str}"', 
@@ -283,7 +282,6 @@ class Problems:
                 )
                 
                 self.speaker.recipe(
-                # FORALL, CONTEXT_NORMAL,  # Default setting!
                     context,
                     {VAR_STEP_INFO: (
                         f'{nb_this_ctxt_pbs} {context}{plurial}.'

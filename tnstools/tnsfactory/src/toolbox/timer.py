@@ -13,7 +13,7 @@ from .speaker import *
 # prototype::
 #     speaker = speaker.allinone.Speaker ;  
 #               the class used to speak on the terminal and in the log file.
-#     kind    = ; # See Python typing...
+#     kind    = ; // See Python typing...
 #               the kind of time stamp ("START" and "END" for us).
 #     with_NL = (True); // See Python typing...
 #               ``True`` asks to add a new line after the title and
@@ -21,7 +21,7 @@ from .speaker import *
 ###
 
 def timestamp(
-    speaker, # Can't use the type speaker.Speaker.
+    speaker: Speaker,
     kind   : str,
     with_NL: bool = True,
 ) -> None:
@@ -30,7 +30,6 @@ def timestamp(
     timeTXT = f"{kind} TIME STAMP: {now}"
 
     speaker.recipe(
-    # FORALL, CONTEXT_NORMAL,  # Default setting!
         FORLOG,
             {VAR_TITLE  : timeTXT, 
              VAR_LEVEL  : 2, 

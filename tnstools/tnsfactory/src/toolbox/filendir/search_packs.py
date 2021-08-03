@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
+from mistool.os_use import cd, runthis
+
 from .search_base import *
 
 
-# ---------------- #
-# -- ??? -- #
-# ---------------- #
+# ----------------------- #
+# -- TNS LIKE PACKAGES -- #
+# ----------------------- #
 
 ###
-# ???
+# This class looks for ¨tnslatex like packages that will be analyzed later.
 ###
 
 class SearchPacks(SearchDirFile):
@@ -21,9 +23,6 @@ class SearchPacks(SearchDirFile):
 #                   ``True`` forces to work on all packages without using
 #                   term::``git a`` and False uses git to focus only on
 #                   recent changes.
-#     speaker     = ; // See Python typing...  
-#                   an instance of ``toolbox.speaker.allinone.Speaker`` 
-#                   is used to communicate small ¨infos.
 #     problems    = ; // See Python typing...  
 #                   an instance of ``toolbox.Problems`` that manages 
 #                   a basic history of the problems found.
@@ -36,13 +35,11 @@ class SearchPacks(SearchDirFile):
         self,
         monorepo   : PPath,
         initrepo   : bool,
-        speaker    : Speaker,
         problems   : Problems,
         packs_paths: List[PPath] = [],
     ) -> None:
         super().__init__(        
             monorepo = monorepo,
-            speaker  = speaker,
             problems = problems
         )
 
@@ -63,7 +60,6 @@ class SearchPacks(SearchDirFile):
         allornot   = "all "   if self.initrepo else ""
 
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             {VAR_STEP_INFO: (
                 f'Looking for {allornot}packages to {actiontodo} '
                 f'(initrepo = {self.initrepo}).')},
@@ -88,25 +84,21 @@ class SearchPacks(SearchDirFile):
         plurial = "s" if nbpacks > 1 else ""
 
         self.recipe(
-        # FORALL, CONTEXT_NORMAL,  # Default setting!
             NL
         )
 
 # (Re)create all the existing packages.
         if self.initrepo:
             self.recipe(
-            # FORALL, CONTEXT_NORMAL,  # Default setting!
                 {VAR_STEP_INFO: (
                     f'Initialize the monorepo:'
                      '\n'
-                    f'{nbpacks} package{plurial} '
-                     'will be treated.')},
+                    f'{nbpacks} package{plurial} will be treated.')},
             )
 
 # Just us the git's point of view.
         else:
             self.recipe(
-            # FORALL, CONTEXT_NORMAL,  # Default setting!
                 {VAR_STEP_INFO: 'Using "git a".'},
             )
 
@@ -116,7 +108,6 @@ class SearchPacks(SearchDirFile):
 
             if nbpacks_changed == 0:
                 self.recipe(
-                # FORALL, CONTEXT_NORMAL,  # Default setting!
                     {VAR_STEP_INFO: 'No change found.',
                      VAR_LEVEL    : 1},
                 )
@@ -125,7 +116,6 @@ class SearchPacks(SearchDirFile):
                 percentage = nbpacks_changed / nbpacks * 100
 
                 self.recipe(
-                # FORALL, CONTEXT_NORMAL,  # Default setting!
                     {VAR_STEP_INFO: (
                         f'Number of packages changed = {nbpacks_changed}'
                         f'  -->  {percentage:.2f}%'),
@@ -154,8 +144,9 @@ class SearchPacks(SearchDirFile):
         packsfound: List[PPath] = []
 
         for subdir in self.iterIO(
-            onedir = onedir,
-            kind   = DIR_TAG
+            onedir      = onedir,
+            kind        = DIR_TAG,
+            main_reldir = self.monorepo
         ):
             if self.is_pack(subdir):
                 packsfound.append(subdir)
@@ -168,8 +159,8 @@ class SearchPacks(SearchDirFile):
 
 ###
 # prototype::
-#     onedir = ; // See Python typing...
-#              the path of the directory to keep or not.
+#     subdir = ; // See Python typing...
+#              the path of a sub directory of the monorepo.
 #
 #     :return: = ; // See Python typing...
 #                ``True`` if the ``about.peuf`` indicates a ¨tnslatex package,
@@ -196,7 +187,7 @@ class SearchPacks(SearchDirFile):
 
 
 ###
-# This method update ``self.packs_paths`` with the list of the ``PPath`` 
+# This method updates ``self.packs_paths`` with the list of the ``PPath`` 
 # of the packages changed from the ¨git point of view.
 ###
     def git_packpaths(self) -> None:

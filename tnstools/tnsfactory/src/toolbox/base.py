@@ -18,25 +18,20 @@ class BaseCom:
 
 ###
 # prototype::
-#     monorepo    = ; // See Python typing...  
-#                   the path of the directory of the monorepo.
-#     speaker     = ; // See Python typing...  
-#                   an instance of ``toolbox.speaker.allinone.Speaker`` 
-#                   is used to communicate small ¨infos.
-#     problems    = ; // See Python typing...  
-#                   an instance of ``toolbox.Problems`` that manages 
-#                   a basic history of the problems found.
+#     monorepo = ; // See Python typing...  
+#                the path of the directory of the monorepo.
+#     problems = ; // See Python typing...  
+#                an instance of ``toolbox.Problems`` that manages 
+#                a basic history of the problems found.
 ###
     def __init__(
         self,
         monorepo: PPath,
-        speaker : Speaker,
         problems: Problems,
     ) -> None:
         self.monorepo         = monorepo
         self.monorepo_relpath = PPath(monorepo.name)
 
-        self.speaker  = speaker
         self.problems = problems
         self.success  = True
 
@@ -91,4 +86,4 @@ class BaseCom:
 # This method is just an esay-to-use wrapper.
 ###
     def recipe(self, *args, **kwargs) -> None:
-        self.speaker.recipe(*args, **kwargs)
+        self.problems.speaker.recipe(*args, **kwargs)
