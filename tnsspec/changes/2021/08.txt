@@ -2,7 +2,11 @@
 04
 ==
 
-**¨Doc:** examples added to explain which ¨latex files are automatically associated to a path::``STY`` file.
+**¨Doc:** two important new things.
+
+    1) The rules to name ¨latex files have been written.
+    
+    1) Examples have been added to explain which ¨latex files are automatically associated to a path::``STY`` file.
 
 
 **Resources:** the way to acheive our goal will use the option term::``--recorder`` of the ¨tex-like compilers.

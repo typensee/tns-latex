@@ -19,7 +19,7 @@ peuf::
         + alpha-et-omega3
 
 
-Ce qui précède demande tout simplment d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre. Aucun autre dossier ne sera considéré !
+Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre. Aucun autre dossier ne sera considéré !
 
 
 info::

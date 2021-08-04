@@ -42,7 +42,11 @@ Expliquons les conventions à suivre.
 
     1) Il est aussi possible de rédiger des fichiers path::``TEX`` pour par exemple documenter des fonctionnalités.
     Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY`` et indiquer la langue du ¨doc.
-    Dans notre exemple fictif, path::``intro/intro-FR.tex`` est accepté et considéré écrit en français.
+    Dans notre exemple fictif, path::``intro/intro-FR.tex``
+    ((
+        Se reporter à cf::``:?/latex-file-name.txt`` pour savoir comment nommer vos fichiers ¨latex.
+    )).
+    est accepté et considéré écrit en français.
 
     1) Des fichiers ressources peuvent être utilisés : voir cf::``:?/resource.txt`` pour en savoir plus.
 

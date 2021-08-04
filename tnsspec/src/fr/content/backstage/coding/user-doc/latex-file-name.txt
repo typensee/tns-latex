@@ -1,0 +1,21 @@
+this::
+    date = 2021-08-04
+
+
+==========================
+Nommer les fichiers ¨latex
+==========================
+
+Tout fichier ¨latex pour la ¨doc "utilisateur" en français doit avoir un nom se finissant par path::``-FR``.
+
+
+info::
+    Deux langues sont supportées (relativement au package ¨bdoc).
+
+        1) path::``-FR`` pour le français.
+
+        1) path::``-EN`` pour l'anglais.
+
+
+warning::
+    Voir cf::``:?/auto-ignored.txt`` pour des références sur les fichiers automatiquement ignorés.

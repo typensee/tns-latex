@@ -7,21 +7,21 @@ Resources utilisées
 ===================
 
 Que ce soit pour un package, une classe ou une ¨doc, il est très courant d'utiliser des resources externes sous forme de fichiers "image", de fichiers de configuration... ¨etc.
-Le système retenu pour intégrer ces fichiers au produit fini s'appuie sur l'option term::``--recorder`` des compilateurs de la famille ¨tex : cette commande permet, entre autres choses, de connaître les dossiers externes utilisés pour compiler un document ¨latex.
+Le système retenu pour intégrer ces fichiers au produit fini s'appuie sur l'option term::``--recorder`` des compilateurs de la famille ¨tex : cette commande permet, entre autres choses, de connaître les fichiers externes utilisés pour compiler un document ¨latex.
 
 
 warning::
-    Bien respecter les règles de nommage des dossiers ou fichiers respectivement à ce qui est ignoré automatiquement : voir cf::``:?/auto-ignored.txt``.
+    Bien respecter les règles de nommage des dossiers et fichiers vis à vis de ce qui est ignoré automatiquement : voir cf::``:?/auto-ignored.txt``.
 
 
 Simple ! En fait oui et non car il faudra bien travailler avec des chemins relatifs
 ((
-    Mais normalement on le fait tous...
+    Mais normalement nous le faisons tous...
 )).
-Ce point est important car si path::``chemin/vers/ce/superbe/fichier`` est une resource alors dans les codes sources seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter si besoin à l'organisation du produit fini.
+Ce point est important car si path::``chemin/vers/ce/superbe/fichier`` est une resource alors dans les codes source seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter si besoin à l'organisation du produit fini.
 
 
 warning::
-    Que faire si par grand hasard vous souhaitez utiliser dans une commande ``{chemin/vers/ce/superbe/fichier}`` sans lien avec l'utilisation d'une resource alors que path::``chemin/vers/ce/superbe/fichier`` est bien une resource ?
+    Que faire si par un très improbable hasard vous souhaitez utiliser ``{chemin/vers/ce/superbe/fichier}`` dans une commande sans lien avec l'utilisation d'une resource alors que path::``chemin/vers/ce/superbe/fichier`` est bien une resource ?
     Une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles.
-    Attendons de voir si ce cas se présentera ou non pour toruver une parade.
+    Attendons de voir si ce cas se présentera ou non pour trouver une vraie parade.
