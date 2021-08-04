@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from mistool.string_use import joinand
+
 from orpyste.data      import ReadBlock
 from orpyste.parse.ast import ASTError
 
@@ -116,14 +118,17 @@ class SearchDirFile(BaseCom):
         if not onepath.ext in FILE_EXT_WANTED:
             return False
 
-# ¨latex doc must be name like ``mydioc-EN.tex``.
+# ¨latex doc must be name like ``mydoc-EN.tex``.
         if onepath.ext == TEX_FILE_EXT:
             if PATTERN_LATEX_DOC.match(onepath.stem) is None:
                 self.new_warning(
                     src_relpath = main_reldir,
                     info        = (
-                        f'LaTeX file ignored "{onepath.name}". '
-                        f'Use a name like "{onepath.name}-EN.{TEX_FILE_EXT}".'
+                        f'one LaTeX file ignored "{onepath.name}". '
+                         '\n'
+                        f'You can use a name like "{onepath.stem}-EN.{TEX_FILE_EXT}".'
+                         '\n'
+                        f'List of languages available: {joinand(ALL_LANGS)}.'
                     ),
                     level = 2
                 )

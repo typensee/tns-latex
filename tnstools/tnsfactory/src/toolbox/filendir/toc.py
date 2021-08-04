@@ -111,7 +111,7 @@ class TOC(BaseCom):
 
 # Bad TOC: wrong kind for an ¨io object.
             if self.kind != kindfound:
-                message = "Problem with the about file. "
+                message = "problem with the about file. "
                 
                 if kindfound in self.ALL_USER_KINDS:
                     message += f'Only {self.kind}s allowed.'

@@ -1,5 +1,5 @@
 this::
-    date = 25/07/2021
+    date = 2021-08-04
 
 
 =========================
@@ -88,6 +88,7 @@ path::``ignoreme.sty`` car ce dernier n'apparaît pas dans le bloc peuf::``toc::
 ((
     Voir à ce sujet la toute fin de l'avertissement à la fin de cette section.
 )).
+Noter que dans le cas de fichiers path::``STY``, l'extension est facultative.
 
 peuf::
     ---
@@ -95,12 +96,16 @@ peuf::
     ---
 
     toc::
-        * lucky.sty
-        * rantanplan.sty
+        * lucky
+        * rantanplan
 
 
-Il faut aussi savoir que tout fichier path::``TEX`` ayant un nom commençant par path::``lucky-`` ou path::``rantanplan-`` sera automatiquement intégré au projet final.
-Ceci correspond aux fichiers path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` et path::``rantanplan-FR.tex``.
+Il faut aussi savoir que tout fichier ¨latex vérifiant l'une des deux conditions suivantes sera automatiquement intégré au projet final. On va considérer le cas du fichier path::``lucky.sty``.
+
+    1) Le nom commence par path::``lucky-``. Ceci correspond à des fichiers comme path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` ou juste path::``lucky-FR.tex``.
+
+    1) Le nom contient path::``-lucky-``. 
+       Ceci correspond à des fichiers comme path::``01-lucky-FR.tex``, path::``02-lucky-2-FR.tex`` ou juste path::``doc-lucky-FR.tex``.
 
 
 info::
@@ -108,14 +113,14 @@ info::
 
 
 warning::
-    Certains noms de dossiers ou de fichiers ont une signification particulière. Voir les sections suivantes.
+    Certains noms de dossiers ou de fichiers ont une signification particulière. Voir les sections suivantes pour tout ce qui sera ignoré car d'un usage spécifique au ¨dev.
 
-    * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
+        * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
 
-    * cf::``:?../lang.txt`` parle de path::``locale`` et path::``translate``.
+        * cf::``:?../lang.txt`` parle de path::``locale`` et path::``translate``.
 
-    * cf::``:?../tool.txt`` explique l'usage de path::``tool``.
+        * cf::``:?../tool.txt`` explique l'usage de path::``tool``.
 
-    * cf::``:?../test.txt`` montre l'emploi de path::``test``.
+        * cf::``:?../test.txt`` montre l'emploi de path::``test``.
 
-    * cf::``:?../ignore.txt`` présente le motif path::``x-...-x``.
+        * cf::``:?../ignore.txt`` présente le motif path::``x-...-x``.

@@ -1,0 +1,5 @@
+==
+04
+==
+
+**¨Doc:** examples added to explain which ¨latex files are automatically associated to a path::``STY`` file.

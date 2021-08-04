@@ -94,9 +94,9 @@ FILE_EXT_WANTED = [
 ]
 
 
-PATTERN_LATEX_DOC = '|'.join(ALL_LANGS)
-PATTERN_LATEX_DOC = re.compile(
-    f"^.*-({PATTERN_LATEX_DOC})$"
+PATTERN_LATEX_DOC_ALL_LANGS = '|'.join(ALL_LANGS)
+PATTERN_LATEX_DOC           = re.compile(
+    f"^.*-({PATTERN_LATEX_DOC_ALL_LANGS})$"
 )
     
 
