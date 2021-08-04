@@ -16,45 +16,7 @@
 
 \begin{document}
 
-\section{Choisir la langue au chargement du package}
-
-La présente documentation utilise le français via \docilatex|\usepackage[lang = FR]{bdoc}| .
-Pour le moment, on a juste deux choix.
-
-\begin{enumerate}
-	\item \docilatex|EN|, valeur par défaut, est pour \docinEN*{\docprewhy{EN}{glish}} soit \docinEN{anglais}.
-
-	\item \docilatex|FR| est pour \docinEN*{\docprewhy{FR}{ench}} soit \docinEN{français}.
-\end{enumerate}
-
-
-% -------------------- %
-% -------------------- %
-% -------------------- %
-% -------------------- %
-
-
-\section{Mises en forme générales imposées}
-
-\subsection{Géométrie de la page}
-
-En coulisse le package \docpack{geometry} est chargé avec les réglages suivants.
-
-\begin{doclatex-alone}
-\RequirePackage[
-    top            = 2.5cm,
-    bottom         = 2.5cm,
-    left           = 2.5cm,
-    right          = 2.5cm,
-    marginparwidth = 2cm, 
-    marginparsep   = 2mm,
-    heightrounded
-]{geometry}
-\end{doclatex-alone}
-
-
-% -------------------- %
-
+%\section{Mises en forme générales imposées}
 
 \subsection{Titre et table des matières}
 
@@ -101,24 +63,6 @@ En coulisse les packages \docpack{titlesec}, \docpack{tocbasic} et \docpack{book
 }
 
 \DeclareTOCStyleEntry[indentfollows = chapter]{tocline}{section}
-\end{doclatex-alone}
-
-
-% -------------------- %
-
-
-\subsection{Liens dynamiques}
-
-Le package \docpack{hyperref} est aussi importé en coulisse avec les réglages ci-dessous.
-
-\begin{doclatex-alone}
-\hypersetup{
-    colorlinks,
-    citecolor = orange!75!black,
-    filecolor = orange!75!black,
-    linkcolor = orange!75!black,
-    urlcolor  = orange!75!black
-}
 \end{doclatex-alone}
 
 \end{document}

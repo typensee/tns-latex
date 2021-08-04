@@ -124,7 +124,7 @@ class SearchDirFile(BaseCom):
                 self.new_warning(
                     src_relpath = main_reldir,
                     info        = (
-                        f'one LaTeX file ignored "{onepath.name}". '
+                        f'LaTeX file "{onepath.name}" ignored. '
                          '\n'
                         f'You can use a name like "{onepath.stem}-EN.{TEX_FILE_EXT}".'
                          '\n'

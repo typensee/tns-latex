@@ -1,0 +1,127 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS %
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../inenglish/inenglish}
+\usepackage{../showcase/showcase}
+\usepackage{../rem-exa/rem-exa}
+
+% TESTING LOCAL IMPLEMENTATION %
+
+\usepackage{listing}
+
+
+% == EXTRAS == %
+
+% Source.
+%    * https://tex.stackexchange.com/a/604698/6880
+
+\NewDocumentCommand{ \bdocextraruler }{ m }{%
+    \par
+    {
+        \centering
+        \color{green!50!black}%
+        \leavevmode
+        \kern.075\linewidth
+        \leaders\hrule height3.25pt\hfill\kern0pt
+        \footnotesize\itshape\bfseries\space\ignorespaces#1\unskip\space
+        \leaders\hrule height3.25pt\hfill\kern0pt
+        \kern.075\linewidth
+    	\par
+	}
+}
+
+\NewDocumentEnvironment{ bdoc-extra-showcase }
+                       { O{ Début du rendu dans cette doc. }
+                         O{ Fin du rendu dans cette doc. } }{
+    \begin{colorstrip}{green!5}
+        \bdocextraruler{#1}
+        \smallskip
+}{
+        \smallskip
+        \bdocextraruler{#2}
+    \end{colorstrip}
+}
+
+
+\begin{document}
+
+\section{Cas d'utilisation en \LaTeX}
+
+\subsection{Codes \docquote{en ligne}}
+
+La macro \docmacro{docilatex} permet de taper du code en ligne via un usage similaire à \docmacro{verb} comme dans les deux exemples suivants.
+
+\begin{enumerate}
+	\item \docilatex+\docilatex|$a^b = c$|+ produit \docilatex|$a^b = c$| .
+
+	\item \docilatex+\docilatex|$a^b = c$|+ vient de \docilatex#\docilatex+\docilatex|$a^b = c$|+# .
+\end{enumerate}
+
+
+\begin{docrem}
+	Le nom de la macro \docmacro{docilatex} vient de \docquote{\docprewhy{i}{nline} \LaTeX} soit \docinEN{\LaTeX\ en ligne}.
+\end{docrem}
+
+
+% ------------------ %
+
+
+\subsection{Codes tapés directement}
+
+
+% ------------------ %
+
+
+\docexa[Face à face]
+
+\begin{doclatex-alone}
+\begin{doclatex}
+    $A = B + C$
+\end{doclatex}
+\end{doclatex-alone}
+
+Ceci donne :
+
+\begin{doclatex}
+    $A = B + C$
+\end{doclatex}
+
+
+% ------------------ %
+
+
+\docexa[À la suite]
+
+Via \docenv{doclatex-flat}, on obtient un code à plat
+\footnote{
+    Le suffixe \docpre{flat} signifie \docinEN{plat}.
+}
+comme ci-dessous.
+
+\begin{doclatex-flat}
+    $A = B + C$
+\end{doclatex-flat}
+
+
+% ------------------ %
+
+
+\docexa[Juste le code]
+
+\docenv{doclatex-alone} affiche le code seul
+\footnote{
+    Le suffixe \docpre{alone} signifie \docinEN{seul}.
+}
+comme ci-après.
+
+\begin{doclatex-alone}
+    $A = B + C$
+\end{doclatex-alone}
+
+\end{document}

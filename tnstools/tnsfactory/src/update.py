@@ -1,9 +1,5 @@
 #! /usr/bin/env python3
 
-
-# https://levelup.gitconnected.com/20-python-tips-that-everyone-must-know-bcba3bb6d024
-
-
 from toolbox import *
 
 
@@ -12,8 +8,8 @@ from toolbox import *
 # ------------- #
 
 ###
-# This class manages the different processes need to update 
-# any LaTeX monorepo respecting the ¨tns way of coding.
+# This class manages the different processes need to update any LaTeX 
+# monorepo respecting the ¨tns way of coding.
 ###
 
 class Update(SearchPacks):

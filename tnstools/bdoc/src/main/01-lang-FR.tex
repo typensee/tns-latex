@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS % 
+
+\usepackage{../macroenv/macroenv}
+\usepackage{../listing/listing}
+\usepackage{../inenglish/inenglish}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage[lang = FR]{main}
+
+
+\begin{document}
+
+\section{Choisir la langue au chargement du package}
+
+La présente documentation utilise le français via \docilatex|\usepackage[lang = FR]{bdoc}| .
+Pour le moment, on a juste deux choix.
+
+\begin{enumerate}
+	\item \docilatex|EN|, valeur par défaut, est pour \docinEN*{\docprewhy{EN}{glish}} soit \docinEN{anglais}.
+
+	\item \docilatex|FR| est pour \docinEN*{\docprewhy{FR}{ench}} soit \docinEN{français}.
+\end{enumerate}
+
+\end{document}
+

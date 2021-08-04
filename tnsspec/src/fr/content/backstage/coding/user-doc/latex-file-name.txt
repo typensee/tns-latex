@@ -10,7 +10,7 @@ Tout fichier ¨latex pour la ¨doc "utilisateur" en français doit avoir un nom 
 
 
 info::
-    Deux langues sont supportées (relativement au package ¨bdoc).
+    Deux langues sont supportées (relativement au package ¨bdoc et aux bouts de texte ajoutés automatiquement).
 
         1) path::``-FR`` pour le français.
 
