@@ -2,7 +2,6 @@
 
 
 # https://levelup.gitconnected.com/20-python-tips-that-everyone-must-know-bcba3bb6d024
-# https://ezioguga.medium.com/speed-up-your-workflows-with-github-actions-b3928069443f
 
 
 from toolbox import *

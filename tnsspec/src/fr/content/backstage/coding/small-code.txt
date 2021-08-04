@@ -1,126 +1,13 @@
-this::
-    date = 2021-08-04
-
+abrev::
+    content = small-code
 
 =========================
 Coder par petites touches
 =========================
 
-Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau".
-Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager et aussi si nécessaire la ¨doc destinée aux utilisateurs.
-
-
-info::
-    L'automatisation prend en charge des éventuels fichiers importés dans les codes ¨etou la ¨doc.
-
-
-Ce style de codage impose une organisation des dossiers et des fichiers. Voici un exemple minimal pour un package fictif nommé ``tnsfictif`` (bien lire l'avertissement à la fin de cette section).
-
-path-tree::
-    + tnsfictif
-        * about.peuf
-        + src
-            * about.peuf
-            + intro
-                * intro-FR.tex
-            + alpha-et-omega3
-                * alpha-FR.tex
-                * alpha.sty
-                * omega3-FR.tex
-                * omega3.sty
-            + poor-lonesome-cowboy
-                * about.peuf
-                * lucky-1-FR.tex
-                * lucky-2-FR.tex
-                * lucky.sty
-                * ignoreme.sty
-                * rantanplan-FR.tex
-                * rantanplan.sty
-
-
-Expliquons les conventions à suivre.
-
-    1) Le nom du dossier principal correspond au nom du package.
-
-    1) Le fichier path::``about.peuf`` directement présent dans path::``tnsfictif`` sert à donner des méta-informations dont l'une est  peuf::``tnslatex = yes`` qui identifie les packages de la suite ¨tnslatex. Se reporter à cf::``?../metainfo/standalone.txt``.
-
-    1) Le développement "morceau par morceau" se fait dans le sous-dossier path::``src``.
-
-    1) Chaque fichier path::``STY`` codant un morceau du package doit se trouver dans un sous-dossier de profondeur `1` de path::``src``. Bien noter que l'on travaille directement dans un sous-dossier sans passer via des sous-sous-dossiers contenant le fichier path::``STY``.
-
-    1) Il est possible de juste rédiger des fichiers path::``TEX`` pour par exemple documenter des fonctionnalités.
-    Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY`` et indiquer la langue du ¨doc.
-    Dans notre exemple fictif, path::``intro/intro-FR.tex`` est accepté et considéré écrit en français.
-
-    1) Des fichiers ressources peuvent être utilisés : voir cf::``:?/resource.txt`` pour en savoir plus.
-
-    1) Deux types de lecture ordonnée des dossiers et fichiers sont possibles
-    ((
-        Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
-    )).
-
-        * Un dossier sans fichier path::``about.peuf`` sera analysé en utilisant l'ordre lexicographique usuel.
-        Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty`` ainsi que path::``alpha-FR.tex`` suivi de path::``omega3-FR.tex``.
-
-        * Dans un dossier, un fichier path::``about.peuf`` impose un ordre à suivre **mais aussi** les fichiers à analyser automatiquement.
-        Nous donnons ci-après les contenus des fichiers path::``src/about.peuf`` et path::``src/poor-lonesome-cowboy/about.peuf`` puis des explications.
-
-
-Le code suivant sert à analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre.
-
-peuf::
-    ---
-    title = Contenu du fichier path::``src/about.peuf``
-    ---
-
-    toc::
-        + intro
-        + poor-lonesome-cowboy
-        + alpha-et-omega3
-
-
-info::
-    Retenir que les ``+`` indiquent des dossiers.
-
-
-Le code suivant permet de considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty`` tout en ignorant
-path::``ignoreme.sty`` car ce dernier n'apparaît pas dans le bloc peuf::``toc::...``
-((
-    Voir à ce sujet la toute fin de l'avertissement à la fin de cette section.
-)).
-Noter que dans le cas de fichiers path::``STY``, l'extension est facultative.
-
-peuf::
-    ---
-    title = Contenu du fichier path::``src/poor-lonesome-cowboy/about.peuf``
-    ---
-
-    toc::
-        * lucky
-        * rantanplan
-
-
-Il faut aussi savoir que tout fichier ¨latex vérifiant l'une des deux conditions suivantes sera automatiquement intégré au projet final. On va considérer le cas du fichier path::``lucky.sty``.
-
-    1) Le nom commence par path::``lucky-``. Ceci correspond à des fichiers comme path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` ou juste path::``lucky-FR.tex``.
-
-    1) Le nom contient path::``-lucky-``. 
-       Ceci correspond à des fichiers comme path::``01-lucky-FR.tex``, path::``02-lucky-2-FR.tex`` ou juste path::``doc-lucky-FR.tex``.
-
-
-info::
-    Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité. Ceci peut s'avérer utile pour un document path::``TEX`` non associé à un code path::``STY`` mais présentant rapidement différentes fonctionnalités.
-
-
-warning::
-    Certains noms de dossiers ou de fichiers ont une signification particulière. Voir les sections suivantes pour tout ce qui sera ignoré car d'un usage spécifique au ¨dev.
-
-        * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
-
-        * cf::``:?../lang.txt`` parle de path::``locale`` et path::``translate``.
-
-        * cf::``:?../tool.txt`` explique l'usage de path::``tool``.
-
-        * cf::``:?../test.txt`` montre l'emploi de path::``test``.
-
-        * cf::``:?../ignore.txt`` présente le motif path::``x-...-x``.
+content::
+    ¨content/general.txt
+    ¨content/example.txt
+    ¨content/about-for-dirs.txt    
+    ¨content/about-for-files.txt
+    ¨content/auto-ignored.txt

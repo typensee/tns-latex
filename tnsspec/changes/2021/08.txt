@@ -3,3 +3,9 @@
 ==
 
 **¨Doc:** examples added to explain which ¨latex files are automatically associated to a path::``STY`` file.
+
+
+**Resources:** the way to acheive our goal will use the option term::``--recorder`` of the ¨tex-like compilers.
+
+
+**Small codes:** a factorization of the source code has been done.

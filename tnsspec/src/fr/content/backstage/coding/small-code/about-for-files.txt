@@ -1,0 +1,37 @@
+this::
+    date = 2021-08-04
+
+
+=============================================
+path::``about.peuf`` pour les fichiers source
+=============================================
+
+Dans chaque dossier source peut être mis un fichier path::``about.peuf`` pour indiquer les fichiers à analyser suivant un ordre imposé. Imaginons que l'on ait le code suivant pour notre exemple ficitf. 
+
+peuf::
+    ---
+    title = Contenu du fichier path::``src/poor-lonesome-cowboy/about.peuf``
+    ---
+
+    toc::
+        * lucky
+        * rantanplan
+
+
+Le code précédent sert à juste considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty`` tout en ignorant
+path::``ignoreme.sty`` car ce dernier n'apparaît pas dans le bloc peuf::``toc::...``.
+
+
+info::
+    Pour les fichiers path::``STY``, l'extension est facultative.
+
+
+Il faut aussi savoir que tout fichier ¨latex vérifiant l'une des deux conditions suivantes sera automatiquement intégré au projet final. On va considérer le cas du fichier path::``lucky.sty``.
+
+    1) Tout fichier ¨latex dont le nom commence par path::``lucky-`` sera intégré automatiquement. Ceci correspond à des fichiers comme path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` ou juste path::``lucky-FR.tex``.
+
+    1) Tout fichier ¨latex ayant un nom contenant path::``-lucky-`` fera partie du prduit final. Ceci correspond à des fichiers comme path::``01-lucky-FR.tex``, path::``02-lucky-2-FR.tex`` ou juste path::``doc-lucky-FR.tex``.
+
+
+info::
+    Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité. Ceci peut s'avérer utile pour un document path::``TEX`` non associé à un code path::``STY`` mais présentant rapidement différentes fonctionnalités.

@@ -1,5 +1,5 @@
 this::
-    date = 29/07/2021
+    date = 2021-08-04
 
 
 ===================
@@ -7,19 +7,21 @@ Resources utilisées
 ===================
 
 Que ce soit pour un package, une classe ou une ¨doc, il est très courant d'utiliser des resources externes sous forme de fichiers "image", de fichiers de configuration... ¨etc.
-Le système retenu pour intéger ces fichiers au produit fini est des plus basiques : tout dossier qui n'est pas ignoré
-((
-    Se reporter à l'avertissement à la fin de cf::``:?/small-code.txt``  pour les dossiers qui seront toujours ignorés.
-))
-est intégré au projet final.
+Le système retenu pour intégrer ces fichiers au produit fini s'appuie sur l'option term::``--recorder`` des compilateurs de la famille ¨tex : cette commande permet, entre autres choses, de connaître les dossiers externes utilisés pour compiler un document ¨latex.
 
 
-Simple ! En fait oui et non car cela demande de ne travailler qu'avec des chemins relatifs mais normalement on le fait tous... Ce point est important car dans les codes sources seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter à l'organisation du produit fini.
-Ce choix correspond à l'usage fait en ¨latex pour insérer une image via des ``\input`` ou des ``\includegraphics`` par exemple mais aussi grâce à des macros "maison" qu'il est impossible de prendre en compte de façon automatique
+warning::
+    Bien respecter les règles de nommage des dossiers ou fichiers respectivement à ce qui est ignoré automatiquement : voir cf::``:?/auto-ignored.txt``.
+
+
+Simple ! En fait oui et non car il faudra bien travailler avec des chemins relatifs
 ((
-    Par exemple, dans le package ¨bdoc sont définies les macros ``\inputdoclatex``, ``\inputdoclatexflat``, ``\inputdoclatexalon`` et ``\inputdoclatexreal`` qui prennent toutses en argument un chemin vars un fichier.
+    Mais normalement on le fait tous...
 )).
+Ce point est important car si path::``chemin/vers/ce/superbe/fichier`` est une resource alors dans les codes sources seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter si besoin à l'organisation du produit fini.
 
 
-info::
-    Si vraiement vous souhaitez afficher ``{chemin/vers/ce/superbe/fichier}`` en verbatim, une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles.
+warning::
+    Que faire si par grand hasard vous souhaitez utiliser dans une commande ``{chemin/vers/ce/superbe/fichier}`` sans lien avec l'utilisation d'une resource alors que path::``chemin/vers/ce/superbe/fichier`` est bien une resource ?
+    Une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles.
+    Attendons de voir si ce cas se présentera ou non pour toruver une parade.

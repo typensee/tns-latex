@@ -1,0 +1,19 @@
+this::
+    date = 2021-08-04
+
+
+=================================
+Ce que l'automatisation ignore...
+=================================
+
+Certains noms de dossiers ou de fichiers ont une signification particulière. Voir les sections suivantes pour tout ce qui sera ignoré car d'un usage spécifique au ¨dev.
+
+    * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
+
+    * cf::``:?../lang.txt`` parle de path::``locale`` et path::``translate``.
+
+    * cf::``:?../tool.txt`` explique l'usage de path::``tool``.
+
+    * cf::``:?../test.txt`` montre l'emploi de path::``test``.
+
+    * cf::``:?../ignore.txt`` présente le motif path::``x-...-x``.
