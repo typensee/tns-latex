@@ -55,7 +55,7 @@ class Update(BaseCom):
         )
 
         self.initrepo = initrepo
-        
+
         self.src_found: dict = {}
 
 

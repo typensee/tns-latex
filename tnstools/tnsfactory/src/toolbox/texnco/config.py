@@ -9,6 +9,7 @@ from ..filendir import TEX_FILE_EXT, STY_FILE_EXT
 # -- TEX/STY CODING -- #
 # -------------------- #
 
+# -- STY SPECIAL SECTIONS - AUTO CODE - START -- #
 STY_SECT_PACKAGE = "PACKAGE"
 STY_SECT_OPTIONS = "OPTIONS"
 STY_SECT_TOOLS   = "TOOLS"
@@ -18,17 +19,21 @@ STY_SECTIONS = [
     STY_SECT_OPTIONS,
     STY_SECT_TOOLS,
 ]
+# -- STY SPECIAL SECTIONS - AUTO CODE - END -- #
 
 
+TEX_BEGIN_DOC   = "\\begin{document}"
+TEX_END_DOC     = "\\end{document}" # Just here to simplify 
+                                    # the implementation.
+
+# -- TEX SPECIAL SECTIONS - AUTO CODE - START -- #
 TEX_SECT_EXTRAS = "EXTRAS"
-TEX_BEGIN_DOC   =  "\\begin{document}"
-TEX_END_DOC     =  "\\end{document}" # Just here to simplify 
-                                     # the implementation.
 
 TEX_SECTIONS = [
     TEX_SECT_EXTRAS,
     TEX_BEGIN_DOC,
 ]
+# -- TEX SPECIAL SECTIONS - AUTO CODE - END -- #
 
 
 # -------
