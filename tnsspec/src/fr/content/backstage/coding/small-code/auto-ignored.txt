@@ -1,5 +1,5 @@
 this::
-    date = 2021-08-04
+    date = 2021-08-05
 
 
 =================================
@@ -11,6 +11,8 @@ Certains noms de dossiers ou de fichiers ont une signification particulière. Vo
     * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
 
     * cf::``:?../lang.txt`` parle de path::``locale`` et path::``translate``.
+
+    * cf::``:?../lang-config-n-datas.txt`` parle plus généralement des fichiers utilisés par du code.
 
     * cf::``:?../tool.txt`` explique l'usage de path::``tool``.
 

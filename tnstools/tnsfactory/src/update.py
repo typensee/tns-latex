@@ -2,46 +2,61 @@
 
 from toolbox import *
 
-
 # ------------- #
 # -- UPDATER -- #
 # ------------- #
 
+
 ###
-# This class manages the different processes need to update any LaTeX 
+# This class manages the different processes need to find any LaTeX 
 # monorepo respecting the ¨tns way of coding.
 ###
 
-class Update(SearchPacks):
+###
+# This class manages the different processes need to find all the source codes
+# of a monorepo respecting the ¨tns way of coding.
+###
+
+class Update(BaseCom):
 ###
 # prototype::
-#     monorepo    = ; // See Python typing...  
-#                   the path of the directory of the monorepo.
-#     initrepo    = ; // See Python typing...  
-#                   ``True`` forces to work on all packages without using
-#                   term::``git a`` and False uses git to focus only on
-#                   recent changes.
-#     problems    = ; // See Python typing...  
-#                   an instance of ``toolbox.Problems`` that manages 
-#                   a basic history of the problems found.
-#     packs_paths = ( [] ); // See Python typing...  
-#                   a list of the source paths to analyze. This argument 
-#                   can be used when calling ``Update`` after another 
-#                   process has already found the sources to analyze.
+#     monorepo = ; // See Python typing...  
+#                the path of the directory of the monorepo.
+#     initrepo = ; // See Python typing...  
+#                ``True`` forces to work on all packages without using
+#                term::``git a`` and False uses git to focus only on
+#                recent changes.
+#     problems = ; // See Python typing...  
+#                an instance of ``toolbox.Problems`` that manages 
+#                a basic history of the problems found.
+#
+# info::
+#     The sources found will be stored in the dict ``self.src_found`` that 
+#     will look like this:
+#
+#     python::
+#         {
+#             "name of a package": {
+#                 "one source subdir": [
+#                     "list", "of", "source", "files"
+#                 ]
+#             }
+#         }
 ###
     def __init__(
         self,
-        monorepo   : PPath,
-        initrepo   : bool,
-        problems   : Problems,
-        packs_paths: List[PPath] = [],
+        monorepo: PPath,
+        initrepo: bool,
+        problems: Problems,
     ) -> None:
         super().__init__(
             monorepo    = monorepo,
-            initrepo    = initrepo,
-            problems    = problems,
-            packs_paths = packs_paths
+            problems    = problems
         )
+
+        self.initrepo = initrepo
+        
+        self.src_found: dict = {}
 
 
 ###
@@ -51,95 +66,47 @@ class Update(SearchPacks):
 # Let's be optimistic...
         self.success = True
 
-# Let's go!
-        self.open_session()
-
 # Let's work.
         for methodname in [
-            "search_packs" , # See ``filendir.search_packs.SearchPacks``.
-            "analyze_packs",
+            "open_session",
+            "find_sources",
+            "close_session",
         ]:
             getattr(self, methodname)()
 
             if not self.success:
                 break
 
-# We must close and clean the dirty things.
-        self.close_session()
-
 
 ###
-# This method indicates the begin of the work.
+# prototype::
+#     :see: = findall_sources.FindAllSources
+#
+# This method builds ``self.src_found`` which is a dict looking like this:
+#
+# python::
+#     {
+#         "name of a package": {
+#             "one source subdir": [
+#                 "list", "of", "source", "files"
+#             ]
+#         }
+#     }
 ###
-    def open_session(self) -> None:
-# Just say "Hello."
-        self.recipe(
-                CONTEXT_GOOD,
-            #
-            FORTERM,
-                NL,
-                {VAR_TITLE: f'TNS LIKE MONOREPO "{self.monorepo.name}"'},
-            #
-            FORLOG,
-                {VAR_TITLE:
-                    f'LOG FILE - TNS LIKE MONOREPO "{self.monorepo.name}"'},
+    def find_sources(self) -> None:
+        findall = FindAllSources(
+            monorepo = self.monorepo,
+            initrepo = self.initrepo,
+            problems = self.problems
         )
 
-        self.recipe(
-        # Title for the start.
-            FORTERM,
-                {VAR_TITLE: "STARTING THE ANALYSIS", 
-                 VAR_LEVEL: 2},
-        )
+        findall.build()
 
-# A time stamp.
-        timestamp(
-            speaker = self.problems.speaker,
-            kind    = "STARTING"
-        )
+        if not findall.success:
+            self.success = findall.success
+            return
 
-###
-# This method first cleans the monorepo and then indicates the end 
-# of the process.
-###
-    def close_session(self) -> None:
-# TODO clean !!!!
-
-# Summary of the problems met.
-        self.resume()
-
-# Just say "Good bye!"
-        self.recipe(
-                NL,
-        # Title for the end.
-            FORTERM,
-                {VAR_TITLE: "ANALYSIS FINISHED", 
-                 VAR_LEVEL: 2},
-        )
-
-# A time stamp.
-        timestamp(
-            speaker = self.problems.speaker,
-            kind    = "ENDING",
-            with_NL = False
-        )
-
-###
-# ???
-###
-    def analyze_packs(self) -> None:
- # TODO: manage_resources
-        for onepack in self.packs_paths:
-            searchcodes = SearchSources(
-                monorepo = self.monorepo,
-                package  = onepack,
-                problems = self.problems
-            )
-
-            searchcodes.extract()
-
-            for p in searchcodes.src_files:
-                print(p.name)
+        self.src_found = findall.src_found
 
 
 # ---------- #
@@ -163,8 +130,6 @@ if __name__ == "__main__":
             "call the script from a working directory containing the monorepo."
         )
 
-
-
 #     style    = _ in speaker.spk_interface.ALL_GLOBAL_STYLES; 
 #                a global style for the output.     
     speaker = Speaker(
@@ -175,10 +140,26 @@ if __name__ == "__main__":
     
     problems = Problems(speaker)
 
-    update = Update(
+    updater = Update(
         monorepo = MONOREPO,
         initrepo = INIT_REPO,
         problems = problems
     )
 
-    update.build()
+    updater.build()
+
+    for k, v in updater.src_found.items():
+            k = k.name
+
+            print('---')
+            print(k)
+
+            for kk, vv in v.items():
+                kk = kk.name
+
+                vv = [x.name for x in vv]
+
+                print(kk)
+                print(vv)
+                print()
+

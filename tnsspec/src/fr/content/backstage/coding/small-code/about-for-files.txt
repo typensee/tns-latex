@@ -1,5 +1,5 @@
 this::
-    date = 2021-08-04
+    date = 2021-08-05
 
 
 =============================================
@@ -26,12 +26,11 @@ info::
     Pour les fichiers path::``STY``, l'extension est facultative.
 
 
-Il faut aussi savoir que tout fichier ¨latex vérifiant l'une des deux conditions suivantes sera automatiquement intégré au projet final. Considérons le cas du fichier path::``lucky.sty``.
+Il faut aussi savoir que tout fichier ¨latex vérifiant l'une des deux conditions suivantes sera automatiquement intégré au projet final (la liste des fichiers ainsi trouvés sera ordonnée). Considérons le cas du fichier path::``lucky.sty``.
 
     1) Tout fichier ¨latex dont le nom commence par path::``lucky-`` sera intégré automatiquement. Ceci correspond à des fichiers comme path::``lucky-1-FR.tex``, path::``lucky-2-FR.tex`` ou juste path::``lucky-FR.tex``.
 
     1) Tout fichier ¨latex ayant un nom contenant path::``-lucky-`` fera partie du prduit final. Ceci correspond à des fichiers comme path::``01-lucky-FR.tex``, path::``02-lucky-2-FR.tex`` ou juste path::``doc-lucky-FR.tex``.
-
 
 info::
     Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité

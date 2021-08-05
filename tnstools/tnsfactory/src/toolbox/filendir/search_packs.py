@@ -17,34 +17,30 @@ class SearchPacks(SearchDirFile):
 
 ###
 # prototype::
-#     monorepo    = ; // See Python typing...  
-#                   the path of the directory of the monorepo.
-#     initrepo    = ; // See Python typing...  
-#                   ``True`` forces to work on all packages without using
-#                   term::``git a`` and False uses git to focus only on
-#                   recent changes.
-#     problems    = ; // See Python typing...  
-#                   an instance of ``toolbox.Problems`` that manages 
-#                   a basic history of the problems found.
-#     packs_paths = ( [] ); // See Python typing...  
-#                   a list of the source paths to analyze. This argument 
-#                   can be used when calling ``Update`` after another 
-#                   process has already found the sources to analyze.
+#     monorepo = ; // See Python typing...  
+#                the path of the directory of the monorepo.
+#     initrepo = ; // See Python typing...  
+#                ``True`` forces to work on all packages without using
+#                term::``git a`` and False uses git to focus only on
+#                recent changes.
+#     problems = ; // See Python typing...  
+#                an instance of ``toolbox.Problems`` that manages 
+#                a basic history of the problems found.
 ###
     def __init__(
         self,
-        monorepo   : PPath,
-        initrepo   : bool,
-        problems   : Problems,
-        packs_paths: List[PPath] = [],
+        monorepo: PPath,
+        initrepo: bool,
+        problems: Problems,
     ) -> None:
         super().__init__(        
             monorepo = monorepo,
             problems = problems
         )
 
-        self.initrepo    = initrepo
-        self.packs_paths = packs_paths
+        self.initrepo = initrepo
+
+        self.packs_paths: List[PPath] = []
 
 
 ###
@@ -91,7 +87,7 @@ class SearchPacks(SearchDirFile):
         if self.initrepo:
             self.recipe(
                 {VAR_STEP_INFO: (
-                    f'Initialize the monorepo:'
+                    f'Initializing the monorepo:'
                      '\n'
                     f'{nbpacks} package{plurial} will be treated.')},
             )
@@ -143,7 +139,7 @@ class SearchPacks(SearchDirFile):
     def recbuild_packpaths(self, onedir: PPath) -> List[PPath]:
         packsfound: List[PPath] = []
 
-        for subdir in self.iterIO(
+        for subdir in self.iterIOkept(
             onedir      = onedir,
             kind        = DIR_TAG,
             main_reldir = self.monorepo

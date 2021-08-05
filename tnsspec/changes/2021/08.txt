@@ -1,4 +1,15 @@
 ==
+05
+==
+
+**Resources:** two thing have been done.
+
+    1) Explanations about the difference between files needed for the ¨doc and the ones for the path::``STY`` final project.
+
+    1) A factorization of the source code of the ¨doc has been done.
+
+
+==
 04
 ==
 
@@ -9,7 +20,7 @@
     1) Examples have been added to explain which ¨latex files are automatically associated to a path::``STY`` file.
 
 
-**Resources:** the way to acheive our goal will use the option term::``--recorder`` of the ¨tex-like compilers.
+**Resources:** the way to acheive our goal will use the option term::``--recorder`` of the standard ¨tex-like compilers.
 
 
-**Small codes:** a factorization of the source code has been done.
+**Small codes:** a factorization of the source code of the ¨doc has been done.

@@ -36,10 +36,17 @@ class SearchSources(SearchDirFile):
             problems = problems
         )
 
-        self.package    = package
-        self.relpackage = package - self.monorepo
+        self.package = package
+        
+
+###
+# Here is the big little bandleader.
+###
+    def extract(self) -> None:
+# The attributes used...
+        self.relpackage = self.package - self.monorepo
     
-        self.src_package    = package / SRC_DIR_NAME
+        self.src_package    = self.package / SRC_DIR_NAME
         self.src_relpackage = self.src_package - self.monorepo
         
         self.src_dirs       : List[PPath] = []
@@ -47,15 +54,11 @@ class SearchSources(SearchDirFile):
         self._temp_src_files: List[PPath] = []
 
         self._toc_used = False
-        
 
-###
-# Here is the big little bandleader.
-###
-    def extract(self) -> None:
+# Let's talk to the world.
         self.recipe(
             NL,
-            {VAR_STEP_INFO: f'Working inside "{self.relpackage}".'}
+            {VAR_STEP_INFO: f'Looking inside "{self.relpackage}".'}
         )
 
 # Let's go!
@@ -117,244 +120,104 @@ class SearchSources(SearchDirFile):
             
             self.src_files += self._temp_src_files
 
+# Local used?
+            self.find_locale(
+                onedir      = onesrcdir,
+                main_reldir = self.package
+            )
+
 
 ###
 # prototype::
-#     onedir   = ; // See Python typing...
-#                a directory where to look for sources.
-#     attrname = ; // See Python typing...
-#                the name of the attribut that will store the list of paths found.
-#     kind     = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
-#                the kind of sources wanted.
-#     level    = _ in [0..3] (0); // See Python typing...
-#                the level of step indicating where ``0`` is for automatic 
-#                numbered enumerations.
+#     onedir      = ; // See Python typing...
+#                   a directory where to look for sources given in a about file.
+#     main_reldir = ; // See Python typing...
+#                   a path of a containing directory.
 #
-# This method is an abstraction to analyze either file sources, or dir. sources.
+# This method updates ``self.src_files`` with the list of the directories 
+# containing files for internationalization.
 ###
-    def build_sources(
+    def find_locale(
         self, 
-        onedir  : PPath,
-        attrname: str,
-        kind    : str,
-        level   : int
-    ) -> None:
-        onedir_rel = onedir - self.monorepo
+        onedir     : PPath,
+        main_reldir:PPath,
+    ):
+        localedir = onedir / LOCALE_DIR
 
-# No main source dir.
-        if not onedir.is_dir():
-            self.new_critical(
-                src_relpath = onedir_rel,
-                info        = f'missing dir:\n"{onedir_rel}"',
-                level       = level
-            )
-
+        if not localedir.is_dir():
             return
-
-# A TOC from a about file or an automatic search of directories.
-        if self.from_about(
-            onedir   = onedir,
-            attrname = attrname,
-            kind     = kind,
-            level    = level
-        ):
-            self._toc_used = True
-
-        else:
-            if not self.success:
-                return
-
-            self._toc_used = False
-
-            self.from_auto(
-                onedir   = onedir,
-                attrname = attrname,
-                kind     = kind,
-                level    = level
-            )
-
-# No source directory found!
-        if not getattr(self, attrname):
-            self.new_critical(
-                src_relpath = onedir_rel,
-                info        = f'No source found inside :\n"{onedir_rel}"',
-                level       = 2 
-            )
-
-# A source found but that is not real.
-        for onesrc in getattr(self, attrname):
-            if not self.exists(
-                source = onesrc,
-                kind   = kind
-            ):
-                onesrc_rel = onesrc - self.monorepo
-
-                self.new_error(
-                    src_relpath = onesrc_rel,
-                    info        = f'missing {kind} source:\n"{onesrc_rel}"',
-                    level       = 2 
-                )
-
-                return
-
-# Let's talk to the world...
-        nb_sources         = len(getattr(self, attrname))
-        plurial            = "" if nb_sources == 1 else "s"
-        log_message_method = (
-            " (TOC used)"
-            if self._toc_used else
-            ""
-        )
-
+        
         self.recipe(
             FORTERM,
-                {VAR_STEP_INFO:
-                    f'{nb_sources} source {kind}{plurial} found.',
-                 VAR_LEVEL: level},
-            FORLOG,
-                {VAR_STEP_INFO:
-                    f'{nb_sources} source {kind}{plurial} found{log_message_method}.',
-                 VAR_LEVEL: level},
+                {VAR_STEP_INFO: '"locale" dir found.',
+                VAR_LEVEL    : 2},
         )
+
+
+        nb_resources = 0
+
+        for onefile in self.reciter_locale_files(
+            onedir      = localedir,
+            main_reldir = self.package
+        ):
+            nb_resources += 1
+
+            self.src_files.append(localedir / onefile)
+
+
+        if nb_resources == 0:
+            self.new_warning(
+                src_relpath = localedir - self.monorepo,
+                info        = 'no resource found in a "locale" dir.',
+                level       = 2
+            )
+        
+        else:
+            plurial = "" if nb_resources == 1 else "s"
+        
+            self.recipe(
+                {VAR_STEP_INFO: 
+                    f'{nb_resources} resource{plurial} found in a "locale" dir.',
+                 VAR_LEVEL    : 2},
+            )
 
 ###
 # prototype::
-#     source = ; // See Python typing...
-#              the path of a source.
-#     kind   = _ in [DIR_TAG, FILE_TAG] ; // See Python typing...
-#              the kind of source.
+#     onedir      = ; // See Python typing...  
+#                   the path of a directory .
+#     main_reldir = ; // See Python typing...
+#                   a path of a containing directory.
+#     firstcall   = ; // See Python typing...  
+#                   this is used to ignore the dir path::``translate`` inside 
+#                   the dir path::``locale``.
 #
 #     :return: = ; // See Python typing...
-#                ``True`` if the source physically exists and
-#                ``False`` otherwise.
+#                this method iterates recursively inside the content of
+#                a directory and yields the files wanted.
+#
+#     :see: = self.is_kept
 ###
-    def exists(
+    def reciter_locale_files(
         self, 
-        source: PPath,
-        kind  : str,
-    ) -> bool:
-        if kind == DIR_TAG:
-            return source.is_dir()
+        onedir     : PPath, 
+        main_reldir: PPath, 
+        firstcall  : bool = True
+    ) -> Iterator[PPath]:
+        for fileordir in onedir.iterdir():
+            if fileordir.is_dir():
+                if firstcall and fileordir.name == TRANSLATE_DIR:
+                    continue
 
-        return source.is_file()
+                for onefile in  self.reciter_locale_files(
+                    onedir      = fileordir, 
+                    main_reldir = main_reldir,
+                    firstcall   = False
+                ):
+                    yield onefile
 
-###
-# prototype::
-#     onedir   = ; // See Python typing...
-#                a directory where to look for sources given in a about file.
-#     attrname = ; // See Python typing...
-#                the name of the attribut that will store the list of paths found.
-#     kind     = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
-#                the kind of sources wanted.
-#     level    = _ in [0..3] (0); // See Python typing...
-#                the level of step indicating where ``0`` is for automatic 
-#                numbered enumerations.
-###
-    def from_about(
-        self, 
-        onedir  : PPath,
-        attrname: str,
-        kind    : str,
-        level   : int
-    ) -> bool:
-# No about file
-        if not self.has_about(onedir):
-            return False
-
-# An about file.
-        self.recipe(
-            FORTERM,
-                {VAR_STEP_INFO: 'One about file found. Looking for metainfos.',
-                 VAR_LEVEL    : level},
-            FORLOG,
-                {VAR_STEP_INFO: 'One about file found.',
-                 VAR_LEVEL    : level},
-        )
-
-        infos = self.about_content(level = level)
-
-# Bad formatted about file!
-        if not self.success:
-            return 
-
-# Try to work with a TOC.
-        toc = TOC(
-            monorepo = self.monorepo,
-            onedir   = onedir,
-            problems = self.problems,
-            infos    = infos,
-            kind     = kind,
-            level    = level + 1
-        )
-
-# No TOC inside the about file.
-        if not toc.has_toc():
-            self.new_warning(
-                src_relpath = self.relpackage,
-                info        = 'no TOC inside the about file.',
-                level       = level
-            )
-
-            return False
-
-# One TOC inside the about file.
-        self.recipe(
-            FORTERM,
-                {VAR_STEP_INFO: 'Using TOC from the about file...',
-                 VAR_LEVEL    : level},
-        )
-
-        strpaths = toc.extract()
-
-# Something wrong has happened.
-        if not toc.success:
-            self.success = toc.success
-            return
-
-# We go from the string names to the real paths.
-        paths = [
-            onedir / p
-            for p in strpaths
-        ]
-        
-        setattr(self, attrname, paths)
-
-# Everything seems ok.
-        return True
-
-###
-# prototype::
-#     onedir   = ; // See Python typing...
-#                a directory where to look in for sources automatically.
-#     attrname = ; // See Python typing...
-#                the name of the attribut that will store the list of paths found.
-#     kind     = _ in [DIR_TAG, FILE_TAG]; // See Python typing...
-#                the kind of sources wanted.
-#     level    = _ in [0..3] (0); // See Python typing...
-#                the level of step indicating where ``0`` is for automatic 
-#                numbered enumerations.
-###
-    def from_auto(
-        self, 
-        onedir  : PPath,
-        attrname: str,
-        kind    : str,
-        level   : int
-    ) -> None:
-        self.recipe(
-            {VAR_STEP_INFO: f'Automatic search of {kind} sources.',
-             VAR_LEVEL    : level},
-        )
-
-        paths = []
-
-        for subdir in self.iterIO(
-            onedir      = onedir,
-            kind        = kind,
-            main_reldir = self.relpackage
-        ):
-            paths.append(subdir)
-
-        paths.sort()
-
-        setattr(self, attrname, paths)
+            elif self.is_kept(
+                onepath     = fileordir,
+                kind        = FILE_TAG,
+                main_reldir = main_reldir
+            ):
+                yield fileordir

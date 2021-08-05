@@ -19,6 +19,9 @@ ALL_LANGS =[
     LANG_EN
 ]
 
+LOCALE_DIR    = "locale"
+TRANSLATE_DIR = "translate"
+
 
 # ----------- #
 # -- ABOUT -- #
@@ -66,16 +69,22 @@ PATTERNS_SPECIAL = {
     DIR_TAG: [
         re.compile(f"^{p}$")
         for p in PATTERN_COMMON + [
-            "changes", 
-            "tools", 
-            "tests"
+# -- IGNORE THIS DIR - AUTO CODE - START -- #
+            "changes?",
+            "configs?",
+            "datas?",
+            "tests?",
+            "tools?",
+# -- IGNORE THIS DIR - AUTO CODE - END -- #
         ]
     ],
     FILE_TAG: [
         re.compile(f"^{p}$")
         for p in PATTERN_COMMON + [
-            "tools?-.*", 
-            "tests?-.*"
+# -- IGNORE THIS FILE - AUTO CODE - START -- #
+            "tests?-.*",
+            "tools?-.*",
+# -- IGNORE THIS FILE - AUTO CODE - END -- #
         ]
     ]
 }
