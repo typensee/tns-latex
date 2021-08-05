@@ -9,29 +9,31 @@ from ..filendir import TEX_FILE_EXT, STY_FILE_EXT
 # -- TEX/STY CODING -- #
 # -------------------- #
 
-# -- STY SPECIAL SECTIONS - AUTO CODE - START -- #
-STY_SECT_PACKAGE = "PACKAGE"
-STY_SECT_OPTIONS = "OPTIONS"
-STY_SECT_TOOLS   = "TOOLS"
+# The order used is important !
 
-STY_SECTIONS = [
-    STY_SECT_PACKAGE,
-    STY_SECT_OPTIONS,
-    STY_SECT_TOOLS,
+# -- STY SPECIAL SECTIONS - AUTO CODE - START -- #
+STY_SECTION_PACKAGES = "PACKAGES"
+STY_SECTION_OPTIONS  = "OPTIONS"
+STY_SECTION_TOOLS    = "TOOLS"
+
+STY_ALL_SECTIONS = [
+    STY_SECTION_PACKAGES,
+    STY_SECTION_OPTIONS,
+    STY_SECTION_TOOLS,
 ]
 # -- STY SPECIAL SECTIONS - AUTO CODE - END -- #
 
 
-TEX_BEGIN_DOC   = "\\begin{document}"
-TEX_END_DOC     = "\\end{document}" # Just here to simplify 
-                                    # the implementation.
+TEX_BEGIN_DOC = "\\begin{document}"
+TEX_END_DOC   = "\\end{document}" # Just here to simplify 
+                                  # the implementation.
 
 # -- TEX SPECIAL SECTIONS - AUTO CODE - START -- #
-TEX_SECT_EXTRAS = "EXTRAS"
+TEX_SECTION_EXTRAS = "EXTRAS"
 
-TEX_SECTIONS = [
-    TEX_SECT_EXTRAS,
-    TEX_BEGIN_DOC,
+TEX_ALL_SECTIONS = [
+    TEX_SECTION_EXTRAS,
+    TEX_BEGIN_DOC
 ]
 # -- TEX SPECIAL SECTIONS - AUTO CODE - END -- #
 
@@ -45,12 +47,12 @@ FILE_BLOCK = {
 # Special blocks for TEX files.
     STY_FILE_EXT: [
         title
-        for title in STY_SECTIONS
+        for title in STY_ALL_SECTIONS
     ],
 # Special blocks for TEX files.
     TEX_FILE_EXT: [
         title
-        for title in TEX_SECTIONS + [TEX_END_DOC]
+        for title in TEX_ALL_SECTIONS + [TEX_END_DOC]
     ], 
 }
 
@@ -66,7 +68,7 @@ LATEX_SECTIONS = [
 \subsection
 \subsubsection
 \paragraph
-\emph
+:NOT-USED-AFTER:
     """.strip().split("\n")
 ]
 

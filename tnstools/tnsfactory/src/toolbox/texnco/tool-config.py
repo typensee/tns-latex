@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-from mistool.os_use     import DIR_TAG, FILE_TAG, PPath
+from mistool.os_use     import PPath
 from mistool.string_use import between
 from orpyste.data       import ReadBlock
 
@@ -20,26 +20,21 @@ FILE_PEUF = THIS_FILE.parent / 'tool-config' / FILE_PY.with_ext('peuf').name
 
 # Let's contruct.
 
-ALL_IO_TAGS = [DIR_TAG, FILE_TAG]
-
 START_TAG = "START"
 END_TAG   = "END"
 
 COMMENTS = defaultdict(dict)
 
-for tag in ALL_IO_TAGS:
-    COMMENT_TAG = f'IGNORE THIS {tag.upper()} - AUTO CODE'
+for kind in ["sty", "tex"]:
+    COMMENT_TAG = f'{kind.upper()} SPECIAL SECTIONS - AUTO CODE'
 
-    COMMENTS[tag][START_TAG] = f'# -- {COMMENT_TAG} - START -- #'
-    COMMENTS[tag][END_TAG]   = f'# -- {COMMENT_TAG} - END -- #'
+    COMMENTS[kind][START_TAG] = f'# -- {COMMENT_TAG} - START -- #'
+    COMMENTS[kind][END_TAG]   = f'# -- {COMMENT_TAG} - END -- #'
 
 
-IO_PATTERNS_IGNORED = defaultdict(list)
+SPE_SECT = defaultdict(list)
 
-TEMPLATE_PATTERNS = {
-    FILE_TAG: '"{onename}s?-.*",',
-    DIR_TAG : '"{onename}s?",',
-}
+SRC_SPACING = {}
 
 with ReadBlock(
     content = FILE_PEUF,
@@ -47,45 +42,54 @@ with ReadBlock(
 ) as datas: 
     config = {}
     
-    for kind, names in datas.mydict("std nosep nonb").items():
-        kind = kind.replace("ignore-", "")
-
-        if kind == "all":
-            tags = ALL_IO_TAGS
-        
-        elif kind == FILE_TAG:
-            tags = [FILE_TAG]
-
-        elif kind == DIR_TAG:
-            tags = [DIR_TAG]
-
-        else:
-            BUG
+    for tag, names in datas.mydict("std nosep nonb").items():
+        SRC_SPACING[tag] = 0
 
         for onename in names:
             if not onename:
                 continue
 
-            for onetag in tags:
-                IO_PATTERNS_IGNORED[onetag].append(
-                    TEMPLATE_PATTERNS[onetag].format(onename = onename)
-                )
+            SPE_SECT[tag].append(onename.upper())
+
+            size = len(onename)
+
+            if size > SRC_SPACING[tag]:
+                SRC_SPACING[tag] = size
 
 
 # Let's update the FILE_PY.
 
-TAB = " "*4*3
+TAB = '\n' + " "*4
 
-IO_PATTERNS_IGNORED = {
-    tag: sorted(names)
-    for tag, names in IO_PATTERNS_IGNORED.items()
-}
+VAR_DEFS  = defaultdict(list)
+VAR_NAMES = defaultdict(list)
 
-IO_PATTERNS_IGNORED = {
-    tag: TAB + f'\n{TAB}'.join(names)
-    for tag, names in IO_PATTERNS_IGNORED.items()
-}
+for tag, names in SPE_SECT.items():
+    maxsize = SRC_SPACING[tag]
 
+    for onename in names:
+        spaces = " "*(maxsize - len(onename))
+
+        varname = f'{tag.upper()}ION_{onename}'
+
+        kind = tag.replace("_sect", "")
+
+        VAR_NAMES[kind].append(f'{varname},')
+        VAR_DEFS[kind] .append(f'{varname}{spaces} = "{onename}"')
+
+VAR_NAMES["tex"].append("TEX_BEGIN_DOC")
+
+
+CODES = {}
+
+for kind in VAR_DEFS:
+    CODES[kind]  = '\n'.join(VAR_DEFS[kind])
+    CODES[kind] += f"""
+
+{kind.upper()}_ALL_SECTIONS = [
+    {TAB.join(VAR_NAMES[kind])}
+]
+""".rstrip()
 
 with FILE_PY.open(
     encoding = "utf-8",
@@ -94,12 +98,12 @@ with FILE_PY.open(
     content = file.read()
 
 
-for tag, code in IO_PATTERNS_IGNORED.items():
+for kind, code in CODES.items():
     before, _ , after = between(
         text = content, 
         seps = [
-            COMMENTS[tag][START_TAG],
-            COMMENTS[tag][END_TAG]
+            COMMENTS[kind][START_TAG],
+            COMMENTS[kind][END_TAG]
         ],
         keepseps = True
     )
