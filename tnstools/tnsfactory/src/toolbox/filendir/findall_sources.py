@@ -33,9 +33,12 @@ class FindAllSources(SearchPacks):
 #     python::
 #         {
 #             "name of a package": {
-#                 "one source subdir": [
-#                     "list", "of", "source", "files"
-#                 ]
+#                  "1st source subdir": [
+#                      "list", "of", "source", "files"
+#                  ],
+#                  "2nd source subdir": [
+#                      "another", "list", "of", "sources"
+#                  ],
 #             }
 #         }
 ###

@@ -22,6 +22,7 @@ ALL_LANGS =[
 LOCALE_DIR    = "locale"
 TRANSLATE_DIR = "translate"
 
+# TODO extension pour les fichiers LANG!!!
 
 # ----------- #
 # -- ABOUT -- #

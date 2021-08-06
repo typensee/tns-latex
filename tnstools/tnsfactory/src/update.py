@@ -2,6 +2,11 @@
 
 from toolbox import *
 
+# crérer pacj utilitaire latex : qui par exemple permet d'avoitr les fichiers utilisés par un doc pour la compile : on commence ç casser misstol
+
+
+
+
 # ------------- #
 # -- UPDATER -- #
 # ------------- #
@@ -87,9 +92,12 @@ class Update(BaseCom):
 # python::
 #     {
 #         "name of a package": {
-#             "one source subdir": [
+#             "1st source subdir": [
 #                 "list", "of", "source", "files"
-#             ]
+#             ],
+#             "2nd source subdir": [
+#                 "another", "list", "of", "sources"
+#             ],
 #         }
 #     }
 ###
