@@ -1,0 +1,185 @@
+% == PACKAGES == %
+
+\RequirePackage{tcolorbox}
+
+% We use the big machinery of the package ``tcolorbox`` and its library 
+% ``minted`` to colorize the ¨latex codes.
+
+\tcbuselibrary{minted, breakable, skins}
+
+
+% == TOOLS == %
+
+% -- LATEX EXAMPLES - INLINE -- %
+
+%%%
+% The macro ``\docilatex`` is just built via ``\newmintinline`` proposed 
+% by the package ``minted``.
+%
+% info::
+%     Be careful of the ``i`` for "inline".
+%%%
+
+\newmintinline[docilatex]{latex}{}
+
+
+% -- LATEX EXAMPLES - MULTILINE -- %
+
+%%%
+% The following environments to display multiline code are defined easily 
+% with ``\newtcblisting``.
+%
+%     1) ``doclatex`` prints side by side the ¨latex code on the left and
+%        its output on the right inside the same frame.
+%
+%     2) ``doclatex-flat`` prints the ¨latex code above its output inside 
+%        the same frame.
+%
+%     3) ``doclatex-alone`` prints only the ¨latex code inside a frame.
+%
+% Thanks to ``\newtcbinputlisting``, there are also the following macros 
+% with similar features but for imported files.
+%
+%     1) ``\inputdoclatex``
+%     2) ``\inputdoclatexflat``
+%     3) ``\inputdoclatexalone``
+%%%
+
+% Sources
+%    * https://tex.stackexchange.com/a/604821/6880
+%    * https://tex.stackexchange.com/a/327983/6880
+
+\tcbset{
+    bdoc_tcb_style_latex_code/.style={
+        minted language = latex,
+        breakable,
+% Code and output
+        colback = yellow!5,
+% Frame
+        colframe = darkgray,
+        shadow   = {.75mm}{-.75mm}{0mm}{black!30},
+%        sharp corners, % OLD STYLE !
+        arc    = .75mm,
+        left   = 1mm, right = 1mm,
+        bottom = 1mm, top   = 1mm,
+% Separating line
+        enhanced, 
+        segmentation style = {
+            gray,
+            dash pattern = {on 5pt off 2.5pt},
+            line width   = 1.25pt
+        },
+    }
+}
+
+
+\newtcblisting{doclatex}{%
+    bdoc_tcb_style_latex_code,
+    listing side text,
+}
+
+\newtcbinputlisting{\inputdoclatex}[2][]{
+    listing file = {#2},
+    bdoc_tcb_style_latex_code,
+    listing side text,
+}
+
+
+\newtcblisting{doclatex-flat}{
+    bdoc_tcb_style_latex_code,
+}
+
+\newtcbinputlisting{\inputdoclatexflat}[2][]{
+    listing file = {#2},
+    bdoc_tcb_style_latex_code,
+}
+
+
+\newtcblisting{doclatex-alone}{
+    bdoc_tcb_style_latex_code,
+    listing only,
+}
+
+\newtcbinputlisting{\inputdoclatexalone}[2][]{
+    listing file = {#2},
+    bdoc_tcb_style_latex_code,
+    listing only,
+}
+
+
+%%%
+% prototype::
+%     opt = #1 ;
+%           a one-line descriptive text
+%     arg = #2 ;
+%           a path of a file
+%
+% This macro inputs directly the content a file inside an environment 
+% ``center`` and then displays the ¨latex source code of the file.
+%
+% A one-line descriptive text is put between the output and its ¨latex 
+% source code.
+%
+% info::
+%     The default descriptive text between the ¨latex code and its output 
+%     is translated to the language chosen at the loading of the package.
+%%%
+
+\NewDocumentCommand{ \inputdoclatexafter }
+                   { O{\bdoc@trans@code@after@output}m }{
+    \begin{center}
+        \input{#2}
+    \end{center}
+
+    \vspace{-.5em}
+    
+    #1
+    
+    \inputdoclatexalone{#2}
+}
+
+%%%
+% prototype::
+%     opt = #1 ;
+%           a one-line descriptive text
+%     arg = #2 ;
+%           a path of a file
+%
+% This macro is similar to ``\inputdoclatexafter`` except that the ¨latex 
+% code is before the centered output.
+%%%
+
+\NewDocumentCommand{ \inputdoclatexbefore }
+                   { O{\bdoc@trans@output@after@code}m }{
+    \inputdoclatexalone{#2}
+    \vspace{-.75em}
+    \begin{center}
+        \textit{\footnotesize #1}
+        
+        \medskip
+        
+        \input{#2}
+    \end{center}
+}
+
+%%%
+% prototype::
+%     opt = #1 ;
+%           a one-line descriptive text
+%     arg = #2 ;
+%           a path of a file
+%
+% This macro is similar to ``\inputdoclatexbefore`` except that the output  
+% is put inside an environment ``docshowcase`` instead of being centered.
+%%%
+
+\NewDocumentCommand{ \inputdoclatexreal }
+                   { O{\bdoc@trans@colon{\bdoc@trans@this@gives}}m }{
+    \inputdoclatexalone{#2}
+    
+    #1
+    
+    \begin{docshowcase}
+        \input{#2}
+    \end{docshowcase}
+}

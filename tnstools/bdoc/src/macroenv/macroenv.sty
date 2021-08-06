@@ -1,0 +1,75 @@
+% == TOOLS == %
+
+% -- EXPLAIN - PACKAGES, MACROS & ENVIRONMENTS -- %
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           the name of a package
+%
+% ``\docpack{mypack}`` prints verb::``mypack``.
+%
+% info::
+%     This macro is more semantic than useful.
+%%%
+
+\NewDocumentCommand{ \docpack }{ m }{%
+\texttt{#1}%
+}
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           the name of a macro
+%
+% ``\docenv{mymacro}`` prints verb::``\mymacro``.
+%%%
+
+\NewDocumentCommand{ \docmacro }{ m }{%
+    \texttt{\textbackslash{}#1}%
+}
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           the name of an environment
+%
+% ``\docenv{myenv}`` prints verb::``\begin{myenv} ... \end{myenv}`` where
+% the spaces are secable.
+%%%
+
+\NewDocumentCommand{ \docenv }{ m }{%
+    \texttt{\textbackslash{}begin\{#1\} \!...\! \textbackslash{}end\{#1\}}%
+}
+
+
+% -- EXPLAIN - PREFIXES & SUFFIXES -- %
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           a prefix of a word
+%     arg = #2 ;
+%           the remaining part of the word
+%
+% ``\docprewhy{pre}{fix}`` prints something like verb::``pre``-fix.
+%%%
+
+\NewDocumentCommand{ \docprewhy }{ mm }{%
+    \textbf{\docpre{#1}}-#2%
+}
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           just a prefix
+%
+% ``\docpre{pre}`` only prints verb::``pre``. This can be useful in 
+% a case like ``\docpre{pre} comes from \docprewhy{pre}{fix}`` which
+% prints: verb::``pre`` comes from verb::``pre``-fix.
+%%%
+
+\NewDocumentCommand{ \docpre }{ m }{%
+    \texttt{#1}%
+}
+

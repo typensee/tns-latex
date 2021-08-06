@@ -1,0 +1,29 @@
+% == TOOLS == %
+
+% -- DECORATIONS -- %
+
+%%%
+% prototype::
+%     noarg = true
+%
+% This macro draws a centered horizontal rule with a height of dim::``0.75 pt``
+% and a width equal to half of the text width.
+%%%
+
+\NewDocumentCommand{ \docsep }{}{
+    \medskip
+    \hfill\rule{0.5\textwidth}{0.75pt}\hfill
+    \medskip
+    \smallskip
+}
+
+%%%
+% prototype::
+%     noarg = true
+%
+% This macro adds a tiny vertical spacing.
+%%%
+
+\NewDocumentCommand{ \docxspace }{}{
+    \vspace{0.25em}
+}

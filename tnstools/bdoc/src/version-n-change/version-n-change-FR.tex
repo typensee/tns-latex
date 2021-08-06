@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS %
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../inenglish/inenglish}
+\usepackage{../showcase/showcase}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+
+% TESTING LOCAL IMPLEMENTATION %
+
+\usepackage{version-n-change}
+
+
+\begin{document}
+
+\section{Changements}
+
+\docexa[Expliquer]
+
+\inputdoclatexreal{examples/logchange-topic.tex}
+
+
+\begin{docrem}
+    La valeur par défaut de l'argument optionnel de \docenv{doctopic} est \texttt{i} pour \docprewhy{i}{nline} soit \docinEN{en ligne}.
+\end{docrem}
+
+
+% ------------------ %
+
+
+\docexa[Nouveautés]
+
+Dans la documentation il est utile d'indiquer la date d'une nouveauté récente. Ceci se fait facilement via la macro \docmacro{docnew} comme dans l'exemple suivant où la date doit être donnée au format anglais \texttt{AAAA-MM-JJ}.
+
+\inputdoclatexreal{examples/logchange-new.tex}
+
+
+\begin{docrem}
+	Deux compilations au minimum sont nécessaires.
+\end{docrem}
+
+
+% ------------------ %
+
+
+\docexa[Numéro et date d'une version]
+
+L'exemple suivant montre une macro plus complète que la précédente mais avec un fonctionnement similaire
+\footnote{
+	La macro \docmacro{docnew} a été conçue pour la documentation elle-même et \docmacro{docversion} juste pour l'historique des changements.
+}.
+
+\inputdoclatexreal{examples/logchange-version.tex}
+
+
+\begin{docrem}
+	\leavevmode
+
+	\begin{enumerate}
+		\item Le numéro de version sera du type \texttt{maj.min.bug} ou \texttt{maj.min.bug-extra} avec trois entiers \texttt{maj}, \texttt{min}, \texttt{bug} et un optionnel \texttt{extra} égal à \texttt{alpha}, \texttt{beta} ou \texttt{rc} pour \docquote{release candidate}.
+
+		\item Noter dans le rendu final le format français \texttt{JJ/MM/AAAA} de la date alors que dans le code celle-ci doit être donnée au format anglais \texttt{AAAA-MM-JJ}.
+	\end{enumerate}
+\end{docrem}
+
+\end{document}

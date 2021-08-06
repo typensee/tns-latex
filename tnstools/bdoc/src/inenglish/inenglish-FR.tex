@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS %
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage{inenglish}
+
+
+\begin{document}
+
+\section{Cela veut dire quoi en \docquote{angliche}}
+
+Penser aux non-anglophones est bien même si ces derniers se font de plus en plus rares.
+
+\begin{doclatex-flat}
+Cool et top signifient \docinEN*{cool} et \docinEN{top}.
+\end{doclatex-flat}
+
+
+La macro \docmacro{docinEN} et sa version étoilée s'appuient sur \docmacro{docquote} : par exemple, le code \docilatex|\docquote{sémantique}| produit \docquote{sémantique}.
+
+
+\begin{docrem}
+	Les guillemets sont accessibles via les macros \docilatex|\og| et \docilatex|\fg| .
+\end{docrem}
+
+
+\end{document}
+

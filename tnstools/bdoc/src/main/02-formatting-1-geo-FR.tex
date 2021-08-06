@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS % 
+
+\usepackage{../macroenv/macroenv}
+\usepackage{../listing/listing}
+\usepackage{../inenglish/inenglish}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage[lang = FR]{main}
+
+
+\begin{document}
+
+\section{Mises en forme générales imposées}
+
+\subsection{Géométrie de la page}
+
+En coulisse le package \docpack{geometry} est chargé avec les réglages suivants.
+
+\begin{doclatex-alone}
+\RequirePackage[
+    top            = 2.5cm,
+    bottom         = 2.5cm,
+    left           = 2.5cm,
+    right          = 2.5cm,
+    marginparwidth = 2cm, 
+    marginparsep   = 2mm,
+    heightrounded
+]{geometry}
+\end{doclatex-alone}
+
+\end{document}
+

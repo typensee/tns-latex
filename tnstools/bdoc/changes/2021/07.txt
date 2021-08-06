@@ -1,0 +1,134 @@
+==
+19
+==
+
+**A tiny factorization:** instead of using the ``most`` option in  ``\RequirePackage[most]{tcolorbox}``, we have added the library ``skins`` via ``\tcbuselibrary``.
+
+
+**A mini bug fixed:** the ugly hack for french quotes was a partial copy of some part of the ``babel`` package source code.
+
+    1) Right quote: ``\ignorespaces`` has been added at the end.
+
+    1) Left quote: ``\ifdim\lastskip>\z@\unskip\fi`` starts the definition.
+
+    1) Better unbreakable spacing: ``\kern.25em`` replaces ``\,``.
+
+
+==
+15
+==
+
+**New minor version version::``0.2.0-beta``:** see the important changes below.
+
+
+**New features.**
+
+    1) The new macro ``\docnew`` can be used to indicate the date of something new.
+
+    1) The option of the environment ``doctopic`` must be put after the title now.
+
+
+**Codes:** the macro ``\docilatex`` has been added to display inline ¨latex codes (verb::``i`` is for "inline").
+
+
+**Formatting.**
+
+    1) Showcases: the text indicating the start and the end of a showcase can be customized.
+
+    1) Decorations: the macro ``\docsep`` produces a more "symmetrical" vertical spacing.
+
+    1) Quoting: the macro ``\docquote`` uses ``\og`` and ``\fg`` that come from ``\usepackage[french]{babel}`` but the problem is that ``babel`` is no longer loaded automatically. So now, if necessary, we define our version of ``\og`` and ``\fg`` via ``\providecommand`` (for French, we just mimic the code of babel and for English we define the expected double quotes).
+
+
+==
+14
+==
+
+**New minor version version::``0.1)0-beta``:** see all the changes below and before this date.
+
+
+**Dates and version numbers:** the macro ``\docversion`` prints now the date with the format of the language loaded with ¨bdoc.
+
+
+**A ¨latex example and its output:** the macros ``\inputdoclatexafter``, ``\inputdoclatexbefore`` and ``\inputdoclatexreal`` have now an optional argument to change the explaining text.
+
+
+**Showcases:** the strip contains now the focusing rules, and it uses a blue color instead of a green one.
+
+
+**Technical ¨doc:** all the technical ¨docs have been written.
+
+
+==
+13
+==
+
+**Examples:** the macros ``\docexa`` and ``\docexa*`` works with an optional argument (this allows to just type ``\docexa`` or ``\docexa*`` with any curly braces).
+
+
+**Printing codes with their output.**
+
+    1) The frame uses tiny rounded corners for a smoother output and a shadow because it is so cute...
+
+    1) The separating line is thicker and uses a customized path for the dashes.
+
+    1) The back color has been changed to a light yellow.
+
+
+**Backstage:** the code defining the ¨latex code environment has been factorized.
+
+
+==
+12
+==
+
+**Different languages:** the package can be loaded by indicating the language to use (only the French and the English are supported for the moment).
+
+
+**Showcases:** the rulers are automatically set to obtain the same global width before and after the rendering.
+
+
+**Minimize the resbonsabilities:** the user has to manage alone imports like ``\usepackage[utf8]{inputenc}`` and ``\usepackage[french]{babel, varioref}`` (but the automatic tools will do it when generating ¨docs for the ¨tns series).
+
+
+**Machinery in backstage.**
+
+    1) For the technical stuffs, the preferred coding language will be ¨latex3 (some more advanced and optional features will be coded in ¨lua).
+
+    1) The code is now developed like other independent packages of the ¨tns series (it remains to build the automatic tools and then we will be ready to publish a version of ¨bcode for users).
+
+
+==
+08
+==
+
+**Preparing a public version:** the project has be named ¨bdoc for "Basic Documentation".
+
+
+**Some changes.**
+
+    1) The macro ``\signprewhy`` has been removed.
+       It will be proposed by the package ¨macroenvsign (this is more logical).
+
+    1) The environment ``remark`` has been renamed ``docremark``.
+
+
+**Some new features.**
+
+    1) A macro ``\docpack`` has been added.
+
+    1) A macro ``\docquote`` has been added.
+
+
+==
+06
+==
+
+**One change for the environment ``doctopic``:** the single option ``ml`` (multiline) has been renamed to ``t`` (title).
+
+
+==
+05
+==
+
+**First version version::``0.0.0-beta``:** this project is only usefull for the documentations of the ¨tns packages.

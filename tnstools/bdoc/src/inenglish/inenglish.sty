@@ -1,0 +1,46 @@
+% == TOOLS == %
+
+% -- EXPLAIN - QUOTING -- %
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           a text to quote
+%
+% For example, ``\docquote{Something}`` prints something like
+% **"Something"**.
+%%%
+    
+\NewDocumentCommand{ \docquote }{ m }{%
+    \og \emph{#1} \fg%
+}
+
+
+% -- EXPLAIN - ABOUT ENGLISH NAMES -- %
+
+%%%
+% prototype::
+%     star = true
+%     arg  = #1 ;
+%            a text to explain
+%
+% For example, if the language chosen is French, we have the following 
+% outputs.
+%
+%     1) ``\docinEN{Something}`` prints something like
+%        **"Something" en anglais**.
+%
+%     2) ``\docinEN*{Something}`` just prints something like 
+%        **"Something"**. 
+%        This can be useful in a case like 
+%        ``\docinEN*{Something} et \docinEN{Another thing}`` 
+%        which gives 
+%        **"Something" et "Another thing" en anglais**.
+%%%
+
+\NewDocumentCommand{ \docinEN }{sm}{%
+    \docquote{#2}%
+    \IfBooleanF{#1}{% No star used.
+        \ \bdoc@trans@in@EN{}%
+    }%
+}

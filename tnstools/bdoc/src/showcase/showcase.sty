@@ -1,0 +1,80 @@
+% == PACKAGES == %
+
+\RequirePackage{clrstrip}
+
+
+% == TOOLS == %
+
+% -- SHOWCASE -- %
+
+% Source
+%    * https://tex.stackexchange.com/a/604708/6880
+
+\ExplSyntaxOn
+
+%%%
+% The variables ``\l_bdoc_tmpa_box`` and ``\l_bdoc_rule_dim`` are used by 
+% the macro ``\docruler`` to calculate the width of the two rules drawn
+% by this macro.
+%%%
+
+\box_new:N \l_bdoc_tmpa_box
+\dim_new:N \l_bdoc_rule_dim
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           a text
+%
+% This macro adds two horizontal rules on both sides of the text. The final
+% output is centered.
+%%%
+
+\NewDocumentCommand{ \docruler }{ m }{
+    \par
+    {
+        \centering
+            \scriptsize
+            \itshape
+            \bfseries
+            \color{cyan!50!black}
+
+            \hbox_set:Nn \l_bdoc_tmpa_box { \,\, #1 \,\, }
+            \dim_set:Nn \l_bdoc_rule_dim {
+                .35 \linewidth - .5 \box_wd:N \l_bdoc_tmpa_box 
+            }
+
+            \rule { \dim_use:N \l_bdoc_rule_dim } { 2.5pt }
+            \box_use:N \l_bdoc_tmpa_box
+            \rule { \dim_use:N \l_bdoc_rule_dim } { 2.5pt }
+        \par
+    }
+}
+
+%%%
+% prototype::
+%     opt = #1 (\bdoc@trans@real@output@start) ;
+%           the text indicating the begin of the real render
+%     opt = #2 (\bdoc@trans@real@output@end) ;
+%           the text indicating the end of the real render
+%
+% This environment adds a page-width cyan stripe in the background of 
+% the content of the environment.
+%
+% The stripe is preceded and followed by centered materials produced by  
+% the macro ``\docruler`` such as to stress the start and the end of 
+% the content.
+%%%
+
+\NewDocumentEnvironment{ docshowcase }{ O{\bdoc@trans@real@output@start}
+                                        O{\bdoc@trans@real@output@end} }{
+    \begin{colorstrip}{cyan!5}
+        \docruler{#1}
+        \medskip
+}{
+        \medskip
+        \docruler{#2}
+    \end{colorstrip}
+}
+
+\ExplSyntaxOff

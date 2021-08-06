@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS % 
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage{showcase}
+
+
+\begin{document}
+
+\section{Un rendu en situation réelle}
+
+\docexa[Avec les textes par défaut]
+
+Il peut être utile de montrer un rendu réel directement dans un document. Ceci se tape comme suit.
+
+\begin{doclatex-alone}
+\begin{docshowcase}
+	\bfseries Un peu de code \LaTeX.
+
+	\bigskip
+
+	\itshape Fin de la démo.
+\end{docshowcase}
+\end{doclatex-alone}
+
+On obtient alors le rendu suivant
+\footnote{
+	La bande est créée sans effort grâce au package \docpack{clrstrip}.
+}.
+
+\medskip
+
+\begin{docshowcase}
+	\bfseries Un peu de code \LaTeX.
+
+	\bigskip
+
+	\itshape Fin de la démo.
+\end{docshowcase}
+
+
+\bigskip
+
+
+Il faut savoir qu'en coulisse la macro \docmacro{docruler} est utilisée.
+
+\begin{doclatex-flat}
+\docruler{Un pseudo-titre décoré}
+\end{doclatex-flat}
+
+
+\begin{docrem}
+	Les textes utilisés pour délimiter le rendu s'adaptent à la langue choisie lors du chargement du package \docpack{bdoc}.
+\end{docrem}
+
+
+% ------------------ %
+
+\docexa[Changer les textes par défaut]
+
+C'est assez simple à faire.
+
+\begin{doclatex-alone}
+\begin{docshowcase}[Mon début]%
+                   [Ma fin]
+	Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla...
+\end{docshowcase}
+\end{doclatex-alone}
+
+On obtient alors ce qui suit.
+
+\medskip
+
+\begin{docshowcase}[Mon début]%
+                   [Ma fin]
+	Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla...
+\end{docshowcase}
+
+\end{document}
+

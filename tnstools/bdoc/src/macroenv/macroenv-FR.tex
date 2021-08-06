@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS %
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage{macroenv}
+
+
+\begin{document}
+
+\section{Indiquer des packages, des macros ou des environnements}
+
+Voici ce qu'il est possible de taper de façon sémantique.
+
+\begin{doclatex}
+\docpack{monpackage} est pour...
+
+\docmacro{unemacro} permet de...
+
+\docenv{cetenv} sert à...
+\end{doclatex}
+
+
+\begin{docrem}
+	L'intérêt des macros précédentes vis à vis de l'usage de \docmacro{docilatex} est l'absence de coloration.
+	De plus, la macro \docmacro{docenv} demande juste de taper le nom de l'environnement
+	\footnote{
+		De plus, \docenv{cetenv} utilise des espaces pour autoriser des retours à la ligne si besoin.
+	}.
+\end{docrem}
+
+
+% -------------------- %
+
+
+\section{Expliquer les préfixes ou les suffixes}
+
+Pour expliquer les noms retenus rien de tel que d'indiquer et expliciter les courts préfixes et suffixes retenus.
+
+\begin{doclatex}
+\docpre{pré} est...
+
+\docprewhy{suf}{fixe} explique...
+\end{doclatex}
+
+
+
+\end{document}
+

@@ -1,0 +1,36 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS % 
+
+\usepackage{../macroenv/macroenv}
+\usepackage{../listing/listing}
+\usepackage{../inenglish/inenglish}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage[lang = FR]{main}
+
+
+\begin{document}
+
+%\section{Mises en forme générales imposées}
+
+\subsection{Liens dynamiques}
+
+Le package \docpack{hyperref} est aussi importé en coulisse avec les réglages ci-dessous.
+
+\begin{doclatex-alone}
+\hypersetup{
+    colorlinks,
+    citecolor = orange!75!black,
+    filecolor = orange!75!black,
+    linkcolor = orange!75!black,
+    urlcolor  = orange!75!black
+}
+\end{doclatex-alone}
+
+\end{document}
+

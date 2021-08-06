@@ -1,0 +1,81 @@
+% == PACKAGES == %
+
+\RequirePackage{amsthm}
+
+
+% == TOOLS == %
+
+% -- EXPLAIN - REMARK -- %
+
+\newtheorem*{docrem}{Remarque}
+
+
+% -- EXPLAIN - EXAMPLE -- %
+
+%%%
+% For the titles of the examples, we define a counter ``bdoc@cnt@exa``
+% which is reset when at least a verb::``subsubsection`` is opened. 
+%%%
+
+\newcounter{bdoc@cnt@exa}[subsubsection]
+
+\ExplSyntaxOn
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           a text
+%     arg = #2 ;
+%           a text that can be empty
+%
+% This macro outputs the macro ``\paragraph`` with one of the following content.
+%
+%     1) If the 2nd argument is empty, the content is just the 1st argument.
+%
+%     2) If the 2nd argument is not empty, the content is the 1st and 2nd 
+%        arguments separated by a dash ``--``.
+%
+% info::
+%     This macro comes from a factorization of the code used to title the 
+%     example.
+%%%
+
+\NewDocumentCommand{ \@docexa@abstract } { mm }{%
+    \paragraph{%
+        #1%
+        \tl_if_empty:nF { #2 }{ ~ -- ~ #2 }%
+    }%
+}
+
+\ExplSyntaxOff
+
+%%%
+% prototype::
+%     star = true
+%     opt  = #1 ;
+%           a descriptive title
+%
+% Here are the different uses of the macros ``\docexa`` and ``\docexa*``.
+%
+%     1) ``\docexa`` or ``\docexa[]`` produces something like 
+%        ``\paragraph{Example N}``
+%        where ``N``is the value of the counter ``bdoc@cnt@exa``. 
+%
+%     2) ``\docexa[One description]`` produces something like 
+%        ``\paragraph{Example N -- One description}``
+%        where ``N`` is as above. 
+%
+%     3) ``\docexa*`` does a similar job except that it doesn't print 
+%        the value `N`` of the counter ``bdoc@cnt@exa``.
+%%%
+
+\NewDocumentCommand{ \docexa }{sO{}}{%
+    \IfBooleanTF{#1}{% Star used
+        \@docexa@abstract{\bdoc@trans@exa@title}{#2}%
+    }{% No star used.
+        \refstepcounter{bdoc@cnt@exa}%
+        \@docexa@abstract{\bdoc@trans@exa@title{}~\thebdoc@cnt@exa}{#2}%
+    }%
+}
+
+

@@ -1,0 +1,69 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS % 
+
+\usepackage{../macroenv/macroenv}
+\usepackage{../listing/listing}
+\usepackage{../inenglish/inenglish}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage[lang = FR]{main}
+
+
+\begin{document}
+
+%\section{Mises en forme générales imposées}
+
+\subsection{Titre et table des matières}
+
+En coulisse les packages \docpack{titlesec}, \docpack{tocbasic} et \docpack{bookmark} sont chargés. Les réglages retenus sont les suivants où la redéfinition de \docmacro{thechapter} n'est faite que pour les packages agrégateurs (dont les documentations sont de type livre).
+
+\begin{doclatex-alone}
+\RequirePackage[numbered]{bookmark}
+\RequirePackage[raggedright]{titlesec}
+
+% ...
+
+%\renewcommand\thechapter{\Alph{chapter}.} 
+\renewcommand\thesection{\Roman{section}.}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\renewcommand\thesubsubsection{\roman{subsubsection}.}
+
+\titleformat{\paragraph}[hang]% 
+            {\normalfont\normalsize\bfseries}% 
+            {\theparagraph}{1em}% 
+            {}
+
+\titlespacing*{\paragraph}% 
+              {0pt}% 
+              {3.25ex plus 1ex minus .2ex}% 
+              {0.5em}
+
+% Source
+%    * https://tex.stackexchange.com/a/558025/6880
+\DeclareTOCStyleEntries[
+    raggedentrytext,
+    linefill = \hfill,
+    indent   = 0pt,
+    dynindent,
+    numwidth = 0pt,
+    numsep   = 1ex,
+    dynnumwidth
+]{tocline}{
+    chapter,
+    section,
+    subsection,
+    subsubsection,
+    paragraph,
+    subparagraph
+}
+
+\DeclareTOCStyleEntry[indentfollows = chapter]{tocline}{section}
+\end{doclatex-alone}
+
+\end{document}
+

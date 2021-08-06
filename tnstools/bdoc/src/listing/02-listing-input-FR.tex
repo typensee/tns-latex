@@ -1,0 +1,185 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS %
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../inenglish/inenglish}
+\usepackage{../showcase/showcase}
+\usepackage{../rem-exa/rem-exa}
+
+% TESTING LOCAL IMPLEMENTATION %
+
+\usepackage{listing}
+
+
+% == EXTRAS == %
+
+% Source.
+%    * https://tex.stackexchange.com/a/604698/6880
+
+\NewDocumentCommand{ \bdocextraruler }{ m }{%
+    \par
+    {
+        \centering
+        \color{green!50!black}%
+        \leavevmode
+        \kern.075\linewidth
+        \leaders\hrule height3.25pt\hfill\kern0pt
+        \footnotesize\itshape\bfseries\space\ignorespaces#1\unskip\space
+        \leaders\hrule height3.25pt\hfill\kern0pt
+        \kern.075\linewidth
+    	\par
+	}
+}
+
+\NewDocumentEnvironment{ bdoc-extra-showcase }
+                       { O{ Début du rendu dans cette doc. }
+                         O{ Fin du rendu dans cette doc. } }{
+    \begin{colorstrip}{green!5}
+        \bdocextraruler{#1}
+        \smallskip
+}{
+        \smallskip
+        \bdocextraruler{#2}
+    \end{colorstrip}
+}
+
+
+\begin{document}
+
+%\section{Cas d'utilisation en \LaTeX}
+
+\subsection{Codes importés}
+
+Pour les codes suivants, on considère un fichier \verb+examples/listing-xyz.tex+ dont le chemin est donné relativement au document présent.
+Le contenu de ce fichier est l'unique ligne \docilatex|$x y z = 1$| .
+
+\medskip
+
+Notez que les 1\ieres{} macros sont nommées de façon similaire aux environnements précédents en ajoutant le préfixe \docpre{input} tout en ignorant les tirets.
+
+
+\begin{docrem}
+	Il faut savoir que les macros imprimant automatiquement du texte tiennent code de la langue choisie lors du chargement du package \docpack{bdoc}.
+\end{docrem}
+
+
+% ------------------ %
+
+
+\docexa[Face à face]
+
+\begin{doclatex-alone}
+\inputdoclatex{examples/listing-xyz.tex}
+\end{doclatex-alone}
+
+Ceci produit la mise en forme suivante.
+
+\inputdoclatex{examples/listing-xyz.tex}
+
+
+% ------------------ %
+
+
+\docexa[À la suite]
+
+\docmacro{inputdoclatexflat} produit un code à plat comme ci-dessous.
+
+\inputdoclatexflat{examples/listing-xyz.tex}
+
+
+% ------------------ %
+
+
+\docexa[Juste le code]
+
+
+\docmacro{inputdoclatexalone} sert à n'avoir que le code comme ci-après.
+
+\inputdoclatexalone{examples/listing-xyz.tex}
+
+% ------------------ %
+
+
+%\newpage
+\docexa[Code suivi du rendu centré]
+
+Le rendu suivant est obtenu en utilisant \docmacro{inputdoclatexbefore}.
+
+\medskip
+
+\begin{docshowcase}
+    \inputdoclatexbefore{examples/listing-xyz.tex}
+\end{docshowcase}
+
+\bigskip
+
+Il est possible de changer le texte entre le code et son rendu via un argument optionnel.
+Ainsi \docilatex|\inputdoclatexbefore[Voici ce que cela donne.]{...}| aboutit au résultat suivant.
+
+\medskip
+
+\begin{docshowcase}[Début du rendu réel \docquote{personnalisé}]%
+                   [Fin du rendu réel \docquote{personnalisé}]
+    \inputdoclatexbefore[Voici ce que cela donne.]{examples/listing-xyz.tex}
+\end{docshowcase}
+
+
+% ------------------ %
+
+
+\docexa[Rendu centré suivi du code] \label{output-centered}
+
+Le rendu suivant
+\footnote{
+	Il faut savoir que le 1\ier{} espace vertical disgracieux vient de l'emploi de \docenv{center} en coulisse.
+},
+similaire au précédent, est obtenu en appellant \docmacro{inputdoclatexafter} au lieu de \docmacro{inputdoclatexbefore}.
+
+\medskip
+
+\begin{docshowcase}
+    \inputdoclatexafter{examples/listing-xyz.tex}
+\end{docshowcase}
+
+\bigskip
+
+Via \docilatex|\inputdoclatexafter[Cette formule se tape comme suit.]{...}| , on obtient le résultat ci-après.
+
+\medskip
+
+\begin{docshowcase}[Début du rendu réel \docquote{personnalisé}]%
+                   [Fin du rendu réel \docquote{personnalisé}]
+    \inputdoclatexafter[Cette formule se tape comme suit.]{examples/listing-xyz.tex}
+\end{docshowcase}
+
+
+% ------------------ %
+
+
+\docexa[Code importé et son rendu réel]
+
+Pour un code et son rendu réel non centré, on utilisera \docmacro{inputdoclatexreal} qui va produire ce qui suit
+
+\medskip
+
+\begin{bdoc-extra-showcase}
+    \inputdoclatexreal{examples/listing-xyz.tex}
+\end{bdoc-extra-showcase}
+
+\bigskip
+
+Là aussi le texte par défaut peut être \docquote{personnalisé}. Par exemple, ce qui suit a été obtenu via \docilatex|\inputdoclatexreal[On obtient le rendu réel ci-après.]{...}| .
+
+\medskip
+
+\begin{bdoc-extra-showcase}[Début du rendu \docquote{personnalisé} dans cette doc.]%
+                           [Fin du rendu \docquote{personnalisé} dans cette doc.]
+    \inputdoclatexreal[On obtient le rendu réel ci-après.]{examples/listing-xyz.tex}
+\end{bdoc-extra-showcase}
+
+\end{document}

@@ -1,0 +1,182 @@
+% == PACKAGES == %
+
+\RequirePackage{marginnote}
+
+
+% == TOOLS == %
+
+% -- CHANGE LOG - VERSION & NEW -- %
+
+\reversemarginpar{}
+
+\ExplSyntaxOn
+
+%%%
+% The list ``\l_bdoc_date_parts_seq``, the strings ``\l_bdoc_date_year_str``,
+% ``\l_bdoc_date_month_str`` and ``\l_bdoc_date_day_str`` are used to obtain
+% the good formatting of dates regarding to the language wanted.
+%%%
+
+\seq_new:N \l_bdoc_date_parts_seq
+
+\str_new:N \l_bdoc_date_year_str
+\str_new:N \l_bdoc_date_month_str
+\str_new:N \l_bdoc_date_day_str
+
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           a date YYYY-MM-DD
+%
+% This macro set the string values of ``\l_bdoc_date_year_str``,
+% ``\l_bdoc_date_month_str`` and ``\l_bdoc_date_day_str`` using
+% a basic parsing of the date argument.
+%%%
+
+\NewDocumentCommand{ \l_bdoc_good_date } { m } {
+	\seq_set_split:Nnn \l_bdoc_date_parts_seq { - } { #1 }
+    \seq_pop:NN \l_bdoc_date_parts_seq \l_bdoc_date_year_str
+    \seq_pop:NN \l_bdoc_date_parts_seq \l_bdoc_date_month_str
+    \seq_pop:NN \l_bdoc_date_parts_seq \l_bdoc_date_day_str
+}
+
+%%%
+% prototype::
+%     opt = #1 ;
+%           a color
+%     arg = #2 ;
+%           the first material (a date)
+%     arg = #3 ;
+%           the second material (a version number)
+%     arg = #4 ;
+%           the last negative spacing 
+%
+% This macro factorizes the printing of the changes in the right margin.
+%%%
+
+\NewDocumentCommand{ \l_bdoc_new_change_margin }{ mmmm }{
+    \marginnote{
+        \color{#1}
+        \scriptsize
+        \centering
+        \vspace{0pt}
+        \rule{1.65cm}{.95pt}
+        \vspace{-2.9pt}
+
+        \par
+        	\l_bdoc_good_date{ #2 }
+
+            \bdoc@trans@date{\l_bdoc_date_year_str}
+                            {\l_bdoc_date_month_str}
+                            {\l_bdoc_date_day_str}
+        \par
+        
+        \vspace{1pt}
+        
+        \par
+        #3
+        \par
+        
+        \vspace{#4}
+        \rule{1.65cm}{.95pt}
+    }[-.345cm]
+}
+
+
+%%%
+% prototype::
+%     opt = #1 (blue) ;
+%           a color
+%     arg = #2 ;
+%           a version number
+%     arg = #3 ;
+%           a date YYYY-MM-DD
+%
+% This macro prints a margin note showing a version number upon a date, and
+% the optional argument is used to colorized all this text.
+%
+% The version number must look like ``maj.min.bug`` or  ``maj.min.bug-extra``  
+% with three integers ``maj``, ``min``, ``bug`` and an optional ``extra``
+% equal to ``alpha``, ``beta`` or ``rc`` for "release candidate".
+%
+% The date must use the english formatting like ``2021-07-14`` for example.
+%
+% info::
+%     The date displayed will follow the standard convention of the language 
+%     chosen when loading the package.
+%%%
+
+\NewDocumentCommand{ \docversion } {O{blue}mm }{
+	\l_bdoc_new_change_margin { #1 }      % Color
+	                          { #3 }      % Date
+	                          { #2 }      % Version
+	                          { -6.25pt } % Last negative spacing
+}
+
+
+%%%
+% prototype::
+%     opt = #1 (blue) ;
+%           a color
+%     arg = #2 ;
+%           a date YYYY-MM-DD
+%
+% This macro is similar to ``\docversion`` except that it just prints a date.
+%%%
+\NewDocumentCommand{ \docnew } {O{blue}m }{
+	\l_bdoc_new_change_margin { #1 }      % Color
+	                          { #2 }      % Date
+	                          {}          % Version
+	                          { -5.35pt } % Last negative spacing
+}
+
+
+
+% -- CHANGE LOG - TOPIC -- %
+
+\msg_set:nnnn { bdoc } { unknown-topic-style }
+    { Unknown \ topic \ style }
+    { Styles \ supported: \ [t]-itle \ and \ [i]-nline. }
+
+%%%
+% prototype::
+%     arg = #1 ;
+%           the title
+%     opt = #2 in [i, t] ;
+%           the kind of title
+%
+% The content of this environment gives some ¨infos about specific changes 
+% achieved in a new version (no special formatting is applied).
+%
+% The argument is a title and the option allows two kinds of formatting. 
+% Here is what is available.
+%
+%     1) By default, ``i`` for "inline" asks to put the content just after 
+%        the title.
+%
+%     2) ``t`` for "title" asks to put the content in a new line below 
+%        the title.
+%%%
+
+\NewDocumentEnvironment{ doctopic }{ mO{i} }{
+    \medskip
+    
+    \textbf{
+        \textsc{#1}
+        
+        \str_case_e:nnF { #2 } {
+            { t }{
+                .
+                \smallskip
+            }
+            { i }{
+                \ :
+            }
+        }{
+            \msg_fatal:nn { bdoc } { unknown-topic-style }
+        }
+    }%
+}{}
+
+\ExplSyntaxOff

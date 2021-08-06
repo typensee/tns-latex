@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article}
+
+% -------------------------- %
+% -- DATE TO TEST - START -- %
+% -------------------------- %
+
+\newcommand\doclang  {FR}
+
+\newcommand\docyear  {2021}
+\newcommand\docmonth {07}
+\newcommand\docday   {15}
+
+% ------------------------ %
+% -- DATE TO TEST - END -- %
+% ------------------------ %
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../deco/deco}
+\usepackage{../inenglish/inenglish}
+\usepackage{../showcase/showcase}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+\usepackage{../version-n-change/version-n-change}
+
+
+\begin{document}
+
+{
+    \color{red!75!black}
+    \rule\linewidth{1pt}
+    
+    \vspace{-1em}
+    \section*{Test : \docyear-\docmonth-\docday \quad [lang = \doclang]}
+    
+    \vspace{-.75em}
+    \rule\linewidth{1pt}
+}
+
+\bigskip
+
+\input{\docyear/\docmonth/\docday-\doclang}
+
+\end{document}

@@ -1,0 +1,118 @@
+% == PACKAGES == %
+
+\RequirePackage{l3keys2e} 
+
+\RequirePackage[
+    top            = 2.5cm,
+    bottom         = 2.5cm,
+    left           = 2.5cm,
+    right          = 2.5cm,
+    marginparwidth = 2cm, 
+    marginparsep   = 2mm,
+    heightrounded
+]{geometry}
+
+\RequirePackage[numbered]{bookmark}
+\RequirePackage[raggedright]{titlesec}
+\RequirePackage{tocbasic}[2020/07/22]
+
+\RequirePackage{pgf}
+\RequirePackage{hyperref}
+
+
+% == OPTIONS == %
+
+\ProvidesExplPackage{main}{}{}{}
+
+
+% -- OPTIONS - MESSAGES -- %
+
+\msg_set:nnnn { bdoc } { options-unknown-lang }
+    { Unknown ~ language. }
+    { Languages ~ supported: ~ [FR]-ench ~ and ~ [EN]-glish. }
+
+
+% -- OPTIONS - KEYS & VALUES -- %
+
+\keys_define:nn { bdoc } {
+    lang .choices:nn =
+        { FR, EN }
+        {
+            \tl_set:Nn \l_bdoc_opt_lang { \tl_use:N \l_keys_choice_tl }
+        },
+    lang .initial:n = EN,
+    lang / unknown .code:n =
+        \msg_error:nnxxx { bdoc } { options-unknown-lang }
+            { lang }             % Name of choice key
+            { FR, EN }           % Valid choices
+            { \exp_not:n {#1} }  % Invalid choice given
+}
+
+
+% -- OPTIONS - KEYS FROM THE LOADING OF THE PACKAGE -- %
+
+\ProcessKeysPackageOptions{ bdoc }
+
+
+% -- OPTIONS - IMPORT THE WANTED TRANSLATIONS -- %
+
+\input{../main/locale/\l_bdoc_opt_lang.sty}
+\input{../main/locale/tech-\l_bdoc_opt_lang.sty}
+
+
+% == TOOLS == %
+
+% -- SETTINGS - GENERAL -- %
+
+\setlength{\parindent}{0cm}
+% \setlist{noitemsep}  Utile ???
+
+
+% -- SETTINGS - LINKS -- %
+
+\hypersetup{
+    colorlinks,
+    citecolor = orange!75!black,
+    filecolor = orange!75!black,
+    linkcolor = orange!75!black,
+    urlcolor  = orange!75!black
+}
+
+
+% -- SETTINGS - TOC & Co. -- %
+
+%\renewcommand\thechapter{\Alph{chapter}.} 
+\renewcommand\thesection{\Roman{section}.}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\renewcommand\thesubsubsection{\roman{subsubsection}.}
+
+\titleformat{\paragraph}[hang]% 
+            {\normalfont\normalsize\bfseries}% 
+            {\theparagraph}{1em}% 
+            {}
+
+\titlespacing*{\paragraph}% 
+              {0pt}% 
+              {3.25ex plus 1ex minus .2ex}% 
+              {0.5em}
+
+% Source
+%    * https://tex.stackexchange.com/a/558025/6880
+\DeclareTOCStyleEntries[
+    raggedentrytext,
+    linefill = \hfill,
+    indent   = 0pt,
+    dynindent,
+    numwidth = 0pt,
+    numsep   = 1ex,
+    dynnumwidth
+]{tocline}{
+    chapter,
+    section,
+    subsection,
+    subsubsection,
+    paragraph,
+    subparagraph
+}
+
+\DeclareTOCStyleEntry[indentfollows = chapter]{tocline}{section}

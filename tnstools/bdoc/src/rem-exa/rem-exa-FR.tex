@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+% USING OTHER TOOLS %
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../showcase/showcase}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+\usepackage{../inenglish/inenglish}
+
+% TESTING LOCAL IMPLEMENTATION % 
+
+\usepackage{rem-exa}
+
+
+\begin{document}
+
+\section{Faire une remarque}
+
+Tout se passe via l'environnement \docenv{docrem} comme dans l'ex\-emple suivant.
+
+\begin{doclatex}
+    \begin{docrem}
+        Juste une remarque...
+    \end{docrem}
+\end{doclatex}
+
+
+% ------------------ %
+% ------------------ %
+% ------------------ %
+% ------------------ %
+
+
+\section{Exemples}
+
+Comme les documentations se basent sur des cas d'utilisation, la macro \docmacro{docexa} est indispensable pour organiser visuellement les exemples.
+
+\inputdoclatexreal{examples/exa.tex}
+
+
+\begin{docrem}
+	\leavevmode
+
+	\begin{enumerate}
+		\item La numérotation des exemples est remise à zéro dès qu'une section  de niveau au moins égale à une \docilatex|\subsubsection| est ouverte.
+
+		\item Le mot \docquote{Exemple} sera traduit dans la langue indiquée lors du chargement du package \docpack{bdoc}.
+	\end{enumerate}
+\end{docrem}
+
+\end{document}
+
