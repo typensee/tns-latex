@@ -1,4 +1,11 @@
 ==
+07
+==
+
+**Toools and tests:** the files for tests or "toooling" must have a name starting by path::```test_``, path::``tests_``, path::``tool_`` or path::``tools_``.
+
+
+==
 05
 ==
 
@@ -16,7 +23,7 @@
 **¨Doc:** two important new things.
 
     1) The rules to name ¨latex files have been written.
-    
+
     1) Examples have been added to explain which ¨latex files are automatically associated to a path::``STY`` file.
 
 

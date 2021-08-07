@@ -7,8 +7,8 @@ The monorepo `typensee-latex`
 > English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
 
 
-About
------
+About `typensee-latex`
+----------------------
 
 This monorepo contains a series of packages and classes to write `LaTeX` documents efficiently in a semantic way.
 

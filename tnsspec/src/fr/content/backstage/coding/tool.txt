@@ -1,5 +1,5 @@
 this::
-    date = 21/07/2021
+    date = 2021-08-07
 
 
 =================
@@ -14,5 +14,5 @@ Pour ce faire, on devra respecter les contraintes suivantes.
 
     1) Plusieurs outils peuvent être réunis dans un dossier path::``tool`` ou path::``tools`` où l'on veut et à différents endroits si besoin. Ces dossiers n'apparaitront pas dans le projet final.
 
-    1) Il peut être parfois nécessaire ou suffisant d'utiliser un unique outil. Dans ce cas, le nom du fichier sera préfixé par path::``tool-`` ou path::``tools-``.
+    1) Il peut être parfois nécessaire ou suffisant d'utiliser un unique outil. Dans ce cas, le nom du fichier sera préfixé par path::``tool_`` ou path::``tools_``.
     Un tel fichier n'apparaîtra pas dans le produit fini.
