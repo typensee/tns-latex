@@ -1,14 +1,14 @@
-About `tnsspec`
+The document `tnsspec`
 ================
 
-I beg your pardon for my English
-================================
 
-English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
+> **I beg your pardon for my english...**
+>
+> English is not my native language, so be nice if you notice misunderstandings, misspellings, or grammatical errors in my documents and codes.
 
 
 About
-=====
+-----
 
 This document contains all the specifications used to develop the tools proposed by the monorepo `typensee-latex`.
 
