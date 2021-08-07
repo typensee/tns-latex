@@ -1,9 +1,0 @@
-ignore-all::
-    tool
-    test
-    
-ignore-dir::
-    change
-
-    data
-    config
