@@ -1,0 +1,24 @@
+﻿this::
+    title   = Spécifications des packages ¨latex3 de la suite ¨tnslatex
+    author  = Christophe, BAL
+    mail    = projetmbc@gmail.com
+
+    licence = cc by nc sa 4.0
+    out     = html | pdf
+
+    lexic   = latex3
+
+
+abrev::
+    tns      = Type And See
+    tnslatex = ¨tns pour ¨latex
+
+    content = content
+
+
+content::
+    ¨content/intro.txt
+    ¨content/monorepo.txt
+    ¨content/api.txt
+    ¨content/backstage.txt     ???? des modifs à faire
+    ¨content/formatting.txt

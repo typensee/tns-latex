@@ -1,0 +1,13 @@
+this::
+    date = 14/07/2021
+
+
+===============
+Noms des macros
+===============
+
+Les macros et les environnements ont prioritairement des noms utilisant des minuscules. Ces noms seront de préférence courts et surtout non cryptiques.
+
+
+info::
+    Pour les macros et les environnements privés, on utilise a minima le nom du package afin d'éviter des conflits de noms avec d'autres packages.

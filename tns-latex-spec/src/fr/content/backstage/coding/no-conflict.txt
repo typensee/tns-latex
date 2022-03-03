@@ -1,0 +1,23 @@
+this::
+    date = 08/02/2022
+
+
+=======================
+Une ¨API sans conflit ?
+=======================
+
+Pour éviter les conflits, le choix a été fait de s'appuyer sur la documentation publique du code.
+En effet, la définition des signatures des macros et environnements "publiques"
+((
+    Les macros et les environnements privés ne sont pas concernés.
+    Celles-ci et ceux-ci sont nommés en les préfixant du nom du package auxquels ils appartiennent.
+    Ceci devrait rendre impossible tout conflit.
+))
+s'appuient sur les outils de ¨macroenvsign qui produisent une trace précise dans un fichier path::``CSV`` permettant de connaître les noms des macros et des environnements "publiques", ainsi que de leur signature.
+Ceci permet à des outils extérieurs de vérifier qu'il n'y a pas de conflits de noms ¨etou de signatures.
+
+
+info::
+    Le choix de ne pas analyser les codes sources évite de gérer de grosses subtilités liées à l'utilisation de fonctions du type verb::``csname`` en coulisse et aussi à la verbosité efficace du codage en ¨latex3.
+    Donc c'est au codeur d'exposer l'¨API tout en lui laissant la liberté de coder comme il le souhaite en coulisse.
+    Vive le pragmatisme !

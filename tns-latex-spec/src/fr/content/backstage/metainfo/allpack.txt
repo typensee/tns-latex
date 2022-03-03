@@ -1,0 +1,58 @@
+this::
+    date = 08/02/2022
+
+
+===========================
+Pour les packages autonomes
+===========================
+
+Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.peuf`` ayant le contenu minimal suivant.
+
+peuf::
+    general::
+        scope   = tnslatex
+        desc    = Fictional package for this example.
+        author  = Christophe BAL
+        licence = gnu 3
+        need    = latex2e
+
+
+info::
+    La déclaration peuf::``scope = tnslatex`` identifie bien entendu les packages de la suite ¨tnslatex. Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
+
+
+Le contenu du fichier path::``about.peuf`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
+
+    1) Le nom de package est juste celui du dossier du code source.
+
+    1) La date de création et le numéro de la version en cours avec sa date sont des informations déjà indiquées dans les journaux des ¨chgts techniques
+    ((
+        Voir cf::``:?../change-log.txt``.
+    )).
+
+    1) Les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
+    ((
+        Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
+    )).
+
+
+Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites automatiquement dans le fichier path::``STY`` final.
+
+latex::
+    % --------------------------------------------------------- %
+    % - This is file `tnsfictif.sty' generated automatically. - %
+    % -                                                       - %
+    % - Copyright (C) 2020-2021 by Christophe BAL             - %
+    % -                                                       - %
+    % - This file may be distributed and/or modified under    - %
+    % - the conditions of the Gnu 3 License.                  - %
+    % --------------------------------------------------------- %
+
+    \NeedsTeXFormat{LaTeX2e}
+
+    \ProvidesExplPackage{tnsfictif}   %
+                        {2020-06-01}  % Creation: 2018-05-01
+                        {10.2.9-beta} %
+                        {Fictional package for this example.}
+
+    % Le reste du code...

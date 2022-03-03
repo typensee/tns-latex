@@ -1,0 +1,64 @@
+this::
+    date = 2022-02-08
+
+
+==================
+Les grandes lignes
+==================
+
+L'automatisation se fait en respectant un style de codage et une organisation des dossiers et des fichiers.
+Pour la suite, nous allons travailler avec l'exemple suivant d'un package fictif nommé ``tnsfictif``.
+
+path-tree::
+    + tnsfictif
+        * about.peuf
+        + src
+            * about.peuf
+            + intro
+                * intro-FR.tex
+            + alpha-et-omega3
+                * alpha-FR.tex
+                * alpha.sty
+                * omega3-FR.tex
+                * omega3.sty
+            + poor-lonesome-cowboy
+                * about.peuf
+                * lucky-1-FR.tex
+                * lucky-2-FR.tex
+                * lucky.sty
+                * ignoreme.sty
+                * rantanplan-FR.tex
+                * rantanplan.sty
+
+
+Expliquons les conventions à suivre.
+
+    1) Le nom du dossier principal correspond au nom du package.
+
+    1) Le fichier path::``about.peuf`` directement présent dans path::``tnsfictif`` sert à donner des méta-informations dont l'une est peuf::``scope = tnslatex`` qui identifie les packages de la suite ¨tnslatex. Se reporter à cf::``?../metainfo/allpack.txt``.
+
+    1) Le développement "morceau par morceau" se fait dans le sous-dossier path::``src``.
+
+    1) Chaque fichier path::``STY`` codant un morceau du package doit se trouver dans un sous-dossier de profondeur `1` de path::``src``.
+    Bien noter que l'on travaille directement dans un sous-dossier sans passer via des sous-sous-dossiers contenant le fichier path::``STY``.
+
+    1) Il est aussi possible de rédiger des fichiers path::``TEX`` pour par exemple documenter des fonctionnalités.
+    Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY`` et indiquer la langue du ¨doc.
+    Dans notre exemple fictif, path::``intro/intro-FR.tex``
+    ((
+        Se reporter à cf::``:?/latex-file-name.txt`` pour savoir comment nommer vos fichiers ¨latex.
+    )).
+    est accepté et considéré écrit en français.
+
+    1) Des fichiers ressources peuvent être utilisés : voir cf::``:?/resource.txt`` pour en savoir plus.
+
+    1) Deux types de lecture ordonnée des dossiers et fichiers sont possibles
+    ((
+        Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
+    )).
+
+        * Un dossier sans fichier path::``about.peuf`` sera analysé en utilisant l'ordre lexicographique usuel.
+        Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty`` ainsi que path::``alpha-FR.tex`` suivi de path::``omega3-FR.tex``.
+
+        * Dans un dossier source, un fichier path::``about.peuf`` permet d'imposer un ordre à suivre **mais aussi** les fichiers à analyser automatiquement.
+        Nous allons revenir sur ceci dans les deux sections suivantes.

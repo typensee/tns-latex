@@ -1,0 +1,13 @@
+abrev::
+    content = small-code
+
+=========================
+Coder par petites touches
+=========================
+
+content::
+    ¨content/general.txt
+    ¨content/example.txt
+    ¨content/about-for-dirs.txt
+    ¨content/about-for-files.txt
+    ¨content/auto-ignored.txt

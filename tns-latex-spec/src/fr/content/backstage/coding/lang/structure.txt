@@ -1,0 +1,52 @@
+this::
+    date = 08/02/2022
+
+
+=========================
+Organiser les traductions
+=========================
+
+Dans ¨bdoc, le code source contient un dossier de ¨dev path::``main`` où l'on trouve les fichiers et dossiers suivants permettant d'avoir des macros gérant les différentes langues
+((
+    Par défaut, seuls l'anglais et le français sont pris en compte.
+)).
+
+path-tree::
+    + main
+        + locale
+            * EN.sty
+            * FR.sty
+            + translate
+                * EN.peuf
+                * FR.peuf
+
+
+Voici l'affreux code utilisé en interne pour le français.
+
+latex::
+    ---
+    path  = :?../tools/bdoc/src/main/locale/FR.sty
+    title = Contenu du fichier path::``FR.sty``
+    ---
+
+
+Toutes les macros sans argument visibles dans l'horreur précédente ont été produites automatiquement
+((
+    Noter les préfixes utilisés dans le fichier path::``FR.sty`` afin d'éviter des conflits de noms avec d'autres packages (quitte à répéter du code dans différents endroits mais ceci est un moindre mal).
+))
+à partir du fichier suivant.
+Noter que ce dernier est très simple à modifier pour un non codeur à partir du fichier par défaut path::``EN.peuf`` (la section suivante va préciser la syntaxe utilisée).
+
+peuf::
+    ---
+    path  = :?../tools/bdoc/src/main/locale/FR.peuf
+    title = Contenu du fichier path::``EN.peuf``
+    ---
+
+
+warning::
+    Le format des fichiers path::``PEUF`` tient compte de l'indentation !
+
+
+info::
+    L'intégration de nouvelles langues se fait tout simplement via l'ajout dans le dossier path::``locale/translate`` de nouveaux fichiers path::``PEUF`` contenant les ¨chgts nécessaires.

@@ -1,0 +1,24 @@
+this::
+    date = 2022-02-08
+
+
+======
+Tester
+======
+
+Pour le moment les tests sont très rudimentaires
+((
+    Cela semble suffisant. Croisons les doigts... Ou fermons bien les yeux.
+)).
+
+    1) La ¨doc pour les utilisateurs est l'ocassion d'un test en situation assez complet, et souvent suffisant, des fonctionnalités proposées
+    ((
+        Ceci repose tout de même sur le facteur humain pour la partie vérification...
+    )).
+
+    1) D'autres tests "faits maison" sont possibles en utilisant des dossiers nommés path::``test`` ou path::``tests``, ¨etou des fichiers de noms préfixés par path::``test_`` ou path::``tests_``.
+    Ces fichiers et dossiers ne seront pas incorporés au produit final.
+
+
+info::
+    Pour le moment le projet n'utilise pas ¨l3build. L'histoire montrera si cela est utile ¨etou nécessaire.

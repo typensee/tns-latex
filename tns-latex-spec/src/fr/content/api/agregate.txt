@@ -1,0 +1,20 @@
+this::
+    date = 08/02/2022
+
+
+===========================
+Agréger différents packages
+===========================
+
+Pour des raisons pratiques, certains packages en agrègent plein d'autres pour éviter d'avoir à importer plein de packages de la suite ¨tns. Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécifications suivantes
+((
+    La majorité du travail est automatisée.
+)).
+
+    * On importe les packages en ne fabriquant pas un package qui reprendrait les codes des différents sous-packages. Ceci simplifie grandement les ¨majs.
+
+    * Les options de chaque sous-package restent accessibles depuis le package agrégateur.
+
+    * Côté utilisateur, il est possible de choisir de n'importer que certains packages ¨etou d'en exclure d'autres.
+
+    * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les informations au même endroit.

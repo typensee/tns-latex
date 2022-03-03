@@ -1,0 +1,18 @@
+this::
+    date = 15/07/2021
+
+
+=================================
+Polices de caractères... ou pas !
+=================================
+
+Comme le choix de polices de caractères est affaire de goût, la gestion de polices particulières se fait via des packages dédiés non chargés automatiquement par les packages "agrégateurs".
+Ce sera donc à l'utilisateur de demander explicitement l'utilisation de ces packages très particuliers.
+
+
+info::
+    Il faut savoir que ¨lualatex offre plus de possibilités de personnalisation des polices de caractères
+    ((
+        Pour le meilleur, ou pour le pire...
+    )).
+    Les packages offrant des réglages de polices de caractères proposent toujours deux modes : l'un avec ¨lualatex et l'autre sans, ce dernier pouvant être moins riche.

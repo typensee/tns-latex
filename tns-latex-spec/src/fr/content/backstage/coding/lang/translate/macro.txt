@@ -1,0 +1,29 @@
+this::
+    date = 18/07/2021
+
+
+==========================
+Des mots et des paramètres
+==========================
+
+Certaines subtilités imposent de passer par des macros : un cas typique est la gestion du double-point en français et en anglais, un cas pris en compte comme suit dans le fichier path::``FR.peuf``.
+
+peuf::
+    macro::
+    // #1: a text before a colon.
+        colon = #1~:
+
+
+A titre de comparaison, dans le fichier path::``EN.peuf``, on trouve ce qui suit.
+
+peuf::
+    macro::
+    // #1: a text before a colon.
+        colon = #1:
+
+
+Cette partie devient plus technique comme le montre la nécessité d'indiquer un espace insécable ``~`` dans ``#1~:`` pour le français, et l'absence d'espace dans ``#1:`` pour l'anglais. Il faudra donc que codeur et traducteur travaillent de concert.
+
+
+warning::
+    Pour le moment, seules les macros codées sur une seule ligne sont prises en compte.

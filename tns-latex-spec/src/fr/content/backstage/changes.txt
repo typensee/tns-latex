@@ -1,0 +1,12 @@
+abrev::
+    content = changes
+
+
+========================
+Indiquer les changements
+========================
+
+content::
+    ¨content/two-docs.txt
+    ¨content/technical-doc.txt
+    ¨content/human-doc.txt
