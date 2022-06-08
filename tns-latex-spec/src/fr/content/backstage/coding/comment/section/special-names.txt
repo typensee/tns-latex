@@ -9,7 +9,7 @@ Des noms réservés
 Les outils automatisés utilisent des commentaires de type "section à la ¨markdown". Le code peut aussi utiliser un autre type de sections pour faciliter la maintenance et la compréhension d'un code (ces derniers seront un peu remis en forme dans le code final). Voici ce que ce sont ces types de section.
 
 latex::
-    % == TITRE SPÉCIFIQUE POUR L'AUTOMATOSATION == %
+    % == TITRE SPÉCIFIQUE POUR L'AUTOMATISATION == %
 
     % ...
 

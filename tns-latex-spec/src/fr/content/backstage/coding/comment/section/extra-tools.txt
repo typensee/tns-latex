@@ -6,7 +6,7 @@ this::
 Des outils spécifiques à une ¨doc
 =================================
 
-Considrons comme exemple le code source de ¨bdoc qui contioent le fichier path::``listing-FR.tex`` donc le contenu possède la structure suivante avec une section spéciale latex::``% == EXTRAS == %``.
+Considérons comme exemple le code source de ¨bdoc qui contient le fichier path::``listing-FR.tex`` dont le contenu possède la structure suivante avec une section spéciale latex::``% == EXTRAS == %``.
 
 latex::
     \documentclass[12pt,a4paper]{article}

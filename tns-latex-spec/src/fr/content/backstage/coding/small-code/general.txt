@@ -8,7 +8,7 @@ Les grandes lignes
 
 Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau".
 Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager.
-Si nécessaire, un ou des ¨docs destinées aux utilisateurs seront aussi produites.
+Si nécessaire, un ou des ¨docs destinés aux utilisateurs seront aussi produites.
 
 
 info::

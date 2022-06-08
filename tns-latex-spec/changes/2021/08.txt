@@ -1,33 +1,67 @@
+// ---------- //
+
+
 ==
 07
 ==
 
-**Tools and tests:** the files for tests or "toooling" must have a name starting by path::```test_``, path::``tests_``, path::``tool_`` or path::``tools_``.
+-----
+:new:
+-----
+
+[[:api:]]
+Tools and tests: the files for tests or "toooling" must have a name starting by path::```test_``, path::``tests_``, path::``tool_`` or path::``tools_``.
+
+
+// ---------- //
 
 
 ==
 05
 ==
 
-**Resources:** two thing have been done.
+--------
+:update:
+--------
 
-    1) Explanations about the difference between files needed for the ¨doc and the ones for the path::``STY`` final project.
+[[:doc:]]
+Resources: explanations about the difference between files needed for the ¨doc and the ones for the path::``STY`` final project.
 
-    1) A factorization of the source code of the ¨doc has been done.
+
+--------
+:fordev:
+--------
+
+[[:facto:]]
+Resources: a factorization of the source code of the ¨doc has been done.
+
+
+// ---------- //
 
 
 ==
 04
 ==
 
-**¨Doc:** two important new things.
+--------
+:update:
+--------
 
-    1) The rules to name ¨latex files have been written.
+[[:api:]]
+Here a are the changes.
 
-    1) Examples have been added to explain which ¨latex files are automatically associated to a path::``STY`` file.
+    1) About the ¨doc: two important new things added.
+
+        * The rules to name ¨latex files have been written.
+
+        * Examples have been added to explain which ¨latex files are automatically associated to a path::``STY`` file.
+
+    1) Resources: the way to acheive our goal will use the option term::``--recorder`` of the standard ¨tex-like compilers.
 
 
-**Resources:** the way to acheive our goal will use the option term::``--recorder`` of the standard ¨tex-like compilers.
+--------
+:fordev:
+--------
 
-
-**Small codes:** a factorization of the source code of the ¨doc has been done.
+[[:facto:]]
+About the small codes: a factorization of the source code of the ¨doc has been done.

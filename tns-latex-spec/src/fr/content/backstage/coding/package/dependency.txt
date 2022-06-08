@@ -23,4 +23,4 @@ latex::
 
 
 warning::
-    Penser à utiliser latex::``\RequirePackage{packfictif}[2021/07/05]`` en indiquant la date du package utilisé lors de la création ou si besoin suite à une modification impliquée par un ¨chgt d'¨api du package latex::``packfictif``.
+    Penser à utiliser latex::``\RequirePackage{packfictif}[2021/07/05]`` en indiquant la date du package utilisé lors de la création, ou si besoin suite à une modification impliquée par un ¨chgt d'¨api du package latex::``packfictif``.

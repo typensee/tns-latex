@@ -1,5 +1,5 @@
 this::
-    date = 08/02/2022
+    date = 2022-06-02
 
 
 ==========
@@ -12,7 +12,7 @@ Chaque projet propose deux ¨docs : l'une technique
 ))
 qui s'adresse juste aux codeurs, et l'autre de type tutoriel destinée aux utilisateurs. Cette dernière se tape via ¨latex
 ((
-    Ceci permet de tester en situation réelle : voir cf::``:?../test.txt``.
+    Ceci permet de faire des tests en situation réelle : voir cf::``:?../test.txt``.
 ))
 en respectant des petites régles que nous allons expliquer dans les sections suivantes.
 

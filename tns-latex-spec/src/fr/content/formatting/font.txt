@@ -13,6 +13,6 @@ Ce sera donc à l'utilisateur de demander explicitement l'utilisation de ces pac
 info::
     Il faut savoir que ¨lualatex offre plus de possibilités de personnalisation des polices de caractères
     ((
-        Pour le meilleur, ou pour le pire...
+        Pour le meilleur... Ou pour le pire.
     )).
     Les packages offrant des réglages de polices de caractères proposent toujours deux modes : l'un avec ¨lualatex et l'autre sans, ce dernier pouvant être moins riche.

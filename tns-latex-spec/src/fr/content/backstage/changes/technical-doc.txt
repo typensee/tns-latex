@@ -1,12 +1,12 @@
 this::
-    date = 08/02/2022
+    date = 2022-06-02
 
 
 ================
 Pour les codeurs
 ================
 
-Cette ¨doc est écrite exclusivement en anglais la langue des codeurs qu'on le souhaite ou pas.
+Cette ¨doc est écrite exclusivement en anglais, la langue des codeurs, qu'on le souhaite ou pas.
 Les fichiers de type path::``TXT`` contenant les ¨chgts sont organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé et pour chaque mois un fichier bien nommé lui aussi.
 
 path-tree::
@@ -31,10 +31,10 @@ tns::
     01 (0.0.0-beta)
     ==
 
-    [:new:]
+    [[:new:]]
     This package proposes fictive features.
 
 
 La date est indiquée via le titre tns::``01`` entouré des tnschges::``==``.
 Quant au ¨chgt de version, il s'indique via simplement en ajoutant après la date tnschges::``(0.0.0-beta)``.
-Enfin tnschges::``[:new:]`` permet d'indiquer des nouveautés.
+Enfin tnschges::``[[:new:]]`` permet d'indiquer des nouveautés.

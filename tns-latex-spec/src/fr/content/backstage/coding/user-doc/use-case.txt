@@ -1,5 +1,5 @@
 this::
-    date = 11/07/2021
+    date = 2022-06-02
 
 
 =============================
@@ -7,10 +7,11 @@ Montrer des cas d'utilisation
 =============================
 
 Tout se passe via des environnements comme latex::``\begin{doclatex} ... \end{doclatex}``
+utilisés ci-dessous
 ((
     D'autres sont proposés par ¨bdoc.
-))
-utilisés ci-dessous ou des macros dans le cas de fichiers externes.
+)),
+ou des macros dans le cas de fichiers externes.
 
 latex::
     \begin{doclatex}

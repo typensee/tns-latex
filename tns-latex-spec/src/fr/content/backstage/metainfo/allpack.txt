@@ -25,7 +25,7 @@ Le contenu du fichier path::``about.peuf`` peut sembler minimal. Ceci vient de c
 
     1) Le nom de package est juste celui du dossier du code source.
 
-    1) La date de création et le numéro de la version en cours avec sa date sont des informations déjà indiquées dans les journaux des ¨chgts techniques
+    1) La date de création et le numéro de la version en cours, avec sa date, sont des informations déjà indiquées dans les journaux des ¨chgts techniques
     ((
         Voir cf::``:?../change-log.txt``.
     )).

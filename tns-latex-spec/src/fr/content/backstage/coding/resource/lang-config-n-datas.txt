@@ -1,5 +1,5 @@
 this::
-    date = 2021-08-05
+    date = 2022-06-02
 
 
 ====================================================
@@ -10,4 +10,4 @@ Pour le moment seul les fichiers d'internationalisaton sont réellement pris en 
 
 
 info::
-    Au gré des besoins seront pris en compte les fichiers de données et de ¨config toujours en s'appuyant sur des dossiers spéciaux nommés path::``config`` ou path::``configs``, ainsi que path::``data`` ou path::``datas``. Ces noms ne sont pas utilisables dès maintenant !
+    Au gré des besoins seront pris en compte les fichiers de données et de ¨config toujours en s'appuyant sur des dossiers spéciaux nommés path::``config`` ou path::``configs``, ainsi que path::``data`` ou path::``datas``. Ces noms ne sont pas utilisables pour le moment !

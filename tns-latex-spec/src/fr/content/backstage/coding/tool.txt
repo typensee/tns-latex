@@ -1,5 +1,5 @@
 this::
-    date = 2021-08-07
+    date = 2022-06-02
 
 
 =================
@@ -12,7 +12,7 @@ Il peut être nécessaire de faire appel à des outils extérieurs pour des trai
 )).
 Pour ce faire, on devra respecter les contraintes suivantes.
 
-    1) Plusieurs outils peuvent être réunis dans un dossier path::``tool`` ou path::``tools`` où l'on veut, et à différents endroits si besoin. Ces dossiers n'apparaitront pas dans le projet final.
+    1) Plusieurs outils peuvent être réunis dans un dossier path::``tool`` ou path::``tools`` placé où l'on veut, et à différents endroits si besoin. Ces dossiers n'apparaitront pas dans le projet final.
 
-    1) Il peut être parfois nécessaire ou suffisant d'utiliser un unique outil. Dans ce cas, le nom du fichier sera préfixé par path::``tool_`` ou path::``tools_``.
+    1) Il peut être parfois nécessaire, ou suffisant, d'utiliser un unique outil. Dans ce cas, le nom du fichier sera préfixé par path::``tool_`` ou path::``tools_``.
     Un tel fichier n'apparaîtra pas dans le produit fini.

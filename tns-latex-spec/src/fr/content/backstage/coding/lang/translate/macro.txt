@@ -6,7 +6,7 @@ this::
 Des mots et des paramètres
 ==========================
 
-Certaines subtilités imposent de passer par des macros : un cas typique est la gestion du double-point en français et en anglais, un cas pris en compte comme suit dans le fichier path::``FR.peuf``.
+Certaines subtilités imposent de passer via des macros : un cas typique est la gestion du double-point en français et en anglais, un cas pris en compte comme suit dans le fichier path::``FR.peuf``.
 
 peuf::
     macro::

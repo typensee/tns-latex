@@ -1,5 +1,5 @@
 this::
-    date = 2021-08-05
+    date = 2022-06-08
 
 
 =================================
@@ -18,4 +18,4 @@ Certains noms de dossiers ou de fichiers ont une signification particulière. Vo
 
     * cf::``:?../test.txt`` montre l'emploi de path::``test``.
 
-    * cf::``:?../ignore.txt`` présente le motif path::``x-...-x``.
+    * cf::``:?../ignore.txt`` présente le motif path::``x-...-x`` et l'usage de fichiers path::``gitignore``.

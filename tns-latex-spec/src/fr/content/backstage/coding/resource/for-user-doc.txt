@@ -24,4 +24,4 @@ Ce point est important car si path::``chemin/vers/ce/superbe/fichier`` est une r
 warning::
     Que faire si par un très improbable hasard vous souhaitez utiliser ``{chemin/vers/ce/superbe/fichier}`` dans une commande sans lien avec l'utilisation d'une ressource alors que path::``chemin/vers/ce/superbe/fichier`` est bien une ressource ?
     Une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles.
-    Attendons de voir si ce cas se présentera ou non pour trouver une vraie parade.
+    Attendons de voir si ce cas se présentera, ou non, pour trouver une vraie parade...

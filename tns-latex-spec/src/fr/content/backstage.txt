@@ -9,5 +9,5 @@ content::
     ¨content/metainfo.txt
     ¨content/git.txt
     ¨content/changes.txt
-    ¨content/ignore.txt     ????? git pris en compte !!!
-    ¨content/coding.txt     ????? auto ignored a revoir
+    ¨content/ignore.txt
+    ¨content/coding.txt

@@ -1,0 +1,21 @@
+// ---------- //
+
+
+==
+08
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Files and folders ignored automatically: the support of ¨git ignore files has been added.
+
+
+--------
+:update:
+--------
+
+[[:api:]]
+Technical signatures: the processus used to name the technical sections has been indicating clearly.
