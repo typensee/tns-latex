@@ -2,6 +2,37 @@
 
 
 ==
+13
+==
+
+------
+:news:
+------
+
+[[:api:]]
+About the structure of the small projects.
+
+    1) The minimal structure of a small project has been added.
+
+    1) The use of a ¨readme file has been documented.
+
+
+-------
+:break:
+-------
+
+[[:api:]]
+Translations of the human ¨doc.
+
+    1) The metainfos in the file path::``about.peuf`` has a new key to indicate the language used by the developper coding the project.
+
+    1) The process for translating the human ¨doc has been siplified.
+
+
+// ---------- //
+
+
+==
 08
 ==
 

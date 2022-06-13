@@ -20,5 +20,5 @@ content::
     ¨content/intro.txt
     ¨content/monorepo.txt
     ¨content/api.txt
-    ¨content/backstage.txt     ???? des modifs à faire
+    ¨content/backstage.txt
     ¨content/formatting.txt

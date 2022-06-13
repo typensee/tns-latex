@@ -7,6 +7,7 @@ Documentation du code
 
 content::
     ¨content/two-docs.txt
+    ¨content/trans.txt
     ¨content/latex-file-name.txt
     ¨content/section.txt
     ¨content/use-case.txt

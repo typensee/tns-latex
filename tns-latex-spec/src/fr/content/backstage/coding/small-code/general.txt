@@ -1,14 +1,14 @@
 this::
-    date = 2021-08-04
+    date = 2022-06-11
 
 
 ==================
 Les grandes lignes
 ==================
 
-Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau".
+Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau" en respectant certaines conventions.
 Des outils se chargent ensuite de produire un unique fichier path::``STY`` plus simple à partager.
-Si nécessaire, un ou des ¨docs destinés aux utilisateurs seront aussi produites.
+Si nécessaire, des ¨docs destinées aux utilisateurs seront aussi produites.
 
 
 info::
@@ -16,4 +16,4 @@ info::
 
 
 warning::
-    Bien lire la dernière section ``cf:::?/auto-ignored.txt`` qui donne des liens vers des ¨infos à propos des dossiers ignorés automatiquement.
+    Bien lire la dernière section ``cf:::?/auto-ignored.txt`` qui donne des liens vers des ¨infos à propos des fichiers et des dossiers ignorés automatiquement.

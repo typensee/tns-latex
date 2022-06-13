@@ -6,8 +6,9 @@ En coulisse...
 ==============
 
 content::
-    ¨content/metainfo.txt
+    ¨content/structure.txt
     ¨content/git.txt
+    ¨content/metainfo.txt
     ¨content/changes.txt
     ¨content/ignore.txt
     ¨content/coding.txt

@@ -1,14 +1,15 @@
 this::
-    date = 2021-08-07
+    date = 2022-06-10
 
 
 =====================
 Pour les utilisateurs
 =====================
 
-Cette ¨doc se tape via ¨latex et elle est pourrait être a priori traduite même si seul le français est maintenu par l'auteur.
+Cette ¨doc se tape via ¨latex, et elle pourrait être traduite.
+Par défaut, seul le français est maintenu par l'auteur.
 L'organisation se fait comme suit en notant que le sous-dossier path::``changes`` se trouve dans le dossier path::``src`` utilisé pour le ¨dev du code "morceau par morceau".
-Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour" (les suffixes path::``-FR`` sont pour la ¨doc en français).
+Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour".
 
 path-tree::
     + tnsfictif
@@ -16,13 +17,13 @@ path-tree::
             + changes
                 + 2021
                     + 07
-                        * 05-FR.tex
-                        * 14-FR.tex
-                        * 15-FR.tex
+                        * 05.tex
+                        * 14.tex
+                        * 15.tex
 
 
 warning::
-    Contrairement à la ¨doc technique, les ¨modifs se tapent jour par jour en indiquant la langue utilisée.
+    Contrairement à la ¨doc technique, les ¨modifs se tapent jour par jour.
 
 
 Voici un exemple possible de ¨chgts qui va nous donner l'occasion d'expliquer quelques points importants.

@@ -1,12 +1,19 @@
 this::
-    date = 08/02/2022
+    date = 2022-06-11
 
 
 ===========================
 Pour les packages autonomes
 ===========================
 
-Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.peuf`` ayant le contenu minimal suivant.
+Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.peuf`` ayant le contenu minimal suivant où la déclaration peuf::``scope = tnslatex`` identifie bien entendu les packages de la suite ¨tnslatex
+((
+    Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
+)).
+Quant à peuf::``docu = fr``, il sert à indiquer que la ¨docu "utilisateur" rédigée par le codeur lors du déveleoppement est écrite en français
+((
+    Voir cf::``:?../user-doc/trans.txt`` pour la traduction de cette ¨docu.
+)).
 
 peuf::
     general::
@@ -15,10 +22,7 @@ peuf::
         author  = Christophe BAL
         licence = gnu 3
         need    = latex2e
-
-
-info::
-    La déclaration peuf::``scope = tnslatex`` identifie bien entendu les packages de la suite ¨tnslatex. Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
+        docu    = fr
 
 
 Le contenu du fichier path::``about.peuf`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.

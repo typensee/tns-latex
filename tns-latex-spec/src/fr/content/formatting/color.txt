@@ -1,14 +1,18 @@
 this::
-    date = 29/06/2021
+    date = 2022-06-12
 
 
 ====================
 Couleurs... ou pas !
 ====================
 
-Les fonctionnalités proposées sont toutes faites pour fonctionner en mode noir-et-blanc (afin de pouvoir photocopier des documents imprimés).
-Si la colorisation est souhaitée, il faudra la demander explicitement via une option de package (ceci est très utile pour des documents fournis au format ¨pdf).
+Les fonctionnalités proposées sont toutes faites pour fonctionner en mode noir-et-blanc (afin de pouvoir photocopier des ¨docus imprimés).
+Si la colorisation est souhaitée
+((
+    Ceci est très utile pour des ¨docus fournis au format ¨pdf.
+)),
+il faudra la demander explicitement via une option de package.
 
 
 info::
-    Les versions couleur et noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des documents destinés à être photocopiés.
+    Les versions couleur et noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.

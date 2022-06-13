@@ -1,5 +1,5 @@
 this::
-    date = 08/02/2022
+    date = 2022-06-12
 
 
 ===========================
@@ -15,6 +15,6 @@ Pour des raisons pratiques, certains packages en agrègent plein d'autres pour �
 
     * Les options de chaque sous-package restent accessibles depuis le package agrégateur.
 
-    * Côté utilisateur, il est possible de choisir de n'importer que certains packages ¨etou d'en exclure d'autres.
+    * Côté utilisateur, il est possible de choisir une importation ciblée de certains packages, ¨etou d'en exclure d'autres.
 
-    * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les informations au même endroit.
+    * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les informations au même endroit dans un unique ¨pdf.
