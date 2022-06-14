@@ -1,25 +1,29 @@
 this::
-    date = 2022-06-10
+    date = 2022-06-14
 
 
 =====================
 Pour les utilisateurs
 =====================
 
-Cette ¨doc se tape via ¨latex, et elle pourrait être traduite.
-Par défaut, seul le français est maintenu par l'auteur.
+Cette ¨doc se tape via ¨latex, et elle pourrait être traduite
+((
+    Par défaut, seul le français est maintenu par l'auteur.
+)).
 L'organisation se fait comme suit en notant que le sous-dossier path::``changes`` se trouve dans le dossier path::``src`` utilisé pour le ¨dev du code "morceau par morceau".
 Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour".
+Le dossier path::``fr`` sert à indiquer les ¨chgts en français.
 
 path-tree::
     + tnsfictif
         + src
             + changes
-                + 2021
-                    + 07
-                        * 05.tex
-                        * 14.tex
-                        * 15.tex
+                + fr
+                    + 2021
+                        + 07
+                            * 05.tex
+                            * 14.tex
+                            * 15.tex
 
 
 warning::

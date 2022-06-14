@@ -2,6 +2,21 @@
 
 
 ==
+14
+==
+
+------
+:news:
+------
+
+[[:api:]]
+Translations of the human ¨doc: the changes can be translated now.
+
+
+// ---------- //
+
+
+==
 13
 ==
 

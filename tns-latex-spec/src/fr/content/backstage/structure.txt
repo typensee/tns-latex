@@ -33,4 +33,4 @@ Dans les grandes lignes, chacun de ces composants a l'utilité donnée ci-après
 
 
 info::
-    Le projet ¨tnsfacto permet d'initier un nouveau projet en construisant une structure minimale "clés en main". Il sert aussi à publier un projet.
+    Le projet ¨texfacto permet d'initier un nouveau projet en construisant une structure minimale "clés en main". Il sert aussi à publier un projet.
