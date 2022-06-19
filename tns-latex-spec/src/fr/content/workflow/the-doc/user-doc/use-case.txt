@@ -1,0 +1,18 @@
+this::
+    date = 2022-06-19
+
+
+=============================
+Montrer des cas d'utilisation
+=============================
+
+Tout se passe via des environnements comme latex::``\begin{doclatex} ... \end{doclatex}`` utilisé ci-dessous, ou des macros dans le cas de fichiers externes.
+
+latex::
+    \begin{doclatex}
+    $\norm{\vect{i}} = \vnorm{i}$
+    \end{doclatex}
+
+
+info::
+    Se reporter à la ¨doc de ¨bdoc pour savoir quels outils utiliser.

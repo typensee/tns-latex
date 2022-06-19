@@ -1,0 +1,10 @@
+this::
+    date = 2022-06-19
+
+
+==========
+Deux ¨docs
+==========
+
+Chaque projet propose deux ¨docs : l'une technique qui s'adresse juste aux codeurs, et l'autre de type tutoriel destinée aux utilisateurs.
+Ceci demande la rédaction de deux types de ¨docus suivant deux méthodes différentes.

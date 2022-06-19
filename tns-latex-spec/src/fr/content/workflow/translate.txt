@@ -1,0 +1,23 @@
+this::
+    date = 2022-06-19
+
+
+abrev::
+    content = translate
+
+    isolangnorme = cf::``norme ISO 639-1 ;
+                         https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1#Liste_des_codes_ISO_639-1/2/3``
+
+
+==================
+Comment traduire ?
+==================
+
+note::
+    Voir la section cf::``workflow/changes.txt`` donnant des ¨infos utiles pour la gestion de la ¨maj des ¨trads.
+
+
+content::
+    ¨content/isolang.txt
+    ¨content/user-doc.txt
+    ¨content/api-config.txt

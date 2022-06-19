@@ -1,0 +1,73 @@
+this::
+    date = 2022-06-19
+
+
+===============================
+Sections, comment s'y prendre ?
+===============================
+
+On doit toujours indiquer les ¨infos techniques dans une section **juste après** celle donnant la ¨doc directement à destination de l'utilisateur.
+Pour se faire, il suffit d'utiliser le titre "magique" latex::``:techsign:``.
+Lors de la production de la ¨doc au complet, une section dédiée "Toutes les fiches techniques"
+((
+    Pour la version française bien entendu...
+))
+réutilisera les bons titres.
+Voici un exemple où est ajouté l'évolution de la pile des sections mémorisées et utilisées en coulisse pour nommer les sections des fiches techniques.
+
+latex::
+    % SEC désigne la pile des niveaux et des titres des sections.
+    %
+    % SEC = []
+
+    \section{Vecteurs}
+
+    % SEC = [(1, "Vecteurs")]
+
+    \subsection{Norme}
+
+    % SEC = [(1, "Vecteurs") ,
+    %        (2, "Norme")]
+    %
+    % Pas de fiches techniques (non raisonnable mais possible).
+
+    \subsection{Produit scalaire}
+
+    % SEC = [(1, "Vecteurs") ,
+    %        (2, "Produit scalaire")]
+    %
+    % On garde juste la dernière ``subsection``.
+
+    ...
+
+    \subsection{:techsign:} % Signatures des macros et environnements
+                            % en lien avec le produit scalaire de vecteurs.
+
+    % La partie purement technique utilisera la section "Vecteurs" suivie
+    % de la sous-section "Produit scalaire".
+    %
+    % SEC = [(1, "Vecteurs")]
+
+    ...
+
+
+Pour les signatures des macros et des environnements, les sections doivent respecter les règles suivantes.
+
+    1) Placer dans un même fichier la ¨doc "humaine" et celle technique relative.
+
+    1) Utiliser le même niveau de profondeur que la section documentant les macros et les environnements.
+
+    1) Placer la section technique **juste après** celle humaine.
+
+
+info::
+    Un titre de section peut être codé sur deux lignes au maximum. Ceci peut être utile comme le montre l'exemple suivant où la macro ``\texorpdfstring`` permet d'indiquer un titre spécifiquement pour la ¨tdm d'un ¨pdf.
+
+    latex::
+        \section{\texorpdfstring{Les opérateurs $\partial$ et $d$}%
+                                {Les opérateurs "d rond" et "d droit"}}
+
+
+warning::
+    Le repérage des sections est très basique : il interdit d'utiliser des macros comme ``\section`` dans un environnement de type "listing" ou verbatim.
+    Si besoin, il faudra taper ce type de contenu très spécifique dans un fichier isolé pour passer via des macros d'importation de contenus externes.

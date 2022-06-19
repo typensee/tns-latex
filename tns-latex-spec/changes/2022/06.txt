@@ -2,6 +2,28 @@
 
 
 ==
+19
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Workflow: a lot of clarifications and simplifications have been made.
+
+    1) Human ¨doc: the role of the coder has been explicitly documented.
+
+    1) Resources: the rules have been simplified a lot to make them ¨kiss like.
+
+    1) Translations: the steps needed to translate the ¨doc and the ¨config files have been indicated in a dedicated section.
+
+
+
+// ---------- //
+
+
+==
 14
 ==
 

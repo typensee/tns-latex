@@ -1,0 +1,11 @@
+abrev::
+    content = metainfos
+
+
+========
+A propos
+========
+
+content::
+    ¨content/allpack.txt
+    ¨content/agregate.txt

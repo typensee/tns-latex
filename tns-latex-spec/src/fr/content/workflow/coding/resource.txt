@@ -1,0 +1,89 @@
+this::
+    date = 2022-06-19
+
+
+==========================
+Ressources supplémentaires
+==========================
+
+Il est très fréquent qu'un projet et sa ¨doc nécessitent l'emploi de ressources supplémentaires : fichiers de ¨conf, images, graphiques ¨tikz... ¨etc.
+Ceci se fait très naturellement lors du codage. Par contre, il faut savoir comment seront recollés les différents morceaux dans le projet final.
+Pour expliquer cela, considérons le projet fictif ci-après où les dossiers path::``images`` et path::``graphics`` ne sont utilisés que par le fichiers path::``TEX`` pour la ¨doc "humaine" (rédigée en français dans ce cas).
+
+path-tree::
+    + tnsfictif
+        * about.peuf
+        + src
+            * about.peuf
+            + intro
+                * intro.tex
+                + images
+                    * picture-1.png
+                    * picture-2.png
+                + graphics
+                    * curve-a.tkz
+                    * curve-b.tkz
+            + alpha-et-omega3
+                * alpha.tex
+                * alpha.sty
+                + config
+                    * stdval.sty
+                    * speval.sty
+                + images
+                    * picture.png
+                + graphics
+                    * geometry.tkz
+        + [...]
+
+
+Dans ce cas, ¨texfacto va automatiquement créer, ou mettre à jour, les deux dossiers path::``tnsfictif/tnsfictif`` et  path::``tnsfictif/translate``.
+Nous aurons un contenu du type suivant.
+
+path-tree::
+    + tnsfictif
+        + tnsfictif
+            * tnsfictif.sty
+            + config
+                * stdval.sty
+                * speval.sty
+        + translate
+            + doc
+                + FR
+                    * tnsfictif-doc.tex
+                    * tnsfictif-doc.pdf
+                    + images
+                        * picture.png
+                        * picture-1.png
+                        * picture-2.png
+                    + graphics
+                        * curve-a.tkz
+                        * curve-b.tkz
+                        * geometry.tkz
+        + [...]
+
+
+Voici les pièges tendus par la procédure d'automatisation (heureusement en cas de souci, ¨texfacto lèvera un message d'erreur).
+
+    1) La structure des ressources pour le fichier final path::``tnsfictif.sty`` imite celle du dossier ¨src.
+    Ceci implique d'éviter d'utiliser deux fois le même nom. Une bonne pratique consiste à utiliser un préfixe faisant référence au bout de code implémenté.
+
+    1) La fonctionnement pour la ¨doc est similaire et implique aussi de faire en sorte de ne pas avoir deux fichiers ressources pour la ¨doc ayant le meêm nom.
+
+    1) Dans chacun des deux cas, il faudra bien importer les ressources via des chemins relatifs
+    ((
+        Mais normalement nous le faisons tous...
+    )).
+    Ce point est important car si path::``chemin/vers/ce/superbe/fichier`` est une ressource alors dans les codes "source" seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter si besoin à l'organisation du produit fini.
+
+
+warning::
+    Que faire si par un très improbable hasard vous souhaitez utiliser ``{chemin/vers/ce/superbe/fichier}`` dans une commande sans lien avec l'utilisation d'une ressource alors que path::``chemin/vers/ce/superbe/fichier`` est bien une ressource ?
+    Une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles
+    ((
+        Attendons de voir si ce cas se présentera, ou non, pour trouver une vraie parade...
+    )).
+
+
+note::
+    Le système retenu pour intégrer les fichiers utiles à la ¨doc finale s'appuie sur l'option term::``--recorder`` des compilateurs de la famille ¨tex.
+    Cette commande permet, entre autres choses, de connaître les fichiers externes utilisés pour compiler un document ¨latex.

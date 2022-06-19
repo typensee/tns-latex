@@ -1,0 +1,26 @@
+this::
+    date = 2022-06-19
+
+
+================================
+Langues de la ¨doc "utilisateur"
+================================
+
+La ¨doc "utilisateur" rédigée par le codeur sert de point de départ aux ¨trads. Imaginons que la langue du codeur soit la français
+((
+    Ceci s'indique via peuf::``doc = fr`` dans le fichier path::``about.peuf`` du projet.
+)).
+Dans ce cas, de façon automatisée, le dossier path::``translate/doc/fr``, comme ci-dessous, contiendra la dernière version de cette ¨doc rédigée morceau par morceau, et non globalement pour des raisons pratiques.
+
+path-tree::
+    + tnsfictif
+        + translate
+            + doc
+                + fr [...]
+            + [...]
+        + [...]
+
+
+Chacun des fichiers de path::``translate/doc/fr`` est directement compilable, une fois le package visible par ¨latex. Ceci permet de partager simplement le dossier pour une ¨nelle ¨trad.
+Concrètement, un traducteur espagnol copiera et collera le contenu de path::``translate/doc/fr`` dans un dossier path::``es`` où ``es`` vient du codage de la ¨isolangnorme.
+Une fois la ¨trad finie, le traducteur la communiquera au codeur qui se chargera de l'incorporer au projet pour une prochaine ¨maj du projet.

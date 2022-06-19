@@ -1,0 +1,13 @@
+abrev::
+    content = the-doc
+
+
+============
+¨Doc du code
+============
+
+content::
+    ¨content/two-docs.txt
+    ¨content/tech-doc.txt
+    ¨content/user-doc.txt
+    ¨content/trans.txt

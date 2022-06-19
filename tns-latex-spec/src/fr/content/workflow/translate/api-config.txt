@@ -1,0 +1,45 @@
+this::
+    date = 2022-06-19
+
+
+=====================================
+Langues pour les ¨macros et les ¨envs
+=====================================
+
+Prenons le cas du package ¨bdoc pour lequel la langue du codeur est le français indiquée via peuf::``lang = fr`` dans le fichier path::``about.peuf`` du projet.
+Le code source de ¨bdoc contient le dossier de ¨dev path::``main`` suivant.
+
+path-tree::
+    + main
+        + locale
+            * FR.sty
+            + fr
+                * macros.txt
+                * sentences.txt
+
+
+De façon automatisée, un dossier path::``translate/api/fr/main``, comme ci-dessous, contiendra la dernière version des traductions utiles au fonctionnement du package ¨bdoc.
+
+path-tree::
+    + tnsfictif
+        + translate
+            + api
+                + fr
+                    + main
+                        * macros.txt
+                        * sentences.txt
+            + [...]
+        + [...]
+
+
+Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``.
+La ¨trad sera alors simple car par exemple le contenu du fichier path::``sentences.txt`` sera du type suivant.
+
+verb::
+    code_after_output = Le rendu précédent a été obtenu
+    	                via le code suivant.
+    output_after_code = Rendu du code précédent.
+
+
+warning::
+    Les identifiants comme peuf::``code_after_output`` et peuf::``output_after_code`` sont de la responsabilité du codeur et non du traducteur.

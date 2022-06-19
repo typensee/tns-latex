@@ -1,0 +1,16 @@
+abrev::
+    content = workflow
+
+
+================
+Comment coder...
+================
+
+content::
+    ¨content/files-n-folders.txt
+    ¨content/metainfos.txt
+    ¨content/coding.txt
+    ¨content/the-doc.txt
+    ¨content/readme.txt
+    ¨content/changes.txt
+    ¨content/translate.txt

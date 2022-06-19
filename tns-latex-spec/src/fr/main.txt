@@ -1,5 +1,6 @@
 ﻿this::
-    title   = Spécifications des packages ¨latex3 de la suite ¨tnslatex
+    title   = Spécifications des packages ¨latex3 et ¨Lualatex
+              de la suite ¨tnslatex
     author  = Christophe, BAL
     mail    = projetmbc@gmail.com
 
@@ -20,5 +21,5 @@ content::
     ¨content/intro.txt
     ¨content/monorepo.txt
     ¨content/api.txt
-    ¨content/backstage.txt
+    ¨content/workflow.txt
     ¨content/formatting.txt

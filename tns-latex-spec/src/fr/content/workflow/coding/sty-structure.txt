@@ -1,0 +1,11 @@
+abrev::
+    content = sty-structure
+
+
+=======================================
+Organiser un fichier ¨src path::``STY``
+=======================================
+
+content::
+    ¨content/common.txt
+    ¨content/special.txt

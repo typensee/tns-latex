@@ -1,0 +1,23 @@
+this::
+    date = 2022-06-19
+
+
+============================================
+Macros et environnements - ¨Infos techniques
+============================================
+
+L'exemple suivant montre comment indiquer les signatures des macros et des environnements
+((
+    Se reporter à ¨macroenvsign pour savoir comment déclarer des signatures.
+)).
+
+latex::
+    \IDmacro{pderope}{1}{2}    \signprewhy*{p}{artial}
+
+                               \signprewhy*{ope}{rator}
+
+    \IDoption{} la valeur par défaut est \verb+f+. Les options disponibles sont \verb+f+, \verb+sf+ et \verb+i+ : voir la fiche technique de \docmacro{pder} juste avant.
+
+    \IDarg{1} les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
+
+    \IDarg{2} l'ordre total de dérivation.

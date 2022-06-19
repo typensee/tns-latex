@@ -1,0 +1,9 @@
+this::
+    date = 2022-06-19
+
+
+==================================================
+Quels fichiers ¨latex pour la ¨doc "utilisateur" ?
+==================================================
+
+Les fichiers pour la ¨doc "utilisateur" se tape côté codeur au même niveau que les fichiers path::``STY`` comme cela est expliqué en détails dans la section cf::``?../files-for-doc.txt``.

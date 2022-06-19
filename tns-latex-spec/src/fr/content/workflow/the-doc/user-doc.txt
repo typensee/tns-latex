@@ -1,0 +1,29 @@
+this::
+    date = 2022-06-19
+
+
+abrev::
+    content = user-doc
+
+
+==================
+¨Doc "utilisateur"
+==================
+
+La ¨doc "utilisateur" est rédigée par le codeur en parallèle du projet ¨latex de façon simple et efficace
+((
+     Cette ¨doc se tape via ¨latex dans la langue préférée du codeur. Notons aussi que ceci permet au passage de faire des tests en situation réelle.
+)).
+Cette dernière sert de base pour les autres dans d'autres langues. Les sections suivantes expliquent comment le codeur devra rédiger cette version centrale de la ¨doc (dans la langue de son choix).
+
+
+note::
+    La ¨doc "utilisateur" s'appuie sur les projets ¨bdoc et ¨macroenvsign (se reporter aux ¨docs de ces deux packages).
+
+
+content::
+    ¨content/latex-files.txt
+    ¨content/section.txt
+    ¨content/use-case.txt
+    ¨content/macro-n-env.txt
+    ¨content/extra-tools.txt
