@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-06-20
 
 
 =====================================
@@ -33,7 +33,7 @@ path-tree::
 
 
 Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``.
-La ¨trad sera alors simple car par exemple le contenu du fichier path::``sentences.txt`` sera du type suivant.
+La ¨trad sera alors simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
 
 verb::
     code_after_output = Le rendu précédent a été obtenu
