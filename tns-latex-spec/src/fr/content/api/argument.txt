@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-02
+    date = 2022-11-10
 
 
 ========================
@@ -20,5 +20,4 @@ On utilise les classiques accolades proposées par ¨latex.
 Pour un nombre élevé, ou non borné d'arguments
 ----------------------------------------------
 
-Le choix retenu est l'emploi d'un classique argument entre des accolades qui par contre utilise des barres verticales verb::``|`` pour séparer les différents arguments.
-Voici un exemple fictif : ``\unemacro{arg1 | arg2 | arg3 | arg4}``.
+Le choix retenu est l'emploi d'un classique argument entre des accolades, mais en utilisant des barres verticales verb::``|`` pour séparer les différents arguments : voici un exemple fictif, ``\unemacro{arg1 | arg2 | arg3 | arg4}``.

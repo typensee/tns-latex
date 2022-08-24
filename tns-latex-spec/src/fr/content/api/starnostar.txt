@@ -1,12 +1,13 @@
 this::
-    date = 14/07/2021
+    date = 2022-11-10
 
 
 =============================
 Versions étoilées... ou pas !
 =============================
 
-Les macros et les environnements étoilés sont proposés très rarement dans des situations sémantiques très proches ¨etou avec une ¨api différente.
+Les macros et les environnements étoilés sont proposés **très rarement** dans des situations sémantiques très proches, ¨etou avec une ¨api différente.
+
 
 info::
     On préfèrera passer via des options explicites quitte à ne proposer qu'une unique option.

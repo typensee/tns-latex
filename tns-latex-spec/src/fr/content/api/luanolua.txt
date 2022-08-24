@@ -1,5 +1,5 @@
 this::
-    date = 2022-02-08
+    date = 2022-11-10
 
 
 ================
@@ -8,11 +8,11 @@ this::
 
 Certains packages proposent des fonctionnalités codées en ¨lua
 ((
-    Même si ¨latex3 rend d'énormes services, il y a des moments où utiliser ¨lua augmente la productivité...
+    Même si ¨latex3 rend d'énormes services, il y a des moments où utiliser ¨lua augmente la productivité : l'auteur préfère danser, et pédaler que de se creuser la tête pour trouver une pure solution en ¨latex3.
 )).
-Ces dernières sont des plus automatisant certaines tâches tout de même faisables à la main
+Ces dernières automatisent des tâches pas toujours faisables à la main
 ((
-    A condition d'avoir beaucoup de courage, de patience et forcément de temps.
+    Sauf à disposer de beaucoup de courage, de patience et forcément de temps.
 )).
 
 

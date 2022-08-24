@@ -1,12 +1,12 @@
 this::
-    date = 2022-02-08
+    date = 2022-11-10
 
 
 ======================================
 Un dépôt unique pour plusieurs projets
 ======================================
 
-Pour tous les packages ¨latex2e ¨etou ¨lualatex de la suite ¨tns, on utilise un unique dépôt ¨git
+Pour tous les packages ¨latex2e, ¨etou ¨lualatex de la suite ¨tns, on utilise un unique dépôt ¨git
 ((
     En anglais, on parle de "monorepo".
 ))
@@ -15,13 +15,8 @@ pour les raisons suivantes
     Au-delà du fait que cela fait classe d'utiliser un "monorepo".
 )).
 
-    * Toutes les fonctionnalités doivent pouvoir travailler de concert.
-    Par exemple, l'utilisation d'outils pour rédiger des probabilités ne doit pas entrer en conflit avec l'emploi d'environnements pour afficher des algorithmes.
+    * Toutes les fonctionnalités doivent pouvoir travailler de concert : par exemple, l'utilisation d'outils pour rédiger des probabilités ne doit pas entrer en conflit avec l'emploi d'environnements pour afficher des algorithmes.
 
-    * Les packages "agrégateurs"
-    ((
-        Ce sont des packages réunissant d'autres packages.
-    ))
-    doivent pouvoir être mis à jour automatiquement et rapidement dès le changement de l'un de leur composant sans avoir à mettre à jour un autre dépôt.
+    * Les packages "agrégateurs", ¨cad ceux réunissant d'autres packages, doivent pouvoir être mis à jour ¨auto^t et rapidement dès le changement de l'un de leur composant, et ceci sans avoir à mettre à jour un autre dépôt.
 
     * Il devient facile d'utiliser des outils d'automatisation pour tester, analyser et livrer du code.

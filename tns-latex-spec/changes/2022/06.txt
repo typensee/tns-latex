@@ -19,7 +19,6 @@ Workflow: a lot of clarifications and simplifications have been made.
     1) Translations: the steps needed to translate the ¨doc and the ¨config files have been indicated in a dedicated section.
 
 
-
 // ---------- //
 
 

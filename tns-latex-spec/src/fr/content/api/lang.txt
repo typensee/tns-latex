@@ -1,9 +1,13 @@
 this::
-    date = 2022-06-12
+    date = 2022-11-10
 
 
 ===================
 Gestion des langues
 ===================
 
-Par défaut l'anglais et le français sont toujours pris en compte a minima. Le choix se fait via une option de package du type ``lang = FR`` ou ``lang = EN``.
+Par défaut, l'anglais et le français sont toujours pris en compte ; le choix de la langue se fait via une option de package du type ``lang = FR`` ou ``lang = EN``.
+
+
+info::
+    La gestion des ¨trads utilise un processus automatisé, les ¨trads étant faisables par un non codeur.

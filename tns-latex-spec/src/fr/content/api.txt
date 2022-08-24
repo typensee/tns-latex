@@ -7,7 +7,7 @@ Interface utilisateur
 =====================
 
 content::
-    ¨content/packscope.txt
+    ¨content/packscope.txt      ??????????????????????
     ¨content/agregate.txt
     ¨content/macroname.txt
     ¨content/starnostar.txt

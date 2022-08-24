@@ -10,7 +10,7 @@
 -----
 
 [[:api:]]
-Tools and tests: the files for tests or "toooling" must have a name starting by path::```test_``, path::``tests_``, path::``tool_`` or path::``tools_``.
+Tools and tests: the files for testing and "tooling" must have a name starting by path::```test_``, path::``tests_``, path::``tool_`` or path::``tools_``.
 
 
 // ---------- //

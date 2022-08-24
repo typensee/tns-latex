@@ -46,7 +46,7 @@ verb::
 
 
 info::
-    À l'interieur du dossier pourront être mis autant de fichiers path::``TXT`` que nécessaire.
+    À l'intérieur du dossier pourront être mis autant de fichiers path::``TXT`` que nécessaire.
 
 
 info::
