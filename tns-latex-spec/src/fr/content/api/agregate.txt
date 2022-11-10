@@ -6,7 +6,7 @@ this::
 Agréger différents packages
 ===========================
 
-Pour des raisons pratiques, des packages agrègent juste d'autres packages afin d'éviter de devoir importer à la main plein de packages de la suite ¨tns.
+Pour des raisons pratiques, des packages agrègent juste d'autres packages afin d'éviter de devoir importer à la main plein de packages de la suite ¨tnslatex.
 Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécifications suivantes
 ((
     La majorité du travail est automatisé.

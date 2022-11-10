@@ -6,7 +6,7 @@ this::
 Pour les packages agrégateurs
 =============================
 
-Dans le fichier path::``about.peuf``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc peuf::``toc`` en utilisant ``>`` pour indiquer les packages de la suite ¨tns.
+Dans le fichier path::``about.peuf``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc peuf::``toc`` en utilisant ``>`` pour indiquer les packages de la suite ¨tnslatex.
 
 peuf::
     // general::

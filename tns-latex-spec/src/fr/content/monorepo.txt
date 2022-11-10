@@ -6,7 +6,7 @@ this::
 Un dépôt unique pour plusieurs projets
 ======================================
 
-Pour tous les packages ¨latex2e, ¨etou ¨lualatex de la suite ¨tns, on utilise un unique dépôt ¨git
+Pour tous les packages ¨latex2e, ¨etou ¨lualatex de la suite ¨tnslatex, on utilise un unique dépôt ¨git
 ((
     En anglais, on parle de "monorepo".
 ))

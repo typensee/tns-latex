@@ -6,5 +6,5 @@ this::
 ¨Intro
 ======
 
-Les packages ¨latex2e, ¨etou ¨lualatex de la suite ¨tns proposent des outils pour produire du code de ¨mef facile à taper, tout en étant sémantique dans leurs interfaces : par exemple, une intégrale se tapera ``$\dintegrate*{cos(x^2)}{x}{a}{b} = \hook{f(x)}{x}{a}{b}$``, et non ``$\displaystyle \int_a^b cos(x^2) dx = \left[ f(x) \right]_{x=a}^{x=b}$`` .
-Ce document réunit les spécifications utilisées pour développe la suite de packages de la famille ¨tns.
+Les packages ¨latex2e, ¨etou ¨lualatex de la suite ¨tnslatex proposent des outils pour produire du code de ¨mef facile à taper, tout en étant sémantique dans leurs interfaces : par exemple, une intégrale se tapera ``$\dintegrate*{cos(x^2)}{x}{a}{b} = \hook{f(x)}{x}{a}{b}$``, et non ``$\displaystyle \int_a^b cos(x^2) dx = \left[ f(x) \right]_{x=a}^{x=b}$`` .
+Ce document réunit les spécifications utilisées pour développe la suite de packages de la famille ¨tnslatex.

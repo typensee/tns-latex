@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+10
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+A section explained the style used to documentate the packages.

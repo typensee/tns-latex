@@ -23,5 +23,5 @@ Les choix retenus, et assumés, sont les suivants.
 
     * Enfin, chaque package propose un fichier ¨json avec juste les signatures des macros et des environnements. Un tel fichier est facilement exploitable par des outils externes
     ((
-        Par exemple, ces fichiers ¨json permettent de vérifier la non redondance de noms de macros, ¨et ou d'environnemnts dans l'ensemble du projet ¨tns.
+        Par exemple, ces fichiers ¨json permettent de vérifier la non redondance de noms de macros, ¨et ou d'environnemnts dans l'ensemble du projet ¨tnslatex.
     )).
