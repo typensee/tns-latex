@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-10
 
 
 ==========================
@@ -12,9 +12,9 @@ Pour expliquer cela, considérons le projet fictif ci-après où les dossiers pa
 
 path-tree::
     + tnsfictif
-        * about.peuf
+        * about.yaml
         + src
-            * about.peuf
+            * about.yaml
             + intro
                 * intro.tex
                 + images
@@ -36,7 +36,7 @@ path-tree::
         + [...]
 
 
-Dans ce cas, ¨texfacto va automatiquement créer, ou mettre à jour, les deux dossiers path::``tnsfictif/tnsfictif`` et  path::``tnsfictif/translate``.
+Dans ce cas, ¨texfacto va automatiquement créer, ou mettre à jour, les deux dossiers path::``tnsfictif/tnsfictif`` et  path::``tnsfictif/contribute``.
 Nous aurons un contenu du type suivant.
 
 path-tree::
@@ -46,7 +46,7 @@ path-tree::
             + config
                 * stdval.sty
                 * speval.sty
-        + translate
+        + contribute
             + doc
                 + FR
                     * tnsfictif-doc.tex
@@ -67,9 +67,9 @@ Voici les pièges tendus par la procédure d'automatisation (heureusement en cas
     1) La structure des ressources pour le fichier final path::``tnsfictif.sty`` imite celle du dossier ¨src.
     Ceci implique d'éviter d'utiliser deux fois le même nom. Une bonne pratique consiste à utiliser un préfixe faisant référence au bout de code implémenté.
 
-    1) La fonctionnement pour la ¨doc est similaire et implique aussi de faire en sorte de ne pas avoir deux fichiers ressources pour la ¨doc ayant le meêm nom.
+    1) La fonctionnement pour la ¨doc est similaire et implique aussi de faire en sorte de ne pas avoir deux fichiers ressources pour la ¨doc ayant le même nom.
 
-    1) Dans chacun des deux cas, il faudra bien importer les ressources via des chemins relatifs
+    1) Dans chacun des deux cas précédents, il faudra bien importer les ressources via des chemins relatifs
     ((
         Mais normalement nous le faisons tous...
     )).
@@ -85,5 +85,5 @@ warning::
 
 
 note::
-    Le système retenu pour intégrer les fichiers utiles à la ¨doc finale s'appuie sur l'option term::``--recorder`` des compilateurs de la famille ¨tex.
+    Le système retenu pour intégrer les fichiers utiles à la ¨doc finale s'appuie sur l'option term::``-recorder`` des compilateurs de la famille ¨tex.
     Cette commande permet, entre autres choses, de connaître les fichiers externes utilisés pour compiler un document ¨latex.

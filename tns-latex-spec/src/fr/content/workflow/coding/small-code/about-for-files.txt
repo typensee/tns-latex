@@ -1,27 +1,23 @@
 this::
-    date = 2022-06-18
+    date = 2022-11-10
 
 
 =============================================
-path::``about.peuf`` pour les fichiers source
+path::``about.yaml`` pour les fichiers source
 =============================================
 
-Dans chaque dossier ¨src peut être mis un fichier path::``about.peuf`` pour indiquer les fichiers à analyser suivant un ordre imposé.
+Dans chaque dossier ¨src peut être mis un fichier path::``about.yaml`` pour indiquer les fichiers à analyser suivant un ordre imposé.
 Dans cette section, nous allons nous concentrer sur les fichiers path::``STY`` liés au code, mais nous reviendrons sur les fichiers path::``TEX`` pour la ¨doc "utilisateur" dans la section suivante.
 Imaginons que l'on ait le code suivant pour notre exemple ficitf.
 
-peuf::
+yaml::
     ---
-    title = Contenu du fichier path::``src/poor-lonesome-cowboy/about.peuf``
+    title = Contenu du fichier path::``src/poor-lonesome-cowboy/about.yaml``
     ---
 
-    toc::
-        * rantanplan
-        * lucky
+    toc:
+        - rantanplan.sty
+        - lucky.sty
 
 
-Le code précédent sert à considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty``, et non suivant l'ordre alphabétique qui aurait été retenu sans emploi du fichier path::``about.peuf``.
-
-
-info::
-    Retenir que les ``*`` indiquent des fichiers, et que de plus l'extension path::``STY`` est facultative.
+Le code précédent sert à considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty``, et non suivant l'ordre alphabétique qui aurait été retenu sans emploi du fichier path::``about.yaml``.

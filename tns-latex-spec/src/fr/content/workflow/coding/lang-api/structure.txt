@@ -1,12 +1,12 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-11
 
 
 =========================
 Organiser les traductions
 =========================
 
-Considérons comme exemple le cas du package ¨bdoc. Son code source contient un dossier de ¨dev path::``main`` où l'on trouve les fichiers et dossiers suivants permettant d'avoir des macros gérant le français indiqué via peuf::``lang = fr`` dans le fichier path::``about.peuf`` du projet.
+Considérons comme exemple le cas du package ¨bdoc. Son code source contient un dossier de ¨dev path::``main`` où l'on trouve les fichiers et dossiers suivants permettant d'avoir des macros gérant le français.
 
 path-tree::
     + main
@@ -26,7 +26,7 @@ latex::
     ---
 
 
-Toutes les macros sans argument visibles dans l'horreur précédente ont été produites automatiquement
+Toutes les macros sans argument visible dans l'horreur précédente ont été produites automatiquement
 ((
     Noter les préfixes utilisés dans le fichier path::``FR.sty`` afin d'éviter des conflits de noms avec d'autres packages (quitte à répéter du code dans différents endroits mais ceci est un moindre mal).
 ))

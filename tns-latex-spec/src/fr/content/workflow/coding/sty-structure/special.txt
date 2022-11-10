@@ -1,13 +1,13 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-10
 
 
 ==============================
 Organiser des sections de code
 ==============================
 
-Nous veons de voirs que les outils automatisés utilisent des commentaires de type "section à la ¨markdown".
-Il est auss possible d'utiliser un autre type de sections pour faciliter la maintenance et la compréhension d'un code comme indiqué ci-dessous.
+Nous venons de voir que les outils automatisés utilisent des commentaires de type "section à la ¨markdown".
+Il est aussi possible d'utiliser un autre type de sections pour faciliter la maintenance, et la compréhension d'un code comme indiqué ci-dessous.
 
 latex::
     % == TITRE SPÉCIFIQUE POUR L'AUTOMATISATION == %
@@ -20,4 +20,4 @@ latex::
 
 
 warning::
-    Les titres pour les tâches automatisées sont fixés suivant les cas d'utilisation et donc ils ne peuvent pas être modifiés.
+    Les titres pour les tâches automatisées sont fixés suivant les cas d'utilisation, donc ils ne peuvent pas être modifiés.

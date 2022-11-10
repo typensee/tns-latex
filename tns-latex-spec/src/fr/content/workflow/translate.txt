@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-11
 
 
 abrev::
@@ -14,7 +14,7 @@ Comment traduire ?
 ==================
 
 note::
-    Voir la section cf::``workflow/changes.txt`` donnant des ¨infos utiles pour la gestion de la ¨maj des ¨trads.
+    Voir la section cf::``workflow/changes/translate.txt`` donnant des ¨infos utiles pour la gestion de la ¨maj des ¨trads.
 
 
 content::

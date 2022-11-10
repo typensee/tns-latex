@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-10
 
 
 =========================================
@@ -18,8 +18,8 @@ Ainsi ¨git va repérer les fichiers "visibles" d'un projet : ceci permet de cac
 
     * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
 
-    * cf::``:?../translate.txt`` parle de path::``translate`` pour les ¨trads côté ¨macros, ¨envs ou ¨doc.
+    * cf::``:?../translate.txt`` parle de path::``contribute`` pour les ¨trads liées aux ¨macros, aux ¨envs ou à la ¨doc.
 
-    * cf::``:?../tool.txt`` explique l'usage de path::``tool`` pour les outils de ¨dev.
+    * cf::``:?../tool.txt`` explique l'usage de path::``tools`` pour les outils de ¨dev.
 
-    * cf::``:?../test.txt`` montre l'emploi de path::``test`` pour les tests lors du ¨dev.
+    * cf::``:?../test.txt`` montre l'emploi de path::``tests`` pour les tests lors du ¨dev.

@@ -3,9 +3,9 @@ abrev::
 
 
 ========
-A propos
+À propos
 ========
 
 content::
-    ¨content/allpack.txt
+    ¨content/allpacks.txt
     ¨content/agregate.txt

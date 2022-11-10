@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-10
 
 
 ==========================
@@ -11,9 +11,9 @@ Pour la suite, nous allons travailler avec l'exemple suivant d'un package fictif
 
 path-tree::
     + tnsfictif
-        * about.peuf
+        * about.yaml
         + src
-            * about.peuf
+            * about.yaml
             + intro
                 * intro.tex
             + alpha-et-omega3
@@ -22,7 +22,7 @@ path-tree::
                 * omega3.tex
                 * omega3.sty
             + poor-lonesome-cowboy
-                * about.peuf
+                * about.yaml
                 * lucky-1.tex
                 * lucky-2.tex
                 * lucky.sty
@@ -40,7 +40,7 @@ Voici des choses importantes à connaître et respecter.
 
     1) Il est possible de rédiger des fichiers path::``TEX`` pour documenter des fonctionnalités.
     Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY``.
-    Dans notre exemple fictif, path::``intro/intro.tex`` est considéré comme étant une ¨doc écrite dans la langue indiquée dans le fichier path:``src/about.peuf``, voir cf::``?../metainfos/allpack.txt`` à ce propos.
+    Dans notre exemple fictif, path::``intro/intro.tex`` est considéré comme étant une ¨doc écrite dans la langue indiquée dans le fichier path:``src/about.yaml``, voir cf::``?../metainfos/allpacks.txt`` à ce propos.
 
     1) Des fichiers ressources peuvent être utilisés : voir cf::``:?../resource.txt`` pour en savoir plus.
 
@@ -49,10 +49,10 @@ Voici des choses importantes à connaître et respecter.
         Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
     )).
 
-        * Un dossier sans fichier path::``about.peuf`` sera analysé en utilisant l'ordre lexicographique usuel.
+        * Un dossier sans fichier path::``about.yaml`` sera analysé en utilisant l'ordre lexicographique usuel.
         Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty`` ainsi que path::``alpha.tex`` suivi de path::``omega3.tex``.
 
-        * Dans un dossier source, un fichier path::``about.peuf`` permet d'imposer un ordre à suivre. Nous allons revenir sur ceci dans les deux sections suivantes.
+        * Dans un dossier source, un fichier path::``about.yaml`` permet d'imposer un ordre à suivre. Nous allons revenir sur ceci dans les deux sections suivantes.
 
 
 warning::

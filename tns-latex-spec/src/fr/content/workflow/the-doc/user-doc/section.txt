@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-11
 
 
 ===============================
@@ -8,11 +8,7 @@ Sections, comment s'y prendre ?
 
 On doit toujours indiquer les ¨infos techniques dans une section **juste après** celle donnant la ¨doc directement à destination de l'utilisateur.
 Pour se faire, il suffit d'utiliser le titre "magique" latex::``:techsign:``.
-Lors de la production de la ¨doc au complet, une section dédiée "Toutes les fiches techniques"
-((
-    Pour la version française bien entendu...
-))
-réutilisera les bons titres.
+Lors de la production de la ¨doc au complet, un ¨pdf dédié contiendra toutes les fiches techniques.
 Voici un exemple où est ajouté l'évolution de la pile des sections mémorisées et utilisées en coulisse pour nommer les sections des fiches techniques.
 
 latex::

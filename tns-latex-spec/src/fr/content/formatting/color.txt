@@ -1,5 +1,5 @@
 this::
-    date = 2022-08-24
+    date = 2022-11-11
 
 
 ====================
@@ -12,8 +12,8 @@ Si la colorisation est souhaitée
     Ceci est très utile pour des ¨docus fournis au format ¨pdf.
 )),
 il faudra la demander explicitement via une option de package.
-Un fichier path::``sss.sty`` est chargé de définir des macros pour gérer les styles colorés.
+Un fichier path::``css.sty`` est chargé de définir des macros pour gérer les styles colorés.
 
 
 info::
-    Les versions couleur et noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.
+    La version cololorée, et celle noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.

@@ -1,31 +1,31 @@
 this::
-    date = 2022-06-11
+    date = 2022-11-10
 
 
-===========================
-Pour les packages autonomes
-===========================
+======================
+Pour tous les packages
+======================
 
-Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.peuf`` ayant le contenu minimal suivant où la déclaration peuf::``scope = tnslatex`` identifie bien entendu les packages de la suite ¨tnslatex
+Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.yaml`` ayant le contenu minimal suivant où la déclaration yaml::``scope: tnslatex`` identifie bien entendu les packages de la suite ¨tnslatex
 ((
     Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
 )).
-Quant à peuf::``docu = fr``, il sert à indiquer que la ¨docu "utilisateur" rédigée par le codeur lors du déveleoppement est écrite en français
+Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la ¨docu "utilisateur" rédigée par le codeur lors du déveleoppement, soit ici le français
 ((
-    Voir cf::``:?../user-doc/trans.txt`` pour la traduction de cette ¨docu.
+    Voir cf::``:?../user-doc/trans.txt`` pour la traduction de cette ¨doc.
 )).
 
-peuf::
-    general::
-        scope   = tnslatex
-        desc    = Fictional package for this example.
-        author  = Christophe BAL
-        licence = gnu 3
-        need    = latex2e
-        docu    = fr
+yaml::
+    general:
+        scope  : tnslatex
+        desc   : Fictional package for this example.
+        author : Christophe BAL
+        licence: gnu 3
+        need   : latex2e
+        lang   : fr
 
 
-Le contenu du fichier path::``about.peuf`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
+Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
 
     1) Le nom de package est juste celui du dossier du code source.
 

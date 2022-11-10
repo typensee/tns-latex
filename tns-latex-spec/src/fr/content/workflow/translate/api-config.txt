@@ -1,13 +1,12 @@
 this::
-    date = 2022-06-20
+    date = 2022-11-11
 
 
 =====================================
 Langues pour les ¨macros et les ¨envs
 =====================================
 
-Prenons le cas du package ¨bdoc pour lequel la langue du codeur est le français indiquée via peuf::``lang = fr`` dans le fichier path::``about.peuf`` du projet.
-Le code source de ¨bdoc contient le dossier de ¨dev path::``main`` suivant.
+Prenons le cas du package ¨bdoc dont le code source contient le dossier de ¨dev path::``main`` suivant.
 
 path-tree::
     + main
@@ -18,7 +17,7 @@ path-tree::
                 * sentences.txt
 
 
-De façon automatisée, un dossier path::``translate/api/fr/main``, comme ci-dessous, contiendra la dernière version des traductions utiles au fonctionnement du package ¨bdoc.
+De façon automatisée, un dossier path::``contribute/api/fr/main``, comme ci-dessous, contiendra la dernière version des traductions utiles au fonctionnement du package ¨bdoc.
 
 path-tree::
     + tnsfictif
@@ -42,4 +41,4 @@ verb::
 
 
 warning::
-    Les identifiants comme peuf::``code_after_output`` et peuf::``output_after_code`` sont de la responsabilité du codeur et non du traducteur.
+    Les identifiants comme verb::``code_after_output`` et verb::``output_after_code`` sont de la responsabilité du codeur, et non de celle du traducteur.

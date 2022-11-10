@@ -11,6 +11,6 @@ content::
     ¨content/resource.txt
     ¨content/sty-structure.txt
     ¨content/no-conflict.txt
-    ¨content/lang.txt
-    ¨content/tool.txt
-    ¨content/test.txt
+    ¨content/lang-api.txt
+    ¨content/tools.txt
+    ¨content/tests.txt

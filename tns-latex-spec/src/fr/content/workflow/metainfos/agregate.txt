@@ -1,21 +1,26 @@
 this::
-    date = 20/07/2021
+    date = 2022-11-10
 
 
-=============================
-Pour les packages agrégateurs
-=============================
+=====================================
+En plus pour les packages agrégateurs
+=====================================
 
-Dans le fichier path::``about.peuf``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc peuf::``toc`` en utilisant ``>`` pour indiquer les packages de la suite ¨tnslatex.
+Dans le fichier path::``about.yaml``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc yaml::``toc`` sous forme d'une liste.
 
-peuf::
-    // general::
+yaml::
+    general:
+        agregate: yes
     //     ... etc. Voir la section précédente.
 
-    toc::
-        > tnsfictif_1
-        > tnsfictif_3
-        > tnsfictif_2
+    toc:
+        - tnsfictif_1
+        - tnsfictif_3
+        - tnsfictif_2
+
+
+info::
+    L'ordre utilisé dans le bloc yaml::``toc`` sera celui retenu pour produire automatiquement la ¨doc.
 
 
 warning::

@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-11
 
 
 abrev::
@@ -10,11 +10,12 @@ abrev::
 ¨Doc "utilisateur"
 ==================
 
-La ¨doc "utilisateur" est rédigée par le codeur en parallèle du projet ¨latex de façon simple et efficace
+La ¨doc "utilisateur"
 ((
      Cette ¨doc se tape via ¨latex dans la langue préférée du codeur. Notons aussi que ceci permet au passage de faire des tests en situation réelle.
-)).
-Cette dernière sert de base pour les autres dans d'autres langues. Les sections suivantes expliquent comment le codeur devra rédiger cette version centrale de la ¨doc (dans la langue de son choix).
+))
+est rédigée par le codeur de façon simple et efficace en parallèle du projet ¨latex.
+Cette ¨doc sert de base pour les autres dans d'autres langues. Les sections suivantes expliquent comment le codeur devra rédiger cette version centrale de la ¨doc (dans la langue de son choix).
 
 
 note::
@@ -22,6 +23,7 @@ note::
 
 
 content::
+    ¨content/style.txt
     ¨content/latex-files.txt
     ¨content/section.txt
     ¨content/use-case.txt

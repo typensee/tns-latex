@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-11-10
 
 
 ==============================
@@ -10,27 +10,23 @@ Voici ce que doit contenir a minima le dossier d'un projet qui pour nous se nomm
 
 path-tree::
     + tnsfictif
-        * about.peuf
-        + changes    [...]
-        + translate  [...]
-        + readme     [...]
-        + src        [...]
+        * about.yaml
+        + changes     [...]
+        + contribute  [...]
+        + readme      [...]
+        + src         [...]
 
 
 Dans les grandes lignes, chacun de ces composants a l'utilité donnée ci-après.
 
     1) Le nom du dossier principal correspond au nom du package.
 
-    1) Le fichier path::``about.peuf`` contient des méta-informations à propos du projet. Voir cf::``?../metainfos.txt``.
+    1) Le fichier path::``about.yaml`` contient des méta-informations à propos du projet. Voir cf::``?../metainfos.txt``.
 
     1) Le dossier path::``changes`` permet d'indiquer les ¨chgts comme expliqué dans cf::``:?../workflow/changes.txt``.
 
-    1) Le dossier path::``translate`` contient des fichiers traduits (la procédure est accessible à des non codeurs). Voir cf::``:?../translate.txt`` à ce propos.
+    1) Le dossier path::``contribute`` accueille des contributions extérieures qui sont généralement des ¨trads (la procédure est accessible à des non codeurs). Voir cf::``:?../translate.txt`` à ce propos.
 
     1) Le dossier path::``readme`` sert à rédiger un fichier ¨readme pour les codeurs. Des explications sont données dans cf::``readme.txt``.
 
     1) Le dossier path::``src`` est le code source du projet à développer en suivant des règles indiquées dans cf::``?../coding/small-code.txt``.
-
-
-info::
-    Le projet ¨texfacto permet d'initier un nouveau projet en construisant une structure minimale "clés en main". Il sert aussi à publier un projet.

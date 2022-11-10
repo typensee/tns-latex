@@ -20,7 +20,6 @@ abrev::
 content::
     ¨content/intro.txt
     ¨content/monorepo.txt
-    ¨content/doc.txt
     ¨content/api.txt
-    ¨content/workflow.txt               ?????????
-    ¨content/formatting.txt             ????????
+    ¨content/workflow.txt
+    ¨content/formatting.txt
