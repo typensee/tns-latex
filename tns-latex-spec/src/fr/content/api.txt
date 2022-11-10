@@ -7,13 +7,13 @@ Interface utilisateur
 =====================
 
 content::
-    ¨content/packscope.txt      ??????????????????????
     ¨content/agregate.txt
-    ¨content/macroname.txt
+    ¨content/packscope.txt
+    ¨content/macroenvname.txt
     ¨content/starnostar.txt
     ¨content/argument.txt
     ¨content/option.txt
     ¨content/redef.txt
     ¨content/lang.txt
-    ¨content/error.txt
     ¨content/luanolua.txt
+    ¨content/error.txt

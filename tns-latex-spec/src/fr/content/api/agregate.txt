@@ -1,14 +1,15 @@
 this::
-    date = 2022-06-12
+    date = 2022-11-10
 
 
 ===========================
 Agréger différents packages
 ===========================
 
-Pour des raisons pratiques, certains packages en agrègent plein d'autres pour éviter d'avoir à importer plein de packages de la suite ¨tns. Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécifications suivantes
+Pour des raisons pratiques, des packages agrègent juste d'autres packages afin d'éviter de devoir importer à la main plein de packages de la suite ¨tns.
+Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécifications suivantes
 ((
-    La majorité du travail est automatisée.
+    La majorité du travail est automatisé.
 )).
 
     * On importe les packages en ne fabriquant pas un package qui reprendrait les codes des différents sous-packages. Ceci simplifie grandement les ¨majs.

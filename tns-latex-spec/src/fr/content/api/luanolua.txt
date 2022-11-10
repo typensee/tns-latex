@@ -9,8 +9,8 @@ this::
 Certains packages proposent des fonctionnalités codées en ¨lua
 ((
     Même si ¨latex3 rend d'énormes services, il y a des moments où utiliser ¨lua augmente la productivité : l'auteur préfère danser, et pédaler que de se creuser la tête pour trouver une pure solution en ¨latex3.
-)).
-Ces dernières automatisent des tâches pas toujours faisables à la main
+)
+qui automatisent des tâches pas toujours faisables à la main
 ((
     Sauf à disposer de beaucoup de courage, de patience et forcément de temps.
 )).

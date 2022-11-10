@@ -1,10 +1,10 @@
 this::
-    date = 2021-07-14
+    date = 2022-11-10
 
 
-===============
-Noms des macros
-===============
+=====================================
+Noms des macros et des environnements
+=====================================
 
 Les macros et les environnements ont prioritairement des noms utilisant des minuscules. Ces noms seront de préférence courts et surtout non cryptiques.
 

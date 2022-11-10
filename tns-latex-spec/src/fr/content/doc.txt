@@ -1,0 +1,27 @@
+this::
+    date = 2022-11-10
+
+
+================
+Style de la ¨doc
+================
+
+La ¨doc ne suit pas les méthodologies dominantes proposées par ¨latex
+((
+    L'auteur ne lancera pas ici de polémique sur l'utilité de la programmation littérale, ou de la rédaction d'une ¨doc qui parle plus à des codeurs qu'à de simples utilisateurs.
+)).
+Les choix retenus, et assumés, sont les suivants.
+
+    * Les fonctionnalités sont présentées sous forme d'exemples d'utilisation.
+
+    * Le code source n'apparait jamais dans la ¨doc destinée à l'utilisateur. Les codeurs affûtés peuvent retrouver dans les codes sources une ¨doc technique facile à comprendre
+    ((
+        La syntaxe utilisée est celle de ¨tnsdoc un sous-projet de ¨tns.
+    )).
+
+    * Une ¨doc séparée, et aride, donne toutes les signatures détaillées, et expliquées, des macros et des environnements.
+
+    * Enfin, chaque package propose un fichier ¨json avec juste les signatures des macros et des environnements. Un tel fichier est facilement exploitable par des outils externes
+    ((
+        Par exemple, ces fichiers ¨json permettent de vérifier la non redondance de noms de macros, ¨et ou d'environnemnts dans l'ensemble du projet ¨tns.
+    )).
