@@ -1,10 +1,10 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
-=================================================
-path::``src/about.yaml`` pour les dossiers source
-=================================================
+===============================================
+path::``src/about.yaml`` pour les dossiers ¨src
+===============================================
 
 Dans le dossier path::``src`` peut être mis un fichier path::``about.yaml`` pour indiquer les dossiers à analyser suivant un ordre imposé.
 Imaginons que l'on ait le code suivant pour notre exemple ficitf.
@@ -20,4 +20,4 @@ yaml::
         - alpha-et-omega3
 
 
-Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre.
+Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre, au lieu de l'ordre naturel.

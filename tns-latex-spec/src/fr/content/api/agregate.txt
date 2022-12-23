@@ -1,12 +1,12 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 ===========================
 Agréger différents packages
 ===========================
 
-Pour des raisons pratiques, des packages agrègent juste d'autres packages afin d'éviter de devoir importer à la main plein de packages de la suite ¨tnslatex.
+Pour des raisons pratiques, des packages ne font qu'agréger d'autres packages afin d'éviter de devoir importer à la main plein de packages de la suite ¨tnslatex.
 Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécifications suivantes
 ((
     La majorité du travail est automatisé.
@@ -18,4 +18,4 @@ Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécif
 
     * Côté utilisateur, il est possible de choisir une importation ciblée de certains packages, ¨etou d'en exclure d'autres.
 
-    * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les informations au même endroit dans un unique ¨pdf.
+    * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les ¨infos au même endroit dans un unique ¨pdf.

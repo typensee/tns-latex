@@ -1,10 +1,10 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 ======
 ¨Intro
 ======
 
-Les packages ¨latex2e, ¨etou ¨lualatex de la suite ¨tnslatex proposent des outils pour produire du code de ¨mef facile à taper, tout en étant sémantique dans leurs interfaces : par exemple, une intégrale se tapera ``$\integrate{cos(x^2)}{x}{a}{b}``, et non ``$\int_a^b cos(x^2) dx$`` .
+Les packages ¨latex3 et ¨lualatex de la suite ¨tnslatex proposent des outils pour produire du code de ¨mef facile à taper, tout en étant sémantique dans leurs interfaces : par exemple, une intégrale se tapera latex_math::``\integrate{cos(x^2)}{x}{a}{b}``, et non latex_math::``\int_a^b cos(x^2) dx`` .
 Ce document réunit les spécifications utilisées pour développer la suite de packages de la famille ¨tnslatex.

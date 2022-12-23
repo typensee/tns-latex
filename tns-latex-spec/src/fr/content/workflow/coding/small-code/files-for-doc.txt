@@ -11,12 +11,12 @@ Nous allons voir ici comment seront réunis ces fichiers pour produire la ¨doc 
 
 
 info::
-    Tout fichier ¨latex non ignoré sera intégré automatiquement à la ¨doc du projet final (se reporter à cf::``?../user-doc.txt`` pour savoir comment rédiger le contenu de cette ¨doc).
+    Tout fichier ¨latex non ignoré sera intégré ¨auto^t à la ¨doc du projet final (se reporter à cf::``?../user-doc.txt`` pour savoir comment rédiger le contenu de cette ¨doc).
 
 
 Globalement, nous avons vu comment imposer un ordre d'analyse des dossiers du code ¨src : voir la section cf::``about-for-dirs.txt``. Voyons donc coment cela se passe pour un dossier particulier comme le suivant sans fichier path::``about.yaml``.
 
-path-tree::
+dirtree::
     + alpha-et-omega3
         * alpha.tex
         * alpha.sty
@@ -27,7 +27,7 @@ path-tree::
 Dans le cas ci-dessus, ce sera tout simplement l'ordre naturel qui sera utilisé, donc le contenu de path::``alpha.tex`` apparaîtra après celui de path::``omega3.tex``.
 Ceci ne sera pas forcément le cas pour le dossier ci-après car il va falloir prendre en compte le contenu fichier path::``about.yaml``.
 
-path-tree::
+dirtree::
     + poor-lonesome-cowboy
         * about.yaml
         * lucky-1.tex

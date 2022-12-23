@@ -6,7 +6,7 @@ this::
 Polices de caractères... ou pas !
 =================================
 
-Comme le choix de polices de caractères est affaire de goût, la gestion de polices particulières se fait via des packages dédiés non chargés automatiquement par les packages "agrégateurs".
+Comme le choix de polices de caractères est affaire de goût, la gestion de polices particulières se fait via des packages dédiés non chargés ¨auto^t par les packages "agrégateurs".
 Ce sera donc à l'utilisateur de demander explicitement l'utilisation de ces packages très particuliers.
 
 

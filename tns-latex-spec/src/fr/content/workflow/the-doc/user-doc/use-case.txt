@@ -1,12 +1,12 @@
 this::
-    date = 2022-06-19
+    date = 2022-12-23
 
 
 =============================
 Montrer des cas d'utilisation
 =============================
 
-Tout se passe via des environnements comme latex::``\begin{doclatex} ... \end{doclatex}`` utilisé ci-dessous, ou des macros dans le cas de fichiers externes.
+Tout se passe via des ¨envs comme latex::``\begin{doclatex} ... \end{doclatex}`` utilisé ci-dessous, ou des macros pour importer des contenus de fichiers externes.
 
 latex::
     \begin{doclatex}

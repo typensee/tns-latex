@@ -1,14 +1,14 @@
 this::
-    date = 2022-06-19
+    date = 2022-12-23
 
 
 ================
 Pour les codeurs
 ================
 
-Les ¨chgts de la ¨doc en anglais s'indiquenet dans des fichiers de type path::``TXT`` organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé, et pour chaque mois un fichier bien nommé lui aussi.
+Les ¨chgts de la ¨doc en anglais s'indiquent dans des fichiers de type path::``TXT`` organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé, et pour chaque mois un fichier bien nommé lui aussi.
 
-path-tree::
+dirtree::
     + tnsfictif
         + changes
             + 2020
@@ -37,6 +37,6 @@ tns::
     This package provides a lot of new fictive features.
 
 
-La date est indiquée via le titre tns::``01`` entouré des tnschges::``==``.
+La date est indiquée via le titre tns::``01`` entouré par des tnschges::``==``.
 Quant au ¨chgt de version, il s'indique simplement en ajoutant tnschges::``(0.0.0-beta)`` après la date.
 Pour le reste, cela permet d'indiquer une nouveauté au niveau de l'¨api.

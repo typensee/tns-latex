@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 ======================
@@ -10,9 +10,9 @@ Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos gén�
 ((
     Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
 )).
-Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la ¨docu "utilisateur" rédigée par le codeur lors du déveleoppement, soit ici le français
+Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la ¨doc "utilisateur" rédigée par le codeur lors du ¨dev, soit ici le français
 ((
-    Voir cf::``:?../user-doc/trans.txt`` pour la traduction de cette ¨doc.
+    Voir cf::``:?../user-doc/trans.txt`` pour la ¨trad de cette ¨doc.
 )).
 
 yaml::
@@ -21,32 +21,32 @@ yaml::
         desc   : Fictional package for this example.
         author : Christophe BAL
         licence: gnu 3
-        need   : latex2e
         lang   : fr
+        need   : latex2e
 
 
 Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
 
     1) Le nom de package est juste celui du dossier du code source.
 
-    1) La date de création et le numéro de la version en cours, avec sa date, sont des informations déjà indiquées dans les journaux des ¨chgts techniques
+    1) La date de création et le numéro de la version en cours, avec sa date, sont des informations déjà indiquées dans les journaux des ¨chgts ¨techs
     ((
         Voir cf::``:?../change-log.txt``.
     )).
 
-    1) Les dépendances sont repérées automatiquement dans les codes des fichiers path::``STY``
+    1) Les dépendances sont repérées ¨auto^t dans les codes des fichiers path::``STY``
     ((
         Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
     )).
 
 
-Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites automatiquement dans le fichier path::``STY`` final.
+Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites ¨auto^t dans le fichier path::``STY`` final.
 
 latex::
     % --------------------------------------------------------- %
     % - This is file `tnsfictif.sty' generated automatically. - %
     % -                                                       - %
-    % - Copyright (C) 2020-2021 by Christophe BAL             - %
+    % - Copyright (C) 2022 by Christophe BAL                  - %
     % -                                                       - %
     % - This file may be distributed and/or modified under    - %
     % - the conditions of the Gnu 3 License.                  - %

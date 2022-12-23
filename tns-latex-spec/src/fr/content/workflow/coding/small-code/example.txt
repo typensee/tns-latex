@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 ==========================
@@ -9,7 +9,7 @@ Un exemple comme fil rouge
 L'automatisation se fait en respectant un style de codage et une organisation des dossiers et des fichiers.
 Pour la suite, nous allons travailler avec l'exemple suivant d'un package fictif nommé ``tnsfictif``.
 
-path-tree::
+dirtree::
     + tnsfictif
         * about.yaml
         + src
@@ -33,7 +33,7 @@ path-tree::
 
 Voici des choses importantes à connaître et respecter.
 
-    1) Le développement "morceau par morceau" se fait dans le sous-dossier path::``src``.
+    1) Le ¨dev "morceau par morceau" se fait dans le sous-dossier path::``src``.
 
     1) Chaque fichier path::``STY`` codant un morceau du package doit se trouver dans un sous-dossier de profondeur `1` de path::``src``.
     Bien noter que l'on travaille directement dans un sous-dossier sans passer via des sous-sous-dossiers contenant le fichier path::``STY``.
@@ -49,8 +49,8 @@ Voici des choses importantes à connaître et respecter.
         Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
     )).
 
-        * Un dossier sans fichier path::``about.yaml`` sera analysé en utilisant l'ordre lexicographique usuel.
-        Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty`` puis path::``omega3.sty`` ainsi que path::``alpha.tex`` suivi de path::``omega3.tex``.
+        * Un dossier sans fichier path::``about.yaml`` sera analysé en utilisant l'ordre ¨lexico usuel.
+        Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty``, puis path::``omega3.sty`` ainsi que path::``alpha.tex`` suivi de path::``omega3.tex``.
 
         * Dans un dossier source, un fichier path::``about.yaml`` permet d'imposer un ordre à suivre. Nous allons revenir sur ceci dans les deux sections suivantes.
 

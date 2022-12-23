@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-11
+    date = 2022-12-23
 
 
 =====================================
@@ -8,7 +8,7 @@ Langues pour les ¨macros et les ¨envs
 
 Prenons le cas du package ¨bdoc dont le code source contient le dossier de ¨dev path::``main`` suivant.
 
-path-tree::
+dirtree::
     + main
         + locale
             * FR.sty
@@ -17,22 +17,23 @@ path-tree::
                 * sentences.txt
 
 
-De façon automatisée, un dossier path::``contribute/api/fr/main``, comme ci-dessous, contiendra la dernière version des traductions utiles au fonctionnement du package ¨bdoc.
+De façon automatisée, un dossier path::``contribute/api/locale/fr/main``, comme ci-dessous, contiendra la dernière version des ¨trads utiles au fonctionnement du package ¨bdoc.
 
-path-tree::
+dirtree::
     + tnsfictif
-        + translate
+        + contribute
             + api
-                + fr
-                    + main
-                        * macros.txt
-                        * sentences.txt
+                + locale
+                    + fr
+                        + main
+                            * macros.txt
+                            * sentences.txt
             + [...]
         + [...]
 
 
-Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``.
-La ¨trad sera alors simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
+Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``, où ``de`` vient du codage de la ¨isolangnorme..
+Le processs de ¨trad est simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
 
 verb::
     ---

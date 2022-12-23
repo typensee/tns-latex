@@ -1,14 +1,14 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 =========================================
 ¨Maj et fichiers ignorés - ¨git is a gift
 =========================================
 
-Les outils automatiques s'appuient sur ¨git pour faire des mises à jours ciblées
+Les outils ¨autos s'appuient sur ¨git pour faire des mises à jours ciblées
 ((
-    Par exemple, un package agrégateur ne sera mis à jour que si l'un des packages qu'il importe a changé de version.
+    Par exemple, un package agrégateur ne sera mis à jour que si l'un des packages qu'il importe a changé de version, et non de code source.
 )).
 C'est l'une des raisons qui fait que l'ensemble du projet ¨tnslatex est géré comme un unique dépôt ¨git.
 Ainsi ¨git va repérer les fichiers "visibles" d'un projet : ceci permet de cacher des fichiers et dossiers via un fichier ¨gitignore.

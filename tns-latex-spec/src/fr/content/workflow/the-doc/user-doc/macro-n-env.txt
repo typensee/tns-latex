@@ -1,12 +1,12 @@
 this::
-    date = 2022-06-19
+    date = 2022-12-23
 
 
-============================================
-Macros et environnements - ¨Infos techniques
-============================================
+===============================
+Macros et ¨envs - ¨Infos ¨techs
+===============================
 
-L'exemple suivant montre comment indiquer les signatures des macros et des environnements
+L'exemple suivant montre comment indiquer les signatures des macros et des ¨envs
 ((
     Se reporter à ¨macroenvsign pour savoir comment déclarer des signatures.
 )).
@@ -16,7 +16,7 @@ latex::
 
                                \signprewhy*{ope}{rator}
 
-    \IDoption{} la valeur par défaut est \verb+f+. Les options disponibles sont \verb+f+, \verb+sf+ et \verb+i+ : voir la fiche technique de \docmacro{pder} juste avant.
+    \IDoption{} la valeur par défaut est \verb+f+. Les options disponibles sont \verb+f+, \verb+sf+ et \verb+i+ : voir la fiche ¨tech de \docmacro{pder} juste avant.
 
     \IDarg{1} les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
 

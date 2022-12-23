@@ -20,7 +20,7 @@ yaml::
 
 
 info::
-    L'ordre utilisé dans le bloc yaml::``toc`` sera celui retenu pour produire automatiquement la ¨doc.
+    L'ordre utilisé dans le bloc yaml::``toc`` sera celui retenu pour produire ¨auto^t la ¨doc.
 
 
 warning::

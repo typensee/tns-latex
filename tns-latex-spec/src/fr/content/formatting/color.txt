@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-11
+    date = 2022-12-23
 
 
 ====================
@@ -12,7 +12,7 @@ Si la colorisation est souhaitée
     Ceci est très utile pour des ¨docus fournis au format ¨pdf.
 )),
 il faudra la demander explicitement via une option de package.
-Un fichier path::``css.sty`` est chargé de définir des macros pour gérer les styles colorés.
+Un fichier path::``css.sty`` est chargé de définir des macros gérant les styles colorés.
 
 
 info::

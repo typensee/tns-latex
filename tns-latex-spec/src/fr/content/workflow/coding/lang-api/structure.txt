@@ -1,14 +1,14 @@
 this::
-    date = 2022-11-11
+    date = 2022-12-23
 
 
-=========================
-Organiser les traductions
-=========================
+====================
+Organiser les ¨trads
+====================
 
 Considérons comme exemple le cas du package ¨bdoc. Son code source contient un dossier de ¨dev path::``main`` où l'on trouve les fichiers et dossiers suivants permettant d'avoir des macros gérant le français.
 
-path-tree::
+dirtree::
     + main
         + locale
             * FR.sty

@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-18
+    date = 2022-12-23
 
 
 ==================
@@ -7,4 +7,4 @@ Les grandes lignes
 ==================
 
 Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau" en respectant certaines conventions.
-Des outils se chargent ensuite de produire le package à destination de l'utilisateur avec sa ¨doc destinée aux utilisateurs, et si besoin des ressources.
+Des outils se chargent ensuite de produire le package à destination de l'utilisateur avec sa ¨doc "utilisateur", et si besoin des ressources.

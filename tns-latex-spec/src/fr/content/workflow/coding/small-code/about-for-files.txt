@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 =============================================
@@ -7,7 +7,7 @@ path::``about.yaml`` pour les fichiers source
 =============================================
 
 Dans chaque dossier ¨src peut être mis un fichier path::``about.yaml`` pour indiquer les fichiers à analyser suivant un ordre imposé.
-Dans cette section, nous allons nous concentrer sur les fichiers path::``STY`` liés au code, mais nous reviendrons sur les fichiers path::``TEX`` pour la ¨doc "utilisateur" dans la section suivante.
+Dans cette section, nous allons nous concentrer sur les fichiers path::``STY`` liés au code (nous reviendrons sur les fichiers path::``TEX`` pour la ¨doc "utilisateur" dans la section suivante).
 Imaginons que l'on ait le code suivant pour notre exemple ficitf.
 
 yaml::
@@ -20,4 +20,4 @@ yaml::
         - lucky.sty
 
 
-Le code précédent sert à considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty``, et non suivant l'ordre alphabétique qui aurait été retenu sans emploi du fichier path::``about.yaml``.
+Le code précédent sert à considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty`` sans tenir compte de l'ordre naturel, ce dernier étant celui retenu si aucun fichier path::``about.yaml`` n'est utilisé.

@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-10
+    date = 2022-12-23
 
 
 ================
@@ -9,11 +9,12 @@ this::
 Certains packages proposent des fonctionnalités codées en ¨lua
 ((
     Même si ¨latex3 rend d'énormes services, il y a des moments où utiliser ¨lua augmente la productivité : l'auteur préfère danser, et pédaler que de se creuser la tête pour trouver une pure solution en ¨latex3.
-)
+))
 qui automatisent des tâches pas toujours faisables à la main
 ((
     Sauf à disposer de beaucoup de courage, de patience et forcément de temps.
 )).
+Des macros, ou des ¨envs s'appuyant sur ¨lua sont toujours accompagés d'une jumelle, ou d'un jumeau utilisable à la main : ceci permet de palier à des manquements, ou des faiblesses.
 
 
 info::

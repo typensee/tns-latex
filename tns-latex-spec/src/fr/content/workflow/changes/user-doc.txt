@@ -1,5 +1,5 @@
 this::
-    date = 2022-06-19
+    date = 2022-12-23
 
 
 =====================
@@ -7,28 +7,28 @@ Pour les utilisateurs
 =====================
 
 L'organisation des ¨chgts de la ¨doc "utilisateur" se fait comme suit en notant que le sous-dossier path::``changes`` se trouve dans le dossier path::``src`` utilisé pour le ¨dev du code "morceau par morceau", et non dans celui de tout le projet.
-Dans le dossier path::``fr`` pour les ¨chgts en français, noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour".
+La langue des ¨chgts est celui de la ¨doc du développeur, soit pour nous le français.
+Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour".
 
-path-tree::
+dirtree::
     + tnsfictif
         + changes [...]
         + src
             + changes
-                + fr
-                    + 2021
-                        + 07
-                            * 05.tex
-                            * 14.tex
-                            * 15.tex
+                + 2021
+                    + 07
+                        * 05.tex
+                        * 14.tex
+                        * 15.tex
             + [...]
         + [...]
 
 
 warning::
-    Contrairement à la ¨doc technique, les ¨modifs se tapent jour par jour.
+    Contrairement à la ¨doc ¨tech, les ¨modifs se tapent jour par jour. Ceci permet notemment de tester la bonne rédaction de l'écriture des ¨chgts pour une date donnée.
 
 
-Voici un exemple possible de ¨chgts qui va nous donner l'occasion d'expliquer quelques points importants.
+Voici un exemple possible de ¨chgts ; ceci va nous donner l'occasion d'expliquer quelques points importants.
 
 latex::
     \begin{doctopic}{Un court changement}
@@ -45,19 +45,22 @@ latex::
 
 Voici ce qu'il faut absolument savoir.
 
-    1) Le numéro de version n'est pas indiqué puisque cette ¨info est connue via les ¨chgts techniques.
+    1) Le numéro de version n'est pas indiqué puisque cette ¨info est connue via les ¨chgts ¨techs.
 
-    1) Un ¨chgt court se tape directement via l'environnement latex::``\begin{doctopic} ... \end{doctopic}`` qui prend en argument un titre court et dont le contenu détaille les nouveautés.
+    1) Un ¨chgt court se tape directement via l'¨env latex::``\begin{doctopic} ... \end{doctopic}`` qui prend en argument un titre court et dont le contenu détaille les nouveautés.
 
     1) Pour des ¨chgts plus longs il suffit d'utiliser l'option latex::``t``
     ((
         latex::``t`` est pour "[t]itre".
     ))
-    de l'environnement latex::``\begin{doctopic} ... \end{doctopic}``.
+    de l'¨env latex::``\begin{doctopic} ... \end{doctopic}``.
 
-    1) Les macros latex::``\docmacro`` et latex::``\docenv`` permettent d'indiquer des macros et des environnements de façon sémantique.
+    1) Les macros latex::``\docmacro`` et latex::``\docenv`` permettent d'indiquer ¨resp des macros, et des ¨envs.
 
 
 info::
-    Un fichier path::``test_one_date.tex`` directement compilable sert à tester et déboguer facilement le rendu des ¨chgts pour une date et une langue données.
-    Ce fichier ne fera pas partie du produit final.
+    Un fichier path::``test_one_date.tex``
+    ((
+        Ce fichier ne fera pas partie du produit final.
+    )),
+    directement compilable, sert à tester et déboguer facilement le rendu des ¨chgts pour une date donnée.
