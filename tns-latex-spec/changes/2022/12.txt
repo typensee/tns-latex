@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+23
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Translations: the workflow has been simplified.
