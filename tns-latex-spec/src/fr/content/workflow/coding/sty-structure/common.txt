@@ -12,7 +12,7 @@ Tous les codes ¨srcs
 ))
 s'appuient sur le modèle suivant pour permettre aux outils automatiques de repérer les packages importés, les options attendues, et enfin les macros et ¨envs codés. **L'ordre est imposé !**
 
-latex::
+latex3::
     % == PACKAGES == %
 
     % Lignes avec les \RequirePackage.
@@ -28,11 +28,11 @@ latex::
     % Lignes codant les fonctionnalités.
 
 
-Les sections spéciales latex::``% == PACKAGES == %`` et latex::``% == OPTIONS == %`` sont facultatives contrairement à latex::``% == TOOLS == %`` qui est obligatoire, même si elle est utilisée seule.
+Les sections spéciales ``% == PACKAGES == %`` et ``% == OPTIONS == %`` sont facultatives contrairement à ``% == TOOLS == %`` qui est obligatoire, même si elle est utilisée seule.
 
 
 warning::
-    Penser à utiliser latex::``\RequirePackage{packfictif}[2021/07/05]`` en indiquant la date attendue pour le package utilisé.
+    Penser à utiliser ``\RequirePackage{packfictif}[2021/07/05]`` en indiquant la date attendue pour le package utilisé.
 
 
 info::

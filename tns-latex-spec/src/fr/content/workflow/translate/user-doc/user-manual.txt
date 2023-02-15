@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 =======================
@@ -35,7 +35,7 @@ Une fois le travail fini, deux méthodes sont possibles pour proposer la ¨nelle
 
     1) Si le traducteur connaît ¨github, il suivra les étapes ci-après.
 
-        a) Clonage du projet où .
+        a) Clonage du projet.
 
         a) Ajout de la ¨trad dans le dossier path::``contribute/doc/user-manual``.
 

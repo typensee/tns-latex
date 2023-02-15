@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ===============================
@@ -7,11 +7,11 @@ Sections, comment s'y prendre ?
 ===============================
 
 On doit toujours indiquer les ¨infos ¨techs dans une section **juste après** celle donnant la ¨doc directement à destination de l'utilisateur.
-Pour se faire, il suffit d'utiliser le titre "magique" latex::``:techsign:``.
+Pour se faire, il suffit d'utiliser le titre "magique" ``:techsign:``.
 Lors de la ¨prod de la ¨doc au complet, un ¨pdf dédié contiendra toutes les fiches ¨techs.
 Voici un exemple où est ajouté, en commentaires, l'évolution de la pile des sections mémorisées, et utilisées en coulisse pour nommer les sections des fiches ¨techs.
 
-latex::
+latex3::
     % SEC désigne la pile des niveaux et des titres des sections.
     %
     % SEC = []
@@ -34,6 +34,7 @@ latex::
     %
     % On garde juste la dernière ``subsection``.
 
+    % Contenu sans aucune ``subsection``.
     ...
 
     \subsection{:techsign:} % Signatures des macros et environnements
@@ -43,6 +44,9 @@ latex::
     % de la sous-section "Produit scalaire".
     %
     % SEC = [(1, "Vecteurs")]
+    %
+    % La ``subsection`` vient d'être mangée par l'utilisation de
+    % la ``subsection`` technique.
 
     ...
 
@@ -59,7 +63,7 @@ Pour les signatures des macros et des ¨envs, les sections doivent respecter les
 info::
     Un titre de section peut être codé sur deux lignes au maximum. Ceci peut être utile comme le montre l'exemple suivant où la macro ``\texorpdfstring`` permet d'indiquer un titre spécifiquement pour la ¨tdm d'un ¨pdf.
 
-    latex::
+    latex3::
         \section{\texorpdfstring{Les opérateurs $\partial$ et $d$}%
                                 {Les opérateurs "d rond" et "d droit"}}
 

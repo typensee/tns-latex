@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ======================
@@ -17,12 +17,12 @@ Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codag
 
 yaml::
     general:
-        scope  : tnslatex
-        desc   : Fictional package for this example.
-        author : Christophe BAL
-        licence: gnu 3
-        lang   : fr
-        need   : latex2e
+      scope  : tnslatex
+      desc   : Fictional package for this example.
+      author : Christophe BAL
+      licence: gnu 3
+      lang   : fr
+      need   : latex2e
 
 
 Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
@@ -42,7 +42,7 @@ Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de c
 
 Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites ¨auto^t dans le fichier path::``STY`` final.
 
-latex::
+latex3::
     % --------------------------------------------------------- %
     % - This is file `tnsfictif.sty' generated automatically. - %
     % -                                                       - %
@@ -56,7 +56,7 @@ latex::
 
     \ProvidesExplPackage{tnsfictif}   %
                         {2020-06-01}  % Creation: 2018-05-01
-                        {10.2.9-beta} %
+                        {1.2.3}       %
                         {Fictional package for this example.}
 
     % Le reste du code...

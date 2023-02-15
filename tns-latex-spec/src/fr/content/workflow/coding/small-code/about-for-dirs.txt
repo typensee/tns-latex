@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ===============================================
@@ -14,10 +14,10 @@ yaml::
     title = Contenu du fichier path::``src/about.yaml``
     ---
 
-    toc:
-        - intro
-        - poor-lonesome-cowboy
-        - alpha-et-omega3
+    agregate:
+      - intro
+      - poor-lonesome-cowboy
+      - alpha-et-omega3
 
 
 Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre, au lieu de l'ordre naturel.

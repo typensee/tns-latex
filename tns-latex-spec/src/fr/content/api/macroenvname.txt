@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ============================
@@ -10,4 +10,4 @@ Les macros et les ¨envs ont prioritairement des noms utilisant des minuscules. 
 
 
 info::
-    Pour les macros et les ¨envs privés, on utilise a minima le nom du package afin d'éviter des conflits de noms avec d'autres packages.
+    Pour les macros et les ¨envs privés, on respecte les conventions de nommage de ¨latex3.

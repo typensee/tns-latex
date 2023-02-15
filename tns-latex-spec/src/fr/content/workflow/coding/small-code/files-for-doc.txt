@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-10
+    date = 2023-02-15
 
 
 ===================================
@@ -44,9 +44,9 @@ yaml::
     title = Contenu du fichier path::``poor-lonesome-cowboy/about.yaml``
     ---
 
-    toc:
-        - rantanplan.sty
-        - lucky.sty
+    agregate:
+      - rantanplan.sty
+      - lucky.sty
 
 
 Aucune ¨ref n'étant faite aux fichiers path::``TEX``, les règles suivantes sont appliquées.

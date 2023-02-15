@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 =========================================
@@ -10,8 +10,10 @@ Les outils ¨autos s'appuient sur ¨git pour faire des mises à jours ciblées
 ((
     Par exemple, un package agrégateur ne sera mis à jour que si l'un des packages qu'il importe a changé de version, et non de code source.
 )).
-C'est l'une des raisons qui fait que l'ensemble du projet ¨tnslatex est géré comme un unique dépôt ¨git.
-Ainsi ¨git va repérer les fichiers "visibles" d'un projet : ceci permet de cacher des fichiers et dossiers via un fichier ¨gitignore.
+C'est l'une des raisons qui fait que l'ensemble du projet ¨tnslatex est géré comme un unique dépôt ¨git
+((
+    Ceci permet au passage de cacher des fichiers et dossiers via un fichier ¨gitignore.
+)).
 
 
 À ceci s'ajoute l'utilisation de dossiers et de fichiers ayant une signification particulière au sein du projet ¨tnslatex. Voir les sections suivantes pour tout ce qui aura un traitement spécifique lors du ¨dev.

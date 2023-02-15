@@ -1,23 +1,32 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ===============================
 Macros et ¨envs - ¨Infos ¨techs
 ===============================
 
-L'exemple suivant montre comment indiquer les signatures des macros et des ¨envs
+La fiche ¨tech d'un ¨env, ou d'une macro se fait efficacement grâce à ¨macroenvsign. Voici un exemple possible d'utilisation où l'absence de la signature de la macro ``\pderope`` n'est pas un oubli car ¨macroenvsign sait la récupérer ¨auto^t. La clé ``about`` permet d'expliquer la fabrication du nom de la macro
 ((
-    Se reporter à ¨macroenvsign pour savoir comment déclarer des signatures.
+    Ceci devrait permettre de mieux mémoriser les noms des ¨envs et des macros proposés.
 )).
 
-latex::
-    \IDmacro{pderope}{1}{2}    \signprewhy*{p}{artial}
+latex3::
+    \begin{idmacro}
+        name  = pderope,
+        about = {
+            p-artial,
+            der-ivation,
+            ope-rator
+        }
+    }
+        \arg[in = f, sf, i] Voir la fiche technique de \docmacro{pder} juste avant.
 
-                               \signprewhy*{ope}{rator}
+        \arg Les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
 
-    \IDoption{} la valeur par défaut est \verb+f+. Les options disponibles sont \verb+f+, \verb+sf+ et \verb+i+ : voir la fiche ¨tech de \docmacro{pder} juste avant.
+        \arg L'ordre total de dérivation.
+    \end{idmacro}
 
-    \IDarg{1} les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
 
-    \IDarg{2} l'ordre total de dérivation.
+warning::
+    Bien entendu, l'ordre de declaration des ¨args via ``\arg`` correspond à celui d'utilisation de la macro, ou de l'¨env.

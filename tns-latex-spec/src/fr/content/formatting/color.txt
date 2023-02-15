@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ====================
@@ -15,5 +15,5 @@ il faudra la demander explicitement via une option de package.
 Un fichier path::``css.sty`` est chargé de définir des macros gérant les styles colorés.
 
 
-info::
-    La version cololorée, et celle noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.
+warning::
+    La version cololorée et celle noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.

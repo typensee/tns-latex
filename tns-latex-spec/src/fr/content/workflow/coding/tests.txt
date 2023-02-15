@@ -1,24 +1,16 @@
 this::
-    date = 2022-06-19
+    date = 2023-02-15
 
 
 ======
 Tester
 ======
 
-Pour le moment les tests sont très rudimentaires
-((
-    Cela semble suffisant. Croisons les doigts... Ou fermons bien les yeux.
-)).
+Même si la ¨doc pour les utilisateurs est l'ocassion d'un test assez complet en situation des fonctionnalités proposées, ceci repose sur le facteur humain pour la partie vérification, ce qui n'est pas bon.
+C'est pour cette raisons que le projet ¨l3build sert à tester à la fois la non régression du rendu, mais aussi la validité de données produites.
+Ceci peut ête complété par les deux techniques suivantes.
 
-    1) La ¨doc pour les utilisateurs est l'ocassion d'un test assez complet en situation, et souvent suffisant, des fonctionnalités proposées
-    ((
-        Ceci repose tout de même sur le facteur humain pour la partie vérification.
-    )).
+    1) Des données de tests à destination de ¨l3build peuvent pêtre fabriquées via des outils de confiance externes en utilisant des dossiers nommés path::``tool`` ou path::``tools``, ¨etou des fichiers de noms préfixés par path::``tool_`` ou path::``tools_``.
 
-    1) D'autres tests "faits maison" sont possibles en utilisant des dossiers nommés path::``test`` ou path::``tests``, ¨etou des fichiers de noms préfixés par path::``test_`` ou path::``tests_``.
+    1) Des tests "faits maison" sont possibles en utilisant des dossiers nommés path::``test`` ou path::``tests``, ¨etou des fichiers de noms préfixés par path::``test_`` ou path::``tests_``.
     Ces fichiers et dossiers ne seront pas incorporés au produit final.
-
-
-info::
-    Pour le moment le projet n'utilise pas ¨l3build. L'histoire montrera si cela est utile ¨etou nécessaire.

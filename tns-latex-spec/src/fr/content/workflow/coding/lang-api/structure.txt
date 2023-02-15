@@ -19,7 +19,7 @@ dirtree::
 
 Voici l'affreux code utilisé en interne pour le français.
 
-latex::
+latex3::
     ---
     path  = :?../bc-tools/for-latex/bdoc/src/main/locale/FR.sty
     title = Contenu du fichier path::``FR.sty``

@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 =============================================
@@ -15,9 +15,9 @@ yaml::
     title = Contenu du fichier path::``src/poor-lonesome-cowboy/about.yaml``
     ---
 
-    toc:
-        - rantanplan.sty
-        - lucky.sty
+    agregate:
+      - rantanplan.sty
+      - lucky.sty
 
 
 Le code précédent sert à considérer le fichier path::``rantanplan.sty`` avant path::``lucky.sty`` sans tenir compte de l'ordre naturel, ce dernier étant celui retenu si aucun fichier path::``about.yaml`` n'est utilisé.

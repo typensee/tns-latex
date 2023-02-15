@@ -1,26 +1,22 @@
 this::
-    date = 2022-11-10
+    date = 2023-02-15
 
 
 =====================================
 En plus pour les packages agrégateurs
 =====================================
 
-Dans le fichier path::``about.yaml``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc yaml::``toc`` sous forme d'une liste.
+Dans le fichier path::``about.yaml``, en plus des informations générales propres à tout package, il faut indiquer les noms de chaque package importé dans le bloc yaml::``agregate`` sous forme d'une liste.
 
 yaml::
-    general:
-        agregate: yes
-    //     ... etc. Voir la section précédente.
-
-    toc:
-        - tnsfictif_1
-        - tnsfictif_3
-        - tnsfictif_2
+    agregate:
+      - tnsfictif_1
+      - tnsfictif_3
+      - tnsfictif_2
 
 
 info::
-    L'ordre utilisé dans le bloc yaml::``toc`` sera celui retenu pour produire ¨auto^t la ¨doc.
+    L'ordre utilisé dans le bloc yaml::``agregate`` sera celui retenu pour produire ¨auto^t la ¨doc.
 
 
 warning::

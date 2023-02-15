@@ -1,13 +1,13 @@
 this::
-    date = 2022-11-11
+    date = 2023-02-15
 
 
 =================================
 Polices de caractères... ou pas !
 =================================
 
-Comme le choix de polices de caractères est affaire de goût, la gestion de polices particulières se fait via des packages dédiés non chargés ¨auto^t par les packages "agrégateurs".
-Ce sera donc à l'utilisateur de demander explicitement l'utilisation de ces packages très particuliers.
+Comme le choix de polices de caractères est affaire de goût, la gestion de polices particulières se fait via des options de packages dédiées.
+Par défaut, rien de particulier ne sera fait.
 
 
 info::

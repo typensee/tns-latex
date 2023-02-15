@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 =====================
@@ -30,12 +30,12 @@ warning::
 
 Voici un exemple possible de ¨chgts ; ceci va nous donner l'occasion d'expliquer quelques points importants.
 
-latex::
-    \begin{doctopic}{Un court changement}
+
+    \begin{doctopic}[Un court changement]
         ajout de \docmacro{unemacro}.
     \end{doctopic}
 
-    \begin{doctopic}{Plusieurs changements}[t]
+    \begin{doctopic}<Plusieurs changements>
         \begin{itemize}
             \item Modification de \docmacro{uneautremacro}.
             \item Création de \docenv{unenv}.
@@ -47,15 +47,12 @@ Voici ce qu'il faut absolument savoir.
 
     1) Le numéro de version n'est pas indiqué puisque cette ¨info est connue via les ¨chgts ¨techs.
 
-    1) Un ¨chgt court se tape directement via l'¨env latex::``\begin{doctopic} ... \end{doctopic}`` qui prend en argument un titre court et dont le contenu détaille les nouveautés.
+    1) Un ¨chgt court se tape directement via ``\begin{doctopic}[...] ... \end{doctopic}`` qui prend en argument un titre court entre des crochets, et dont le contenu détaille les nouveautés.
 
-    1) Pour des ¨chgts plus longs il suffit d'utiliser l'option latex::``t``
-    ((
-        latex::``t`` est pour "[t]itre".
-    ))
-    de l'¨env latex::``\begin{doctopic} ... \end{doctopic}``.
+    1) Pour des ¨chgts plus longs il suffit d'utiliser ``\begin{doctopic}<...> ... \end{doctopic}`` en plaçant le titre entre des chevrons, et non des crochets.
+    Ici un retour à la ligne est fait ¨auto^t.
 
-    1) Les macros latex::``\docmacro`` et latex::``\docenv`` permettent d'indiquer ¨resp des macros, et des ¨envs.
+    1) Les macros ``\docmacro`` et ``\docenv`` permettent d'indiquer ¨resp des macros, et des ¨envs.
 
 
 info::

@@ -18,7 +18,7 @@ qui rend possible l'automatisation de certaines tâches
 Voici deux exemples fictifs où tnsdoc::``@ #1 in  ["a", "b", "c"]`` indique une contrainte ``@``-propos d'un argument.
 
 
-latex::
+latex3::
     %%%
     % prototype::
     %     #1 : this setting argument is for...
