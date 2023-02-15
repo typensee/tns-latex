@@ -22,11 +22,11 @@ latex3::
     }
         \arg[in = f, sf, i] Voir la fiche technique de \docmacro{pder} juste avant.
 
-        \arg Les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
+        \arg[svby = |] Les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
 
         \arg L'ordre total de dérivation.
     \end{idmacro}
 
 
 warning::
-    Bien entendu, l'ordre de declaration des ¨args via ``\arg`` correspond à celui d'utilisation de la macro, ou de l'¨env.
+    Bien entendu, l'ordre de déclaration des ¨args via ``\arg`` correspond à celui d'utilisation de la macro, ou de l'¨env.
