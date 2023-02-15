@@ -6,9 +6,9 @@ this::
 Pour tous les packages
 ======================
 
-Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.yaml`` ayant le contenu minimal suivant où la déclaration yaml::``scope: tnslatex`` identifie bien entendu les packages de la suite ¨tnslatex
+Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.yaml`` ayant le contenu minimal suivant où la déclaration yaml::``scope: tnslatex`` identifie bien entendu les packages de la suite ¨tnstex
 ((
-    Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnslatex.
+    Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnstex.
 )).
 Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la ¨doc "utilisateur" rédigée par le codeur lors du ¨dev, soit ici le français
 ((

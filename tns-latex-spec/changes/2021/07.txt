@@ -105,7 +105,7 @@ Metainfos: the ¨specs are clearer now.
 [[:api:]]
 New ¨specs.
 
-    1) A ¨latex package of the ¨tnslatex series is indicated via peuf::``tnslatex = yes`` in the block peuf::``gene::...`` of the file path::``about.peuf``.
+    1) A ¨latex package of the ¨tnstex series is indicated via peuf::``tnslatex = yes`` in the block peuf::``gene::...`` of the file path::``about.peuf``.
 
     1) Files and folders with a name respecting the pattern path::``x-...-x`` are ignored.
 

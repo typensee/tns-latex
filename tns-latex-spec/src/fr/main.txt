@@ -1,6 +1,6 @@
 ﻿this::
     title   = Spécifications des packages ¨latex3 et ¨lualatex
-              de la suite ¨tnslatex
+              de la suite ¨tnstex
     author  = Christophe, BAL
     mail    = projetmbc@gmail.com
 
@@ -11,8 +11,8 @@
 
 
 abrev::
-    tns      = Type And See
-    tnslatex = ¨tns pour ¨latex
+    tns    = Type And See
+    tnstex = ¨tns pour ¨latex
 
     content = content
 

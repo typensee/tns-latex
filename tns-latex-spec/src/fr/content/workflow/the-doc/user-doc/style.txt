@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-02-15
 
 
 ================
@@ -20,7 +20,4 @@ Les choix retenus, et assumés, sont les suivants.
     * Une ¨doc séparée, et aride, donne toutes les signatures détaillées, et expliquées, des macros et des environnements.
     C'est très utile pour l'usage au jour le jour lorsque, ponctuellement, on ne sait plus trop comment s'utilise un ¨env, ou une macro.
 
-    * Enfin, chaque package propose un fichier ¨json avec juste les signatures des macros et des environnements. Un tel fichier est facilement exploitable par des outils externes
-    ((
-        Par exemple, ces fichiers ¨json permettent de vérifier la non redondance de noms de macros, ¨et ou d'¨envs dans l'ensemble du projet ¨tnslatex.
-    )).
+    * Enfin, chaque package propose un fichier ¨yaml avec juste les signatures des macros et des ¨envs : ces ¨infos permettent de vérifier la non redondance des noms des macros et des ¨envs dans l'¨ens du projet ¨tnstex.
