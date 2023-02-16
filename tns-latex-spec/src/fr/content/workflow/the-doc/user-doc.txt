@@ -29,4 +29,5 @@ content::
     ¨content/section.txt
     ¨content/use-case.txt
     ¨content/macro-n-env.txt
+    ¨content/refs.txt
     ¨content/extra-tools.txt
