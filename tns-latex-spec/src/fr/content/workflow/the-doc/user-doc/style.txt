@@ -1,5 +1,5 @@
 this::
-    date = 2023-02-15
+    date = 2023-02-22
 
 
 ================
@@ -8,16 +8,18 @@ Style de la ¨doc
 
 La ¨doc ne suit pas les méthodologies dominantes proposées par ¨latex
 ((
-    L'auteur ne lancera pas ici de polémique sur l'utilité de la programmation littérale, ou de la rédaction d'une ¨doc qui parle plus à des codeurs qu'à de simples utilisateurs.
+    L'auteur ne lancera pas ici de polémique sur l'utilité de la programmation littéraire, ou de la rédaction d'une ¨doc qui parle plus à des codeurs qu'à de simples utilisateurs.
 )).
 Les choix retenus, et assumés, sont les suivants.
 
     * Les fonctionnalités sont présentées sous forme d'exemples d'utilisation.
 
     * Le code source n'apparait jamais dans la ¨doc destinée à l'utilisateur.
-    Les codeurs affûtés seront analyser les codes sources, et sa ¨doc ¨tech.
+    Les codeurs affûtés sauront analyser les codes sources, et sa ¨doc ¨tech.
 
-    * Une ¨doc séparée, et aride, donne toutes les signatures détaillées, et expliquées, des macros et des environnements.
-    C'est très utile pour l'usage au jour le jour lorsque, ponctuellement, on ne sait plus trop comment s'utilise un ¨env, ou une macro.
+    * Une ¨doc séparée, et aride, donne toutes les signatures détaillées des macros et des environnements avec de courtes explications.
+    C'est très utile lorsque, ponctuellement, on ne sait plus trop comment s'utilise un ¨env, ou une macro.
 
-    * Enfin, chaque package propose un fichier ¨yaml avec juste les signatures des macros et des ¨envs : ces ¨infos permettent de vérifier la non redondance des noms des macros et des ¨envs dans l'¨ens du projet ¨tnstex.
+
+note::
+    Chaque package propose un fichier ¨yaml avec juste les signatures des macros et des ¨envs publiques : ces ¨infos permettent de vérifier la non redondance des noms des macros et des ¨envs dans l'¨ens du projet ¨tnstex.

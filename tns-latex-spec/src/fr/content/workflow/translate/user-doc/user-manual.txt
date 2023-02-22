@@ -6,7 +6,7 @@ this::
 Le manuel d'utilisation
 =======================
 
-La ¨doc "utilisateur" rédigée par le codeur sert de point de départ aux ¨trads. Imaginons que la langue du codeur soit la français
+La ¨doc "utilisateur" rédigée par le codeur sert de point de départ aux ¨trads. Imaginons que la langue du codeur soit le français
 ((
     Ceci s'indique via yaml::``lang: fr`` dans le fichier path::``about.yaml`` du projet.
 )).
