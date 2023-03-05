@@ -1,27 +1,18 @@
 this::
-    date = 2023-02-15
+    date = 2023-03-05
+
+
+abrev::
+    content = :this.name:
 
 
 ========================
 Les arguments des macros
 ========================
 
-Les deux méthodes présentées ci-dessous peuvent être utilisées conjointement si besoin.
+Les méthodes présentées ci-dessous peuvent être utilisées conjointement si besoin.
 
 
---------------------------------------------
-Pour un nombre restreint et fixé d'arguments
---------------------------------------------
-
-On utilise les classiques accolades proposées par ¨latex.
-
-
-----------------------------------------------
-Pour un nombre élevé, ou non borné d'arguments
-----------------------------------------------
-
-Le choix retenu est l'emploi d'un classique argument entre des accolades, mais en utilisant des barres verticales verb::``|``
-((
-    Bien que plus long à taper qu'un simple point-vrigule, ce symbole est peu utilisé, voire pas du tout, dans le monde ¨latex. Ceci permet d'éviter des conflits à moindre coût.
-))
-pour séparer les différents arguments comme dans l'exemple fictif suivant : ``\unemacro{arg1 | arg2 | arg3 | arg4}``, mais aussi ``\unemacro{arg1 | arg2 | arg3 | arg4 | arg5 | arg6 | arg7 | arg8 | arg9 | arg10}``.
+content::
+    ¨content/classical.txt
+    ¨content/illimited.txt

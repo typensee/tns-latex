@@ -1,0 +1,14 @@
+this::
+    date = 2023-03-05
+
+
+===============================================
+Pour un nombre élevé, ou non borné, d'arguments
+===============================================
+
+Le choix retenu est l'emploi d'un classique argument entre des accolades, mais en utilisant des barres verticales latex::``|``
+((
+    Bien que plus long à taper qu'un simple point-vrigule, ce symbole est peu utilisé, voire pas du tout, dans le monde ¨latex. Ceci permet d'éviter des conflits à moindre coût.
+    Par exemple, le choix de latex::``&`` devient problématique si l'on doit travailler avec des tableaux.
+))
+pour séparer les différents arguments comme dans l'exemple fictif suivant : ``\unemacro{arg1 | arg2 | arg3 | arg4}``, mais aussi ``\unemacro{arg1 | arg2 | arg3 | arg4 | arg5 | arg6 | arg7 | arg8 | arg9 | arg10 | arg11 | arg12 | arg13 | arg14 | arg15 | arg16}``.

@@ -1,5 +1,5 @@
 abrev::
-    content = changes
+    content = :this.name:
 
 
 ========================

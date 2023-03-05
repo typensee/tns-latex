@@ -1,12 +1,12 @@
 this::
-    date = 2023-02-15
+    date = 2023-03-05
 
 
 ===================
 Gestion des langues
 ===================
 
-Par défaut, l'anglais et le français sont toujours pris en compte ; le choix de la langue se fait via une option de package du type verb::``lang = fr`` ou verb::``lang = en``.
+Par défaut, l'anglais et le français sont toujours pris en compte, le choix de la langue se faisant via une option de package du type verb::``lang = fr`` ou verb::``lang = en``.
 
 
 info::

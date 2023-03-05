@@ -1,0 +1,43 @@
+
+this::
+    date = 2023-03-05
+
+
+==============================
+Styles de police de caractères
+==============================
+
+La ¨mef par défaut, hors de tout choix spécifique d'une police de caractères, suit les règles suivantes.
+
+    1) **Forme droite via latex::``\mathrm`` :** ceci concerne les objets standards, sauf les ¨enss.
+
+        * Les fonctions réelles ou complexes classiques comme `ln` ou `exp`.
+
+        * Les constantes réelles ou complexes classiques telles que `pi`, `e` ou `i`.
+
+        * Les opérateurs classiques comme une probabilité `Pr(P)`, ou aussi le noyau d'une ¨appli linéaire `ker`.
+
+    1) **Italique via latex::``\mathit`` :* ceci concerne les objets modifiables suivant le contexte, sauf les ¨enss.
+
+        * Les variables dans une formule.
+
+        * Les noms de points, de vecteurs, de suites, de ¨vas... ¨etc.
+
+    1) **Calligraphié via latex::``\mathcal`` :* ceci concerne des ¨enss particuliers.
+
+        * Les ¨enss géométriques telles une droite ou un cercle.
+
+        * Les espaces d'intégration comme `set(L, int, 2)` l'¨ens des fonctions de carré intégrable.
+
+    1) **"Doublement barré" via latex::``\mathbb`` :* ceci concerne des ¨enss classiques.
+
+        * Les ¨enss classiques tels que `RR`et `CC`.
+
+        * Les ¨enss avec une structure algébrique simple tel un groupe `set(grpe, G)`, ou un anneau `set(A, ring)`.
+
+    1) **"À la fraktur" via latex::``\mathfrak`` :* ceci concerne juste opour le moment les ¨algs de Lie.
+
+
+note::
+    Les macros latex::``\mathbf``, pour le gras, latex::``\mathsf``, pour l'absence d'empattement, et latex::``\mathtt``, pour le style "machine à écrire", ne font pas partie de l¨api par défaut
+    même si rien n'empêche de les utiliser ponctuellement : par exemple, il est possible d'employer des vecteurs en gras sans flèche à la sauce anglaise.

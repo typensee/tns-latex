@@ -1,5 +1,5 @@
 abrev::
-    content = files-n-folders
+    content = :this.name:
 
 
 ====================

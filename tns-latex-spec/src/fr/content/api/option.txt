@@ -1,5 +1,5 @@
 this::
-    date = 2021-07-14
+    date = 2023-03-05
 
 
 ===========
@@ -7,3 +7,10 @@ Les options
 ===========
 
 Une option est du type verb::``clé = valeur`` ou verb::``un_booléen``, et plusieurs options sont séparées par des virgules.
+
+
+Afin de faciliter l'usage de fonctionnalités particulières, il pourra être fait usage de délimiteurs "maison", comme latex::``< ... >`` par exemple, en plus du traditionnel latex::``[ ... ]``.
+
+
+warning::
+    Même si cela est possible, il ne sera jamais proposé des délimiteurs identiques à des positions différentes comme dans latex::``\jamaisutilise[before=2]{and 2 for tea}[after=hours]``.

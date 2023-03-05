@@ -3,10 +3,10 @@ this::
 
 
 abrev::
-    content = translate
-
     isolangnorme = cf::``norme ISO 639-1 ;
                          https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1#Liste_des_codes_ISO_639-1/2/3``
+
+    content = :this.name:
 
 
 ==================

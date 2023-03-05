@@ -1,5 +1,5 @@
 abrev::
-    content = api
+    content = :this.name:
 
 
 =====================
@@ -15,5 +15,6 @@ content::
     ¨content/option.txt
     ¨content/redef.txt
     ¨content/lang.txt
+    ¨content/formatting.txt
     ¨content/luanolua.txt
     ¨content/error.txt

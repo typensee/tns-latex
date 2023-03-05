@@ -1,5 +1,5 @@
 abrev::
-    content = metainfos
+    content = :this.name:
 
 
 ========

@@ -1,5 +1,5 @@
 abrev::
-    content = workflow
+    content = :this.name:
 
 
 ================

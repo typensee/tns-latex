@@ -1,5 +1,5 @@
 abrev::
-    content = the-doc
+    content = :this.name:
 
 
 ============

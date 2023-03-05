@@ -1,0 +1,17 @@
+// ---------- //
+
+
+==
+05
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Formatting.
+
+    1) Rules for font shapes added.
+
+    1) For ¨devs, a special ¨api is proposed to allow easy adjustment of the formatting.
