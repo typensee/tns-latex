@@ -1,5 +1,5 @@
 this::
-    date = 2023-02-22
+    date = 2023-03-13
 
 
 ================
@@ -22,4 +22,4 @@ Les choix retenus, et assumés, sont les suivants.
 
 
 note::
-    Chaque package propose un fichier ¨yaml avec juste les signatures des macros et des ¨envs publiques : ces ¨infos permettent de vérifier la non redondance des noms des macros et des ¨envs dans l'¨ens du projet ¨tnstex.
+    Chaque package propose un fichier ¨yaml avec ¨ttes les signatures des macros et des ¨envs publiques : ces ¨infos permettent de vérifier la non redondance des noms des macros et des ¨envs dans l'¨ens du projet ¨tnstex.

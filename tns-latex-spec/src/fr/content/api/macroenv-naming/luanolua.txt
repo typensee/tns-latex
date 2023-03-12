@@ -1,5 +1,5 @@
 this::
-    date = 2023-03-12
+    date = 2023-03-13
 
 
 =====================
@@ -11,7 +11,7 @@ Pour les packages proposant des fonctionnalités codées en ¨lua
     Même si ¨latex3 rend d'énormes services, il y a des moments où utiliser ¨lua augmente la productivité.
 )),
 les principes suivis pour ¨latex3 sont adaptés au cas de ¨lua.
-Pour ces macros et ces ¨envs privés, les conventions de nommage ressemblent à celles suivies majoritairement pour coder en ¨python.
+Pour les macros et les ¨envs privés en ¨lua, les conventions de nommage ressemblent à celles suivies majoritairement pour coder en ¨python.
 
 
 info::
