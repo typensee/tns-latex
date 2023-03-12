@@ -9,12 +9,11 @@ Interface utilisateur
 content::
     ¨content/agregate.txt
     ¨content/packscope.txt
-    ¨content/macroenvname.txt
+    ¨content/macroenv-naming.txt
     ¨content/starnostar.txt
     ¨content/argument.txt
     ¨content/option.txt
     ¨content/redef.txt
     ¨content/lang.txt
     ¨content/formatting.txt
-    ¨content/luanolua.txt
     ¨content/error.txt

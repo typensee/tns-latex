@@ -1,0 +1,12 @@
+abrev::
+    content = :this.name:
+
+
+===================
+Macros et des ¨envs
+===================
+
+content::
+    ¨content/public.txt
+    ¨content/latex3.txt
+    ¨content/luanolua.txt

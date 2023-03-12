@@ -2,6 +2,25 @@
 
 
 ==
+12
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Some important clarifications have been added about the names of macros and ¨envs.
+
+    1) The distinction between the public and the private ¨apis have been explained.
+
+    1) Coding styles for ¨latex3 and ¨lua have been written.
+
+
+// ---------- //
+
+
+==
 05
 ==
 

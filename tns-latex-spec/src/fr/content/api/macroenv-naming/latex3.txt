@@ -1,0 +1,14 @@
+this::
+    date = 2023-03-12
+
+
+========================
+En coulisse avec ¨latex3
+========================
+
+Les macros et les envs sont codés en coulisse en ¨latex3 a minima : ceci signifie que chaque package propose une ¨api publique faisant le lien avec les "fonctions" ¨latex3 qui font réellement le travail en coulisse.
+Pour ces macros et ces ¨envs privés, les conventions de nommage du projet ¨latex3 sont respectées.
+
+
+note::
+    Des macros ou des ¨envs automatisant des tâches ingrates s'appuient toujours sur une presque-jumelle, ou un presque-jumeau, utilisable à la main côté "utilisateur" : ceci permet de palier à d'éventuels manquements ou faiblesses.
