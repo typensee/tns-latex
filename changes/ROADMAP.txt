@@ -12,7 +12,8 @@ to a project distributed to the public through CTAN.
 NOTE
 ----
 
-New features are always tested at least wil l3build. Homemade tests can be added.
+New features are always tested at least with l3build. Homemade tests
+can be added.
 
 
 ----------
@@ -23,7 +24,9 @@ NEXT STEPS
         + Abstraction from the last changes to add!
 
     2) stepcalc & basic logic
-        + New version using \explnext[]<> easy-to-use syntax.
+        + New easy-to-use syntax: \explnext[top to bottom]<bottom to top>,
+          or \explnext[double side] regarding the style (in the second case,
+          the use of a none empty < option > will not be allowed).
 
     3) interval alone
         + Drawing
