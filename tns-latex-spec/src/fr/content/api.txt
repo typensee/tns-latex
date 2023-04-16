@@ -13,7 +13,8 @@ content::
     ¨content/starnostar.txt
     ¨content/argument.txt
     ¨content/option.txt
+    ¨content/local-2-global.txt
     ¨content/redef.txt
     ¨content/lang.txt
     ¨content/formatting.txt
-    ¨content/error.txt
+    ¨content/message.txt

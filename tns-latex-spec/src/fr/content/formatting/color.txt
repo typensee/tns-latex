@@ -1,5 +1,5 @@
 this::
-    date = 2023-03-05
+    date = 2023-04-16
 
 
 ====================
@@ -8,7 +8,7 @@ Couleurs... ou pas !
 
 Par défaut, les fonctionnalités proposées sont toutes faites pour un mode noir-et-blanc
 ((
-    Pensons à l'impresssion de ¨docus.
+    Pensons à l'impression de ¨docus.
 )).
 Il est tout de même possible d'obtenir facilement un rendu coloré
 ((
@@ -18,7 +18,7 @@ Ceci se fait via une option de package demandant d'utiliser l'un des thèmes pro
 
 
 warning::
-    Les versions cololorées et celle noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.
+    Les versions colorées et celle noir-et-blanc peuvent différées dans leur ¨mef : on ne fera pas juste un passage à un niveau de gris car ceci est rarement pertinent pour des ¨docus destinés à être photocopiés.
 
 
 info::
@@ -26,6 +26,6 @@ info::
     ((
         Le but du projet ¨tnscol est de fournir des thèmes utilisables dans différents contextes dont ¨latex, ¨python et ¨html.
         Les thèmes sont "sémantiques" : par exemple, on propose des outils pour mettre en forme un avertissement, et non une couleur nommée "rouge".
-        Ce ¨syst s'appuie à la fois sur la couleur, et sur des ¨decos comme l'emploi de cadre, l'usage de pointillés... ¨etc.
+        Ce ¨syst s'appuie sur la couleur, mais aussi sur des ¨decos comme l'emploi de cadre, l'usage de pointillés... ¨etc.
     )).
     Se reporter à ¨tnscoltex afin de pouvoir employer les styles dans vos propres créations.

@@ -2,32 +2,48 @@
 typensee-latex (monorepo) - ROADMAP
 =========================
 
+This temporary file is a roadmap, in the short term, that accompanies
+the transition from a personal project, intended for my use only, to
+a project distributed to the public through CTAN.
 
-This temporary file is a roadmap, in the short term, setting the course
-for the transition from a personal project, intended for my use only,
-to a project distributed to the public through CTAN.
 
+-----------
+ALWAYS DONE
+-----------
 
-----
-NOTE
-----
+    1) Use of a ¨python script to know if a name (macro/environment/...)
+       is already used by a TeX Live project.
 
-New features are always tested at least with l3build. Homemade tests
-can be added.
+    2) New features are always tested at least with l3build. Home-made
+       tests can be added if necessary.
+
+    3) tnscore
+        + Abstraction from the last changes must be added as soon as
+          possible!
 
 
 ----------
 NEXT STEPS
 ----------
 
-    1) tnscore
-        + Abstraction from the last changes to add!
+    1) stepcalc & basic logic
+        + \then ??? instead of \implies
+          and
+          \when ??? instead of \becauseof
 
-    2) stepcalc & basic logic
-        + New easy-to-use syntax: \explnext[top to bottom]<bottom to top>,
-          or \explnext[double side] regarding the style (in the second case,
-          the use of a none empty < option > will not be allowed).
+        + New easy-to-use syntax, regarding the style:
+          \explnext[top to bottom]<bottom to top>
+          or
+          \explnext[double side]
+          or
+          \explnext<double side>
+          (in a double-side case, the use of the two options will not
+          be allowed).
 
-    3) interval alone
+        + Macro to facilitate the construction of specialized stepcalc
+          environments like an iff environment, or an evaluation one
+          for example.
+
+    2) Interval in a dedicated package
         + Drawing
         + Writing

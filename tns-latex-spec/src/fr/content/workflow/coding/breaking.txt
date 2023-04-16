@@ -1,0 +1,13 @@
+this::
+    date = 2023-04-16
+
+
+==================================
+Gestion des ¨chgts non rétroactifs
+==================================
+
+Les ¨chgts non rétroactifs d'¨api se font sur un cycle de `6` mois durant lequel cohabitent l'ancienne et la ¨nelle ¨api ; ceci laisse le temps à l'utilisateur de mettre à jour ses codes. Une fois ce délai passé, l'ancienne ¨api disparaît à tout jamais.
+
+
+note::
+    Des outils automatisés facilitent ce cycle spécial de développement.

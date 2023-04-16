@@ -1,0 +1,19 @@
+// ---------- //
+
+
+==
+16
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+New features explained.
+
+    1) Local parameters with a global meaning.
+
+    1) Messages: important clarifications added.
+
+    1) Workflow: development cycle of breaking changes explained.

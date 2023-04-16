@@ -1,0 +1,10 @@
+this::
+    date = 2023-04-16
+
+
+==================================
+Gestion des ¨chgts non rétroactifs
+==================================
+
+Lors d'un ¨chgt non rétroactif d'¨api, pour ne pas incommoder l'utilisateur, une période fixe de `6` mois permet la vie conjointe des anciennes et ¨nelles interfaces. Durant cette période, un message d'erreur stoppant la compilation sans la bloquer, et non un simple avertissement, indique à l'utilisateur comment adapter son code.
+Une fois la période passée, un mauvais usage sera traité comme une classique erreur sans plus d'¨infos autre que de se reporter à la ¨doc.
