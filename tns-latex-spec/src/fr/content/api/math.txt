@@ -1,0 +1,11 @@
+abrev::
+    content = :this.name:
+
+
+============================
+Généralités liées aux ¨maths
+============================
+
+content::
+    ¨content/punctuation.txt
+    ¨content/graph-tikz.txt

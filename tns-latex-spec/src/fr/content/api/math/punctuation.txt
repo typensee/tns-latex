@@ -1,0 +1,21 @@
+this::
+    date = 2023-04-17
+
+
+===========================
+La ponctuation mathématique
+===========================
+
+Avant toute chose, il faut absolument savoir que le ¨syst de ponctuation retenu est celui à l'anglaise. Rappelons ce que cela signifie.
+
+    1) Dans une formule n'usant pas d'une macro spécifique, la virgule et le point-virgule seront gérés comme des séparateurs d'¨args.
+
+    1) Pour les ¨nbres décimaux, le package ``numprint``, qui est ¨tjrs importé, permet une gestion efficace au prix d'une saisie un peu plus longue mais consistente
+    ((
+        On suit la règle ``1WT*WD``, ¨cad "one way to type, several ways to display", soit "une seule façon de taper pour différents rendus possibles" en français.
+    )).
+    Pour obtenir `12345.6789012`, il faut saisir ``\nb{12345.6789012}`` où la macro ``\nb`` est fournie par le package ``numprint``.
+
+
+note::
+    Suivant la langue choisie, les macros et environnements fournis par ¨tnstex useront de la ponctuation associée.

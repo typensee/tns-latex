@@ -2,7 +2,34 @@
 
 
 ==
-16
+17  (0.8.0-beta)
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+Illimited number of ¨args: use of comma-separated ¨vals, and possibly semicolon-separated lists of comma-separated ¨vals.
+
+
+-----
+:new:
+-----
+
+[[:api:]]
+New features.
+
+    1) Mathematical punctuations: the English style is used, and the `numprint` package is always imported suach as to write decimal numbers.
+
+    1) ¨tikz pics for ¨tikz graphics.
+
+
+// ---------- //
+
+
+==
+16  (0.7.0-beta)
 ==
 
 -----
@@ -10,7 +37,7 @@
 -----
 
 [[:api:]]
-New features explained.
+New features.
 
     1) Local parameters with a global meaning.
 

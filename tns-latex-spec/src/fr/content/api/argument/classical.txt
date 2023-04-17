@@ -1,9 +1,9 @@
 this::
-    date = 2023-03-05
+    date = 2023-04-17
 
 
-============================================
-Pour un nombre restreint et fixé d'arguments
-============================================
+===========================================
+Avec un ¨nbre restreint et fixé d'arguments
+===========================================
 
 On utilise les classiques accolades proposées par ¨latex.

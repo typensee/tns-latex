@@ -1,0 +1,9 @@
+this::
+    date = 2023-04-17
+
+
+===============================
+Les graphiques à la sauce ¨tikz
+===============================
+
+Certains packages utilisent des graphiques ¨tikz à des fins pédagogiques. Ce type de tracé s'appuie toujours sur l'utilisation de ``\tikzset{pics...}`` afin de permettre à un utilisateur averti d'employer l'un de ces graphiques dans un dessin ¨tikz de son choix.

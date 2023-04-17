@@ -21,7 +21,7 @@ Some important clarifications have been added about the names of macros and ¨en
 
 
 ==
-05
+05  (0.6.0-beta)
 ==
 
 -----
