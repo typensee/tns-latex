@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-17
+    date = 2023-04-19
 
 
 ===========================
@@ -10,12 +10,12 @@ Avant toute chose, il faut absolument savoir que le ¨syst de ponctuation retenu
 
     1) Dans une formule n'usant pas d'une macro spécifique, la virgule et le point-virgule seront gérés comme des séparateurs d'¨args.
 
-    1) Pour les ¨nbres décimaux, le package ``numprint``, qui est ¨tjrs importé, permet une gestion efficace au prix d'une saisie un peu plus longue mais consistente
+    1) Pour les ¨nbres décimaux, importer le package ``sinutix`` permet une gestion efficace au prix d'une saisie un peu plus longue mais consistente
     ((
-        On suit la règle ``1WT*WD``, ¨cad "one way to type, several ways to display", soit "une seule façon de taper pour différents rendus possibles" en français.
+        Ceci suit la règle ``1WT*WD``, ¨cad "one way to type, several ways to display", soit "une seule façon de taper pour différents rendus possibles" en français.
     )).
-    Pour obtenir `12345.6789012`, il faut saisir ``\nb{12345.6789012}`` où la macro ``\nb`` est fournie par le package ``numprint``.
+    Pour obtenir `12345.6789012`, il faut saisir ``\num{12345.6789012}`` où la macro ``\num`` est fournie par le package ``sinutix``.
 
 
 note::
-    Suivant la langue choisie, les macros et environnements fournis par ¨tnstex useront de la ponctuation associée.
+    Suivant la langue choisie, les macros et environnements fournis par ¨tnstex useront de la ponctuation associée lors de la ¨mef.

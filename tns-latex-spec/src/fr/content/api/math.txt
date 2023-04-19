@@ -1,3 +1,7 @@
+this::
+    date = 2023-04-18
+
+
 abrev::
     content = :this.name:
 
@@ -5,6 +9,9 @@ abrev::
 ============================
 Généralités liées aux ¨maths
 ============================
+
+Avant de passer aux règles générales, voyons quelques points très spécifiques aux ¨maths.
+
 
 content::
     ¨content/punctuation.txt

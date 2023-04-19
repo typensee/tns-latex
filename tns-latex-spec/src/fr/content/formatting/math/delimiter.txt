@@ -1,13 +1,10 @@
 this::
-    date = 2023-03-05
+    date = 2023-04-19
 
 
 =================================
 Délimiteurs étirables... ou pas !
 =================================
 
-L'usage de délimiteurs étirables par défaut est restreint aux situations où cela est indispensable comme c'est le cas, par exemple, pour des coordonnées écrites verticalement, ou des matrices.
-
-
-Dans d'autres cas, il est généralement proposé des délimiteurs un peu plus grands, mais non étirables, que ceux fournis par ¨latex.
-Dans ces situations, l'usage d'une version extensible, ou bien au contraire d'une autre réduite au maximum, reste possible via des options.
+Certaines situations nécessitent l'emploi de délimiteurs "étirables" : par exemple, on peut penser à des coordonnées écrites verticalement, ou à des matrices.
+Pour ce type de macros, il sera ¨tjrs laissé la possibilité à l'utilisateur de choisir la taille des délimiteurs via ``big``, ``Big``, ``bigg``, ``Bigg`` de ``amsmath``, une liste complétée avec des tailles intermédiaires pour plus de flexibilité.

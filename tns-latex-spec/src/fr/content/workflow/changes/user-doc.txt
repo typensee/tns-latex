@@ -25,7 +25,7 @@ dirtree::
 
 
 warning::
-    Contrairement à la ¨doc ¨tech, les ¨modifs se tapent jour par jour. Ceci permet notemment de tester la bonne rédaction de l'écriture des ¨chgts pour une date donnée.
+    Contrairement à la ¨doc ¨tech, les ¨modifs se tapent jour par jour. Ceci permet notamment de tester la bonne rédaction de l'écriture des ¨chgts pour une date donnée.
 
 
 Voici un exemple possible de ¨chgts ; ceci va nous donner l'occasion d'expliquer quelques points importants.

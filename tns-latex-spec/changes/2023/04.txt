@@ -2,6 +2,29 @@
 
 
 ==
+19 ????  (0.9.0-beta)
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Changes made.
+
+    1) Mathematical punctuations: explanations about the possible use of ``siuntix'', instead of always importing the ``numprint'' package.
+
+    1) Stretchable delimiters: in some cases, the user can choose local or global variants like ``big`` or ``Big`` from ``amsmath`` instead of ``stretch`` for example.
+
+    1) Breaking changes: a new mechanism for the 6-month transition periods.
+
+    1) Naming: added extracts from the document "The expl3 package and LATEX3 programming" (released 2023-03-30).
+
+
+// ---------- //
+
+
+==
 17  (0.8.0-beta)
 ==
 
@@ -22,7 +45,7 @@ New features.
 
     1) Mathematical punctuations: the English style is used, and the `numprint` package is always imported suach as to write decimal numbers.
 
-    1) ¨tikz pics for ¨tikz graphics.
+    1) ¨tikz graphics: ¨defs of ¨tikz pics for users' custom graphics.
 
 
 // ---------- //
