@@ -18,4 +18,5 @@ content::
     ¨content/redef.txt
     ¨content/lang.txt
     ¨content/formatting.txt
+    ¨content/autotask.txt
     ¨content/message.txt

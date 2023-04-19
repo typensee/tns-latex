@@ -2,7 +2,23 @@
 
 
 ==
-19 ????  (0.9.0-beta)
+19
+==
+
+--------
+:update:
+--------
+
+[[:api:]]
+Automatic tasks and "manual" versions: this is shown in a dedicated section rather than in the ¨latex3 naming section.
+
+
+
+// ---------- //
+
+
+==
+19  (0.9.0-beta)
 ==
 
 --------
