@@ -1,9 +1,0 @@
-this::
-    date = 2023-03-12
-
-
-==================
-Côté "utilisateur"
-==================
-
-Les macros et les ¨envs employés côté "utilisateur", et non ceux fonctionnant en coulisse, ont prioritairement des noms utilisant des minuscules. Ces noms seront de préférence courts, et surtout non cryptiques (la ¨doc devra expliquer les noms utilisés).

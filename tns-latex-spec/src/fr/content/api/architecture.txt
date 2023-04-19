@@ -1,0 +1,11 @@
+abrev::
+    content = :this.name:
+
+
+=====================
+Organisation générale
+=====================
+
+content::
+    ¨content/agregate.txt
+    ¨content/packscope.txt

@@ -8,15 +8,8 @@ Interface utilisateur
 
 content::
     ¨content/math.txt
-    ¨content/agregate.txt
-    ¨content/packscope.txt
-    ¨content/macroenv-naming.txt
-    ¨content/starnostar.txt
-    ¨content/argument.txt
-    ¨content/option.txt
-    ¨content/local-2-global.txt
-    ¨content/redef.txt
+    ¨content/architecture.txt
+    ¨content/macroenv.txt
     ¨content/lang.txt
     ¨content/formatting.txt
-    ¨content/autotask.txt
     ¨content/message.txt

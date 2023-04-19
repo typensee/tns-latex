@@ -13,6 +13,9 @@
 Automatic tasks and "manual" versions: this is shown in a dedicated section rather than in the ¨latex3 naming section.
 
 
+[[:doc:]]
+Better organization of the ¨specs ¨doc.
+
 
 // ---------- //
 
