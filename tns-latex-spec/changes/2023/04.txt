@@ -2,6 +2,21 @@
 
 
 ==
+22  (0.9.1-beta)
+==
+
+-----
+:fix:
+-----
+
+[[:doc:]]
+Naming macros and ¨envs: some files were deleted by mistake during a previous update.
+
+
+// ---------- //
+
+
+==
 21
 ==
 
