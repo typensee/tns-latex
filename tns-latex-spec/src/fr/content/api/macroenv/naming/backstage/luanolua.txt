@@ -1,10 +1,10 @@
 this::
-    date = 2023-03-13
+    date = 2023-04-22
 
 
-=====================
-En coulisse avec ¨lua
-=====================
+=========
+Avec ¨lua
+=========
 
 Pour les packages proposant des fonctionnalités codées en ¨lua
 ((

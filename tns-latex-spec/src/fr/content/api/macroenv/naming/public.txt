@@ -1,9 +1,17 @@
 this::
-    date = 2023-03-12
+    date = 2023-04-22
 
 
 ==================
 Côté "utilisateur"
 ==================
 
-Les macros et les ¨envs employés côté "utilisateur", et non ceux fonctionnant en coulisse, ont prioritairement des noms utilisant des minuscules. Ces noms seront de préférence courts, et surtout non cryptiques (la ¨doc devra expliquer les noms utilisés).
+Les macros et les ¨envs employés côté "utilisateur", et non ceux fonctionnant en coulisse, ont des noms de préférence courts, et surtout non cryptiques
+((
+    La ¨doc devra expliquer les noms proposés.
+)).
+Côté casse de la police de caractères, il y a deux emplois différents.
+
+    1) Pour les macros utilitaires destinées à produire du contenu, ou de la donnée, les noms seront de préférence tout en minuscules.
+
+    1) Les macros de réglage au sens large useront ¨tjrs de la casse en dos de chameau comme par exemple dans ``\SetPackConfig``.

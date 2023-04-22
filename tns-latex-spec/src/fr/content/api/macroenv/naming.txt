@@ -8,5 +8,4 @@ Macros et ¨envs
 
 content::
     ¨content/public.txt
-    ¨content/latex3.txt
-    ¨content/luanolua.txt
+    ¨content/backstage.txt

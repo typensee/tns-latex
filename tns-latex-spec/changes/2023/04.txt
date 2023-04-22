@@ -2,8 +2,16 @@
 
 
 ==
-22  (0.9.1-beta)
+22  (0.10.0-beta)
 ==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+Naming macros and ¨envs: new ¨specs for user adjustment tools via camel case.
+
 
 -----
 :fix:
