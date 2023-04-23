@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-22
+    date = 2023-04-23
 
 
 ==================
@@ -12,6 +12,6 @@ Les macros et les ¨envs employés côté "utilisateur", et non ceux fonctionnan
 )).
 Côté casse de la police de caractères, il y a deux emplois différents.
 
-    1) Pour les macros utilitaires destinées à produire du contenu, ou de la donnée, les noms seront de préférence tout en minuscules.
+    1) Pour les macros utilitaires destinées à produire du contenu, ou de la donnée, les noms seront tout en minuscules à de très rares exceptions prêt.
 
-    1) Les macros de réglage au sens large useront ¨tjrs de la casse en dos de chameau comme par exemple dans ``\SetPackConfig``.
+    1) Les macros de réglages au sens large useront ¨tjrs de la casse en dos de chameau comme dans ``\SetUpTNS`` par exemple.
