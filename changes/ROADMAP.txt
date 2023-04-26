@@ -29,8 +29,8 @@ NEXT STEPS
 ----------
 
     1) Interval in a dedicated package
-        + Drawing
         + Writing
+        + Drawing
 
     2) stepcalc & basic logic
         + \then ??? instead of \implies

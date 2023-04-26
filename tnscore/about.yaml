@@ -1,0 +1,32 @@
+# Presentation of the project : talking between human beings.
+general:
+    project : tnscore
+    # acronym : ?
+    desc    : >
+      This project...
+    author  : Christophe BAL
+    doclang : fr
+    licence : gnu 3
+    need    :
+        - latex2e
+        # - luatex
+
+
+
+# A tree-like organization of the keywords related to this project.
+# keywords:
+#   last-change: 2023-01-05
+
+#   techology:
+#     project:
+#       python:
+#         - jinja2
+
+#     usage:
+#       - latex
+#       - html [javascript]
+
+
+#   context:
+#     writing:
+#       - template
