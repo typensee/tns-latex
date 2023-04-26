@@ -12,7 +12,7 @@ Afin de laisser le temps à l'utilisateur de mettre à jour ses ¨docus, les ¨c
 
     1) Des messages d'erreur ou d'avertissement sont employés pour informer l'utilisateur de la nécessité de faire évoluer son code.
 
-    1) Une fois le délai de `6` mois passé, l'ancienne ¨api n'est plus disponible, et les anciens codes seront retirés dès la prochaine version.
+    1) Une fois le délai de `6` mois passé, l'ancienne ¨api n'est plus disponible et les anciens codes seront retirés dès la prochaine version.
 
 
 note::

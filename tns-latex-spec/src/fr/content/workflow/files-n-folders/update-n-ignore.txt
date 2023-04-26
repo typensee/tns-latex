@@ -8,7 +8,7 @@ this::
 
 Les outils ¨autos s'appuient sur ¨git pour faire des mises à jours ciblées
 ((
-    Par exemple, un package agrégateur ne sera mis à jour que si l'un des packages qu'il importe a changé de version, et non de code source.
+    Par exemple, un package agrégateur ne sera mis à jour que si l'un des packages qu'il importe a changé de version et non de code source.
 )).
 C'est l'une des raisons qui fait que l'ensemble du projet ¨tnstex est géré comme un unique dépôt ¨git
 ((

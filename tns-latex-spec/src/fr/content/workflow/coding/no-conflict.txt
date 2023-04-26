@@ -18,6 +18,6 @@ Ceci permet à des outils extérieurs de vérifier qu'il n'y a pas de conflits d
 
 
 info::
-    Le choix de ne pas analyser les codes sources évite de gérer de grosses subtilités liées à l'utilisation de fonctions du type verb::``csname`` en coulisse, et aussi à la verbosité efficace du codage en ¨latex3.
+    Le choix de ne pas analyser les codes sources évite de gérer de grosses subtilités liées à l'utilisation de fonctions du type verb::``csname`` en coulisse et aussi à la verbosité efficace du codage en ¨latex3.
     C'est donc au codeur d'exposer l'¨API tout en laissant une totale liberté de codage en coulisse.
     Vive le pragmatisme !

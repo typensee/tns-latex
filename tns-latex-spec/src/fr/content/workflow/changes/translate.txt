@@ -9,7 +9,7 @@ Pour les ¨trads
 La syntaxe est la même que celle des ¨chgts ¨techs vue dans la section cf::``tech-doc.txt``. On pourrait ainsi avoir les fichiers suivants gérés uniquement par le codeur du package.
 
 dirtree::
-    + tnsfictif
+    + tnsfictive
         + changes [...]
         + contribute
             + api

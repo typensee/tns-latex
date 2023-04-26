@@ -6,7 +6,7 @@ this::
 Côté "utilisateur"
 ==================
 
-Les macros et les ¨envs employés côté "utilisateur", et non ceux fonctionnant en coulisse, ont des noms de préférence courts, et surtout non cryptiques
+Les macros et les ¨envs employés côté "utilisateur" et non ceux fonctionnant en coulisse, ont des noms de préférence courts et surtout non cryptiques
 ((
     La ¨doc devra expliquer les noms proposés.
 )).

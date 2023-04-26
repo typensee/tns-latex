@@ -20,4 +20,4 @@ Au cas par cas, ceci peut ête complété par les deux techniques suivantes
 
 info::
     Les tests sont implémentés au plus proche, ¨cad pour chaque bout de code afin de faciliter d'éventuels déboguages.
-    Des outils se chargent ensuite d'intégrer ces tests dans un test d'intégration pour chaque package non agrégateur, et enfin d'autres pour ceux agrégateurs (c'est du test d'intégration d'une certaine façon).
+    Des outils se chargent ensuite d'intégrer ces tests dans un test d'intégration pour chaque package non agrégateur et enfin d'autres pour ceux agrégateurs (c'est du test d'intégration d'une certaine façon).

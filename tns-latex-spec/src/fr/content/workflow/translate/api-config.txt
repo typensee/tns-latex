@@ -20,7 +20,7 @@ dirtree::
 De façon automatisée, un dossier path::``contribute/api/locale/fr/main``, comme ci-dessous, contiendra la dernière version des ¨trads utiles au fonctionnement du package ¨bdoc.
 
 dirtree::
-    + tnsfictif
+    + tnsfictive
         + contribute
             + api
                 + locale
@@ -42,4 +42,4 @@ verb::
 
 
 warning::
-    Les identifiants comme verb::``code_after_output`` et verb::``output_after_code`` sont de la responsabilité du codeur, et non de celle du traducteur.
+    Les identifiants comme verb::``code_after_output`` et verb::``output_after_code`` sont de la responsabilité du codeur et non de celle du traducteur.

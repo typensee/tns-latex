@@ -10,9 +10,9 @@ Dans le fichier path::``about.yaml``, en plus des informations générales propr
 
 yaml::
     agregate:
-      - tnsfictif_1
-      - tnsfictif_3
-      - tnsfictif_2
+      - tnsfictive_1
+      - tnsfictive_3
+      - tnsfictive_2
 
 
 info::

@@ -9,9 +9,9 @@ Sections, comment s'y prendre ?
 On doit toujours indiquer les ¨infos ¨techs dans une section **juste après** celle donnant la ¨doc directement à destination de l'utilisateur.
 Pour se faire, il suffit d'utiliser le titre "magique" ``:techsign:``.
 Lors de la ¨prod de la ¨doc au complet, un ¨pdf dédié contiendra toutes les fiches ¨techs.
-Voici un exemple où est ajouté, en commentaires, l'évolution de la pile des sections mémorisées, et utilisées en coulisse pour nommer les sections des fiches ¨techs.
+Voici un exemple où est ajouté, en commentaires, l'évolution de la pile des sections mémorisées et utilisées en coulisse pour nommer les sections des fiches ¨techs.
 
-latex3::
+latex::
     % SEC désigne la pile des niveaux et des titres des sections.
     %
     % SEC = []
@@ -53,7 +53,7 @@ latex3::
 
 Pour les signatures des macros et des ¨envs, les sections doivent respecter les règles suivantes.
 
-    1) Placer dans un même fichier la ¨doc "humaine", et celle ¨tech relative.
+    1) Placer dans un même fichier la ¨doc "humaine" et celle ¨tech relative.
 
     1) Utiliser le même niveau de profondeur que la section documentant les macros et les ¨envs.
 
@@ -63,7 +63,7 @@ Pour les signatures des macros et des ¨envs, les sections doivent respecter les
 info::
     Un titre de section peut être codé sur deux lignes au maximum. Ceci peut être utile comme le montre l'exemple suivant où la macro ``\texorpdfstring`` permet d'indiquer un titre spécifiquement pour la ¨tdm d'un ¨pdf.
 
-    latex3::
+    latex::
         \section{\texorpdfstring{Les opérateurs $\partial$ et $d$}%
                                 {Les opérateurs "d rond" et "d droit"}}
 

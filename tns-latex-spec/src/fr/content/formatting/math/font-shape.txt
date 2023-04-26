@@ -38,4 +38,4 @@ La ¨mef par défaut, hors de tout choix spécifique d'une police de caractères
 
 
 note::
-    Les macros latex::``\mathbf``, pour le gras, latex::``\mathsf``, pour l'absence d'empattement, et latex::``\mathtt``, pour le style "machine à écrire", ne font pas partie de l¨api par défaut même si rien n'empêche de les utiliser ponctuellement : par exemple, il est possible d'employer des vecteurs en gras sans flèche à la sauce anglaise.
+    Les macros latex::``\mathbf``, pour le gras, latex::``\mathsf``, pour l'absence d'empattement et latex::``\mathtt``, pour le style "machine à écrire", ne font pas partie de l¨api par défaut même si rien n'empêche de les utiliser ponctuellement : par exemple, il est possible d'employer des vecteurs en gras sans flèche à la sauce anglaise.

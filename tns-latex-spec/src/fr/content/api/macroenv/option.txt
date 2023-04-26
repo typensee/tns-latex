@@ -6,7 +6,7 @@ this::
 Les options
 ===========
 
-Une option est du type verb::``clé = valeur`` ou verb::``un_booléen``, et plusieurs options sont séparées par des virgules.
+Une option est du type verb::``clé = valeur`` ou verb::``un_booléen`` et plusieurs options sont séparées par des virgules.
 
 
 Afin de faciliter l'usage de fonctionnalités particulières, il pourra être fait usage de délimiteurs "maison", comme latex::``< ... >`` par exemple, en plus du traditionnel latex::``[ ... ]``

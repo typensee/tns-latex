@@ -7,10 +7,10 @@ Un exemple comme fil rouge
 ==========================
 
 L'automatisation se fait en respectant un style de codage et une organisation des dossiers et des fichiers.
-Pour la suite, nous allons travailler avec l'exemple suivant d'un package fictif nommé ``tnsfictif``.
+Pour la suite, nous allons travailler avec l'exemple suivant d'un package fictif nommé ``tnsfictive``.
 
 dirtree::
-    + tnsfictif
+    + tnsfictive
         * about.yaml
         + src
             * about.yaml
@@ -56,5 +56,5 @@ Voici des choses importantes à connaître et respecter.
 
 
 warning::
-    Le dossier path::``tnsfictif`` ne peut pas contenir un sous-dossier path::``tnsfictif`` où seront codées des fonctionnalités.
-    Cela vient tout simplement du fait que le projet finale sera créé automatiqument dans le sous-dossier path::``tnsfictif/tnsfictif``.
+    Le dossier path::``tnsfictive`` ne peut pas contenir un sous-dossier path::``tnsfictive`` où seront codées des fonctionnalités.
+    Cela vient tout simplement du fait que le projet final sera créé automatiqument dans le sous-dossier path::``tnsfictive/tnsfictive``.

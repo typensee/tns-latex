@@ -8,7 +8,7 @@ Des outils spécifiques à la ¨doc "humaine"
 
 Considérons comme exemple le code source de ¨bdoc qui contient le fichier path::``listing.tex`` dont le contenu possède la structure suivante avec une section spéciale ``% == EXTRAS == %``.
 
-latex3::
+latex::
     \documentclass[12pt,a4paper]{article}
 
     % ....

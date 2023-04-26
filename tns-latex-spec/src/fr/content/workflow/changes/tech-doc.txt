@@ -6,10 +6,10 @@ this::
 Pour les codeurs
 ================
 
-Les ¨chgts de la ¨doc en anglais s'indiquent dans des fichiers de type path::``TXT`` organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé, et pour chaque mois un fichier bien nommé lui aussi.
+Les ¨chgts de la ¨doc en anglais s'indiquent dans des fichiers de type path::``TXT`` organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé et pour chaque mois un fichier bien nommé lui aussi.
 
 dirtree::
-    + tnsfictif
+    + tnsfictive
         + changes
             + 2020
                 * 06.txt

@@ -26,6 +26,7 @@ A few little important clarifications have been made.
 
     1) Naming packages: the systematic use of the ``tns`` prefix has been indicated.
 
+    1) Translations: better structures for the contributions.
 
 
 // ---------- //

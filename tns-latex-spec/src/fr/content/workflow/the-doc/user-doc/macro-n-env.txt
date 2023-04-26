@@ -11,7 +11,7 @@ La fiche ¨tech d'un ¨env, ou d'une macro se fait efficacement grâce à ¨macr
     Ceci devrait permettre de mieux mémoriser les noms des ¨envs et des macros proposés.
 )).
 
-latex3::
+latex::
     \begin{idmacro}{
         name  = pderope,
         about = {p-artial, der-ivation, ope-rator}

@@ -7,9 +7,9 @@ Organiser des sections de code
 ==============================
 
 Nous venons de voir que les outils automatisés utilisent des commentaires de type "section à la ¨markdown".
-Il est aussi possible d'utiliser un autre type de sections pour faciliter la maintenance, et la compréhension d'un code comme indiqué ci-dessous.
+Il est aussi possible d'utiliser un autre type de sections pour faciliter la maintenance et la compréhension d'un code comme indiqué ci-dessous.
 
-latex3::
+latex::
     % == TITRE SPÉCIFIQUE POUR L'AUTOMATISATION == %
 
     % ...

@@ -6,10 +6,10 @@ this::
 Structure minimale d'un projet
 ==============================
 
-Voici ce que doit contenir a minima le dossier d'un projet qui pour nous se nommera ``tnsfictif``.
+Voici ce que doit contenir a minima le dossier d'un projet qui pour nous se nommera ``tnsfictive``.
 
 dirtree::
-    + tnsfictif
+    + tnsfictive
         * about.yaml
         + changes     [...]
         + contribute  [...]

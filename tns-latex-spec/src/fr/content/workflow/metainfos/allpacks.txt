@@ -42,9 +42,9 @@ Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de c
 
 Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites ¨auto^t dans le fichier path::``STY`` final.
 
-latex3::
+latex::
     % --------------------------------------------------------- %
-    % - This is file `tnsfictif.sty' generated automatically. - %
+    % - This is file `tnsfictive.sty' generated automatically. - %
     % -                                                       - %
     % - Copyright (C) 2022 by Christophe BAL                  - %
     % -                                                       - %
@@ -54,7 +54,7 @@ latex3::
 
     \NeedsTeXFormat{LaTeX2e}
 
-    \ProvidesExplPackage{tnsfictif}   %
+    \ProvidesExplPackage{tnsfictive}   %
                         {2020-06-01}  % Creation: 2018-05-01
                         {1.2.3}       %
                         {Fictional package for this example.}
