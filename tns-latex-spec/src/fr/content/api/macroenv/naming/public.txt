@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-23
+    date = 2023-04-26
 
 
 ==================
@@ -14,4 +14,12 @@ Côté casse de la police de caractères, il y a deux emplois différents.
 
     1) Pour les macros utilitaires destinées à produire du contenu, ou de la donnée, les noms seront tout en minuscules à de très rares exceptions prêt.
 
-    1) Les macros de réglages au sens large useront ¨tjrs de la casse en dos de chameau comme dans ``\SetUpTNS`` par exemple.
+    1) Les macros de réglage au sens large useront ¨tjrs de la casse en dos de chameau comme dans ``\SetTnsMypack`` où ``mypack`` est un package. Ceci permet de proposer facilement des réglages comme suit où ``agregpack`` agrège des packages dont l'un est ``subpack``.
+
+    latex::
+        \SetTnsAgregpack{
+            subpack = {
+                % Réglages disponibles via \SetTnsSubpack{ ... }
+                % dans ``subpack`` utilisé seul.
+            }
+        }

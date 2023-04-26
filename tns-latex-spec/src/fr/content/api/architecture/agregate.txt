@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-04-26
 
 
 ===========================
@@ -19,3 +19,14 @@ Ce type de packages agrégateurs proposent tous une ¨api répondant aux spécif
     * Côté utilisateur, il est possible de choisir une importation ciblée de certains packages, ¨etou d'en exclure d'autres.
 
     * La ¨doc agrège les ¨docs des différents packages importés afin de proposer toutes les ¨infos au même endroit dans un unique ¨pdf.
+
+
+warning::
+    Afin d'éviter des comportements déroutants, les packages ne seront importables qu'une seule fois.
+    Par exemple, si ``agregpack`` agrège des packages dont l'un est ``subpack``, alors le code suivant renverra une erreur.
+
+    latex::
+        % ...
+        \usepackage{agregpack}
+        \usepackage{subpack}
+        % ...

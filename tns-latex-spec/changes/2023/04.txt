@@ -2,6 +2,33 @@
 
 
 ==
+26  (0.11.0-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Agregating packages: to avoid errors, each package can only be loaded once.
+
+
+--------
+:update:
+--------
+
+[[:api:]]
+
+    1) Naming macros and ¨envs: clarifications added about agregating packages.
+
+    1) ¨tikz graphics: provision of less user-friendly but more general macros.
+
+
+
+// ---------- //
+
+
+==
 22  (0.10.0-beta)
 ==
 
@@ -9,7 +36,7 @@
 :new:
 -----
 
-[[:doc:]]
+[[:api:]]
 Naming macros and ¨envs: new ¨specs for user adjustment tools via camel case.
 
 
