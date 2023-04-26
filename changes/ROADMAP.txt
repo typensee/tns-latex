@@ -7,6 +7,7 @@ the transition from a personal project, intended for my use only, to
 a project distributed to the public through CTAN.
 
 
+
 -----------
 ALWAYS DONE
 -----------
@@ -22,11 +23,16 @@ ALWAYS DONE
           possible!
 
 
+
 ----------
 NEXT STEPS
 ----------
 
-    1) stepcalc & basic logic
+    1) Interval in a dedicated package
+        + Drawing
+        + Writing
+
+    2) stepcalc & basic logic
         + \then ??? instead of \implies
           and
           \when ??? instead of \becauseof
@@ -43,7 +49,3 @@ NEXT STEPS
         + Macro to facilitate the construction of specialized stepcalc
           environments like an iff environment, or an evaluation one
           for example.
-
-    2) Interval in a dedicated package
-        + Drawing
-        + Writing

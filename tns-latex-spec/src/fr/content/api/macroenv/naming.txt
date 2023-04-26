@@ -2,10 +2,10 @@ abrev::
     content = :this.name:
 
 
-===============
-Macros et ¨envs
-===============
+=============
+Noms utilisés
+=============
 
 content::
-    ¨content/public.txt
-    ¨content/backstage.txt
+    ¨content/packages.txt
+    ¨content/macros-envs.txt

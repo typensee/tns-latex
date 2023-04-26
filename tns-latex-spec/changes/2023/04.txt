@@ -18,10 +18,13 @@ Agregating packages: to avoid errors, each package can only be loaded once.
 --------
 
 [[:api:]]
+A few little important clarifications have been made.
+
+    1) ¨tikz graphics: provision of less user-friendly but more general macros.
 
     1) Naming macros and ¨envs: clarifications added about agregating packages.
 
-    1) ¨tikz graphics: provision of less user-friendly but more general macros.
+    1) Naming packages: the systematic use of the ``tns`` prefix has been indicated.
 
 
 
