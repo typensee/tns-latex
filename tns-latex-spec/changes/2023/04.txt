@@ -2,7 +2,7 @@
 
 
 ==
-28  (0.12.0-beta)
+29  (0.12.0-beta)
 ==
 
 -----
@@ -15,6 +15,10 @@ Core tools.
     1) A section explains the use of core ¨tnstex packages.
 
     1) How to document private tools in the user ¨doc.
+
+
+[[:doc:]]
+¨Specs for the path::``intro/intro.tex`` file.
 
 
 // ---------- //

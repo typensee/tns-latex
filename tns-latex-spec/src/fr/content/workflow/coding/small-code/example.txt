@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-04-29
 
 
 ==========================
@@ -34,6 +34,8 @@ dirtree::
 Voici des choses importantes à connaître et respecter.
 
     1) Le ¨dev "morceau par morceau" se fait dans le sous-dossier path::``src``.
+
+    1) The file path::``intro/intro.tex`` quickly explains the scope of the package.
 
     1) Chaque fichier path::``STY`` codant un morceau du package doit se trouver dans un sous-dossier de profondeur `1` de path::``src``.
     Bien noter que l'on travaille directement dans un sous-dossier sans passer via des sous-sous-dossiers contenant le fichier path::``STY``.
