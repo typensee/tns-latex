@@ -1,5 +1,5 @@
 this::
-    date = 2023-03-13
+    date = 2023-04-28
 
 
 ================
@@ -14,8 +14,7 @@ Les choix retenus et assumés, sont les suivants.
 
     * Les fonctionnalités sont présentées sous forme d'exemples d'utilisation.
 
-    * Le code source n'apparait jamais dans la ¨doc destinée à l'utilisateur.
-    Les codeurs affûtés sauront analyser les codes sources et sa ¨doc ¨tech.
+    * Le code source n'apparaît jamais dans la ¨doc destinée à l'utilisateur : les codeurs affûtés sauront analyser les codes sources et sa ¨doc ¨tech.
 
     * Une ¨doc séparée et aride, donne toutes les signatures détaillées des macros et des environnements avec de courtes explications.
     C'est très utile lorsque, ponctuellement, on ne sait plus trop comment s'utilise un ¨env, ou une macro.

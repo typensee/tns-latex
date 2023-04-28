@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-04-28
 
 
 ==========
@@ -15,23 +15,23 @@ qui rend possible l'automatisation de certaines tâches
 ((
     Plus tard, des ¨docs ¨html et ¨pdf seront produites de façon automatisée via ¨tnsdoc.
 )).
-Voici deux exemples fictifs où tnsdoc::``@ #1 in  ["a", "b", "c"]`` indique une contrainte ``@``-propos d'un argument.
+Voici deux exemples fictifs où tnsdoc::``@ #1 in  ["a", "b", "c"]`` indique une contrainte ``@``-propos d'un argument : ici l'argument doit valoir ``a``, ``b`` ou ``c``.
 
 
 latex::
-    %%%
-    % prototype::
-    %     #1 : this setting argument is for...
-    %        @ #1 in  ["a", "b", "c"]
-    %
-    % This environment prints...
-    %%%
-
-
     %%%
     % prototype::
     %     #1 : name of the function
     %     #2 : name of the variable
     %
     % This macro produces...
+    %%%
+
+
+    %%%
+    % prototype::
+    %     #1 : this setting argument is for...
+    %        @ #1 in  ["a", "b", "c"]
+    %
+    % This environment prints...
     %%%

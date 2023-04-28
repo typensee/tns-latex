@@ -6,9 +6,9 @@ this::
 Packages communs utilisés
 =========================
 
-Les fonctionnalités communes aux outils de la suite ¨tnstex sont regroupés dans les packages suivants.
+Les fonctionnalités communes à plusieurs outils de la suite ¨tnstex sont regroupées dans les packages suivants.
 
-    1) ¨tnscore propose des outils de mises en forme.
+    1) ¨tnscore propose des outils d'aide à la ¨mef.
 
     1) ¨tnscolor permet de gérer l'utilisation de couleurs, ou non.
 

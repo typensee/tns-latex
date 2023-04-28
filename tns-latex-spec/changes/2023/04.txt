@@ -10,7 +10,11 @@
 -----
 
 [[:api:]]
-Core tools: one section explains the use of core ¨tnstex packages.
+Core tools.
+
+    1) A section explains the use of core ¨tnstex packages.
+
+    1) How to document private tools in the user ¨doc.
 
 
 // ---------- //
