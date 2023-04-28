@@ -1,5 +1,5 @@
-Contribute to the documentation of `tns{package}`
-=================================================
+Contribute to the documentation of `tnscore`
+============================================
 
 > **I beg your pardon for my english...**
 >
@@ -31,7 +31,7 @@ The translations made are in the `contribute/doc` folder which has the following
 Start a new translation
 -----------------------
 
-As the author of `tns{package}` is a French amateur coder, the documentation is only actively maintained in French. Here is how to translate it.
+As the author of `tnscore` is a French amateur coder, the documentation is only actively maintained in French. Here is how to translate it.
 
   1. The user manual translations are made inside the folder `contribute/doc/user/manual`, where as the ones about changes log for the users are done inside `contribute/doc/user/changelog`.
 
@@ -41,7 +41,7 @@ As the author of `tns{package}` is a French amateur coder, the documentation is 
 
   1. Translate the files without touching the structure used.
 
-  1. Once the work is well advanced, or even finished, send it to the author of `tns{package}`.
+  1. Once the work is well advanced, or even finished, send it to the author of `tnscore`.
 
 
 > The documentation will necessarily be licensed under a *"Creative Commons - Attribution - Non-Commercial - Share Alike 4.0 International"* license.

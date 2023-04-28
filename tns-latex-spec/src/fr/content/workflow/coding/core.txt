@@ -1,0 +1,17 @@
+this::
+    date = 2023-04-28
+
+
+=========================
+Packages communs utilisés
+=========================
+
+Les fonctionnalités communes aux outils de la suite ¨tnstex sont regroupés dans les packages suivants.
+
+    1) ¨tnscore propose des outils de mises en forme.
+
+    1) ¨tnscolor permet de gérer l'utilisation de couleurs, ou non.
+
+
+note::
+    Les outils publiques proposent une interface ¨latex, et ceux privés sont ¨tjrs codés en ¨latex3 uniquement.

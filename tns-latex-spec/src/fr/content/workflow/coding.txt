@@ -13,5 +13,6 @@ content::
     ¨content/no-conflict.txt
     ¨content/lang-api.txt
     ¨content/breaking.txt
+    ¨content/core.txt
     ¨content/tools.txt
     ¨content/tests.txt
