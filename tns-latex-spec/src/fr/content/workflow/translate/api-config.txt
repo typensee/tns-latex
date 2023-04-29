@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-04-29
 
 
 =====================================
@@ -32,8 +32,8 @@ dirtree::
         + [...]
 
 
-Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``, où ``de`` vient du codage de la ¨isolangnorme..
-Le processs de ¨trad est simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
+Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``, où ``de`` vient du codage de la ¨isolangnorme.
+Le processus de ¨trad des mots et des phrases "fixes" est simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
 
 verb::
     ---
@@ -41,5 +41,13 @@ verb::
     ---
 
 
+Pour les phrases "paramétrables", ceci se fait comme suit où les lignes commentées via ``//`` en début de ligne indiquent la signification de chacun des ¨params ``#1``, ``#2``, ... ¨etc.
+
+verb::
+    ---
+    path = :?../bc-tools/for-latex/bdoc/src/main/locale/fr/macros.txt
+    ---
+
+
 warning::
-    Les identifiants comme verb::``code_after_output`` et verb::``output_after_code`` sont de la responsabilité du codeur et non de celle du traducteur.
+    Les identifiants avant les signes ``=`` sont de la responsabilité du codeur et non de celle du traducteur.

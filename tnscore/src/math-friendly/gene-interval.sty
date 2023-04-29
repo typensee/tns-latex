@@ -1,0 +1,39 @@
+% == PACKAGES USED == %
+
+\RequirePackage{relsize}
+
+
+% == DEFINITIONS == %
+
+% Math tools - Intervals and co
+
+\newcommand\tns@extra@vphantom{%
+    \vphantom{\relsize{1.25}{\text{$\displaystyle F_1^2$}}}%
+}
+
+
+% #1 : left symbol
+% #2 : 1st part
+% #3 : 2nd part
+% #4 : 3rd part
+% #5 : right symbol
+\newcommand\tns@generic@interval@semi@ext[5]{%
+    \ensuremath{%
+        \left#1 \tns@extra@vphantom \right. \kern-.25em%
+        #2 #3 #4%
+        \left. \tns@extra@vphantom \kern-.05em \right#5%
+    }%
+}
+
+
+% #1 : left symbol
+% #2 : 1st part
+% #3 : 2nd part
+% #4 : 3rd part
+% #5 : right symbol
+\newcommand\tns@generic@interval@ext[5]{%
+    \ensuremath{%
+        \left#1 #2 #3 #4 \right#5%
+    }%
+}
+
