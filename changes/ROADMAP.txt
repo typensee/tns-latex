@@ -12,15 +12,12 @@ a project distributed to the public through CTAN.
 ALWAYS DONE
 -----------
 
-    1) Use of a ¨python script to know if a name (macro/environment/...)
-       is already used by a TeX Live project.
+    1) Use of a ¨python script to know if a name (macro/environment/...) is already used by a TeX Live project.
 
-    2) New features are always tested at least with l3build. Home-made
-       tests can be added if necessary.
+    2) New features are always tested at least with l3build. Home-made tests can be added if necessary.
 
     3) tnscore
-        + Abstraction from the last changes must be added as soon as
-          possible!
+        + Abstraction from the last changes must be added as soon as possible!
 
 
 
@@ -38,14 +35,13 @@ NEXT STEPS
           \when ??? instead of \becauseof
 
         + New easy-to-use syntax, regarding the style:
-          \explnext[top to bottom]<bottom to top>
+            \explnext[top to bottom]<bottom to top>
           or
-          \explnext[double side]
+            \explnext[top to bottom ALONE]
           or
-          \explnext<double side>
-          (in a double-side case, the use of the two options will not
-          be allowed).
+            \explnext<bottom to top ALONE>
+          or
+            \explnext{double side}
+          (in a double-side case, the use of the first options will not be allowed).
 
-        + Macro to facilitate the construction of specialized stepcalc
-          environments like an iff environment, or an evaluation one
-          for example.
+        + Macro to facilitate the construction of specialized stepcalc environments like an iff environment, or an evaluation one for example. Use of expl3 template!
