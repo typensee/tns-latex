@@ -7,9 +7,9 @@ Interface utilisateur
 =====================
 
 content::
-    ¨content/math.txt
-    ¨content/architecture.txt
-    ¨content/macroenv.txt
-    ¨content/lang.txt
-    ¨content/formatting.txt
-    ¨content/message.txt
+    \content/math.txt
+    \content/architecture.txt
+    \content/macroenv.txt
+    \content/lang.txt
+    \content/formatting.txt
+    \content/message.txt

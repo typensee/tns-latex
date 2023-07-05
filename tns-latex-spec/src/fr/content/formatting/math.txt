@@ -3,9 +3,9 @@ abrev::
 
 
 ======
-¨Maths
+\Maths
 ======
 
 content::
-    ¨content/delimiter.txt
-    ¨content/font-shape.txt
+    \content/delimiter.txt
+    \content/font-shape.txt

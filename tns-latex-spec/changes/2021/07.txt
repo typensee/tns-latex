@@ -27,9 +27,9 @@ Resources: some explications have been added to explain the choice of a so basic
 [[:doc:]]
 Three things have been clarified. Our
 
-    1) About ¨tech ¨doc: we focus on the fact that technical sections must be inside the same human file documentation of the macros and environments of which the signatures are given.
+    1) About \tech \doc: we focus on the fact that technical sections must be inside the same human file documentation of the macros and environments of which the signatures are given.
 
-    1) About human ¨doc: the possibility to write the title of a section on at most two lines has been added.
+    1) About human \doc: the possibility to write the title of a section on at most two lines has been added.
 
     1) Resources: the process used to import extra files has been explained.
 
@@ -46,7 +46,7 @@ Three things have been clarified. Our
 --------
 
 [[:doc:]]
-About ¨tech ¨docs: it has been explained that the method used to find sections is so stupid that it forbids to type the section macros inside verbatim and listing environments.
+About \tech \docs: it has been explained that the method used to find sections is so stupid that it forbids to type the section macros inside verbatim and listing environments.
 
 
 // ---------- //
@@ -80,7 +80,7 @@ Two things have changed.
 --------
 
 [[:doc:]]
-Metainfos: the ¨specs are clearer now.
+Metainfos: the \specs are clearer now.
 
 
 -----
@@ -88,7 +88,7 @@ Metainfos: the ¨specs are clearer now.
 -----
 
 [[:api:]]
-¨latex and/or ¨sty files: clear rules to keep or ignore this files have been added.
+\latex and/or \sty files: clear rules to keep or ignore this files have been added.
 
 
 // ---------- //
@@ -103,9 +103,9 @@ Metainfos: the ¨specs are clearer now.
 ------
 
 [[:api:]]
-New ¨specs.
+New \specs.
 
-    1) A ¨latex package of the ¨tnstex series is indicated via peuf::``tnslatex = yes`` in the block peuf::``gene::...`` of the file path::``about.peuf``.
+    1) A \latex package of the \tnstex series is indicated via peuf::``tnslatex = yes`` in the block peuf::``gene::...`` of the file path::``about.peuf``.
 
     1) Files and folders with a name respecting the pattern path::``x-...-x`` are ignored.
 
@@ -130,13 +130,13 @@ Some minor important corrections and clarifications.
 ------
 
 [[:api:]]
-New ¨specs added.
+New \specs added.
 
     1) The way to define tools has been explained.
 
-    1) Languages: ¨api and rules to name internal translating macros.
+    1) Languages: \api and rules to name internal translating macros.
 
-    1) The file path::``test-one-date.tex`` allows to test the displaying of changes in the user's ¨doc.
+    1) The file path::``test-one-date.tex`` allows to test the displaying of changes in the user's \doc.
 
 
 --------
@@ -148,11 +148,11 @@ Changes made.
 
     1) The folder path::``src`` replaces path::``factory``.
 
-    1) Options use new ¨specs (this is simpler now).
+    1) Options use new \specs (this is simpler now).
 
     1) The file path::``about.peuf`` replaces the previous path::``infos.peuf``.
 
-    1) The two folders path::``change-log`` for the technical ¨doc, and path::``99-major-change-log`` for the user ¨doc have been both renamed path::``changes``.
+    1) The two folders path::``change-log`` for the technical \doc, and path::``99-major-change-log`` for the user \doc have been both renamed path::``changes``.
 
 
 // ---------- //
@@ -167,7 +167,7 @@ Changes made.
 --------
 
 [[:api:]]
-Technical signatures: in the user ¨doc, the more general title verb::``:tech-sign:`` must be used such as to manage easily different languages.
+Technical signatures: in the user \doc, the more general title verb::``:tech-sign:`` must be used such as to manage easily different languages.
 
 
 ------
@@ -175,13 +175,13 @@ Technical signatures: in the user ¨doc, the more general title verb::``:tech-si
 ------
 
 [[:api:]]
-New ¨specs added.
+New \specs added.
 
     1) The case of the options of a package have been added.
 
     1) The support of different languages has been treated.
 
-    1) Completion of the ¨specs for the special sections in the comments.
+    1) Completion of the \specs for the special sections in the comments.
 
     1) Several minor but important clarifications have been made in some sections talking about the coding.
 
@@ -193,4 +193,4 @@ New ¨specs added.
 03  (0.0.0-beta)
 ==
 
-This document will gather all the ¨specs used to develop the suite of tools of ¨tns for ¨latex.
+This document will gather all the \specs used to develop the suite of tools of \tns for \latex.

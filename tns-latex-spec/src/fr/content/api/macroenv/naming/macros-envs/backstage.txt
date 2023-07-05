@@ -7,5 +7,5 @@ En coulisse
 ===========
 
 content::
-    ¨content/latex3.txt
-    ¨content/luanolua.txt
+    \content/latex3.txt
+    \content/luanolua.txt

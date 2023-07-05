@@ -3,9 +3,9 @@ abrev::
 
 
 =======================================
-Organiser un fichier ¨src path::``STY``
+Organiser un fichier \src path::``STY``
 =======================================
 
 content::
-    ¨content/common.txt
-    ¨content/special.txt
+    \content/common.txt
+    \content/special.txt

@@ -1,6 +1,6 @@
 ﻿this::
-    title   = Spécifications des packages ¨latex3 et ¨lualatex
-              de la suite ¨tnstex
+    title   = Spécifications des packages \latex3 et \lualatex
+              de la suite \tnstex
     author  = Christophe, BAL
     mail    = projetmbc@gmail.com
 
@@ -12,14 +12,14 @@
 
 abrev::
     tns    = Type And See
-    tnstex = ¨tns pour ¨latex
+    tnstex = \tns pour \latex
 
     content = content
 
 
 content::
-    ¨content/intro.txt
-    ¨content/monorepo.txt
-    ¨content/api.txt
-    ¨content/workflow.txt
-    ¨content/formatting.txt
+    \content/intro.txt
+    \content/monorepo.txt
+    \content/api.txt
+    \content/workflow.txt
+    \content/formatting.txt

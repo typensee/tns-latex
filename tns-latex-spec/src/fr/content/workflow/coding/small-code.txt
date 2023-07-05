@@ -7,8 +7,8 @@ Coder par petites touches
 =========================
 
 content::
-    ¨content/general.txt
-    ¨content/example.txt
-    ¨content/about-for-dirs.txt
-    ¨content/about-for-files.txt
-    ¨content/files-for-doc.txt
+    \content/general.txt
+    \content/example.txt
+    \content/about-for-dirs.txt
+    \content/about-for-files.txt
+    \content/files-for-doc.txt

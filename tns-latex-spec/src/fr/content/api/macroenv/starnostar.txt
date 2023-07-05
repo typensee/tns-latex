@@ -6,9 +6,9 @@ this::
 Versions étoilées... ou pas !
 =============================
 
-Les macros et les ¨envs étoilés pourront être proposés **très rarement** dans des situations sémantiques très proches, ¨etou avec une ¨api différente
+Les macros et les \envs étoilés pourront être proposés **très rarement** dans des situations sémantiques très proches, \etou avec une \api différente
 ((
-    Le ¨syst de ¨def de macros et d'¨envs via une signature offre tellement de possibilités que l'emploi de versions étoilées devient de moins en moins pertinent.
+    Le \syst de \def de macros et d'\envs via une signature offre tellement de possibilités que l'emploi de versions étoilées devient de moins en moins pertinent.
 )).
 
 

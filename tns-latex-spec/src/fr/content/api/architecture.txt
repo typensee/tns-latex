@@ -7,5 +7,5 @@ Organisation générale
 =====================
 
 content::
-    ¨content/agregate.txt
-    ¨content/packscope.txt
+    \content/agregate.txt
+    \content/packscope.txt

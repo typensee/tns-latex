@@ -3,10 +3,10 @@ this::
 
 
 =====================================
-Langues pour les ¨macros et les ¨envs
+Langues pour les \macros et les \envs
 =====================================
 
-Prenons le cas du package ¨bdoc dont le code source contient le dossier de ¨dev path::``main`` suivant.
+Prenons le cas du package \bdoc dont le code source contient le dossier de \dev path::``main`` suivant.
 
 dirtree::
     + main
@@ -17,7 +17,7 @@ dirtree::
                 * sentences.txt
 
 
-De façon automatisée, un dossier path::``contribute/api/locale/fr/main``, comme ci-dessous, contiendra la dernière version des ¨trads utiles au fonctionnement du package ¨bdoc.
+De façon automatisée, un dossier path::``contribute/api/locale/fr/main``, comme ci-dessous, contiendra la dernière version des \trads utiles au fonctionnement du package \bdoc.
 
 dirtree::
     + tnsfictive
@@ -32,8 +32,8 @@ dirtree::
         + [...]
 
 
-Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``, où ``de`` vient du codage de la ¨isolangnorme.
-Le processus de ¨trad des mots et des phrases "fixes" est simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
+Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``, où ``de`` vient du codage de la \isolangnorme.
+Le processus de \trad des mots et des phrases "fixes" est simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
 
 verb::
     ---
@@ -41,7 +41,7 @@ verb::
     ---
 
 
-Pour les phrases "paramétrables", ceci se fait comme suit où les lignes commentées via ``//`` en début de ligne indiquent la signification de chacun des ¨params ``#1``, ``#2``, ... ¨etc.
+Pour les phrases "paramétrables", ceci se fait comme suit où les lignes commentées via ``//`` en début de ligne indiquent la signification de chacun des \params ``#1``, ``#2``, ... \etc.
 
 verb::
     ---

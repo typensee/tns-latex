@@ -6,8 +6,8 @@ this::
 path::``about.yaml`` pour les fichiers source
 =============================================
 
-Dans chaque dossier ¨src peut être mis un fichier path::``about.yaml`` pour indiquer les fichiers à analyser suivant un ordre imposé.
-Dans cette section, nous allons nous concentrer sur les fichiers path::``STY`` liés au code (nous reviendrons sur les fichiers path::``TEX`` pour la ¨doc "utilisateur" dans la section suivante).
+Dans chaque dossier \src peut être mis un fichier path::``about.yaml`` pour indiquer les fichiers à analyser suivant un ordre imposé.
+Dans cette section, nous allons nous concentrer sur les fichiers path::``STY`` liés au code (nous reviendrons sur les fichiers path::``TEX`` pour la \doc "utilisateur" dans la section suivante).
 Imaginons que l'on ait le code suivant pour notre exemple ficitf.
 
 yaml::

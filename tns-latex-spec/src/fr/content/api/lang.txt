@@ -10,4 +10,4 @@ Par défaut, l'anglais et le français sont toujours pris en compte, le choix de
 
 
 info::
-    La gestion des ¨trads utilise un processus automatisé afin de permettre l'ajout de ¨nlles ¨trads par des non-codeurs.
+    La gestion des \trads utilise un processus automatisé afin de permettre l'ajout de \nlles \trads par des non-codeurs.

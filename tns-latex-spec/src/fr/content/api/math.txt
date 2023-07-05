@@ -7,12 +7,12 @@ abrev::
 
 
 ============================
-Généralités liées aux ¨maths
+Généralités liées aux \maths
 ============================
 
-Avant de passer aux règles générales, voyons quelques points très spécifiques aux ¨maths.
+Avant de passer aux règles générales, voyons quelques points très spécifiques aux \maths.
 
 
 content::
-    ¨content/punctuation.txt
-    ¨content/graph-tikz.txt
+    \content/punctuation.txt
+    \content/graph-tikz.txt

@@ -6,5 +6,5 @@ this::
 Codage des langues
 ==================
 
-Les dossiers avec du contenu traduisible seront nommés en minuscules en suivant la ¨isolangnorme.
-Par exemple, ``fr``, ``en`` et ``es`` servent à indiquer ¨resp du français, de l'anglais et de l'espagnol.
+Les dossiers avec du contenu traduisible seront nommés en minuscules en suivant la \isolangnorme.
+Par exemple, ``fr``, ``en`` et ``es`` servent à indiquer \resp du français, de l'anglais et de l'espagnol.

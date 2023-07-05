@@ -2,17 +2,14 @@
 typensee-latex (monorepo) - ROADMAP
 =========================
 
-This temporary file is a roadmap, in the short term, that accompanies
-the transition from a personal project, intended for my use only, to
-a project distributed to the public through CTAN.
-
+This file is a roadmap, in the short term.
 
 
 -----------
 ALWAYS DONE
 -----------
 
-    1) Use of a ¨python script to know if a name (macro/environment/...) is already used by a TeX Live project.
+    1) Use of a \python script to know if a name (macro/environment/...) is already used by a TeX Live project.
 
     2) New features are always tested at least with l3build. Home-made tests can be added if necessary.
 

@@ -7,5 +7,5 @@ Noms utilisés
 =============
 
 content::
-    ¨content/packages.txt
-    ¨content/macros-envs.txt
+    \content/packages.txt
+    \content/macros-envs.txt

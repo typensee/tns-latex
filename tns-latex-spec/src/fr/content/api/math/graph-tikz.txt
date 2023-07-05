@@ -3,11 +3,11 @@ this::
 
 
 ===============================
-Les graphiques à la sauce ¨tikz
+Les graphiques à la sauce \tikz
 ===============================
 
-Certains packages utilisent des graphiques ¨tikz à des fins pédagogiques. Ceci se fait via les règles suivantes.
+Certains packages utilisent des graphiques \tikz à des fins pédagogiques. Ceci se fait via les règles suivantes.
 
-    1) L'utilisation de ``\tikzset{pics...}`` permet à un utilisateur averti d'employer facilement des graphiques dans un dessin ¨tikz de son choix hors du contexte initial proposé.
+    1) L'utilisation de ``\tikzset{pics...}`` permet à un utilisateur averti d'employer facilement des graphiques dans un dessin \tikz de son choix hors du contexte initial proposé.
 
     1) Des macros moins conviviales, mais plus généralistes, sont proposées pour un usage plus bas niveau.

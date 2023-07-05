@@ -3,10 +3,10 @@ this::
 
 
 ===============
-Pour les ¨trads
+Pour les \trads
 ===============
 
-La syntaxe est la même que celle des ¨chgts ¨techs vue dans la section cf::``tech-doc.txt``. On pourrait ainsi avoir les fichiers suivants gérés uniquement par le codeur du package.
+La syntaxe est la même que celle des \chgts \techs vue dans la section cf::``tech-doc.txt``. On pourrait ainsi avoir les fichiers suivants gérés uniquement par le codeur du package.
 
 dirtree::
     + tnsfictive
@@ -27,7 +27,7 @@ dirtree::
         + [...]
 
 
-Par contre, il est important de n'indiquer que les ¨chgts pertinents pour les ¨trads. Voici des exemples et contre-exemples possibles.
+Par contre, il est important de n'indiquer que les \chgts pertinents pour les \trads. Voici des exemples et contre-exemples possibles.
 
 
 pros::
@@ -35,14 +35,14 @@ pros::
 
         1) Indiquer la révision de l'organisation de certaines sections.
 
-        1) Indiquer que des ¨macros, ou d'¨envs ont changé leur ¨api.
+        1) Indiquer que des \macros, ou d'\envs ont changé leur \api.
 
 
 cons::
     Voici ce qu'il ne faut surtout pas faire.
 
-        1) Indiquer des corrections orthographiques, grammaticales ou stylistiques pour une ¨trad donnée.
+        1) Indiquer des corrections orthographiques, grammaticales ou stylistiques pour une \trad donnée.
 
-        1) Indiquer que des ¨mefs de ¨macros, ou d'¨envs ont changé.
+        1) Indiquer que des \mefs de \macros, ou d'\envs ont changé.
 
-        1) Indiquer la prise en compte d'une ¨nelle langue.
+        1) Indiquer la prise en compte d'une \nelle langue.

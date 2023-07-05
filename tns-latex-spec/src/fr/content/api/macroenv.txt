@@ -3,14 +3,14 @@ abrev::
 
 
 ===============
-Macros et ¨envs
+Macros et \envs
 ===============
 
 content::
-    ¨content/naming.txt
-    ¨content/starnostar.txt
-    ¨content/argument.txt
-    ¨content/option.txt
-    ¨content/local-2-global.txt
-    ¨content/redef.txt
-    ¨content/autotask.txt
+    \content/naming.txt
+    \content/starnostar.txt
+    \content/argument.txt
+    \content/option.txt
+    \content/local-2-global.txt
+    \content/redef.txt
+    \content/autotask.txt

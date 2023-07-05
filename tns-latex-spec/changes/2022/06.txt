@@ -12,11 +12,11 @@
 [[:api:]]
 Workflow: a lot of clarifications and simplifications have been made.
 
-    1) Human ¨doc: the role of the coder has been explicitly documented.
+    1) Human \doc: the role of the coder has been explicitly documented.
 
-    1) Resources: the rules have been simplified a lot to make them ¨kiss like.
+    1) Resources: the rules have been simplified a lot to make them \kiss like.
 
-    1) Translations: the steps needed to translate the ¨doc and the ¨config files have been indicated in a dedicated section.
+    1) Translations: the steps needed to translate the \doc and the \config files have been indicated in a dedicated section.
 
 
 // ---------- //
@@ -31,7 +31,7 @@ Workflow: a lot of clarifications and simplifications have been made.
 ------
 
 [[:api:]]
-Translations of the human ¨doc: the changes can be translated now.
+Translations of the human \doc: the changes can be translated now.
 
 
 // ---------- //
@@ -50,7 +50,7 @@ About the structure of the small projects.
 
     1) The minimal structure of a small project has been added.
 
-    1) The use of a ¨readme file has been documented.
+    1) The use of a \readme file has been documented.
 
 
 -------
@@ -58,11 +58,11 @@ About the structure of the small projects.
 -------
 
 [[:api:]]
-Translations of the human ¨doc.
+Translations of the human \doc.
 
     1) The metainfos in the file path::``about.peuf`` has a new key to indicate the language used by the developper coding the project.
 
-    1) The process for translating the human ¨doc has been siplified.
+    1) The process for translating the human \doc has been siplified.
 
 
 // ---------- //
@@ -77,7 +77,7 @@ Translations of the human ¨doc.
 -----
 
 [[:api:]]
-Files and folders ignored automatically: the support of ¨git ignore files has been added.
+Files and folders ignored automatically: the support of \git ignore files has been added.
 
 
 --------

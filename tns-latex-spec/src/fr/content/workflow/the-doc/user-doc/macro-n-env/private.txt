@@ -6,5 +6,5 @@ this::
 Les outils privés
 =================
 
-La ¨doc "utilisateur" ne doit pas faire référence aux macros et ¨envs privées car ce tyoe d¨info doit être réservé à la ¨doc ¨tech.
-Bien entendu, ceci ne concerne pas les packages réunissant des fonctionnalités communes à plusieurs outils de la suite ¨tnstex voir cf::``?../coding/core.txt``.
+La \doc "utilisateur" ne doit pas faire référence aux macros et \envs privées car ce tyoe d\info doit être réservé à la \doc \tech.
+Bien entendu, ceci ne concerne pas les packages réunissant des fonctionnalités communes à plusieurs outils de la suite \tnstex voir cf::``?../coding/core.txt``.

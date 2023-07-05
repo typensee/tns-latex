@@ -3,10 +3,10 @@ abrev::
 
 
 ============
-¨Doc du code
+\Doc du code
 ============
 
 content::
-    ¨content/3-docs.txt
-    ¨content/tech-doc.txt
-    ¨content/user-doc.txt
+    \content/3-docs.txt
+    \content/tech-doc.txt
+    \content/user-doc.txt

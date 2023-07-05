@@ -6,11 +6,11 @@ this::
 Packages utilisés, options et ensuite le code lui-même
 =======================================================
 
-Tous les codes ¨srcs
+Tous les codes \srcs
 ((
     Nous parlons ici de chaque petit morceau de code.
 ))
-s'appuient sur le modèle suivant pour permettre aux outils automatiques de repérer les packages importés, les options attendues et enfin les macros et ¨envs codés. **L'ordre est imposé !**
+s'appuient sur le modèle suivant pour permettre aux outils automatiques de repérer les packages importés, les options attendues et enfin les macros et \envs codés. **L'ordre est imposé !**
 
 latex::
     % == PACKAGES == %

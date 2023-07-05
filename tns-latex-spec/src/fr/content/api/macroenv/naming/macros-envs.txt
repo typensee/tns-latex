@@ -3,9 +3,9 @@ abrev::
 
 
 ===============
-Macros et ¨envs
+Macros et \envs
 ===============
 
 content::
-    ¨content/public.txt
-    ¨content/backstage.txt
+    \content/public.txt
+    \content/backstage.txt

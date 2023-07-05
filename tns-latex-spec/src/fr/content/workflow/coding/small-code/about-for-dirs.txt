@@ -3,7 +3,7 @@ this::
 
 
 ===============================================
-path::``src/about.yaml`` pour les dossiers ¨src
+path::``src/about.yaml`` pour les dossiers \src
 ===============================================
 
 Dans le dossier path::``src`` peut être mis un fichier path::``about.yaml`` pour indiquer les dossiers à analyser suivant un ordre imposé.

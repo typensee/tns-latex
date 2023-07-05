@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+05
+==
+
+--------
+:fordev:
+--------
+
+[[:doc:]]
+\Abbrevs: the syntax has moved from ``¨myabrev`` to ``\myabrev``.

@@ -6,13 +6,13 @@ this::
 Pour tous les packages
 ======================
 
-Tout package doit **obligatoirement** indiquer un certain nombre d'¨infos générales via un fichier path::``about.yaml`` ayant le contenu minimal suivant où la déclaration yaml::``scope: tnslatex`` identifie bien entendu les packages de la suite ¨tnstex
+Tout package doit **obligatoirement** indiquer un certain nombre d'\infos générales via un fichier path::``about.yaml`` ayant le contenu minimal suivant où la déclaration yaml::``scope: tnslatex`` identifie bien entendu les packages de la suite \tnstex
 ((
-    Ceci est rendu nécessaire par la présence d'autres projets comme ¨tnsspec et ¨tnsfactory au sein du dépôt unique ¨tnstex.
+    Ceci est rendu nécessaire par la présence d'autres projets comme \tnsspec et \tnsfactory au sein du dépôt unique \tnstex.
 )).
-Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la ¨doc "utilisateur" rédigée par le codeur lors du ¨dev, soit ici le français
+Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la \doc "utilisateur" rédigée par le codeur lors du \dev, soit ici le français
 ((
-    Voir cf::``:?../user-doc/trans.txt`` pour la ¨trad de cette ¨doc.
+    Voir cf::``:?../user-doc/trans.txt`` pour la \trad de cette \doc.
 )).
 
 yaml::
@@ -29,18 +29,18 @@ Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de c
 
     1) Le nom de package est juste celui du dossier du code source.
 
-    1) La date de création et le numéro de la version en cours, avec sa date, sont des informations déjà indiquées dans les journaux des ¨chgts ¨techs
+    1) La date de création et le numéro de la version en cours, avec sa date, sont des informations déjà indiquées dans les journaux des \chgts \techs
     ((
         Voir cf::``:?../change-log.txt``.
     )).
 
-    1) Les dépendances sont repérées ¨auto^t dans les codes des fichiers path::``STY``
+    1) Les dépendances sont repérées \auto^t dans les codes des fichiers path::``STY``
     ((
         Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
     )).
 
 
-Avec toutes ces ¨infos utiles découvertes, les lignes suivantes seront produites ¨auto^t dans le fichier path::``STY`` final.
+Avec toutes ces \infos utiles découvertes, les lignes suivantes seront produites \auto^t dans le fichier path::``STY`` final.
 
 latex::
     % --------------------------------------------------------- %

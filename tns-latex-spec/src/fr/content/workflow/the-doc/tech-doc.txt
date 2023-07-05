@@ -3,17 +3,17 @@ this::
 
 
 ==========
-¨Doc ¨tech
+\Doc \tech
 ==========
 
-Les codes sont documentés du point de vue ¨tech via des commentaires en anglais uniquement et en utilisant une syntaxe stricte
+Les codes sont documentés du point de vue \tech via des commentaires en anglais uniquement et en utilisant une syntaxe stricte
 ((
     Cette syntaxe très intuitive est lisible directement sans aucune connaissance particulière.
-    C'est celle du projet ¨tnsdoc en cours de ¨dev.
+    C'est celle du projet \tnsdoc en cours de \dev.
 ))
 qui rend possible l'automatisation de certaines tâches
 ((
-    Plus tard, des ¨docs ¨html et ¨pdf seront produites de façon automatisée via ¨tnsdoc.
+    Plus tard, des \docs \html et \pdf seront produites de façon automatisée via \tnsdoc.
 )).
 Voici deux exemples fictifs où tnsdoc::``@ #1 in  ["a", "b", "c"]`` indique une contrainte ``@``-propos d'un argument : ici l'argument doit valoir ``a``, ``b`` ou ``c``.
 

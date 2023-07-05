@@ -3,9 +3,9 @@ abrev::
 
 
 ================================================
-Différentes langues pour les macros et les ¨envs
+Différentes langues pour les macros et les \envs
 ================================================
 
 content::
-    ¨content/structure.txt
-    ¨content/autoname.txt
+    \content/structure.txt
+    \content/autoname.txt

@@ -6,9 +6,9 @@ this::
 Outils extérieurs
 =================
 
-Il peut être nécessaire de faire appel à des outils extérieurs pour des traitements spécifiques qui ne sont pas à la charge d'un package : par exemple, il peut être nécessaire de redimensionner ¨auto^t des images pour ensuite pouvoir les insérer dans la ¨doc
+Il peut être nécessaire de faire appel à des outils extérieurs pour des traitements spécifiques qui ne sont pas à la charge d'un package : par exemple, il peut être nécessaire de redimensionner \auto^t des images pour ensuite pouvoir les insérer dans la \doc
 ((
-    Ceci pourrait être fait par un script ¨bash appelant ¨imagemagick par exemple.
+    Ceci pourrait être fait par un script \bash appelant \imagemagick par exemple.
 )).
 Pour ce faire, il faut respecter les contraintes suivantes.
 

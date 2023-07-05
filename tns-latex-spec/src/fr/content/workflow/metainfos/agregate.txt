@@ -16,8 +16,8 @@ yaml::
 
 
 info::
-    L'ordre utilisé dans le bloc yaml::``agregate`` sera celui retenu pour produire ¨auto^t la ¨doc.
+    L'ordre utilisé dans le bloc yaml::``agregate`` sera celui retenu pour produire \auto^t la \doc.
 
 
 warning::
-    La recherche des packages se fait, si besoin, de façon récursive dans le dossier path::``typensee-latex`` en s'arrêtant au ¨1er dossier trouvé.
+    La recherche des packages se fait, si besoin, de façon récursive dans le dossier path::``typensee-latex`` en s'arrêtant au \1er dossier trouvé.

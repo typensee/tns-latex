@@ -7,5 +7,5 @@ Fichiers et dossiers
 ====================
 
 content::
-    ¨content/structure.txt
-    ¨content/update-n-ignore.txt
+    \content/structure.txt
+    \content/update-n-ignore.txt

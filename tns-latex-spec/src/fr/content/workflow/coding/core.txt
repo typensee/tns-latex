@@ -6,12 +6,12 @@ this::
 Packages communs utilisés
 =========================
 
-Les fonctionnalités communes à plusieurs outils de la suite ¨tnstex sont regroupées dans les packages suivants.
+Les fonctionnalités communes à plusieurs outils de la suite \tnstex sont regroupées dans les packages suivants.
 
-    1) ¨tnscore propose des outils d'aide à la ¨mef.
+    1) \tnscore propose des outils d'aide à la \mef.
 
-    1) ¨tnscolor permet de gérer l'utilisation de couleurs, ou non.
+    1) \tnscolor permet de gérer l'utilisation de couleurs, ou non.
 
 
 note::
-    Les outils publiques proposent une interface ¨latex, et ceux privés sont ¨tjrs codés en ¨latex3 uniquement.
+    Les outils publiques proposent une interface \latex, et ceux privés sont \tjrs codés en \latex3 uniquement.

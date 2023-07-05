@@ -3,7 +3,7 @@ this::
 
 
 ===========================================
-Avec un ¨nbre restreint et fixé d'arguments
+Avec un \nbre restreint et fixé d'arguments
 ===========================================
 
-On utilise les classiques accolades proposées par ¨latex.
+On utilise les classiques accolades proposées par \latex.

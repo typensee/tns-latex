@@ -14,5 +14,5 @@ Les méthodes présentées ci-dessous peuvent être utilisées conjointement si 
 
 
 content::
-    ¨content/classical.txt
-    ¨content/illimited.txt
+    \content/classical.txt
+    \content/illimited.txt

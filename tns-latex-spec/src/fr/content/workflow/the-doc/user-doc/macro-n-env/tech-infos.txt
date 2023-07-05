@@ -3,12 +3,12 @@ this::
 
 
 =============
-¨Infos ¨techs
+\Infos \techs
 =============
 
-La fiche ¨tech d'un ¨env, ou d'une macro se fait efficacement grâce à ¨macroenvsign. Voici un exemple possible d'utilisation où l'absence de la signature de la macro ``\pderope`` n'est pas un oubli car ¨macroenvsign sait la récupérer ¨auto^t. La clé ``about`` permet d'expliquer la fabrication du nom de la macro
+La fiche \tech d'un \env, ou d'une macro se fait efficacement grâce à \macroenvsign. Voici un exemple possible d'utilisation où l'absence de la signature de la macro ``\pderope`` n'est pas un oubli car \macroenvsign sait la récupérer \auto^t. La clé ``about`` permet d'expliquer la fabrication du nom de la macro
 ((
-    Ceci devrait permettre de mieux mémoriser les noms des ¨envs et des macros proposés.
+    Ceci devrait permettre de mieux mémoriser les noms des \envs et des macros proposés.
 )).
 
 latex::
@@ -25,4 +25,4 @@ latex::
 
 
 warning::
-    Bien entendu, l'ordre de déclaration des ¨args via ``\arg`` correspond à celui d'utilisation de la macro, ou de l'¨env.
+    Bien entendu, l'ordre de déclaration des \args via ``\arg`` correspond à celui d'utilisation de la macro, ou de l'\env.

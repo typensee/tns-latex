@@ -3,16 +3,16 @@ this::
 
 
 ===========
-Trois ¨docs
+Trois \docs
 ===========
 
-Chaque projet propose trois ¨docs.
+Chaque projet propose trois \docs.
 
-    1) Une ¨doc ¨tech s'adresse juste aux codeurs.
+    1) Une \doc \tech s'adresse juste aux codeurs.
 
-    1) Une ¨doc de type tutoriel est destinée aux utilisateurs.
+    1) Une \doc de type tutoriel est destinée aux utilisateurs.
 
-    1) Un ¨docu regroupe ¨ttes les fiches ¨techs des ¨envs et macros : signature, signification et usage des options, arguments ¨etou contenus...
+    1) Un \docu regroupe \ttes les fiches \techs des \envs et macros : signature, signification et usage des options, arguments \etou contenus...
 
 
-Ces choix demandent la rédaction de deux types de ¨docus suivant deux méthodes différentes.
+Ces choix demandent la rédaction de deux types de \docus suivant deux méthodes différentes.

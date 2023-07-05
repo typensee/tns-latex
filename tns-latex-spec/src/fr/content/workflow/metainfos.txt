@@ -7,5 +7,5 @@ abrev::
 ========
 
 content::
-    ¨content/allpacks.txt
-    ¨content/agregate.txt
+    \content/allpacks.txt
+    \content/agregate.txt

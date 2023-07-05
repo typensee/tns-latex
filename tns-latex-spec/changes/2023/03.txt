@@ -10,11 +10,11 @@
 --------
 
 [[:api:]]
-Some important clarifications have been added about the names of macros and ¨envs.
+Some important clarifications have been added about the names of macros and \envs.
 
-    1) The distinction between the public and the private ¨apis have been explained.
+    1) The distinction between the public and the private \apis have been explained.
 
-    1) Coding styles for ¨latex3 and ¨lua have been written.
+    1) Coding styles for \latex3 and \lua have been written.
 
 
 // ---------- //
@@ -33,4 +33,4 @@ Formatting.
 
     1) Rules for font shapes added.
 
-    1) For ¨devs, a special ¨api is proposed to allow easy adjustment of the formatting.
+    1) For \devs, a special \api is proposed to allow easy adjustment of the formatting.

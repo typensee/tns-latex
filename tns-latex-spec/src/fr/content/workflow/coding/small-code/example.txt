@@ -33,7 +33,7 @@ dirtree::
 
 Voici des choses importantes à connaître et respecter.
 
-    1) Le ¨dev "morceau par morceau" se fait dans le sous-dossier path::``src``.
+    1) Le \dev "morceau par morceau" se fait dans le sous-dossier path::``src``.
 
     1) Le fichier path::``intro/intro.tex`` explique rapidement le cadre d'utilisation du package.
 
@@ -42,16 +42,16 @@ Voici des choses importantes à connaître et respecter.
 
     1) Il est possible de rédiger des fichiers path::``TEX`` pour documenter des fonctionnalités.
     Dans ce cas, il faut aussi respecter une profondeur de `1` comme pour les fichiers path::``STY``.
-    Dans notre exemple fictif, path::``intro/intro.tex`` est considéré comme étant une ¨doc écrite dans la langue indiquée dans le fichier path:``src/about.yaml``, voir cf::``?../metainfos/allpacks.txt`` à ce propos.
+    Dans notre exemple fictif, path::``intro/intro.tex`` est considéré comme étant une \doc écrite dans la langue indiquée dans le fichier path:``src/about.yaml``, voir cf::``?../metainfos/allpacks.txt`` à ce propos.
 
     1) Des fichiers ressources peuvent être utilisés : voir cf::``:?../resource.txt`` pour en savoir plus.
 
     1) Deux types de lecture ordonnée des dossiers et fichiers sont possibles
     ((
-        Ceci est important pour la ¨doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
+        Ceci est important pour la \doc finale à destination des utilisateurs, ou bien pour organiser du code si cela est indispensable.
     )).
 
-        * Un dossier sans fichier path::``about.yaml`` sera analysé en utilisant l'ordre ¨lexico usuel.
+        * Un dossier sans fichier path::``about.yaml`` sera analysé en utilisant l'ordre \lexico usuel.
         Dans notre exemple fictif, le dossier path::``alpha-et-omega3`` sera analysé en prenant path::``alpha.sty``, puis path::``omega3.sty`` ainsi que path::``alpha.tex`` suivi de path::``omega3.tex``.
 
         * Dans un dossier source, un fichier path::``about.yaml`` permet d'imposer un ordre à suivre. Nous allons revenir sur ceci dans les deux sections suivantes.

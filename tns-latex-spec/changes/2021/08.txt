@@ -25,7 +25,7 @@ Tools and tests: the files for testing and "tooling" must have a name starting b
 --------
 
 [[:doc:]]
-Resources: explanations about the difference between files needed for the ¨doc and the ones for the path::``STY`` final project.
+Resources: explanations about the difference between files needed for the \doc and the ones for the path::``STY`` final project.
 
 
 --------
@@ -33,7 +33,7 @@ Resources: explanations about the difference between files needed for the ¨doc 
 --------
 
 [[:facto:]]
-Resources: a factorization of the source code of the ¨doc has been done.
+Resources: a factorization of the source code of the \doc has been done.
 
 
 // ---------- //
@@ -50,13 +50,13 @@ Resources: a factorization of the source code of the ¨doc has been done.
 [[:api:]]
 Here a are the changes.
 
-    1) About the ¨doc: two important new things added.
+    1) About the \doc: two important new things added.
 
-        * The rules to name ¨latex files have been written.
+        * The rules to name \latex files have been written.
 
-        * Examples have been added to explain which ¨latex files are automatically associated to a path::``STY`` file.
+        * Examples have been added to explain which \latex files are automatically associated to a path::``STY`` file.
 
-    1) Resources: the way to acheive our goal will use the option term::``--recorder`` of the standard ¨tex-like compilers.
+    1) Resources: the way to acheive our goal will use the option term::``--recorder`` of the standard \tex-like compilers.
 
 
 --------
@@ -64,4 +64,4 @@ Here a are the changes.
 --------
 
 [[:facto:]]
-About the small codes: a factorization of the source code of the ¨doc has been done.
+About the small codes: a factorization of the source code of the \doc has been done.

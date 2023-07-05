@@ -14,10 +14,10 @@ Comment traduire ?
 ==================
 
 note::
-    Voir la section cf::``workflow/changes/translate.txt`` donnant des ¨infos utiles pour la gestion de la ¨maj des ¨trads.
+    Voir la section cf::``workflow/changes/translate.txt`` donnant des \infos utiles pour la gestion de la \maj des \trads.
 
 
 content::
-    ¨content/isolang.txt
-    ¨content/user-doc.txt
-    ¨content/api-config.txt
+    \content/isolang.txt
+    \content/user-doc.txt
+    \content/api-config.txt
