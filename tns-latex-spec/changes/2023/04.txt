@@ -14,7 +14,7 @@ Core tools.
 
     1) A section explains the use of core \tnstex packages.
 
-    1) How to document private tools in the user \doc.
+    1) The way to document the private tools in the user \doc has been explained.
 
 
 [[:doc:]]
