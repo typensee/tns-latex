@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-28
+    date = 2023-08-28
 
 
 =========================
@@ -11,6 +11,8 @@ Les fonctionnalités communes à plusieurs outils de la suite \tnstex sont regro
     1) \tnscore propose des outils d'aide à la \mef.
 
     1) \tnscolor permet de gérer l'utilisation de couleurs, ou non.
+
+    1) Les macros paramétrables sont fournies via le \syst de ``xtemplate`` proposé par \latex3.
 
 
 note::
