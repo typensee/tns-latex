@@ -1,8 +1,45 @@
-% == PACKAGES USED == %
+% == PACKAGES == %
 
-\RequirePackage{relsize}
+\RequirePackage{xtemplate}[2023-02-02]
+% \RequirePackage{relsize}
 
 
-% == DEFINITIONS == %
+% == TOOLS == %
 
-% Math tools - Intervals and co
+\ExplSyntaxOn
+
+% Math core tools - Delimiters
+
+%%%
+% ???
+%%%
+
+\tl_new:N \l_tnscore_delimiters_open_tl
+
+\DeclareObjectType
+    {_tnscore_delimiters_}
+    {1}
+
+\DeclareTemplateInterface
+    {_tnscore_delimiters_}
+    {tnscore_delimiters}
+    {1}
+    {
+        open: tokenlist
+    }
+
+\DeclareTemplateCode
+    {_tnscore_delimiters_}
+    {tnscore_delimiters}
+    {1}
+    {
+        open = \l_tnscore_delimiters_open_tl
+    }{
+        \AssignTemplateKeys
+
+        XXX---[[
+            \tl_use:N \l_tnscore_delimiters_open_tl
+        ]]---XXX
+    }
+
+\ExplSyntaxOff

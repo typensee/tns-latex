@@ -17,6 +17,18 @@
 
 \subsection{Deux délimiteurs pour encadrer}
 
-TODO
+\ExplSyntaxOn
+
+\DeclareInstance
+    {_tnscore_delimiters_}
+    {my_gene_delim}
+    {tnscore_delimiters}
+    {
+        open = oooo
+    }
+
+\UseInstance{_tnscore_delimiters_}{my_gene_delim}
+
+\ExplSyntaxOff
 
 \end{document}
