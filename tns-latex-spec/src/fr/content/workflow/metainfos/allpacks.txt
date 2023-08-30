@@ -1,5 +1,5 @@
 this::
-    date = 2023-02-15
+    date = 2023-08-30
 
 
 ======================
@@ -43,20 +43,21 @@ Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de c
 Avec toutes ces \infos utiles découvertes, les lignes suivantes seront produites \auto^t dans le fichier path::``STY`` final.
 
 latex::
-    % --------------------------------------------------------- %
+    % ---------------------------------------------------------- %
     % - This is file `tnsfictive.sty' generated automatically. - %
-    % -                                                       - %
-    % - Copyright (C) 2022 by Christophe BAL                  - %
-    % -                                                       - %
-    % - This file may be distributed and/or modified under    - %
-    % - the conditions of the Gnu 3 License.                  - %
-    % --------------------------------------------------------- %
+    % -                                                        - %
+    % - Copyright (C) 2022 by Christophe BAL                   - %
+    % -                                                        - %
+    % - This file may be distributed and/or modified under     - %
+    % - the conditions of the GNU 3 License.                   - %
+    % ---------------------------------------------------------- %
 
     \NeedsTeXFormat{LaTeX2e}
 
-    \ProvidesExplPackage{tnsfictive}   %
-                        {2020-06-01}  % Creation: 2018-05-01
-                        {1.2.3}       %
-                        {Fictional package for this example.}
+    \ProvidesExplPackage%
+      {tnsfictive}      %
+      {2020-06-01}      % Creation: 2018-05-01
+      {1.2.3}           %
+      {Fictional package for this example.}
 
     % Le reste du code...

@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-08-30
 
 
 =======================================================
@@ -28,12 +28,8 @@ latex::
     % Lignes codant les fonctionnalités.
 
 
-Les sections spéciales ``% == PACKAGES == %`` et ``% == OPTIONS == %`` sont facultatives contrairement à ``% == TOOLS == %`` qui est obligatoire, même si elle est utilisée seule.
+Les sections spéciales sont facultatives mais il doit y en avoir au moins une de présente.
 
 
 warning::
     Penser à utiliser ``\RequirePackage{packfictif}[2021/07/05]`` en indiquant la date attendue pour le package utilisé.
-
-
-info::
-    Pour les options, on s'appuie sur la puissante et sympathique machinerie du package ``l3keys2e``.

@@ -2,6 +2,25 @@
 
 
 ==
+30  (0.14.0-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Metainfos.
+
+    1) In the path::``STY`` files, the section ``TOOLS`` stops to be mandatory (at leats on section is needed).
+
+    1) In the user's \doc, the section ``EXTRAS`` has been remenamed ``NEEDED``.
+
+
+// ---------- //
+
+
+==
 28  (0.13.0-beta)
 ==
 
