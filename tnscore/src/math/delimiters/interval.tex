@@ -1,21 +1,23 @@
 \documentclass[12pt, a4paper]{article}
 
-% --- LOCAL IMPORT(S) - START --- %
 \makeatletter
-    \input{interval.sty}
+  \input{interval.sty}
 \makeatother
-% --- LOCAL IMPORT(S) - END --- %
 
-\usepackage{amsmath}
+\usepackage{mathtools}
 
+\DeclarePairedDelimiterX{\interlike}[2]{\lbrack}{\rangle}{%
+  #1 \,\delimsize|\, #2%
+}
 
 \begin{document}
 
-
-% ---------------------- %
-
-
-\subsection{Comme des intervalles}
-
+\begin{gather*}
+\interlike{a}{b} \\
+\interlike[\big]{a}{b} \\
+\interlike[\Big]{a}{b} \\
+\interlike*{\frac{X^X}{p_p}}{z} \\
+\interlike[\big]{z}{\frac{X^X}{p_p}}
+\end{gather*}
 
 \end{document}

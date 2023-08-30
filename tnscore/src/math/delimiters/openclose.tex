@@ -1,25 +1,15 @@
 \documentclass[12pt, a4paper]{article}
 
-\input{openclose.sty}
+\usepackage{mathtools}
 
+\DeclarePairedDelimiter\openclose\lbrack\rangle
 
 \begin{document}
 
-\subsection{Deux délimiteurs pour encadrer}
-
-tailles proposées par amsmath
-\ExplSyntaxOn
-
-\DeclareInstance
-    {_tnscore_delimiters_}
-    {my_gene_delim}
-    {tnscore_delimiters}
-    {
-        open = oooo
-    }
-
-\UseInstance{_tnscore_delimiters_}{my_gene_delim}
-
-\ExplSyntaxOff
+\begin{gather*}
+    \openclose*{\frac{X^X}{p_p}} \\
+    \openclose{\frac{X^X}{p_p}} \\
+    \openclose[\big]{\frac{X^X}{p_p}}
+\end{gather*}
 
 \end{document}

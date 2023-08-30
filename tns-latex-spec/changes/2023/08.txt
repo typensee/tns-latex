@@ -5,16 +5,20 @@
 30  (0.14.0-beta)
 ==
 
------
-:new:
------
+-------
+:break:
+-------
 
 [[:api:]]
-Metainfos.
+Metainfos: in the user's \doc, the section ``EXTRAS`` has been renamed ``NEEDED``.
 
-    1) In the path::``STY`` files, the section ``TOOLS`` stops to be mandatory (at leats on section is needed).
 
-    1) In the user's \doc, the section ``EXTRAS`` has been remenamed ``NEEDED``.
+--------
+:update:
+--------
+
+[[:api:]]
+Metainfos: in the path::``STY`` files, the section ``TOOLS`` stops to be mandatory, but at least one section must be used.
 
 
 // ---------- //
