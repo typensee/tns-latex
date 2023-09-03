@@ -1,0 +1,25 @@
+// ---------- //
+
+
+==
+03  (0.15.0-beta)
+==
+
+-----
+:new:
+-----
+
+[[:tests:]]
+Tests fom the user's \doc: we can use meta-comments to indicate that an example should be used to test certain features of the package.
+
+
+--------
+:update:
+--------
+
+[[:api:]]
+\tnscore: the coding paradigm is more flexible.
+
+
+[[:doc:]]
+\tnsformat instead of \tnscolor: more general management of formatting styles rather than just colour.

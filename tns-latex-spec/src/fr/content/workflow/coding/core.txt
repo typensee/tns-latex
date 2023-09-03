@@ -1,5 +1,5 @@
 this::
-    date = 2023-08-28
+    date = 2023-09-03
 
 
 =========================
@@ -8,12 +8,6 @@ Packages communs utilisés
 
 Les fonctionnalités communes à plusieurs outils de la suite \tnstex sont regroupées dans les packages suivants.
 
-    1) \tnscore propose des outils d'aide à la \mef.
+    1) \tnscore propose des outils d'aide à la conception de macros et d'\envs de \mef.
 
-    1) \tnscolor permet de gérer l'utilisation de couleurs, ou non.
-
-    1) Les macros paramétrables sont fournies via le \syst de ``xtemplate`` proposé par \latex3.
-
-
-note::
-    Les outils publiques proposent une interface \latex, et ceux privés sont \tjrs codés en \latex3 uniquement.
+    1) \tnsformat sert à la gestion de styles graphiques.
