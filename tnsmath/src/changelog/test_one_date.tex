@@ -1,0 +1,46 @@
+\documentclass[12pt,a4paper]{article}
+
+% -------------------------- %
+% -- DATE TO TEST - START -- %
+% -------------------------- %
+
+\newcommand\docyear {2023}
+\newcommand\docmonth{04}
+\newcommand\docday  {29}
+
+% ------------------------ %
+% -- DATE TO TEST - END -- %
+% ------------------------ %
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel, varioref}
+
+\usepackage[lang = FR]{../main/main}
+\usepackage{../macroenv/macroenv}
+\usepackage{../deco/deco}
+\usepackage{../inenglish/inenglish}
+\usepackage{../showcase/showcase}
+\usepackage{../listing/listing}
+\usepackage{../rem-exa/rem-exa}
+\usepackage{../version-n-change/version-n-change}
+
+
+\begin{document}
+
+{
+    \color{red!75!black}
+    \rule\linewidth{1pt}
+    
+    \vspace{-1em}
+    \section*{Test : \docyear-\docmonth-\docday}
+    
+    \vspace{-.75em}
+    \rule\linewidth{1pt}
+}
+
+\bigskip
+
+\input{\docyear/\docmonth/\docday}
+
+\end{document}
+14

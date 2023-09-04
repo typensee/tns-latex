@@ -1,3 +1,4 @@
 agregate:
   - main
-  - delimiters
+  - punctuation
+  - interval
