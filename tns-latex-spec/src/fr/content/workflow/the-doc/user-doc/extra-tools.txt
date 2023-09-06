@@ -1,19 +1,19 @@
 this::
-    date = 2023-08-30
+    date = 2023-09-05
 
 
 =================================
 Des outils pour la \doc "humaine"
 =================================
 
-Considérons comme exemple le code source de \bdoc qui contient le fichier path::``listing.tex`` dont le contenu possède la structure suivante avec une section spéciale ``% == NEEDED == %``.
+Considérons comme exemple le code source de \bdoc qui contient le fichier path::``listing.tex`` dont le contenu possède la structure suivante avec une section spéciale ``% == FORDOC == %``.
 
 latex::
     \documentclass[12pt,a4paper]{article}
 
     % ....
 
-    % == NEEDED == %
+    % == FORDOC == %
 
     \NewDocumentCommand{ \bdocextraruler }{ m }{ ... }
 
@@ -28,4 +28,4 @@ latex::
     \end{document}
 
 
-Les outils automatiques garderont tout ce qui se trouve entre ``% == NEEDED == %`` et ``\begin{document}`` pour l'intégrer uniquement au code \latex de la \doc finale.
+Les outils automatiques garderont tout ce qui se trouve entre ``% == FORDOC == %`` et ``\begin{document}`` pour l'intégrer uniquement au code \latex de la \doc finale.

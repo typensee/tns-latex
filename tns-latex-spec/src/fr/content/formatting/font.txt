@@ -1,5 +1,5 @@
 this::
-    date = 2023-02-15
+    date = 2023-09-05
 
 
 =================================
@@ -10,7 +10,7 @@ Comme le choix de polices de caractères est affaire de goût, la gestion de pol
 
 
 info::
-    Il faut savoir que \lualatex offre plus de possibilités de personnalisation des polices de caractères
+    Il faut savoir que \lualatex offre beaucoup de possibilités de personnalisation des polices de caractères
     ((
         Pour le meilleur... Ou pour le pire.
     )).

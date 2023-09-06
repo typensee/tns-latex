@@ -1,12 +1,12 @@
 this::
-    date = 2022-12-23
+    date = 2023-09-05
 
 
 ======================================
 Un dépôt unique pour plusieurs projets
 ======================================
 
-Pour tous les packages \latex3 et \lualatex de la suite \tnstex, on utilise un unique dépôt \git
+Pour tous les packages \latex et \lualatex de la suite \tnstex, on utilise un unique dépôt \git
 ((
     En anglais, on parle de "monorepo".
 ))

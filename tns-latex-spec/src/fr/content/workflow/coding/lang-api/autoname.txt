@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-09-05
 
 
 ==============================
@@ -7,9 +7,8 @@ Noms des macros "traductrices"
 ==============================
 
 Les noms sont toujours construits suivant le même schéma. Voici un exemple éclairant qui vient du package \bdoc.
-Soit par exemple verb::``exa_title = Exemple`` que l'on trouve dans path::``src/main/locale/fr/sentences.txt``.
-Dans path::``FR.sty`` est ajoutée "\auto^t" la macro ``\bdoc@trans@exa@title``.
-Le schéma de nommage est du type ``\monpackage@trans@id@une@trad`` où verb::``id_une_trad`` est un identifiant utilisé dans les fichiers path::``TXT`` de traduction.
+Soit par exemple verb::``exa_title = Exemple`` présent dans un fichier path::``TXT`` de traduction pour le français.
+Dans un fichier path::``FR.sty`` est ajoutée "\auto^t" la macro ``\bdoc@trans@exa@title`` où le schéma de nommage est du type ``\monpackage@trans@id@une@trad`` où verb::``id_une_trad`` est un identifiant utilisé dans les fichiers path::``TXT`` de traduction.
 
 
 info::

@@ -1,4 +1,4 @@
-agregate:
-  - main
-  - punctuation
-  - interval
+toc::
+  - main/
+  - punctuation/
+  - interval/

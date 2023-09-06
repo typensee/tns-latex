@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-28
+    date = 2023-09-05
 
 
 =============
@@ -18,7 +18,7 @@ latex::
     }
         \arg[in = {f, sf, i}] Voir la fiche technique de \docmacro{pder} juste avant.
 
-        \arg[svby = | ] Les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
+        \arg[csv] Les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
 
         \arg L'ordre total de dérivation.
     \end{idmacro}

@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-19
+    date = 2023-09-05
 
 
 ===========================
@@ -14,8 +14,8 @@ Avant toute chose, il faut absolument savoir que le \syst de ponctuation retenu 
     ((
         Ceci suit la règle ``1WT*WD``, \cad "one way to type, several ways to display", soit "une seule façon de taper pour différents rendus possibles" en français.
     )).
-    Pour obtenir `12345.6789012`, il faut saisir ``\num{12345.6789012}`` où la macro ``\num`` est fournie par le package ``sinutix``.
+    Pour obtenir `12345.6789012` aisément, il faut saisir ``\num{12345.6789012}`` où la macro ``\num`` est fournie par le package ``sinutix``.
 
 
 note::
-    Suivant la langue choisie, les macros et environnements fournis par \tnstex useront de la ponctuation associée lors de la \mef.
+    Suivant la langue choisie, les macros et \envs fournis par \tnstex useront de la ponctuation associée lors de la \mef.

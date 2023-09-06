@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-16
+    date = 2023-09-05
 
 
 ===============================
@@ -8,7 +8,7 @@ Localiser le "lanceur d'alerte"
 
 Chaque message indique toujours les \infos suivantes.
 
-    1) **Le nom du package.** Pour les packages "agrégateurs", les erreurs qui ne leur sont pas propres garderont la référence au sous-package utilisé afin de vite cibler un \pb et rend plus efficace la correction d'eventuels bogues.
+    1) **Le nom du package.** Pour les packages "agrégateurs", les erreurs qui ne leur sont pas propres garderont la référence au sous-package utilisé afin de vite cibler un \pb et rendre plus efficace la correction d'eventuels bogues.
 
     1) **Le contexte.** Ceci peut concerner l'activation d'un module, l'emploi d'une macro ou d'un \env.
 

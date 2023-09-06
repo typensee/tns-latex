@@ -14,4 +14,4 @@ Voici comment sont utilisés les différents niveaux de message proposé par le 
 
     1) **Avertissement:** typiquement ceci peut servir à indiquer la nécessité de mettre à jour l'usage d'une fonctionnalité dont l'interface vient de changer.
 
-    1) **Information:** ceci permet d'indiquer des actions physiques comme l'écriture dans un fichier path::``aux`` par exemple, ou encore d'indiquer que le \nbre de compilations n'est pas suffisant pour valider l'usage d'une fonctionnalité.
+    1) **\Info:** ceci permet d'indiquer des actions physiques comme l'écriture dans un fichier path::``aux`` par exemple, ou encore d'indiquer que le \nbre de compilations n'est pas suffisant pour valider l'usage d'une fonctionnalité.

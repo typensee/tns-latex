@@ -1,3 +1,3 @@
-agregate:
-  - openclose.sty
-  - interval.sty
+toc:
+  - interval
+  - dotproduct

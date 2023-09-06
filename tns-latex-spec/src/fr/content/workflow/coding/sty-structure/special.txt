@@ -1,5 +1,5 @@
 this::
-    date = 2022-11-10
+    date = 2023-09-05
 
 
 ==============================
@@ -14,7 +14,11 @@ latex::
 
     % ...
 
-    % -- Titre laissé au libre choix du codeur -- %
+    % -- Titre de niveau 1 pour le codeur -- %
+
+    % ...
+
+    % :: Titre de niveau 2 pour le codeur :: %
 
     % ...
 

@@ -2,8 +2,8 @@ this::
     date = 2023-04-17
 
 
-===========================================
-Avec un \nbre restreint et fixé d'arguments
-===========================================
+=======================================
+Avec un \nbre restreint et fixé d'\args
+=======================================
 
 On utilise les classiques accolades proposées par \latex.

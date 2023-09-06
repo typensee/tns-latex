@@ -1,9 +1,9 @@
 this::
-    date = 2023-04-26
+    date = 2023-09-05
 
 
 ========
 Packages
 ========
 
-Tous les packages utilisent le préfixe ``tns`` dans leur nom de type anglais. Par exemple, le nom ``tnsmypack`` sera employé contrairement à ``monpackage``.
+Tous les packages utilisent le préfixe ``tns`` dans leur nom qui est \tjrs de type anglais. Par exemple, le nom ``tnsmypack`` sera employé contrairement à ``monpackage`` et  ``tnsmonpackage``.

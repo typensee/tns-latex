@@ -1,12 +1,12 @@
 this::
-    date = 2023-04-22
+    date = 2023-09-05
 
 
 ============
 Avec \latex3
 ============
 
-Les macros et les \envs sont codés en coulisse en \latex3 a minima : ceci signifie que chaque package propose une \api publique faisant le lien avec les "fonctions" \latex3 qui font réellement le travail en coulisse.
+Les macros et les \envs "compliqués" sont codés en coulisse en \latex3 a minima : ceci signifie que chaque package propose une \api publique faisant le lien avec les "fonctions" \latex3 qui font réellement le travail.
 Pour ces macros et ces \envs privés, les conventions de nommage du projet \latex3 sont respectées
 ((
     Le document "The expl3 package and LATEX3 programming (released 2023-03-30)", indique que le nom d'une fonction doit être du type ``\<module>_<description>:<arg-spec>`` et celui d'une variable de la forme ``\<scope>_<module>_<description>_<type>`` où ``<scope>`` est au choix ``l`` pour "local", ``g`` pour "global" ou ``c`` pour "constante".

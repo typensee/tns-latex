@@ -1,10 +1,10 @@
 this::
-    date = 2023-04-28
+    date = 2023-09-05
 
 
 =================
 Les outils privés
 =================
 
-La \doc "utilisateur" ne doit pas faire référence aux macros et \envs privées car ce tyoe d\info doit être réservé à la \doc \tech.
+La \doc "utilisateur" ne doit pas faire référence aux macros et \envs privées car ce type d'\info doit être réservé à la \doc \tech.
 Bien entendu, ceci ne concerne pas les packages réunissant des fonctionnalités communes à plusieurs outils de la suite \tnstex voir cf::``?../coding/core.txt``.

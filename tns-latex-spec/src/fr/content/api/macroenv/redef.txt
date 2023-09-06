@@ -2,8 +2,9 @@ this::
     date = 2022-12-23
 
 
-==================================
-Redéfinition de macros "standards"
-==================================
+==============================
+Redéfinition de macros "\stds"
+==============================
 
-Certaines macros comme latex_math::``\frac`` et latex_math::``\sqrt`` sont modifiées de façon silencieuse. Dans ce type de situation, le comportement standard reste accessible via les macros ``\stdfrac`` et ``\stdsqrt`` où l'on a ajouté le préfixe ``std``. Ce sera toujours ainsi lors de la redéfinition de macros "standards".
+Certaines macros comme latex_math::``\frac`` et latex_math::``\sqrt`` sont modifiées de façon silencieuse.
+Dans ce type de situation, le comportement standard reste accessible via les macros ``\stdfrac`` et ``\stdsqrt`` où l'on a ajouté le préfixe ``std``. Ce sera toujours ainsi lors de la redéfinition de macros "standards".

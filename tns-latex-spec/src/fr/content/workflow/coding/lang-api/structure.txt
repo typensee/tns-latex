@@ -1,12 +1,17 @@
 this::
-    date = 2022-12-23
+    date = 2023-09-06
+
+
+abrev::
+    bdocdate = date::``2023-09-06``
 
 
 ====================
 Organiser les \trads
 ====================
 
-Considérons comme exemple le cas du package \bdoc. Son code source contient un dossier de \dev path::``main`` où l'on trouve les fichiers et dossiers suivants permettant d'avoir des macros gérant le français.
+Considérons comme exemple le cas du package \bdoc.
+Le \bdocdate, son code source contient un dossier de \dev path::``main`` où l'on trouve les fichiers et dossiers suivants permettant d'avoir des macros gérant le français.
 
 dirtree::
     + main
@@ -21,12 +26,12 @@ Voici l'affreux code utilisé en interne pour le français.
 
 latex::
     ---
-    path  = :?../bc-tools/for-latex/bdoc/src/main/locale/FR.sty
-    title = Contenu du fichier path::``FR.sty``
+    path  = example/FR.sty
+    title = Contenu du fichier path::``FR.sty`` le \bdocdate
     ---
 
 
-Toutes les macros sans argument visible dans l'horreur précédente ont été produites automatiquement
+Toutes les macros dans l'horreur précédente ont été produites automatiquement
 ((
     Noter les préfixes utilisés dans le fichier path::``FR.sty`` afin d'éviter des conflits de noms avec d'autres packages (quitte à répéter du code dans différents endroits mais ceci est un moindre mal).
 ))
@@ -34,14 +39,14 @@ Toutes les macros sans argument visible dans l'horreur précédente ont été pr
 
 verb::
     ---
-    path  = :?../bc-tools/for-latex/bdoc/src/main/locale/fr/macros.txt
-    title = Contenu du fichier path::``fr/macros.txt``
+    path  = example/macros.txt
+    title = Contenu du fichier path::``fr/macros.txt`` le \bdocdate
     ---
 
 verb::
     ---
-    path  = :?../bc-tools/for-latex/bdoc/src/main/locale/fr/sentences.txt
-    title = Contenu du fichier path::``fr/sentences.txt``
+    path  = example/sentences.txt
+    title = Contenu du fichier path::``fr/sentences.txt`` le \bdocdate
     ---
 
 

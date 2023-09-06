@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-19
+    date = 2023-09-05
 
 
 =================================
@@ -7,4 +7,4 @@ Délimiteurs étirables... ou pas !
 =================================
 
 Certaines situations nécessitent l'emploi de délimiteurs "étirables" : par exemple, on peut penser à des coordonnées écrites verticalement, ou à des matrices.
-Pour ce type de macros, il sera \tjrs laissé la possibilité à l'utilisateur de choisir la taille des délimiteurs via ``big``, ``Big``, ``bigg``, ``Bigg`` de ``amsmath``, une liste complétée avec des tailles intermédiaires pour plus de flexibilité.
+Pour ce type de macros, il sera \tjrs laissé la possibilité à l'utilisateur de choisir la taille des délimiteurs via ``big``, ``Big``, ``bigg``, ``Bigg`` de ``amsmath``, une liste complétée par la taille ``asit`` pour n'opérer à aucun \chgt d'échelle.

@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-21
+    date = 2023-09-05
 
 
 ==================================
@@ -10,10 +10,10 @@ Afin de laisser le temps à l'utilisateur de mettre à jour ses \docus, les \chg
 
     1) Via des options, il est possible d'utiliser l'ancienne \api de façon ciblée, ou non, afin de tenir compte de \majs de \nelles macros au choix, ou bien de \ttes.
 
-    1) Des messages d'erreur ou d'avertissement sont employés pour informer l'utilisateur de la nécessité de faire évoluer son code.
+    1) Des messages d'avertissement sont émis pour informer l'utilisateur de la nécessité de faire évoluer son code.
 
-    1) Une fois le délai de `6` mois passé, l'ancienne \api n'est plus disponible et les anciens codes seront retirés dès la prochaine version.
+    1) Une fois passé le délai de `6` mois, l'ancienne \api n'est plus disponible et les anciens codes seront retirés dès la prochaine version.
 
 
 note::
-    Des outils automatisés facilitent ce cycle spécial de développement.
+    Des outils automatisés facilitent ce cycle spécial de \dev.
