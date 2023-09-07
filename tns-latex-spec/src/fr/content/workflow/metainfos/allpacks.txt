@@ -1,43 +1,45 @@
 this::
-    date = 2023-08-30
+    date = 2023-09-07
 
 
 ======================
 Pour tous les packages
 ======================
 
-Tout package doit **obligatoirement** indiquer un certain nombre d'\infos générales via un fichier path::``about.yaml`` ayant le contenu minimal suivant où la déclaration yaml::``scope: tnslatex`` identifie bien entendu les packages de la suite \tnstex
+Tout package doit **obligatoirement** indiquer un certain nombre d'\infos générales via un fichier path::``about.yaml`` au format \src2prod. Il est conseillé d'indiquer le contenu minimal suivant pour un codeur français
 ((
-    Ceci est rendu nécessaire par la présence d'autres projets comme \tnsspec et \tnsfactory au sein du dépôt unique \tnstex.
-)).
-Quant à yaml::``lang: fr``, cela sert à indiquer la langue principale du codage qui sera celle de la \doc "utilisateur" rédigée par le codeur lors du \dev, soit ici le français
-((
-    Voir cf::``:?../user-doc/trans.txt`` pour la \trad de cette \doc.
+    Voir cf::``:?../user-doc/manual.txt`` pour la \trad de la \doc "utilisateur".
 )).
 
 yaml::
-    general:
-      scope  : tnslatex
+    project:
       desc   : Fictional package for this example.
-      author : Christophe BAL
+      author : Christophe, BAL [projetmbc@gmail.com]
       licence: gnu 3
-      lang   : fr
-      need   : latex2e
+
+      lang:
+        doc:
+          - user: fr
+
+      require:
+        - latex2e
 
 
-Le contenu du fichier path::``about.yaml`` peut sembler minimal. Ceci vient de ce que les outils automatisés "devinent" certaines choses.
+Le contenu du fichier path::``about.yaml`` peut sembler minimal, mais c'est suffisant car les outils automatisés "devinent" certaines choses.
 
     1) Le nom de package est juste celui du dossier du code source.
 
-    1) La date de création et le numéro de la version en cours, avec sa date, sont des informations déjà indiquées dans les journaux des \chgts \techs
+    1) La date de création et le numéro de la version en cours, lui aussi daté, sont des \infos déjà indiquées dans les journaux des \chgts \techs
     ((
-        Voir cf::``:?../change-log.txt``.
+        Voir cf::``:?../changes/tech-doc.txt``.
     )).
 
     1) Les dépendances sont repérées \auto^t dans les codes des fichiers path::``STY``
     ((
-        Voir cf::``:?../package/dependancy.txt`` et cf::``:?../small-code.txt``.
+        Voir cf::``:?../sty-structure/common.txt``.
     )).
+
+    1) La langue par défaut est l'anglais ; ceci nous évite ici d'indiquer la langue utilisée pour le fichier path::``README`` et la \doc \tech.
 
 
 Avec toutes ces \infos utiles découvertes, les lignes suivantes seront produites \auto^t dans le fichier path::``STY`` final.
@@ -46,7 +48,7 @@ latex::
     % ---------------------------------------------------------- %
     % - This is file `tnsfictive.sty' generated automatically. - %
     % -                                                        - %
-    % - Copyright (C) 2022 by Christophe BAL                   - %
+    % - Copyright (C) 2023 by Christophe BAL                   - %
     % -                                                        - %
     % - This file may be distributed and/or modified under     - %
     % - the conditions of the GNU 3 License.                   - %
@@ -56,7 +58,7 @@ latex::
 
     \ProvidesExplPackage%
       {tnsfictive}      %
-      {2020-06-01}      % Creation: 2018-05-01
+      {2023-09-07}      % Creation: 2018-05-01
       {1.2.3}           %
       {Fictional package for this example.}
 
