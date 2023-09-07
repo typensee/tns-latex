@@ -9,16 +9,16 @@ This file is a roadmap, in the short term.
 ALWAYS DONE
 -----------
 
-    1) Use of a \python script to know if a name (macro/environment/...) is already used by a TeX Live project.
+    1) Use of a Python script to know if a name (macro/environment/...) is already used by a TeX Live project.
 
     2) New features are always tested at least with l3build.
-
-        + Tests build from the docs: use of meta comments because some tests can need some specific settings.
-
+        + Tests build from the docs: use of meta comments because
+          some tests can need some specific settings.
         + Home-made tests can be added if necessary.
 
     3) tnscore
-        + Abstraction from the last changes must be added as soon as possible!
+        + Abstraction from the last changes must be added as soon
+          as possible!
 
 
 

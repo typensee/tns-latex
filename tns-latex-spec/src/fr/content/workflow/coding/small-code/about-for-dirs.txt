@@ -22,5 +22,6 @@ yaml::
 
 Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre, au lieu de l'ordre naturel.
 
+
 warning::
     Ne pas oublier l'oblique final path::``/`` pour indiquer des dossiers et non des fichiers.

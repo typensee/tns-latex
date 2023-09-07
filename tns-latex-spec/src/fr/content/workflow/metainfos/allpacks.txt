@@ -1,12 +1,12 @@
 this::
-    date = 2023-09-07
+    date = 2023-09-08
 
 
-======================
-Pour tous les packages
-======================
+====================
+Pour tous les \packs
+====================
 
-Tout package doit **obligatoirement** indiquer un certain nombre d'\infos générales via un fichier path::``about.yaml`` au format \src2prod. Il est conseillé d'indiquer le contenu minimal suivant pour un codeur français
+Tout \pack doit **obligatoirement** indiquer un certain nombre d'\infos générales via un fichier path::``about.yaml`` au format \src2prod. Pour un codeur français, il est conseillé d'indiquer le contenu minimal suivant
 ((
     Voir cf::``:?../user-doc/manual.txt`` pour la \trad de la \doc "utilisateur".
 )).
@@ -27,7 +27,7 @@ yaml::
 
 Le contenu du fichier path::``about.yaml`` peut sembler minimal, mais c'est suffisant car les outils automatisés "devinent" certaines choses.
 
-    1) Le nom de package est juste celui du dossier du code source.
+    1) Le nom du \pack est juste celui du dossier du code source.
 
     1) La date de création et le numéro de la version en cours, lui aussi daté, sont des \infos déjà indiquées dans les journaux des \chgts \techs
     ((
@@ -56,10 +56,10 @@ latex::
 
     \NeedsTeXFormat{LaTeX2e}
 
-    \ProvidesExplPackage%
-      {tnsfictive}      %
-      {2023-09-07}      % Creation: 2018-05-01
-      {1.2.3}           %
-      {Fictional package for this example.}
+    \ProvidesPackage%
+      {tnsfictive}  %
+      {2023-09-07}  % Creation: 2018-05-01
+      {1.2.3}       %
+      {Fictional \pack for this example.}
 
     % Le reste du code...
