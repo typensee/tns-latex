@@ -1,5 +1,5 @@
 this::
-    date = 2022-12-23
+    date = 2023-09-14
 
 
 ==================
@@ -8,3 +8,7 @@ Les grandes lignes
 
 Afin d'avoir une maintenance facile au long cours, les packages sont codés "morceau par morceau" en respectant certaines conventions.
 Des outils se chargent ensuite de produire le package à destination de l'utilisateur avec sa \doc "utilisateur" et si besoin des ressources.
+
+
+note::
+    Les tabulations relatives au code \src seront de deux espaces et non quatre afin de limiter l'espace perdu.
