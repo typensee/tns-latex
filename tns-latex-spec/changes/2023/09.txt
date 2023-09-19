@@ -2,6 +2,21 @@
 
 
 ==
+19  (0.18.0-beta)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+Change log for the user: the files for days can be suffixed to allow several new versions on the same day (this can be useful for the distracted coder like the man writing this text).
+
+
+// ---------- //
+
+
+==
 14  (0.17.0-beta)
 ==
 

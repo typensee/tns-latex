@@ -1,5 +1,5 @@
 this::
-    date = 2023-04-26
+    date = 2023-09-19
 
 
 =====================
@@ -8,7 +8,10 @@ Pour les utilisateurs
 
 L'organisation des \chgts de la \doc "utilisateur" se fait comme suit en notant que le sous-dossier path::``changelog`` se trouve dans le dossier path::``src`` utilisé pour le \dev du code "morceau par morceau" et non dans celui de tout le projet.
 La langue des \chgts est celui de la \doc du développeur, soit pour nous le français.
-Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour".
+Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour" où les deux fichiers correspondent à deux versions différentes publiées le même jour
+((
+    Il arrive quelques fois qu'ne version soit publiée un peu hâtivement à tors, typiquement avec une \doc ou un journal des \chgts non mis à jour.
+)).
 
 dirtree::
     + tnsfictive
@@ -18,14 +21,19 @@ dirtree::
                 + 2021
                     + 07
                         * 05.tex
-                        * 14.tex
+                        * 14-a.tex
+                        * 14-b.tex
                         * 15.tex
             + [...]
         + [...]
 
 
 warning::
-    Contrairement à la \doc \tech, les \modifs se tapent jour par jour. Ceci permet notamment de tester la bonne rédaction de l'écriture des \chgts pour une date donnée.
+    Faire attention aux points suivants.
+
+        1) Contrairement à la \doc \tech, les \modifs se tapent jour par jour. Ceci permet notamment de tester la bonne rédaction de l'écriture des \chgts pour une date donnée.
+
+        1) Si plusieurs versions sont publiées le même jour, il faudra suffixé la numéro du jour sous la forme path::``-a``, path::``-b``, path::``-c`` \etc.
 
 
 Voici un exemple possible de \chgts ; ceci va nous donner l'occasion d'expliquer quelques points importants.
