@@ -6,11 +6,11 @@ this::
 Pour les utilisateurs
 =====================
 
-L'organisation des \chgts de la \doc "utilisateur" se fait comme suit en notant que le sous-dossier path::``changelog`` se trouve dans le dossier path::``src`` utilisé pour le \dev du code "morceau par morceau" et non dans celui de tout le projet.
-La langue des \chgts est celui de la \doc du développeur, soit pour nous le français.
-Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que pour les fichiers "jour" où les deux fichiers correspondent à deux versions différentes publiées le même jour
+L'organisation des \chgts de la \doc "utilisateur" se fait comme suit en notant que le sous-dossier path::``changelog`` se trouve dans le dossier path::``src`` utilisé pour le \dev du code "morceau par morceau" et non dans celui de l'\ens du projet.
+La langue des \chgts est celle de la \doc du développeur, soit pour nous le français.
+Noter les noms utilisés pour les dossiers "année" et "mois" ainsi que ceux pour les fichiers "jour" où les deux fichiers path::``14-a.tex`` et path::``14-b.tex`` correspondent à deux versions différentes publiées le même jour
 ((
-    Il arrive quelques fois qu'ne version soit publiée un peu hâtivement à tors, typiquement avec une \doc ou un journal des \chgts non mis à jour.
+    Il arrive quelques fois qu'une version soit publiée un peu hâtivement à tors, typiquement avec une \doc ou un journal des \chgts non mis à jour.
 )).
 
 dirtree::
