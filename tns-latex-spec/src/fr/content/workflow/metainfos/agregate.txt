@@ -1,5 +1,5 @@
 this::
-    date = 2023-09-08
+    date = 2023-09-30
 
 
 ======================================
@@ -13,10 +13,14 @@ yaml::
     #   ...
 
     agregate:
-      - src/tnsfictive_1
-      - src/tnsfictive_3
-      - src/tnsfictive_2
+      - src/tnsfictive_1/
+      - src/tnsfictive_3/
+      - src/tnsfictive_2/
 
 
 info::
     L'ordre utilisé dans le bloc yaml::``agregate`` est bien entendu celui retenu pour produire \auto^t les \docs.
+
+
+warning::
+    Ne pas oublier l'oblique final path::``/`` pour indiquer des dossiers et non des fichiers.

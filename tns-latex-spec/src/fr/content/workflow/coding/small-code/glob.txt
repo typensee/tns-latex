@@ -1,0 +1,9 @@
+this::
+    date = 2023-09-30
+
+
+================================================
+Indiquer rapidement des dossiers ou des fichiers
+================================================
+
+Dans un fichier path::``about.yaml``, une liste yaml::``toc`` peut utiliser la \pyglob : par exemple, glob::``*-keep-me.tex`` indique tout fichier d'extension ext::``tex`` et de nom se finissant par path::``-keep-me``.

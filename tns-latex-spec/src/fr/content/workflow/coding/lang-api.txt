@@ -1,5 +1,5 @@
 abrev::
-    content = lang-api
+    content = :this.name:
 
 
 ================================================

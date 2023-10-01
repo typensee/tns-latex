@@ -1,5 +1,5 @@
 abrev::
-    content = user-doc
+    content = :this.name:
 
 
 ================================

@@ -1,12 +1,12 @@
 this::
-    date = 2022-12-23
+    date = 2023-10-01
 
 
 ================
 Pour les codeurs
 ================
 
-Les \chgts de la \doc en anglais s'indiquent dans des fichiers de type path::``TXT`` organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé et pour chaque mois un fichier bien nommé lui aussi.
+Les \chgts de la \doc en anglais s'indiquent dans des fichiers de type ext::``txt`` organisés comme dans l'exemple fictif suivant où tout se passe dans le dossier path::``changes`` en utilisant pour chaque année un dossier bien nommé et pour chaque mois un fichier bien nommé lui aussi.
 
 dirtree::
     + tnsfictive
@@ -21,12 +21,12 @@ dirtree::
 
 Voici un contenu possible pour le fichier path::``06.txt``
 ((
-    Cette syntaxe très intuitive est celle du projet \tnschges en cours de \dev.
+    Cette syntaxe très intuitive est celle du projet \tnschges.
 )).
 
 tns::
     ==
-    01 (0.0.0-beta)
+    01  (0.0.0-beta)
     ==
 
     -----

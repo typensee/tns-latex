@@ -1,0 +1,33 @@
+this::
+    date = 2023-10-01
+
+
+======================
+La base pour le codeur
+======================
+
+Voici un exemple fictif où tnsdoc::``@ #1 in  ["a", "b", "c"]`` indique une contrainte ``@``-propos d'un \arg : ici l'\arg doit valoir ``a``, ``b`` ou ``c``.
+Se reporter à la \doc de \tnsdoc pour voir l'étendue du possible.
+
+latex::
+    %%%
+    % prototype::
+    %     #1 : name of the function
+    %     #2 : name of the variable
+    %
+    % This macro produces...
+    %%%
+
+
+    % Some LaTeX code here...
+
+
+    %%%
+    % prototype::
+    %     #1 : this setting argument is for...
+    %        @ #1 in  ["a", "b", "c"]
+    %
+    % This environment prints...
+    %%%
+
+    % Some LaTeX code here...

@@ -8,7 +8,7 @@ Interface utilisateur
 
 content::
     \content/math.txt
-    \content/architecture.txt
+    \content/archi.txt
     \content/macroenv.txt
     \content/lang.txt
     \content/formatting.txt

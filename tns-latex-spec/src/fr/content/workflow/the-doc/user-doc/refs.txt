@@ -1,5 +1,5 @@
 this::
-    date = 2023-09-05
+    date = 2023-10-01
 
 
 ==============
@@ -10,6 +10,6 @@ Le nommage des \refs internes suit le schéma ci-dessous afin d'éviter tout con
 
     1) Un premier préfixe est utilisé pour indiquer le nom du package comme dans ``tnsfictive-...`` par exemple.
 
-    1) Si la \ref est relative à une macro spéciale comme ``\section``, ou un \env spécifique tel que ``\begin{doclatex} ... \end{doclatex}`, alors un \2e préfixe est utilisé comme dans ``tnsfictive-macro-section-...`` et ``tnsfictive-env-doclatex-...`` par exemple.
+    1) Si la \ref est relative à une macro spéciale comme ``\eval``, ou un \env spécifique tel que ``\begin{bdoclatex} ... \end{bdoclatex}`, alors un \2e préfixe est utilisé comme dans ``tnsfictive-macro-eval-...`` et ``tnsfictive-env-bdoclatex-...`` par exemple.
 
-    1) Pour finir vient un \id laissé au libre choix du codeur.
+    1) Pour finir, un \id laissé au libre choix du codeur est ajouté.

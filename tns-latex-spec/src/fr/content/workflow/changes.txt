@@ -2,9 +2,9 @@ abrev::
     content = :this.name:
 
 
-========================
-Indiquer les changements
-========================
+===================
+Indiquer les \chgts
+===================
 
 content::
     \content/tech-doc.txt

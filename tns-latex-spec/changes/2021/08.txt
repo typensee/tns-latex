@@ -25,7 +25,7 @@ Tools and tests: the files for testing and "tooling" must have a name starting b
 --------
 
 [[:doc:]]
-Resources: explanations about the difference between files needed for the \doc and the ones for the path::``STY`` final project.
+Resources: explanations about the difference between files needed for the \doc and the ones for the ext::``sty`` final project.
 
 
 --------
@@ -54,7 +54,7 @@ Here a are the changes.
 
         * The rules to name \latex files have been written.
 
-        * Examples have been added to explain which \latex files are automatically associated to a path::``STY`` file.
+        * Examples have been added to explain which \latex files are automatically associated to a ext::``sty`` file.
 
     1) Resources: the way to acheive our goal will use the option term::``--recorder`` of the standard \tex-like compilers.
 

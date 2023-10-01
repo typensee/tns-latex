@@ -8,9 +8,9 @@ Macros et \envs
 
 content::
     \content/naming.txt
-    \content/starnostar.txt
-    \content/argument.txt
-    \content/option.txt
+    \content/nostar.txt
+    \content/args.txt
+    \content/options.txt
     \content/local-2-global.txt
     \content/redef.txt
-    \content/autotask.txt
+    \content/auto-tasks.txt

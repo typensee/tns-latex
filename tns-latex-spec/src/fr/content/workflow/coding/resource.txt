@@ -1,14 +1,16 @@
 this::
-    date = 2023-09-05
+    date = 2023-09-30
 
 
 ==========================
 Ressources supplémentaires
 ==========================
 
-Il est très fréquent qu'un projet et sa \doc nécessitent l'emploi de ressources supplémentaires : fichiers de \conf, images, graphiques \tikz... \etc. Ceci se fait très naturellement lors du codage.
-Par contre, il faut savoir comment seront recollés les différents morceaux dans le projet final pour éviter certaines déconvenues.
-Pour expliquer ce qu'il se passe, considérons le projet fictif ci-après où les dossiers path::``images`` et path::``graphics`` ne sont utilisés que par les fichiers path::``TEX`` pour la \doc "humaine", rédigée en français dans ce cas, tandis que les fichiers de \config path::``stdval.sty`` et path::``speval.sty`` ne sont utiles qu'au code du package.
+Il est très fréquent qu'un projet et sa \doc nécessitent l'emploi de ressources supplémentaires : fichiers de \conf, images, graphiques \tikz... \etc.
+Ceci se fait très naturellement lors du codage à condition de savoir comment seront recollés les différents morceaux dans le projet final pour éviter certaines déconvenues.
+
+
+Pour expliquer ce qu'il se passe, considérons le projet fictif ci-après où les dossiers path::``images`` et path::``graphics`` sont juste utilisés par les fichiers ext::``tex`` pour la \doc "humaine", rédigée en français dans ce cas, tandis que les fichiers de \config path::``stdval.sty`` et path::``speval.sty`` ne sont utiles qu'au code \src du package. On suppose que tous les sous-dossiers directs de path::``src`` sont à analyser.
 
 dirtree::
     + tnsfictive
@@ -36,21 +38,24 @@ dirtree::
         + [...]
 
 
-Dans ce cas, \texfacto va automatiquement créer, ou mettre à jour, les deux dossiers path::``tnsfictive/tnsfictive`` et path::``tnsfictive/.tempdoc/fr``
+Dans ce cas, \texfacto va automatiquement créer, ou mettre à jour, les deux dossiers path::``tnsfictive/tnsfictive`` et path::``tnsfictive/.tmpdoc/fr``
 ((
-    Le dossier path::``.tempdoc``, non mis sur le dépôt \git, est utilisé pour produire les \docs au format \pdf.
+    Le dossier path::``.tmpdoc``, non mis sur le dépôt \git, est utilisé pour produire les \docs au format \pdf.
+    Ceci permet aussi, en cas de souci, de compiler à la main l'\ens de la \doc pour faire un correctif, ou bien débusquer un bug de \texfacto.
 )).
-Nous aurons un contenu du type suivant.
+Nous aurons alors un contenu du type suivant.
 
 dirtree::
     + tnsfictive
         + tnsfictive
+            * tnsfictive-doc-FR.pdf
             * tnsfictive.sty
             + config
                 * stdval.sty
                 * speval.sty
-        + .tempdoc
+        + .tmpdoc
             + fr
+                * tnsfictive-doc.pdf
                 * tnsfictive-doc.tex
                 + images
                     * picture.png
@@ -66,25 +71,11 @@ dirtree::
 Voici les pièges tendus par la procédure d'automatisation (heureusement en cas de souci, \texfacto lèvera un message d'erreur).
 
     1) La \struct des ressources pour le fichier final path::``tnsfictive.sty`` imite celle du dossier \src.
-    Ceci implique d'éviter d'utiliser deux fois le même nom. Une bonne pratique consiste à utiliser un préfixe faisant référence au bout de code implémenté.
+    Ceci implique d'éviter d'utiliser deux fois le même nom. Une bonne pratique consiste à utiliser un préfixe faisant \ref au bout de code implémenté.
 
-    1) Le fonctionnement pour la \doc est similaire. Ceci implique, de nouveau, de faire en sorte de ne pas avoir deux fichiers ressources pour la \doc ayant le même nom.
+    1) Le fonctionnement pour la \doc est similaire. Ceci implique, de nouveau, de faire en sorte de ne pas avoir deux fichiers ressources pour la \doc finale ayant le même nom.
 
     1) Dans chacun des deux cas précédents, il faudra bien importer les ressources via des chemins relatifs
     ((
-        Mais normalement nous le faisons tous...
+        Mais normalement nous le faisons tous... Non ?
     )).
-    Ce point est important, car si path::``chemin/vers/ce/superbe/fichier`` est une ressource, alors dans les codes "source" seront cherchés bêtement des motifs du type ``{chemin/vers/ce/superbe/fichier}`` pour les adapter si besoin à l'organisation du produit fini.
-
-
-warning::
-    Que faire si par un très improbable hasard vous souhaitez utiliser ``{chemin/vers/ce/superbe/fichier}`` dans une commande sans lien avec l'utilisation d'une ressource alors que path::``chemin/vers/ce/superbe/fichier`` est bien une ressource ?
-    Une astuce un peu "sâle" consiste à taper ``{ chemin/vers/ce/superbe/fichier }`` avec des espaces inutiles
-    ((
-        Attendons de voir si ce cas se présentera, ou non, pour trouver une vraie parade...
-    )).
-
-
-note::
-    Le système retenu pour intégrer les fichiers utiles à la \doc finale s'appuie sur l'option term::``-recorder`` des compilateurs de la famille \tex.
-    Cette commande permet, entre autres choses, de connaître les fichiers externes utilisés pour compiler un document \latex.

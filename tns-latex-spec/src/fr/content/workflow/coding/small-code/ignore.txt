@@ -1,0 +1,22 @@
+this::
+    date = 2023-09-30
+
+
+====================================
+Ignorer des dossiers et des fichiers
+====================================
+
+Via la \pyglob et le bloc yaml::``ignore``, il est possible d'indiquer des dossiers et des fichiers à ignorer.
+Par défaut, \texfacto ignore les dossiers et fichiers ayant un nom commençant par path::``test_`` ou path::``tests_`` ; ceci se ferait à la main comme suit.
+
+yaml::
+    ---
+    extract = yes
+    title   = Le fichier path::``src/about.yaml``
+    ---
+    ignore: |
+        test_*/
+        tests_*/
+
+        test_*.*
+        tests_*.*

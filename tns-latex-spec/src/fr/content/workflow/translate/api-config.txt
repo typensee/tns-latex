@@ -1,30 +1,34 @@
 this::
-    date = 2023-04-29
+    date = 2023-10-01
 
 
 =====================================
 Langues pour les \macros et les \envs
 =====================================
 
-Prenons le cas du package \bdoc dont le code source contient le dossier de \dev path::``main`` suivant.
+Prenons le cas du \pack \bdoc dont le code \src à la date du \bdocdate contient le dossier de \dev path::``main`` suivant.
 
 dirtree::
     + main
         + locale
-            * FR.sty
-            + fr
+            * french.sty
+            + french
                 * macros.txt
                 * sentences.txt
 
 
-De façon automatisée, un dossier path::``contribute/api/locale/fr/main``, comme ci-dessous, contiendra la dernière version des \trads utiles au fonctionnement du package \bdoc.
+warning::
+    Dans le dossier de \dev du code \src, les trads sont \tjrs à placer dans un sous-dossier nommé path::``locale``.
+
+
+De façon automatisée, un dossier path::``contribute/api/locale/french/main``, comme ci-dessous, contiendra la dernière version des \trads utiles au fonctionnement du \pack \bdoc.
 
 dirtree::
     + tnsfictive
         + contribute
             + api
                 + locale
-                    + fr
+                    + french
                         + main
                             * macros.txt
                             * sentences.txt
@@ -32,12 +36,15 @@ dirtree::
         + [...]
 
 
-Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``de`` avec le même contenu que celui du dossier path::``fr``, où ``de`` vient du codage de la \isolangnorme.
+Il ne reste plus qu'à un traducteur allemand, par exemple, à créer un dossier path::``german`` avec le même contenu que celui du dossier path::``french``
+((
+    Le choix de \bdoc est de reprendre les noms de langue utilisables avec le \pack ``babel``, et non de suivre la \isolangnorme.
+)).
 Le processus de \trad des mots et des phrases "fixes" est simple comme le montre le contenu du fichier path::``sentences.txt`` donné ci-après.
 
 verb::
     ---
-    path = :?../bc-tools/for-latex/bdoc/src/main/locale/fr/sentences.txt
+    path = ?/coding/lang-api/example/sentences.txt
     ---
 
 
@@ -45,9 +52,9 @@ Pour les phrases "paramétrables", ceci se fait comme suit où les lignes commen
 
 verb::
     ---
-    path = :?../bc-tools/for-latex/bdoc/src/main/locale/fr/macros.txt
+    path = ?/coding/lang-api/example/macros.txt
     ---
 
 
 warning::
-    Les identifiants avant les signes ``=`` sont de la responsabilité du codeur et non de celle du traducteur.
+    Les \ids avant les signes ``=`` sont de la responsabilité du codeur et non de celle du traducteur.

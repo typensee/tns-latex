@@ -1,6 +1,8 @@
 abrev::
     content = :this.name:
 
+    bdocdate = date::``2023-09-30``
+
 
 ================
 Comment coder...
@@ -12,5 +14,5 @@ content::
     \content/coding.txt
     \content/the-doc.txt
     \content/readme.txt
-    \content/changes.txt
     \content/translate.txt
+    \content/changes.txt

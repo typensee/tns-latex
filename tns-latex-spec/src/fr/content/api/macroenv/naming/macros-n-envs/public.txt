@@ -1,0 +1,19 @@
+this::
+    date = 2023-09-30
+
+
+==================
+Côté "utilisateur"
+==================
+
+Les macros et les \envs employés côté "utilisateur", et non ceux fonctionnant en coulisse, ont des noms de préférence courts et surtout non cryptiques
+((
+    La \doc devra expliquer les noms proposés.
+)).
+
+
+Deux types de casse de police sont employés suivant le contexte d'utilisation.
+
+    1) Pour les macros utilitaires destinées à produire du contenu, ou de la donnée, les noms seront tout en minuscules à de très rares exceptions prêt.
+
+    1) Les macros de réglage au sens large useront \tjrs de la casse en dos de chameau comme dans ``\SetTnsMypack`` où ``tnsmypack`` est un package.

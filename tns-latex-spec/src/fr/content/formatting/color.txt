@@ -1,5 +1,5 @@
 this::
-    date = 2023-09-05
+    date = 2023-10-01
 
 
 ====================
@@ -14,7 +14,7 @@ Il est tout de même possible d'obtenir facilement un rendu coloré
 ((
     Ceci est utile pour une lecture sur écran.
 )).
-Ceci se fait via une option de package demandant d'utiliser l'un des thèmes proposés, le noir-et-blanc étant celui par défaut.
+Ceci se fait via une option de \pack demandant d'utiliser l'un des thèmes proposés, le noir-et-blanc étant celui par défaut.
 
 
 warning::
@@ -22,10 +22,4 @@ warning::
 
 
 info::
-    En coulisse, des macros sont utilisées pour styliser les outils proposés par \tnstex ; celles-ci sont fournies par le package \tnsformat qui est l'un des \elts du projet \tnsformatgene
-    ((
-        Le but du projet \tnsformatgene est de fournir des thèmes utilisables dans différents contextes dont \latex, \python et \html.
-        Les thèmes sont "sémantiques" : par exemple, on propose des outils pour mettre en forme un avertissement et non une couleur nommée "rouge".
-        Ce \syst s'appuie sur la couleur, mais aussi sur des \decos comme l'emploi de cadre, l'usage de pointillés... \etc.
-    )).
-    Se reporter à \tnsformat afin de pouvoir employer les styles dans vos propres créations.
+    En coulisse, des outils sont utilisées pour styliser les \mefs proposées par \tnstex qui sont fournies par le \pack \tnsformat conçu pour être utilisé de façon autonome.

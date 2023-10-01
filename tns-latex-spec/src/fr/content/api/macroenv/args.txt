@@ -1,16 +1,17 @@
 this::
-    date = 2023-03-05
+    date = 2023-09-30
 
 
 abrev::
     content = :this.name:
 
 
-========================
-Les arguments des macros
-========================
+====================
+Les \args des macros
+====================
 
 Les méthodes présentées ci-dessous peuvent être utilisées conjointement si besoin.
+A priori, il ne sera pas faot usage de \systs de type ``clés-valeurs``, ces derniers étant destinés aux options.
 
 
 content::

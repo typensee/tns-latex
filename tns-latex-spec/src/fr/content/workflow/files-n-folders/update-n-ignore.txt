@@ -1,12 +1,12 @@
 this::
-    date = 2023-02-15
+    date = 2023-09-30
 
 
 =========================================
 \Maj et fichiers ignorés - \git is a gift
 =========================================
 
-Les outils \autos s'appuient sur \git pour faire des mises à jours ciblées
+Les outils \autos peuvent s'appuyer sur \git pour faire des mises à jours ciblées
 ((
     Par exemple, un package agrégateur ne sera mis à jour que si l'un des packages qu'il importe a changé de version et non de code source.
 )).
@@ -18,10 +18,10 @@ C'est l'une des raisons qui fait que l'ensemble du projet \tnstex est géré com
 
 À ceci s'ajoute l'utilisation de dossiers et de fichiers ayant une signification particulière au sein du projet \tnstex. Voir les sections suivantes pour tout ce qui aura un traitement spécifique lors du \dev.
 
-    * cf::``:?../change-log.txt`` s'attarde sur path::``src/changes``.
+    * cf::``?/change-log.txt`` s'attarde sur path::``src/changes``.
 
-    * cf::``:?../translate.txt`` parle de path::``contribute`` pour les \trads liées aux \macros, aux \envs ou à la \doc.
+    * cf::``?/translate.txt`` parle de path::``contribute`` pour les \trads liées aux \macros, aux \envs ou à la \doc.
 
-    * cf::``:?../tool.txt`` explique l'usage de path::``tools`` pour les outils de \dev.
+    * cf::``?/tool.txt`` explique l'usage de path::``tools`` pour les outils de \dev.
 
-    * cf::``:?../test.txt`` montre l'emploi de path::``tests`` pour les tests lors du \dev.
+    * cf::``?/test.txt`` montre l'emploi de path::``tests`` pour les tests lors du \dev.

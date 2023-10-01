@@ -7,5 +7,5 @@ Macros et \envs
 ===============
 
 content::
-    \content/tech-infos.txt
-    \content/private.txt
+    \content/tech-infos.txt     ??????
+    \content/private.txt        ????

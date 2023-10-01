@@ -1,0 +1,17 @@
+this::
+    date = 2023-09-30
+
+
+============
+Avec \latex3
+============
+
+Les macros et les \envs "compliqués" sont codés en coulisse en \latex3 a minima : ceci signifie que chaque package propose une \api publique faisant le lien avec les "fonctions" \latex3 qui font réellement le travail.
+Pour ces macros et ces \envs privés, les conventions de nommage du projet \latex3 sont respectées
+((
+    Le document "The expl3 package and LATEX3 programming (released 2023-03-30)" indique que le nom d'une fonction doit être du type ``\<module>_<description>:<arg-spec>`` et celui d'une variable de la forme ``\<scope>_<module>_<description>_<type>`` où ``<scope>`` est au choix ``l`` pour "local", ``g`` pour "global" ou ``c`` pour "constante".
+
+    De plus, ``\module_foo:nnn`` indiquera une fonction publique, tandis que ``\__module_foo:nnn`` sera pour une fonction privée.
+    Ce principe s'applique comme suit aux variables : ``\l_module_foo_tl`` est considéré publique, tandis que ``\l__module_foo_tl`` sera vu comme privée.
+)).
+Côté casse de police, on reprend ce qui a été indiqué pour les outils "utilisateur".

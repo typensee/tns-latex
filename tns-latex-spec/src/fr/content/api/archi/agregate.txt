@@ -1,0 +1,32 @@
+this::
+    date = 2023-09-29
+
+
+=========================
+Agréger différents \packs
+=========================
+
+Pour des raisons pratiques, des \packs ne font qu'agréger d'autres \packs afin d'éviter de devoir faire plein d'importations à la main.
+Ce type de \packs agrégateurs proposent tous une \api répondant aux \specs suivantes
+((
+    La majorité du travail est automatisé.
+)).
+
+    * On importe les \packs en ne fabriquant pas un \pack qui reprendrait les codes des différents sous-\packs. Ceci simplifie grandement les \majs.
+
+    * Les options de chaque sous-\pack restent accessibles depuis le \pack agrégateur.
+
+    * Côté utilisateur, il est possible de choisir une importation ciblée de certains \packs, \etou d'en exclure d'autres.
+
+    * La \doc agrège les \docs des différents \packs importés afin de proposer toutes les \infos au même endroit dans un unique \pdf.
+
+
+warning::
+    Afin d'éviter des comportements déroutants, les \packs ne seront importables qu'une seule fois.
+    Par exemple, si ``agregpack`` agrège des \packs dont l'un est ``subpack``, alors le code suivant renverra une erreur.
+
+    latex::
+        % ...
+        \usepackage{agregpack}
+        \usepackage{subpack}
+        % ...

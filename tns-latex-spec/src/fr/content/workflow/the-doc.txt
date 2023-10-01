@@ -7,6 +7,6 @@ abrev::
 ============
 
 content::
-    \content/3-docs.txt
+    \content/2-docs.txt
     \content/tech-doc.txt
     \content/user-doc.txt

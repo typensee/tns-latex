@@ -1,10 +1,24 @@
 this::
-    date = 2023-09-05
+    date = 2023-09-29    ??????
 
 
 =============
 \Infos \techs
 =============
+
+La fabrication de fiches \techs se fait de façon semi-automatisée de la façon suivante.
+
+    1)
+
+    1)
+
+    1)
+
+
+NON, on passe via src mais on l'oindique ici!
+
+
+
 
 La fiche \tech d'un \env, ou d'une macro se fait efficacement grâce à \macroenvsign. Voici un exemple possible d'utilisation où l'absence de la signature de la macro ``\pderope`` n'est pas un oubli car \macroenvsign sait la récupérer \auto^t. La clé ``about`` permet d'expliquer la fabrication du nom de la macro
 ((
@@ -12,16 +26,7 @@ La fiche \tech d'un \env, ou d'une macro se fait efficacement grâce à \macroen
 )).
 
 latex::
-    \begin{idmacro}{
-        name  = pderope,
-        about = {p-artial, der-ivation, ope-rator}
-    }
-        \arg[in = {f, sf, i}] Voir la fiche technique de \docmacro{pder} juste avant.
 
-        \arg[csv] Les variables utilisées avec leur ordre de dérivation via la syntaxe indiquée ci-dessus.
-
-        \arg L'ordre total de dérivation.
-    \end{idmacro}
 
 
 warning::

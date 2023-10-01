@@ -1,17 +1,18 @@
 this::
-    date = 2023-09-05
+    date = 2023-09-30
 
 
 ===============================================
 path::``src/about.yaml`` pour les dossiers \src
 ===============================================
 
-Dans le dossier path::``src`` peut être mis un fichier path::``about.yaml`` pour indiquer les dossiers à analyser suivant un ordre imposé.
+Dans le dossier path::``src`` peut être mis un fichier path::``about.yaml`` pour imposer les dossiers à analyser suivant un ordre imposé.
 Imaginons que l'on ait le code suivant pour notre exemple ficitf.
 
 yaml::
     ---
-    title = Contenu du fichier path::``src/about.yaml``
+    extract = yes
+    title   = Le fichier path::``src/about.yaml``
     ---
 
     toc:
@@ -20,8 +21,12 @@ yaml::
       - alpha-et-omega3/
 
 
-Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre, au lieu de l'ordre naturel.
+Ce qui précède demande tout simplement d'analyser les dossiers path::``intro``, path::``poor-lonesome-cowboy`` et path::``alpha-et-omega3`` dans cet ordre, au lieu de l'ordre naturel, tout en ignorant tout autre sous-dossier direct de path::``src``.
 
 
 warning::
     Ne pas oublier l'oblique final path::``/`` pour indiquer des dossiers et non des fichiers.
+
+
+info::
+    Sans fichier path::``src/about.yaml``, tous les sous-dossiers directs de path::``src`` seront analysés et ordonnés suivant l'ordre \lexico.

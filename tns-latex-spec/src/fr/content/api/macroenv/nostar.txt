@@ -1,0 +1,9 @@
+this::
+    date = 2023-09-30
+
+
+=============================
+Versions étoilées... ou pas !
+=============================
+
+Historiquement, les macros et \envs étoilés ont rendu de grands services, mais il est devenu facile de s'en passer en proposant des \args de type ``clé-valeur`` \etou en s'appuyant sur le \syst de signature des \args proposé par \latex2e ; ceci explique que la suite \tnstex ne propose aucune macro et aucun \env étoilés.

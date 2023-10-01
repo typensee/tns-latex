@@ -1,5 +1,9 @@
 abrev::
-    content = small-code
+    content = :this.name:
+
+    glob   = verb::``glob``
+    pyglob = cf::``syntaxe \glob à la \python;
+                   https://docs.python.org/3/library/glob.html``
 
 
 =========================
@@ -12,3 +16,5 @@ content::
     \content/about-for-dirs.txt
     \content/about-for-files.txt
     \content/files-for-doc.txt
+    \content/glob.txt
+    \content/ignore.txt

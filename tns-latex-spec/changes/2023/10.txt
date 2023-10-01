@@ -1,0 +1,95 @@
+// ---------- //
+
+
+==
+01  (0.19.0-beta)
+==
+
+-------
+:break:
+-------
+
+[[:api:]]
+Here is what has been improved.
+
+    1) Aggregating \packs: in the path::``about.yaml`` file, the paths to the \packs to be aggregated must end in yaml::``/``.
+
+    1) yaml::``toc`` block of a path::``about.yaml`` file: we just use what is indicated without automatically adding some remaining files, except for ext::``tex`` files associated with ext::``sty`` files.
+
+    1) \Tech \doc: just the \src code is used (with the possibility of translations into languages other than English).
+
+    1) Resource: no more analysis of the code \latex of the \doc typed by the coder but everything must pass via relative paths.
+
+    1) Macros and starred \envs: no longer offered.
+
+    1) Language support: the names to be used are those proposed by the \babel \pack.
+
+    1) Non-retroactive changes: we act abruptly with no transition period (simpler to maintain and classic in the \latex world).
+
+    1) The path::``build_`` prefix is no longer marked as to be ignored for the final product. If necessary, path::``tool_build_`` should be used as the prefix.
+
+
+-----
+:new:
+-----
+
+[[:api:]]
+Several new features.
+
+    1) Just for the path::``src/about.yaml`` file: the yaml::``texfacto`` block lets you specify a file to use as the header for the ext::``tex`` file in the user \doc.
+
+    1) For any path::``about.yaml`` file, this is what has been added.
+
+        + A yaml::``ignore`` block can be used to indicate files to be ignored locally or globally for the final product in addition to those of type path::``test_`` and path::``tool_``.
+
+        + You can use the \glob syntax for the yaml::``toc`` and yaml::``ignore`` blocks.
+
+    1) \Tech \docs.
+
+        + A user \tech \doc and a hacker one are proposed.
+
+        + Possibility of hiding some \signs just for the "simple user" version via the starred tnsdoc::``prototype*::``.
+
+    1) About translatable content.
+
+        + Naming uses two options depending on the context: either the verb::``ISO 639-1`` standard, or via the conventions of the \pack \babel.
+
+        + The contributions folder looks like this:
+
+        dirview::
+            + contribute
+                + doc
+                    + changelog
+                        + fr [...]
+                    + manual
+                        + fr [...]
+                    + tech
+                        + en [...]
+
+
+--------
+:update:
+--------
+
+[[:api:]]
+Project folder: the path::``contribute`` and path::``readme`` subfolders are optional.
+
+
+[[:doc:]]
+Many clarifications have been made.
+
+    1) It has been clearly stated that for each \dev subfolder, the settings related to a language should be placed in a path::``locale`` subfolder.
+
+    1) The \pdf files associated with a \ext::``tex`` file included in the user \doc will always be ignored in the final \prod.
+
+    1) \Tech \docs: macros or \envs created dynamically via latex::``\csname`` type functions should be clearly explained in the \protos.
+
+    1) ... \etc.
+
+
+--------
+:fordev:
+--------
+
+[[:tech:]]
+Update relating to \tns: use of path::``?/`` instead of path::``:?../`` for systematic ascending/descending file and folder searches.

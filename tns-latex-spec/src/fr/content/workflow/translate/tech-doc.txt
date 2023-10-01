@@ -1,0 +1,20 @@
+this::
+    date = 2023-10-01
+
+
+========================
+Langues de la \doc \tech
+========================
+
+La \doc \tech est \tjrs rédigée en anglais dans le code \src pour être mise en forme \auto^t par le projet \tnsdoc.
+Ceci permet aussi de proposer des \trads via un mécanisme similaire à celui de la \trad de la \doc "utilisateur" : la \doc \tech est proposée par petits bouts comme suit dans le dossier des contributions.
+
+dirtree::
+    + tnsfictive
+        + contribute
+            + doc
+                + tech
+                    + en [...]
+                + [...]
+            + [...]
+        + [...]

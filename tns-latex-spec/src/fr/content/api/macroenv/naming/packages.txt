@@ -6,4 +6,4 @@ this::
 Packages
 ========
 
-Tous les packages utilisent le préfixe ``tns`` dans leur nom qui est \tjrs de type anglais. Par exemple, le nom ``tnsmypack`` sera employé contrairement à ``monpackage`` et  ``tnsmonpackage``.
+Tous les packages utilisent le préfixe ``tns`` dans leur nom qui est \tjrs de type anglais. Par exemple, le nom ``tnsmypack`` sera employé contrairement à ``monpackage`` et ``tnsmonpackage``.

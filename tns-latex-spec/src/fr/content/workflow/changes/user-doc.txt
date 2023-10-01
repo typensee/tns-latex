@@ -1,5 +1,5 @@
 this::
-    date = 2023-09-19
+    date = 2023-10-01
 
 
 =====================
@@ -33,34 +33,34 @@ warning::
 
         1) Contrairement à la \doc \tech, les \modifs se tapent jour par jour. Ceci permet notamment de tester la bonne rédaction de l'écriture des \chgts pour une date donnée.
 
-        1) Si plusieurs versions sont publiées le même jour, il faudra suffixé la numéro du jour sous la forme path::``-a``, path::``-b``, path::``-c`` \etc.
+        1) Si plusieurs versions sont publiées le même jour, il faudra suffixer le numéro du jour avec quelque chose du type path::``-a``, path::``-b``, path::``-c``... \etc.
 
 
 Voici un exemple possible de \chgts ; ceci va nous donner l'occasion d'expliquer quelques points importants.
 
 latex::
-    \begin{doctopic}[Un court changement]
-        ajout de \docmacro{unemacro}.
-    \end{doctopic}
+    \begin{bdoctopic}[Un court changement]
+        ajout de \bdocmacro{unemacro}.
+    \end{bdoctopic}
 
-    \begin{doctopic}<Plusieurs changements>
+    \begin{bdoctopic}<Plusieurs changements>
         \begin{itemize}
-            \item Modification de \docmacro{uneautremacro}.
-            \item Création de \docenv{unenv}.
+            \item Modification de \bdocmacro{uneautremacro}.
+            \item Création de \bdocenv{unenv}.
         \end{itemize}
-    \end{doctopic}
+    \end{bdoctopic}
 
 
 Voici ce qu'il faut absolument savoir.
 
     1) Le \numver n'est pas indiqué puisque cette \info est connue via les \chgts \techs.
 
-    1) Un \chgt court se tape directement via ``\begin{doctopic}[...] ... \end{doctopic}`` qui prend en argument un titre court entre des crochets et dont le contenu détaille les nouveautés.
+    1) Un \chgt court se tape directement via ``\begin{bdoctopic}[...] ... \end{bdoctopic}`` qui prend en argument un titre court entre des crochets et dont le contenu détaille les nouveautés.
 
-    1) Pour des \chgts plus longs il suffit d'utiliser ``\begin{doctopic}<...> ... \end{doctopic}`` en plaçant le titre entre des chevrons et non des crochets.
+    1) Pour des \chgts plus longs, il suffit d'utiliser ``\begin{bdoctopic}<...> ... \end{bdoctopic}`` en plaçant le titre entre des chevrons et non des crochets.
     Ici un retour à la ligne est fait \auto^t.
 
-    1) Les macros ``\docmacro`` et ``\docenv`` permettent d'indiquer \resp des macros et des \envs.
+    1) Les macros ``\bdocmacro`` et ``\bdocenv`` permettent d'indiquer \resp des macros et des \envs.
 
 
 info::
@@ -68,4 +68,4 @@ info::
     ((
         Ce fichier ne fera pas partie du produit final.
     )),
-    directement compilable, sert à tester et déboguer facilement le rendu des \chgts pour une date donnée.
+    directement compilable sert à tester et déboguer facilement le rendu des \chgts pour une date donnée.

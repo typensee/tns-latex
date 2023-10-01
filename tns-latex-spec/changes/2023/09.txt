@@ -40,7 +40,7 @@ Change log for the user: the files for days can be suffixed to allow several new
 -----
 
 [[:api:]]
-Special comments for path::``STY`` files: a second level of title can be used.
+Special comments for ext::``sty`` files: a second level of title can be used.
 
 
 -------

@@ -1,5 +1,5 @@
 this::
-    date = 2023-09-07
+    date = 2023-10-01
 
 
 ===================================
@@ -8,14 +8,19 @@ Fichiers pour la \doc "utilisateur"
 
 Le codeur se charge de rédiger une \doc "utilisateur" dans la langue indiquée via le fichier path::``about.yaml`` du projet
 ((
-    Voir cf::``:?../metainfos/allpacks.txt``.
+    Voir cf::``?/metainfos/allpacks.txt``.
 )).
-Ceci se fait au même niveau que les fichiers path::``STY``, pour cela, il suffit de rédiger des fichiers path::``TEX``.
+Ceci se fait au même niveau que les fichiers ext::``sty`` : pour cela, il suffit de rédiger des fichiers ext::``tex``.
 Nous allons voir ici comment seront réunis ces fichiers pour produire la \doc finale au complet.
 
 
 info::
-    Tout contenu d'un fichier \latex non ignoré sera intégré \auto^t à la \doc du projet final (se reporter à cf::``?../user-doc.txt`` pour savoir comment rédiger le contenu de cette \doc).
+    Tout contenu d'un fichier \latex non ignoré sera intégré \auto^t à la \doc du projet final (se reporter à cf::``?/user-doc.txt`` pour savoir comment rédiger le contenu de cette \doc).
+    Si cela n'est pas souhaité, il est possible d'indiquer localement des fichiers à ignorer : voir cf::``ignore.txt``.
+
+
+info::
+    Bien entendu, on ignore tout fichier \pdf associé à un fichier \latex intégré \auto^t à la \doc.
 
 
 Globalement, nous avons vu comment imposer un ordre d'analyse des dossiers du code \src : voir la section cf::``about-for-dirs.txt``. Voyons donc comment cela se passe pour un dossier particulier comme le suivant sans fichier path::``about.yaml``.
@@ -28,8 +33,8 @@ dirtree::
         * omega3.sty
 
 
-Dans le cas ci-dessus, ce sera tout simplement l'ordre naturel qui sera utilisé : le contenu de path::``alpha.tex`` apparaîtra après celui de path::``omega3.tex``.
-Ceci ne sera pas forcément le cas pour le dossier ci-après car il va falloir prendre en compte le contenu de path::``about.yaml``.
+Dans le cas ci-dessus, ce sera tout simplement l'ordre naturel qui sera utilisé : le contenu de path::``alpha.tex`` apparaîtra avant celui de path::``omega3.tex``.
+Par contre, pour le dossier ci-dessous, le contenu de path::``about.yaml`` peut imposer les fichiers à garder.
 
 dirtree::
     + poor-lonesome-cowboy
@@ -45,7 +50,7 @@ Supposons que le fichier path::``about.yaml`` ait le contenu suivant.
 
 yaml::
     ---
-    title = Contenu du fichier path::``poor-lonesome-cowboy/about.yaml``
+    title = Le fichier path::``poor-lonesome-cowboy/about.yaml``
     ---
 
     toc:
@@ -53,15 +58,15 @@ yaml::
       - lucky.sty
 
 
-Aucune \ref n'étant faite aux fichiers path::``TEX``, les règles suivantes sont appliquées.
+Aucune \ref n'étant faite aux fichiers ext::``tex``, les règles suivantes sont appliquées.
 
-    1) Les fichiers path::``TEX`` commençant par path::``rantanplan-``, \etou le fichier path::``rantanplan.tex`` forment une liste qui sera ordonnée de façon naturelle pour être intégrés dans la \doc finale en première position.
+    1) Les fichiers ext::``tex`` commençant par path::``rantanplan-``, \etou le fichier path::``rantanplan.tex`` forment une liste qui sera ordonnée de façon naturelle pour être intégrés dans la \doc finale en première position.
 
     1) Viennent ensuite les fichiers commençant par path::``lucky-``, \etou le fichier path::``lucky.tex`` ordonnés de façon naturelle pour être intégrés dans la \doc finale en deuxième position.
 
-    1) S'il reste des fichiers path::``TEX``, on les ordonne tous de façon naturelle pour les mettre dans la \doc finale à partir de la troisième position.
+    1) S'il reste des fichiers ext::``tex``, ils seront ignorés !
 
 
 info::
-    Rien n'empêche d'indiquer à la fois des fichiers path::``STY`` et path::``TEX`` dans un ordre souhaité.
-    Ceci peut s'avérer utile pour un document path::``TEX`` non associé à un code path::``STY`` mais présentant rapidement différentes fonctionnalités, un tel fichier devant être traité avant tout le reste, il suffit de le mettre au début de la liste yaml::``toc``.
+    Rien n'empêche d'indiquer à la fois des fichiers ext::``sty`` et ext::``tex`` dans un ordre souhaité.
+    Ceci peut s'avérer utile pour un document ext::``tex`` non associé à un code ext::``sty`` mais présentant rapidement différentes fonctionnalités, un tel fichier devant être traité avant tout le reste, il suffit de le mettre au début de la liste yaml::``toc``.

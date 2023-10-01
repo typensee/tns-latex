@@ -1,10 +1,10 @@
 abrev::
-    content = sty-structure
+    content = :this.name:
 
 
-=======================================
-Organiser un fichier \src path::``STY``
-=======================================
+======================================
+Organiser un fichier \src ext::``sty``
+======================================
 
 content::
     \content/common.txt

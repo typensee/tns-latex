@@ -63,7 +63,7 @@ About \tech \docs: it has been explained that the method used to find sections i
 [[:api:]]
 Two things have changed.
 
-    1) Names of path::``TEX`` files: the need to indicate the language has been added.
+    1) Names of ext::``tex`` files: the need to indicate the language has been added.
 
     1) Dirs and files protected or to ignore: the special names all use a plurial form.
 

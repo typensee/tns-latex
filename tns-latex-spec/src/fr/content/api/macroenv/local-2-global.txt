@@ -1,13 +1,17 @@
 this::
-    date = 2023-09-05
+    date = 2023-09-30
 
 
 =========================================
 Des options locales réglables globalement
 =========================================
 
-Certaines options de macros, ou d'\envs, peuvent être modifiables globalement : on peut par exemple penser au type de décorateurs "ouverts" des intervalles (des parenthèses à l'américaine, ou bien des crochets à la française). Dans ce cas, le réglage est disponible comme option de package, mais aussi via une macro généraliste pour une modification à partir d'un point donné.
+Certaines options de macros, ou d'\envs, peuvent être modifiables globalement : on peut par exemple penser au type de décorateurs "ouverts" des intervalles
+((
+    Des parenthèses à l'américaine ? Ou bien des crochets à la française et à l'anglaise ?
+)).
+Dans ce cas, le réglage est disponible comme option de package, mais aussi via une macro généraliste pour une modification à partir d'un point donné.
 
 
 info::
-    Les réglages globaux de certaines options locales se font via des clés usant de "chemins" faisant \ref aux macros, ou aux \envs concernés. Un exemple fictif pourrait être latex::``\SetFictivePackage{nommacro/nomoption = choixfait}``.
+    Les réglages globaux de certaines options locales se font via des clés usant de "chemins" faisant \ref aux macros, ou aux \envs concernés. Un exemple fictif pourrait être latex::``\SetTnsFictivePackage{macroname/optionname = mychoice}``.
