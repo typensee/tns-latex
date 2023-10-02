@@ -1,8 +1,0 @@
-real_output_start = Début du rendu réel
-real_output_end   = Fin du rendu réel
-
-code_after_output = Le rendu précédent a été obtenu
-                    via le code suivant
-output_after_code = Rendu du code précédent
-
-exa_title = Exemple

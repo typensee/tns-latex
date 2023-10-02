@@ -1,9 +1,0 @@
-this::
-    date = 2023-09-30
-
-
-=============
-Tâches \autos
-=============
-
-Les macros et les \envs automatisant des tâches ingrates s'appuient toujours sur une presque-jumelle, ou un presque-jumeau, utilisable à la main côté "utilisateur" : ceci permet de palier à d'éventuels manquements ou faiblesses.
