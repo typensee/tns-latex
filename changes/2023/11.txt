@@ -1,0 +1,17 @@
+// ---------- //
+
+
+==
+19
+==
+
+--------
+:fordev:
+--------
+
+[[:api:]]
+Two new major changes.
+
+    1) Naming: the common prefix will be ''tns-''.
+
+    1) Bundle structure has changed.
