@@ -1,0 +1,103 @@
+=========================
+typensee-latex (monorepo) - TODO
+=========================
+
+
+> ---------------------------- <
+
+utilisation systématique de tabularray et nicematrix suivant le contexte
+
+
+> ---------------------------- <
+
+voir si forest est utile ou pas : oui a priori pour l'aspect rédaction humaine
+
+
+> ---------------------------- <
+
+srtepcalc : couleurs personnailsables : flèche, et texte, on peut ainsi avoir flèche noire et textes colorés reliées à des bouts de calculs colorés.
+
+
+> ---------------------------- <
+
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\openclose\lbrack\rangle
+
+\begin{document}
+
+\begin{gather*}
+    \openclose*{\frac{X^X}{p_p}} \\
+    \openclose{\frac{X^X}{p_p}} \\
+    \openclose[\big]{\frac{X^X}{p_p}}
+\end{gather*}
+
+\end{document}
+
+
+
+
+> ---------------------------- <
+
+redef macros std dans un âckage dédié et npn dans tnscore !!!
+
+tnsspace ???
+
+
+> ---------------------------- <
+
+syst de math obj - TOP !!!
+
+    ---> En LaTeX3 comme cela on peut faire par exemple \point[A](4 , 5) ou le crochet défini un nom en interne puis x(\val{name of A}) = \val{x of A} au lieu de x(A) = 4
+
+    ---> \val{x1 of A} aussi ok si plus de 4 coords avec x4 <--> t
+
+    ---> faire un projet à part qui implémente différents langage : automatisable car c'est de la création lecture basique !
+
+
+> ---------------------------- <
+
+sinutix dans core ???
+
+    + ajout de u.l. et u.a. et u.v.
+
+
+> ---------------------------- <
+
+outil de division posée pour lire l'écriture d'un nombre en base p avec la possibilité d'ajouter le passage de 10 à A, 11 à B, ... etc
+
+Ne pas aller au-delà de la base 36 car au final ce n'est pas compliqué que pour base 16 qui est utile
+
+
+> ---------------------------- <
+
+imposer l'usage de  \nombre{152383.52} voire  \nb{152383.52} si libre via
+
+\usepackage[french]{babel}
+\usepackage[autolanguage]{numprint} % for the \nombre command
+
+
+> ---------------------------- <
+
+tout automatique y compris les changes !
+
+
+> ---------------------------- <
+
+outil de checking image
+
+    ---> on fait le jeu de test à la main en mode sandalone et article
+    ---> un script lancé uniquement à la demande car long va vérifié a correspodnance au pixel pret
+
+         MIEUX
+
+         For each figure to test, the reference image is subtracted from the generated image, and the RMS of the residual is compared to a user-specified tolerance. If the residual is too large, the test will fail (this is implemented using helper functions from matplotlib.testing).
+
+    ---> en cas d'echec, on doit pouvoir mettre à jour
+         par exemple, si un espacement est chnagé dans base et que l'a sortie reste correct, les test au îxel prete ralera mais le test devra se mettre à jour
+
+            + on cée alors une corbeille historisé vidable en cas de validation hative
+
+    ---> crée un outil Python dédié avec interfacage basique en html
