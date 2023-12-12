@@ -1,0 +1,30 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{tikz}
+\usepackage{nicematrix}
+
+\NewDocumentCommand{\myHspace}{O{20}}{\kern#1pt}
+
+
+\begin{document}
+
+$\begin{NiceArray}{c|lcccccr}
+	x
+		& -\infty & \myHspace  & \alpha & \myHspace & 2 & \myHspace & +\infty
+\\ \hline
+	\dfrac{1}{a(x)}
+		&  & - &   & - & 0 & + &
+\\ \hline
+	b(x)
+		&  & - & 0 & + &   & + &
+\\ \hline
+	\text{Bilan}
+		&  & + &   & - & 0 & + &
+\CodeAfter
+	\tikz \draw[gray] (2-|4.5) -- (4-|4.5) ;
+	\tikz \draw[dotted] (2-|6.5) -- (4-|6.5) ;
+	\tikz \draw ([xshift=-1pt]4-|4.5) -- ([xshift=-1pt]5-|4.5) ;
+	\tikz \draw ([xshift=1pt]4-|4.5) -- ([xshift=1pt]5-|4.5) ;
+\end{NiceArray}$
+
+\end{document}
