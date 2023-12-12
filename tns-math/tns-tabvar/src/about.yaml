@@ -3,5 +3,5 @@ texfacto:
     pack:
       preamble: preamble.cfg.tex
 
-toc:
-  - ???
+# toc:
+#   - ???

@@ -1,7 +1,7 @@
 general:
   desc   : This package proposes tools for writing "human friendly"
-           documentations of LaTeX packages.
-  acronym: tuto-rial doc-umentation
+           mathematical tables of signs and/or variations.
+  acronym: T.ype & S.ee - Tab.le of var.iations
   author : Christophe BAL
   licence: gnu 3
   lang   :
