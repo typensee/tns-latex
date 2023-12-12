@@ -1,10 +1,10 @@
-The `LaTeX` package `tutodoc`
-=============================
+The `LaTeX` package `tns-tabvar`
+================================
 
-About `tutodoc`
+About `tns-tabvar`
 ---------------
 
-This package proposes some macros to write human documentations of `LaTeX` packages with a tutorial-like flavour.
+This package proposes tools for writing mathematical tables of signs and/or variations.
 
 
 License
