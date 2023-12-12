@@ -25,9 +25,26 @@ $\begin{NiceArray}{c|lcccccr}
 
 \bigskip
 
+$\begin{NiceArray}{c|lcccccr}
+	x
+		& 1 & \myHspace  & 2 & \myHspace & 3 & \myHspace & 4
+\\ \hline
+	\Block{3-1}{f(x)}	&   &   & b &   &   &   & d
+\\
+		&   & \myVspace &   & \myVspace &   & \myVspace &  
+\\
+		& a &   &   &   & c &   &  
+\CodeAfter
+	\tikz \draw[-stealth] ([yshift=-3pt]4-|3)  -- ([yshift=3pt]3-|4) ;
+	\tikz \draw[-stealth] ([yshift=3pt]3-|5)  -- ([yshift=-3pt]4-|6) ;
+	\tikz \draw[-stealth] ([yshift=-3pt]4-|7)  -- ([yshift=3pt]3-|8) ;
+\end{NiceArray}$
+
+\bigskip
+
 $\begin{NiceArray}{c|rcccccl}
 	x
-		& -\infty & \myHspace  & 2 & \myHspace & 3 & \myHspace & +\infty
+		& -\infty & \myHspace  & 2 & \myHspace[80] & 3 & \myHspace & +\infty
 \\ \hline
 	\Block{3-1}{f(x)}	&   &   & \frac12 &   &   &   & d
 \\
