@@ -1,6 +1,6 @@
 general:
-  desc   : This package proposes tools for writing "human friendly"
-           mathematical tables of signs and/or variations.
+  desc   : This package proposes tools for writing mathematical
+           tables of signs and/or variations.
   acronym: T.ype & S.ee - Tab.le of var.iations
   author : Christophe BAL
   licence: gnu 3
