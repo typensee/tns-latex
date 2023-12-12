@@ -5,4 +5,4 @@
 12  (0.0.0-alpha.0)
 ==
 
-Starting this project that will ease the typing of mathematical tables of signs and/or variations.
+Starting this project that will ease the typing of mathematical tables of signs and/or variations, and also tables of values.
