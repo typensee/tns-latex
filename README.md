@@ -1,8 +1,8 @@
-The monorepo `typensee-latex`
-=============================
+The monorepo `tns-latex`
+========================
 
-About `typensee-latex`
-----------------------
+About `tns-latex`
+-----------------
 
 This monorepo contains a series of packages and classes to write `LaTeX` documents efficiently in a semantic way.
 
