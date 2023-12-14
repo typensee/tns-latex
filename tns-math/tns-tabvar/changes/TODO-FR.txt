@@ -15,7 +15,11 @@ voir si forest est utile ou pas : oui a priori pour l'aspect rédaction humaine
 
 > ---------------------------- <
 
-srtepcalc : couleurs personnailsables : flèche, et texte, on peut ainsi avoir flèche noire et textes colorés reliées à des bouts de calculs colorés.
+stepcalc deveint seqcalc pour seuential calculus
+
+    ----> \explnext devient \nextstep et explain faculattatif
+
+    ----> couleurs personnailsables : flèche, et texte, on peut ainsi avoir flèche noire et textes colorés reliées à des bouts de calculs colorés.
 
 
 > ---------------------------- <

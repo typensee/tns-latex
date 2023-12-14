@@ -25,12 +25,12 @@ ALWAYS DONE
 NEXT STEPS
 ----------
 
-    1) Tab var et signe maison via un DSL dédié et aussi automatique possible via outil de son choix : voir comment appel giac par exemple
+    1) Tab var/signe/vals maison via un DSL dédié, et aussi automatique possible avec outil de son choix : voir comment appel giac par exemple
 
     2) Interval in a dedicated package
+
         + Writing
         + Drawing
-
 
     3) stepcalc & basic logic
         + \then ??? instead of \implies
@@ -38,13 +38,15 @@ NEXT STEPS
           \when ??? instead of \becauseof
 
         + New easy-to-use syntax, regarding the style:
-            \explnext[top to bottom]<bottom to top>
+            \nextstep   % Nothing to say
           or
-            \explnext[top to bottom ALONE]
+            \nextstep[top to bottom]<bottom to top>
           or
-            \explnext<bottom to top ALONE>
+            \nextstep[top to bottom ALONE]
           or
-            \explnext{double side}
+            \nextstep<bottom to top ALONE>
+          or
+            \nextstep{double side}
           (in a double-side case, the use of the first options will not be allowed).
 
         + Macro to facilitate the construction of specialized stepcalc environments like an iff environment, or an evaluation one for example. Use of expl3 template!
