@@ -1,0 +1,31 @@
+\documentclass[11pt, a4paper]{article}
+
+\setlength\parindent{0pt}
+
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{\showthis}{m}{
+	\fbox{\texttt{#1}}
+
+	\bigskip
+}
+
+
+\NewDocumentCommand{\parsevars}{m}{
+	\showthis{#1}
+}
+
+\ExplSyntaxOff
+
+
+\begin{document}
+
+
+\parsevars{vars  =  g(x)    :  a <   b> c<  d  }
+
+
+\parsevars{vars=a<b<c<d}
+
+
+\end{document}
