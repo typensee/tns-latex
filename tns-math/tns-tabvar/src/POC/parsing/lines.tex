@@ -1,33 +1,29 @@
-\documentclass[11pt, a4paper]{article}
+% Source: https://tex.stackexchange.com/q/705192/6880
 
-
-\setlength\parindent{0pt}
-
+\documentclass{article}
 
 \ExplSyntaxOn
 
-\NewDocumentEnvironment{parselines}{b+}{
-    \seq_new:N \l_path_seq
-    \regex_split:nnNTF { \n } { #1file.tex } \l_path_seq
-    	{ true }
-	    { false }
+\NewDocumentEnvironment{linebyline}{b}{
+    \seq_new:N \l_temp_seq
+    \regex_split:nnNTF { \n } { #1 } \l_tmpa_seq
+    	{ true: #1 }
+	    { false: #1 }
 }{}
 
 \ExplSyntaxOff
 
 
-
 \begin{document}
 
 
-\begin{parselines}
-% Domain
-	bounds =      t: -oo , 2 , 3 , +oo
-% Signs
-	signs  =  f'(t):     + 0 - 0 +
-% Vars
-	vars   =   f(t):   a < b > c <  d
-\end{parselines}
+\begin{linebyline}
+% Comment
+	Line 1
+	Line 2
+% Comment
+	Line 3
+\end{linebyline}
 
 
 \end{document}
