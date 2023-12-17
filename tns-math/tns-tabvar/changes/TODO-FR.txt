@@ -5,6 +5,32 @@ typensee-latex (monorepo) - TODO
 
 > ---------------------------- <
 
+mode ASCII de saisie qui devrait suffir tout le temps !
+
+% Domain
+	bounds =     t : -oo , 2/7 , 3 , +oo
+% Signs
+	signs  = f'(t) :     +  0  - 0 +
+% Vars
+	vars   =  f(t) :   a <  b  > c <  beta
+
+
+> ---------------------------- <
+
+abrev via initials pour les initiés + mode incomplet
+
+% Domain
+	b =     t :    -oo , 2/7 , 3 , +oo
+% Signs
+	s =   t+4 :        +  0  - 0 +
+	  =   t^2 :        +  n  + n +
+	  = f'(t) :        +  0  - 0 +
+% Vars
+	v =  f(t) :      a <  b  > c <  beta
+
+
+> ---------------------------- <
+
 utilisation systématique de tabularray et nicematrix suivant le contexte
 
 
