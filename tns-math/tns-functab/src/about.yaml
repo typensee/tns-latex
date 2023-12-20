@@ -4,4 +4,6 @@ texfacto:
       preamble: preamble.cfg.tex
 
 # toc:
-#   - ???
+#   - tabdata
+#   - tabsigns
+#   - tabvars

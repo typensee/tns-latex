@@ -5,28 +5,51 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+TAB VALEURS - MODE LATEX DE BASE
+
+
+> ---------------------------- <
+
+TAB SIGNES / VAR - MODE LATEX DE BASE
+
 
 mode ASCII de saisie via luatex puis l3 ?
 
 % Domain
-	bounds =     t : -oo , 2/7 , 3 , +oo ;
+	bounds =     t : -\infty , \frac27 , 3 , +\infty ;
 % Signs
-	signs  = f'(t) :     +  0  - 0 +     ;
+	signs  = f'(t) :         +    0    - 0 +         ;
 % Vars
-	vars   =  f(t) :   a <  b  > c <  beta
-
+	vars   =  f(t) :       a <    b    > c <  \beta
 
 &
 
-
-
-abrev via initials pour les initiés + mode incomplet
+abrev via initials pour les initiés
 
 % Domain
-	b =     t : -oo , 2/7 , 3 , +oo ;
+	b =     t : -\infty , \frac27 , 3 , +\infty ;
 % Signs
-	s =   t+4 :     +  0  - 0 +     ;
-	  =   t^2 :     +  n  + n +     ;
-	  = f'(t) :     +  0  - 0 +     ;
+	s =   t+4 :         +    0    - 0 +         ;
+	  =   t^2 :         +    n    + n +         ;
+	  = f'(t) :         +    0    - 0 +         ;
 % Vars
-	v =  f(t) :   a <  b  > c <  beta
+	v =  f(t) :       a <    b    > c <  \beta
+
+
+> ---------------------------- <
+
+TAB - MODE DSL ASCII VIA LUATEX
+
+Moins personnalisable mais ceci devrait couvrir les cas courants
+
+    ---> nom d'env identitique mais on a une cé pour indiquer le format std (via l3) ou dsl (via luatex)
+
+    ---> format par défaut réglage au chargement du package mais aussi localement
+
+
+% Domain
+	bounds =     t : -oo , 2/7 , 3 , +oo
+% Signs
+	signs  = f'(t) :     +  0  - 0 +
+% Vars
+	vars   =  f(t) :   a <  b  > c <  beta
