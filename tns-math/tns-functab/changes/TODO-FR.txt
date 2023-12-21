@@ -7,13 +7,16 @@ tns-functab - TODO
 
 TAB VALEURS - MODE LATEX DE BASE
 
+    ----> mode vertical ou horizontal
+
+
+% Syntax ?
+
 
 > ---------------------------- <
 
 TAB SIGNES / VAR - MODE LATEX DE BASE
 
-
-mode ASCII de saisie via luatex puis l3 ?
 
 % Domain
 	bounds =     t : -\infty , \frac27 , 3 , +\infty ;
@@ -22,16 +25,16 @@ mode ASCII de saisie via luatex puis l3 ?
 % Vars
 	vars   =  f(t) :       a <    b    > c <  \beta
 
-&
 
-abrev via initials pour les initiés
+& abrev via initials pour les initiés
+
 
 % Domain
 	b =     t : -\infty , \frac27 , 3 , +\infty ;
 % Signs
 	s =   t+4 :         +    0    - 0 +         ;
-	  =   t^2 :         +    n    + n +         ;
-	  = f'(t) :         +    0    - 0 +         ;
+	      t^2 :         +    n    + n +         ;
+	    f'(t) :         +    0    - 0 +         ;
 % Vars
 	v =  f(t) :       a <    b    > c <  \beta
 
@@ -39,8 +42,6 @@ abrev via initials pour les initiés
 > ---------------------------- <
 
 TAB - MODE DSL ASCII VIA LUATEX
-
-Moins personnalisable mais ceci devrait couvrir les cas courants
 
     ---> nom d'env identitique mais on a une cé pour indiquer le format std (via l3) ou dsl (via luatex)
 
