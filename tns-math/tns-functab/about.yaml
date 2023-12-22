@@ -1,7 +1,8 @@
 general:
   desc   : This package provides tools for writing mathematical
-           tables of signs, variations or values related to functions.
-  acronym: T.ype &. S.ee - F.unction T.ables
+           sign tables, variation tables or data tables related
+           to functions.
+  acronym: T.ype &. S.ee - Func.tion Tab.les
   author : Christophe BAL
   licence: gnu 3
   lang   :
