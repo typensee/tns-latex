@@ -1,8 +1,3 @@
-\documentclass[11pt, a4paper]{article}
-
-\setlength\parindent{0pt}
-
-
 \ExplSyntaxOn
 
 \NewDocumentCommand{\showthis}{m}{
@@ -18,22 +13,10 @@
 	
     \regex_split:nnNTF { : } { #1} \l_path_seq 
     	{ 
-			true 
+			true !
 		} {
-			false
+			false ?
 		}
 }
 
 \ExplSyntaxOff
-
-
-\begin{document}
-
-
-\parsebounds{bounds  =   a  :  b ,   c,  d  }
-
-
-\parsebounds{bounds=e,f,g,h}
-
-
-\end{document}
