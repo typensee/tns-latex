@@ -8,9 +8,42 @@
 \begin{document}
 
 %\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les tableaux de signes et/ou de variations}
 
-\subsection{Le contexte \texttt{bounds}}
+\subsubsection{Le contexte \tdocinlatex{bounds}}
+\label{tns-math-functab-ctxt-bounds}
 
-XXX
+Pour indiquer les valeurs initiales nécessaires à la conception d'un tableau, il faut passer via le contexte \tdocinlatex{bounds} en respectant les règles ci-après.
+\begin{enumerate}
+    \item Le contexte \tdocinlatex{bounds} doit être employé une seule fois et avant tout autre contexte.
+
+
+    \item Un seul contenu est utilisable en utilisant l'un des deux formats suivants où le nombre de valeurs n'est pas majoré.
+    \begin{itemize}
+        \item \tdocinlatex{ma_var : val_1, val_2} indique que \tdocinlatex{ma_var} est associée aux valeurs \tdocinlatex{val_1} et \tdocinlatex{val_2} .
+
+        \item \tdocinlatex{val_1, val_2} demande d'utiliser le nom de variable par défaut pour les valeurs.
+    \end{itemize}
+\end{enumerate}
+
+
+\medskip
+
+
+Voici deux codes fictifs illustrant les règles précédentes.
+
+\begin{multicols}{2}
+	\tdoclatexinput[code]{examples/dsl/bounds-label.tex}
+
+	\tdoclatexinput[code]{examples/dsl/bounds-no-label.tex}
+\end{multicols}
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points et des virgules ne sont pas obligatoires bien que conseillés pour des raisons de lisibilité.
+\end{tdocnote}
 
 \end{document}

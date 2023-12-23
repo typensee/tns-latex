@@ -54,3 +54,16 @@ TAB - MODE DSL ASCII VIA LUATEX
     signs  = f'(t) :     +  0  - 0 +
 % Vars
     vars   =  f(t) :   a <  b  > c <  beta
+
+
+> ---------------------------- <
+
+Tab signes/variables
+
+    --> Val inter  via i: ...
+        Quel design ?
+
+
+> ---------------------------- <
+
+raccourcis à une lettre - OK quand API figée mais pas avant !

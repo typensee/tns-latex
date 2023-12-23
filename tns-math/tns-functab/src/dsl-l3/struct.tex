@@ -18,18 +18,20 @@ L'organisation des blocs d'informations se fait ligne par ligne en respectant le
 
     \item Les lignes vides sont autorisées
     \footnote{
-    	\label{dsl-l3-blank-struct}%
+    	\label{tns-math-functab-dsl-l3-blank-struct}%
     	Ceci est très pratique pour aérer et organiser le code.
     }.
 
 
-    \item La syntaxe du contenu est la suivante.
+    \item La syntaxe pour les contenus est la suivante.
     \begin{itemize}
-        \item Les espaces initiaux et finaux sont ignorés (voir la note \ref{dsl-l3-blank-struct} de bas de page).
+        \item Les espaces initiaux et finaux sont ignorés (voir la note \ref{tns-math-functab-dsl-l3-blank-struct} de bas de page).
 
-        \item
+        \item Les différents contenus sont séparés par des points-virgules.
 
-        \item
+        \item Tout contenu est associé à un contexte.
+
+        \item Un nouveau contexte s'indique en début de contenu via \tdocinlatex{contexte = contenu}, et aucun contexte par défaut n'est défini.
     \end{itemize}
 
 
@@ -42,7 +44,7 @@ L'organisation des blocs d'informations se fait ligne par ligne en respectant le
 
 Voici un code fictif illustrant les règles précédentes.
 
-\tdoclatexinput[code]{examples/dsl/block-line-fictional.tex}
+\tdoclatexinput[code]{examples/dsl/struct-fictional.tex}
 
 
 % --------------- %
@@ -51,15 +53,14 @@ Voici un code fictif illustrant les règles précédentes.
 \begin{tdocnote}
     Il est tout à fait possible d'écrire des contenus à la suite comme dans l'exemple suivant mais nous le déconseillons car cela nuit à la lisibilité du code.
 
-    \tdoclatexinput[code]{examples/dsl/block-line-fictional-compact.tex}
+    \tdoclatexinput[code]{examples/dsl/struct-fictional-compact.tex}
 
     On peut même utiliser l'horreur suivante
     \footnote{
     	Ce mode de rédaction est en fait idéal pour la fabrication automatisée de codes par un script extérieur.
     }.
 
-    \tdoclatexinput[code]{examples/dsl/block-line-fictional-monster.tex}
+    \tdoclatexinput[code]{examples/dsl/struct-fictional-monster.tex}
 \end{tdocnote}
 
 \end{document}
-

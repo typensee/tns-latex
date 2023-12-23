@@ -1,7 +1,7 @@
 toc:
   - intro
   - struct
-  - ctxts
+  - ctxts-for-signs-vars
   - ctxt-bounds
-  - ctxt-signs
-  - ctxt-vars
+  - ctxt-signs    ??
+  - ctxt-vars     ?
