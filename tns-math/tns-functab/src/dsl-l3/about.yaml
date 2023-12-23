@@ -1,7 +1,7 @@
 toc:
   - intro
-  - block-line
-  - block-ctxts
-  - block-ctxt-bounds
-  - block-ctxt-signs
-  - block-ctxt-vars
+  - struct
+  - ctxts
+  - ctxt-bounds
+  - ctxt-signs
+  - ctxt-vars
