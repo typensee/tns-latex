@@ -9,28 +9,28 @@
 \begin{document}
 
 $\begin{NiceArray}[cell-space-limits = 3pt]{c|lcccccr}
-	x
-		& -\infty & \myHspace  & \alpha & \myHspace & 2 & \myHspace & +\infty
+    x
+        & -\infty & \myHspace  & \alpha & \myHspace & 2 & \myHspace & +\infty
 \\ \hline
-	\dfrac{1}{a(x)}
-		&  & - &   & - & 0 & + &
+    \dfrac{1}{a(x)}
+        &  & - &   & - & 0 & + &
 \\ \hline
-	b(x)
-		&  & - & 0 & + &   & + &
+    b(x)
+        &  & - & 0 & + &   & + &
 \\ \hline
-	\text{Bilan}
-		&  & + &   & - & 0 & + &
+    \text{Bilan}
+        &  & + &   & - & 0 & + &
 \CodeAfter
-	\tikz \draw[gray] (2-|4.5) -- (4-|4.5) ;
-	\tikz \draw[dotted] (2-|6.5) -- (4-|6.5) ;
-	\tikz \draw ([xshift=-1.5pt]4-|4.5) -- ([xshift=-1.5pt]5-|4.5) ;
-	\tikz \draw ([xshift=1.5pt]4-|4.5) -- ([xshift=1.5pt]5-|4.5) ;
-	% Intervals
-	\tikz \draw[red, line width=3pt] ([yshift=-4.5pt]5-|2) -- ([yshift=-4.5pt]5-|4.5) ;
-	% Diagrams
-	\tikz \draw[blue, line width=3pt] ([xshift=4.5pt]2-|9) -- ([xshift=4.5pt]3-|9) ;
-	% Forbidden area
-	\tikz \path[fill=orange] ([xshift=1pt, yshift=-1pt]3-|6.5) rectangle ([xshift=-1pt, yshift=1pt]4-|9);
+    \tikz \draw[gray] (2-|4.5) -- (4-|4.5) ;
+    \tikz \draw[dotted] (2-|6.5) -- (4-|6.5) ;
+    \tikz \draw ([xshift=-1.5pt]4-|4.5) -- ([xshift=-1.5pt]5-|4.5) ;
+    \tikz \draw ([xshift=1.5pt]4-|4.5) -- ([xshift=1.5pt]5-|4.5) ;
+    % Intervals
+    \tikz \draw[red, line width=3pt] ([yshift=-4.5pt]5-|2) -- ([yshift=-4.5pt]5-|4.5) ;
+    % Diagrams
+    \tikz \draw[blue, line width=3pt] ([xshift=4.5pt]2-|9) -- ([xshift=4.5pt]3-|9) ;
+    % Forbidden area
+    \tikz \path[fill=orange] ([xshift=1pt, yshift=-1pt]3-|6.5) rectangle ([xshift=-1pt, yshift=1pt]4-|9);
 \end{NiceArray}$
 
 \end{document}

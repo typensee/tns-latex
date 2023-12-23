@@ -5,7 +5,7 @@
 \ExplSyntaxOn
 
 \NewDocumentCommand{\linebyline}{+v}{
-    \regex_split:nnN { \^^M } { #1 } \l_tmpa_seq 
+    \regex_split:nnN { \^^M } { #1 } \l_tmpa_seq
     \seq_use:Nn \l_tmpa_seq { :: }
 }
 
@@ -19,13 +19,13 @@
 
 
 \NewDocumentEnvironment{envlinebyline}{b}{
-	\begin{math}
-	\group_begin:
-%	\char_set_catcode_letter:N \^^M
+    \begin{math}
+    \group_begin:
+%    \char_set_catcode_letter:N \^^M
 %    \seq_set_split:Nnn \l_tmpa_seq {\^^M} { #1}
-	\regex_split:nnN { \^^M } { #1 } \l_tmpa_seq 
+    \regex_split:nnN { \^^M } { #1 } \l_tmpa_seq
     \seq_use:Nn \l_tmpa_seq { --XX-- }
-	\group_end:
+    \group_end:
     \end{math}
 }{}
 
@@ -41,10 +41,10 @@
 
 \linebyline{
 % Comment
-	Line 1
-	Line ^2
+    Line 1
+    Line ^2
 % Comment
-	Line 3
+    Line 3
 }
 
 
@@ -57,10 +57,10 @@
 
 \begin{stdlinebyline}
 % Comment
-	Line 1  ;
-	Line ^2 ;
+    Line 1  ;
+    Line ^2 ;
 % Comment
-	Line 3  ;
+    Line 3  ;
 \end{stdlinebyline}
 
 
@@ -73,12 +73,11 @@
 
 \begin{envlinebyline}
 % Comment
-	Line 1
-	Line ^2
+    Line 1
+    Line ^2
 % Comment
-	Line 3
+    Line 3
 \end{envlinebyline}
 
 
 \end{document}
-

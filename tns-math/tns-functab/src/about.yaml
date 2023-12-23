@@ -3,4 +3,6 @@ texfacto:
     pack:
       preamble: preamble.cfg.tex
 
-# toc:
+toc:
+# This the end...
+  - dsl-l3

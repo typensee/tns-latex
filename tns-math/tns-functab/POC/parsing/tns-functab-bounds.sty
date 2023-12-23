@@ -1,22 +1,22 @@
 \ExplSyntaxOn
 
 \NewDocumentCommand{\showthis}{m}{
-	\fbox{\texttt{#1}}
+    \fbox{\texttt{#1}}
 
-	\bigskip
+    \bigskip
 }
 
 \seq_new:N \l_path_seq
 
 \NewDocumentCommand{\parsebounds}{m}{
-	\showthis{#1}
-	
-    \regex_split:nnNTF { : } { #1} \l_path_seq 
-    	{ 
-			true !
-		} {
-			false ?
-		}
+    \showthis{#1}
+
+    \regex_split:nnNTF { : } { #1} \l_path_seq
+        {
+            true !
+        } {
+            false ?
+        }
 }
 
 \ExplSyntaxOff

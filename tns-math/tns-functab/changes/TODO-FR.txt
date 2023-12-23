@@ -19,24 +19,24 @@ TAB SIGNES / VAR - MODE LATEX DE BASE
 
 
 % Domain
-	bounds =     t : -\infty , \frac27 , 3 , +\infty ;
+    bounds =     t : -\infty , \frac27 , 3 , +\infty ;
 % Signs
-	signs  = f'(t) :         +    0    - 0 +         ;
+    signs  = f'(t) :         +    0    - 0 +         ;
 % Vars
-	vars   =  f(t) :       a <    b    > c <  \beta
+    vars   =  f(t) :       a <    b    > c <  \beta
 
 
 & abrev via initials pour les initiés
 
 
 % Domain
-	b =     t : -\infty , \frac27 , 3 , +\infty ;
+    b =     t : -\infty , \frac27 , 3 , +\infty ;
 % Signs
-	s =   t+4 :         +    0    - 0 +         ;
-	      t^2 :         +    n    + n +         ;
-	    f'(t) :         +    0    - 0 +         ;
+    s =   t+4 :         +    0    - 0 +         ;
+          t^2 :         +    n    + n +         ;
+        f'(t) :         +    0    - 0 +         ;
 % Vars
-	v =  f(t) :       a <    b    > c <  \beta
+    v =  f(t) :       a <    b    > c <  \beta
 
 
 > ---------------------------- <
@@ -49,8 +49,8 @@ TAB - MODE DSL ASCII VIA LUATEX
 
 
 % Domain
-	bounds =     t : -oo , 2/7 , 3 , +oo
+    bounds =     t : -oo , 2/7 , 3 , +oo
 % Signs
-	signs  = f'(t) :     +  0  - 0 +
+    signs  = f'(t) :     +  0  - 0 +
 % Vars
-	vars   =  f(t) :   a <  b  > c <  beta
+    vars   =  f(t) :   a <  b  > c <  beta
