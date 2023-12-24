@@ -12,6 +12,65 @@
 
 \subsubsection{Le contexte \tdocinlatex{signs}}
 
-XXX
+Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
+\begin{enumerate}
+    \item Le contexte \tdocinlatex{signs} est employable autant de fois que nécessaire.
+
+
+	\item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au signe de l'expression (voir l'item suivant). 
+
+
+    \item Dans cet item, nous allons supposer que \tdocinlatex{bounds = x_1 , x_2 , x_3} a été utilisé pour donner les valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3} . Les cas suivants couvrent tout ce qu'il est possible de faire.
+    \begin{itemize}
+        \item \tdocinlatex{f : + -} indique que
+        \verb#f > 0# sur \verb#]x_1 ; x_2[# ,
+        \verb#f < 0# sur \verb#]x_2 ; x_3[# ,
+        sans donner d'information particulière sur
+        \verb#f# en \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3} 
+        \footnote{
+        	Notons que ceci est totalement étrange.
+		}.
+
+
+        \item \tdocinlatex{f : + 0 -} complète ce qui précède en indiquant que \verb#f = 0# en \verb#x_2# .
+
+
+        \item \tdocinlatex{f : + ! -} permet d'indiquer une valeur interdite en \verb#x_2#
+        \footnote{
+        	Le panneau français indiquant un danger est un triangle rouge contenant un point d'exclamation.
+		}.
+
+
+        \item \tdocinlatex{f : 0 + ! - !} est autorisé pour indiquer aussi le comportement de \verb#f# en \verb#x_1# et \verb#x_3# .
+
+
+        \item \tdocinlatex{f : n z}  indique de ne rien mettre pour la zone relative à \verb#]x_1 ; x_2[# et aussi que \verb#f = 0# sur \verb#]x_2 ; x_3[#
+        \footnote{
+        	Les lettres \tdocpre{n} et \tdocpre{z} sont pour
+        	\tdocprewhy{n.othing} et \tdocprewhy{z.ero}
+        	où
+        	\tdocquote{nothing} signifie \tdocinEN{rien}.
+		}.
+    \end{itemize}
+\end{enumerate}
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points et des virgules ne sont pas obligatoires.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+Voici deux codes fictifs reprenant les indications précédentes. Noter que les espaces ignorés permettent d'obtenir un résultat humainement clair.
+\begin{multicols}{2}	
+	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
+	
+	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange.tex}
+\end{multicols}
 
 \end{document}
