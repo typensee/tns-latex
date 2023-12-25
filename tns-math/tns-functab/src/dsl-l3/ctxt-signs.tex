@@ -17,7 +17,7 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
     \item Le contexte \tdocinlatex{signs} est employable autant de fois que nécessaire.
 
 
-	\item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au signe de l'expression (voir l'item suivant). 
+	\item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au signe de l'expression (voir l'item suivant).
 
 
     \item Dans cet item, nous allons supposer que \tdocinlatex{bounds = x_1 , x_2 , x_3} a été utilisé pour donner les valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3} . Les cas suivants couvrent tout ce qu'il est possible de faire.
@@ -26,7 +26,7 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
         \verb#f > 0# sur \verb#]x_1 ; x_2[# ,
         \verb#f < 0# sur \verb#]x_2 ; x_3[# ,
         sans donner d'information particulière sur
-        \verb#f# en \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3} 
+        \verb#f# en \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3}
         \footnote{
         	Notons que ceci est totalement étrange.
 		}.
@@ -44,9 +44,9 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
         \item \tdocinlatex{f : 0 + ! - !} est autorisé pour indiquer aussi le comportement de \verb#f# en \verb#x_1# et \verb#x_3# .
 
 
-        \item \tdocinlatex{f : u z}  indique \verb#f# n'est pas définie sur \verb#]x_1 ; x_2[# et aussi que \verb#f = 0# sur \verb#]x_2 ; x_3[#
+        \item \tdocinlatex{f : u z}  indique que \verb#f# n'est pas définie sur \verb#]x_1 ; x_2[# et aussi que \verb#f = 0# sur \verb#]x_2 ; x_3[#
         \footnote{
-        	Les lettres \tdocpre{u} et \tdocpre{z} sont pour 
+        	Les lettres \tdocpre{u} et \tdocpre{z} sont pour
 			\tdocprewhy{u.ndefined} et \tdocprewhy{z.ero}
 			où
 			\tdocquote{undefined} signifie \tdocinEN{non défini}.
@@ -67,11 +67,11 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
 
 
 Voici deux codes fictifs reprenant les indications précédentes. Noter que les espaces ignorés permettent d'obtenir un résultat humainement clair.
-\begin{multicols}{2}	
+\begin{multicols}{2}
 	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
-	
+
 	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange.tex}
 \end{multicols}
 
 \end{document}
-sur 
+sur
