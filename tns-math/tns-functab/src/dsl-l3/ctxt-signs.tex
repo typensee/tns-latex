@@ -13,44 +13,50 @@
 \subsubsection{Le contexte \tdocinlatex{signs} pour les signes}
 
 Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
+%
 \begin{enumerate}
     \item Le contexte \tdocinlatex{signs} est employable autant de fois que nécessaire.
 
 
-	\item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au signe de l'expression (voir l'item suivant).
+	\item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir l'item suivant à ce sujet).
+	\textbf{Il n'existe pas d'expression par défaut.}
 
 
-    \item Dans cet item, nous allons supposer que \tdocinlatex{bounds = x_1 , x_2 , x_3} a été utilisé pour donner les valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3} . Les cas suivants couvrent tout ce qu'il est possible de faire.
+    \item Dans cet item, pour expliquer ce qui est attendu comme informations relatives au comportement d'une expression $f$ , nous allons supposer que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données via \tdocinlatex{bounds = x_1 , x_2 , ... , x_n} . Nous posons aussi $p = n - 1$ avec \tdocpre{p} pour \tdocquote{\tdocprewhy{p.récédent} le naturel $n$} .
+    %
     \begin{itemize}
-        \item \tdocinlatex{f : + -} indique que
-        \verb#f > 0# sur \verb#]x_1 ; x_2[# ,
-        \verb#f < 0# sur \verb#]x_2 ; x_3[# ,
-        sans donner d'information particulière sur
-        \verb#f# en \tdocinlatex{x_1} , \tdocinlatex{x_2} et \tdocinlatex{x_3}
-        \footnote{
-        	Notons que ceci est totalement étrange.
-		}.
+        \item A minima, il faut indiquer 
+        \tdocinlatex{f : s_1 s_2 ... s_p} 
+        où \tdocinlatex{s_1} , \tdocinlatex{s_2} , \dots\ , \tdocinlatex{s_p} 
+        donnent des informations sur les $p$ intervalles 
+        \tdocinlatex{]x_1 ; x_2[} , \tdocinlatex{]x_2 ; x_3[} , \dots\ , \tdocinlatex{]x_p ; x_n[} respectivement.
+        Les valeurs possibles pour les \tdocinlatex{s_k} sont les suivantes.
+		%
+		\begin{enumerate}
+			\item \tdocinlatex{+} indique une expression positive stricte sur l'intervalle concerné.
+			
+			\item \tdocinlatex{-} indique une expression négative stricte sur l'intervalle concerné.
+			
+			\item \tdocinlatex{u} indique une expression non définie sur l'intervalle concerné avec \tdocpre{u} pour \tdocprewhy{u.ndefined} soit \tdocinEN{non défini}
+.
+	
+			\item \tdocinlatex{z} indique une expression nulle sur l'intervalle concerné avec \tdocpre{z} pour \tdocprewhy{z.éro}.
+		\end{enumerate}
 
-
-        \item \tdocinlatex{f : + 0 -} complète ce qui précède en indiquant que \verb#f = 0# en \verb#x_2# .
-
-
-        \item \tdocinlatex{f : + ! -} permet d'indiquer une valeur interdite en \verb#x_2#
-        \footnote{
-        	Le panneau français indiquant un danger est un triangle rouge contenant un point d'exclamation.
-		}.
-
-
-        \item \tdocinlatex{f : 0 + ! - !} est autorisé pour indiquer aussi le comportement de \verb#f# en \verb#x_1# et \verb#x_3# .
-
-
-        \item \tdocinlatex{f : u z}  indique que \verb#f# n'est pas définie sur \verb#]x_1 ; x_2[# et aussi que \verb#f = 0# sur \verb#]x_2 ; x_3[#
-        \footnote{
-        	Les lettres \tdocpre{u} et \tdocpre{z} sont pour
-			\tdocprewhy{u.ndefined} et \tdocprewhy{z.ero}
-			où
-			\tdocquote{undefined} signifie \tdocinEN{non défini}.
-		}.
+        
+        \item On peut aussi indiquer le comportement d'une expression en certaines valeurs pivots. Ceci se fait à côté d'une information de type signe : par exemple, en gardant les notations de l'item précédent, $f(x_3) = 0$ s'indiquera via \tdocinlatex{... 0 s_3 ...} si $n > 3$ , ou via \tdocinlatex{... s_3 0} si $n = 3$ .
+        Les valeurs possibles pour le comportement éventuel en une valeur pivot sont les suivantes.
+		%
+		\begin{enumerate}
+			\item \tdocinlatex{0} indique que 
+l'expression s'annule au pivot concerné.
+			
+			\item \tdocinlatex{!} indique que 
+l'expression n'est pas définie au pivot concerné
+        	\footnote{
+        		Le panneau français indiquant un danger est un triangle rouge contenant un point d'exclamation.
+			}.
+		\end{enumerate}
     \end{itemize}
 \end{enumerate}
 
@@ -59,14 +65,14 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
 
 
 \begin{tdocnote}
-    Les espaces autour des doubles points et des virgules ne sont pas obligatoires.
+    Les espaces autour des doubles points et des informations codées ne sont pas obligatoires.
 \end{tdocnote}
 
 
 % --------------- %
 
 
-Voici deux codes fictifs reprenant les indications précédentes. Noter que les espaces ignorés permettent d'obtenir un résultat humainement clair.
+Voici deux codes fictifs reprenant les indications précédentes. Noter que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
 \begin{multicols}{2}
 	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
 
@@ -74,4 +80,3 @@ Voici deux codes fictifs reprenant les indications précédentes. Noter que les 
 \end{multicols}
 
 \end{document}
-sur

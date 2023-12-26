@@ -14,15 +14,17 @@
 \label{tns-math-functab-ctxt-bounds}
 
 Pour indiquer les valeurs pivots nécessaires à la conception d'un tableau, il faut passer via le contexte \tdocinlatex{bounds} en respectant les règles ci-après.
+%
 \begin{enumerate}
     \item Le contexte \tdocinlatex{bounds} doit être employé une seule fois et avant tout autre contexte.
 
 
     \item Un seul contenu est utilisable en utilisant l'un des deux formats suivants où le nombre de valeurs n'est pas majoré.
+    %
     \begin{itemize}
-        \item \tdocinlatex{ma_var : val_1, val_2} indique que \tdocinlatex{ma_var} est associée aux valeurs \tdocinlatex{val_1} et \tdocinlatex{val_2} .
+        \item \tdocinlatex{ma_var : x_1 , x_2 , ... , x_n} indique que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données pour la variable nommée \tdocinlatex{ma_var} avec $n \geq 2$ forcément.
 
-        \item \tdocinlatex{val_1, val_2} demande d'utiliser le nom de variable par défaut pour les valeurs.
+        \item \tdocinlatex{x_1 , x_2 , ... , x_n} indique que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données pour la variable nommée \tdocinlatex{x} qui est le nom par défaut.
     \end{itemize}
 \end{enumerate}
 
