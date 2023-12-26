@@ -63,7 +63,7 @@ l'expression s'annule au pivot concerné.
 			\item \tdocinlatex{!} indique que 
 l'expression n'est pas définie au pivot concerné
         	\footnote{
-        		Le panneau français indiquant un danger est un triangle rouge contenant un point d'exclamation.
+        		En France, le panneau de signalisation indiquant un danger est un triangle blanc au bords rouges rouge contenant un point d'exclamation.
 			}.
 		\end{enumerate}
     \end{itemize}
@@ -81,11 +81,18 @@ l'expression n'est pas définie au pivot concerné
 % --------------- %
 
 
-Voici deux codes fictifs reprenant les indications précédentes. Noter que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
+Voici deux codes fictifs illustrant les indications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
 \begin{multicols}{2}
 	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
 
 	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange.tex}
+\end{multicols}
+
+Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui produiront les mêmes sorties que les codes ci-dessus.
+\begin{multicols}{2}
+	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero-monster.tex}
+
+	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange-monster.tex}
 \end{multicols}
 
 \end{document}
