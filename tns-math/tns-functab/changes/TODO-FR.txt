@@ -5,6 +5,15 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+dsl grammaire pour utilisateurs
+
+    ----> mettre aussi un tab "abstrait" pour les expliquer
+
+    ----> ajouter les tabelaux mises en forme des exemples
+
+
+> ---------------------------- <
+
 TAB VALEURS - MODE LATEX DE BASE
 
     ----> mode vertical ou horizontal

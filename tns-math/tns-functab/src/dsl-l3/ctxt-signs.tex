@@ -18,56 +18,66 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
     \item Le contexte \tdocinlatex{signs} est employable autant de fois que nécessaire.
 
 
-	\item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir l'item suivant à ce sujet).
-	\textbf{Il n'existe pas d'expression par défaut.}
+    \item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir l'item suivant à ce sujet).
+    \textbf{Il n'existe pas d'expression par défaut.}
 
 
     \item Dans cet item, pour expliquer ce qui est attendu comme informations relatives au comportement d'une expression $f$ , nous allons supposer que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données via \tdocinlatex{bounds = x_1 , x_2 , ... , x_n} . Nous posons aussi $p = n - 1$ avec \tdocpre{p} pour \tdocquote{\tdocprewhy{p.récédent} le naturel $n$} .
     %
     \begin{itemize}
-        \item A minima, il faut indiquer 
-        \tdocinlatex{f : s_1 s_2 ... s_p} 
-        où \tdocinlatex{s_1} , \tdocinlatex{s_2} , \dots\ , \tdocinlatex{s_p} 
-        donnent des informations sur les $p$ intervalles 
+        \item A minima, il faut indiquer
+        \tdocinlatex{f : s_1 s_2 ... s_p}
+        où 
+        \tdocinlatex{s_1} , \tdocinlatex{s_2} , \dots\ , \tdocinlatex{s_p}
+        donnent des informations sur les $p$ intervalles
         \tdocinlatex{]x_1 ; x_2[} , \tdocinlatex{]x_2 ; x_3[} , \dots\ , \tdocinlatex{]x_p ; x_n[} respectivement.
         Les valeurs possibles pour les \tdocinlatex{s_k} sont les suivantes.
-		%
-		\begin{enumerate}
-			\item \tdocinlatex{+} indique une expression positive stricte sur l'intervalle concerné.
-			
-			\item \tdocinlatex{-} indique une expression négative stricte sur l'intervalle concerné.
-			
-			\item \tdocinlatex{u} indique une expression non définie sur l'intervalle concerné avec \tdocpre{u} pour \tdocprewhy{u.ndefined} soit \tdocinEN{non défini}
-.
-	
-			\item \tdocinlatex{z} indique une expression nulle sur l'intervalle concerné avec \tdocpre{z} pour \tdocprewhy{z.éro}.
-		\end{enumerate}
+        %
+        \begin{enumerate}
+            \item \tdocinlatex{+} indique une expression positive stricte sur l'intervalle concerné.
 
-        
+            \item \tdocinlatex{-} indique une expression négative stricte sur l'intervalle concerné.
+
+            \item \tdocinlatex{z} indique une expression nulle sur l'intervalle concerné avec \tdocpre{z} pour \tdocprewhy{z.éro}.
+
+            \item \tdocinlatex{u} indique une expression non définie sur l'intervalle concerné
+            \footnote{
+                Penser par exemple à l'expression $x \, \sqrt{x^2 - 1}$ .
+            }
+            avec \tdocpre{u} pour \tdocprewhy{u.ndefined} soit \tdocinEN{non défini}.
+        \end{enumerate}
+
+
         \item On peut aussi indiquer le comportement d'une expression en certaines valeurs pivots. Ceci se fait à côté d'une information de type signe : par exemple, en gardant les notations de l'item précédent, nous avons les possibilités suivantes.
         %
         \begin{itemize}
-        	\item Si $n > 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... 0 s_3 ...} eu milieu du code.
-	
-        	\item Si $n = 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... s_2 0} en fin de code.
-	
-        	\item $f(x_1) = 0$ s'indique via \tdocinlatex{0 s_1 ...}	au début du code.
+            \item Si $n > 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... 0 s_3 ...} eu milieu du code.
+
+            \item Si $n = 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... s_2 0} en fin de code.
+
+            \item $f(x_1) = 0$ s'indique via \tdocinlatex{0 s_1 ...}    au début du code.
         \end{itemize}
         %
         Les valeurs possibles pour le comportement éventuel en une valeur pivot sont les suivantes.
-		%
-		\begin{enumerate}
-			\item \tdocinlatex{0} indique que 
+        %
+        \begin{enumerate}
+            \item \tdocinlatex{0} indique que
 l'expression s'annule au pivot concerné.
-			
-			\item \tdocinlatex{!} indique que 
+
+            \item \tdocinlatex{!} indique que
 l'expression n'est pas définie au pivot concerné
-        	\footnote{
-        		En France, le panneau de signalisation indiquant un danger est un triangle blanc au bords rouges rouge contenant un point d'exclamation.
-			}.
-		\end{enumerate}
+            \footnote{
+                En France, le panneau de signalisation indiquant un danger est un triangle blanc au bords rouges rouge contenant un point d'exclamation.
+            }.
+        \end{enumerate}
     \end{itemize}
 \end{enumerate}
+
+
+% --------------- %
+
+
+%Voici un tableau permettant de mémoriser l'organisation des informations de type \tdocquote{signe} et celles de type \tdocquote{pivot}.
 
 
 % --------------- %
@@ -83,16 +93,16 @@ l'expression n'est pas définie au pivot concerné
 
 Voici deux codes fictifs illustrant les indications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
 \begin{multicols}{2}
-	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
+    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
 
-	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange.tex}
+    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange.tex}
 \end{multicols}
 
 Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui aboutiront aux mêmes sorties que les codes correspondants ci-dessus.
 \begin{multicols}{2}
-	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero-monster.tex}
+    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero-monster.tex}
 
-	\tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange-monster.tex}
+    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange-monster.tex}
 \end{multicols}
 
 \end{document}
