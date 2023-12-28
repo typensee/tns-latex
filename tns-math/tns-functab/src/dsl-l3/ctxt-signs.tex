@@ -2,7 +2,7 @@
 
 \input{../preamble.cfg.tex}
 
-%\usepackage{../macroenv/macroenv}
+\usepackage{../main/main}
 
 
 \begin{document}
@@ -27,7 +27,7 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
     \begin{itemize}
         \item A minima, il faut indiquer
         \tdocinlatex{f : s_1 s_2 ... s_p}
-        où 
+        où
         \tdocinlatex{s_1} , \tdocinlatex{s_2} , \dots\ , \tdocinlatex{s_p}
         donnent des informations sur les $p$ intervalles
         \tdocinlatex{]x_1 ; x_2[} , \tdocinlatex{]x_2 ; x_3[} , \dots\ , \tdocinlatex{]x_p ; x_n[} respectivement.
@@ -51,14 +51,14 @@ Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
         \item On peut aussi indiquer le comportement d'une expression en certaines valeurs pivots. Ceci se fait à côté d'une information de type signe : par exemple, en gardant les notations de l'item précédent, nous avons les possibilités suivantes.
         %
         \begin{itemize}
-            \item Si $n > 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... 0 s_3 ...} eu milieu du code.
+            \item Si $n > 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... 0 s_3 ...} au milieu du code.
 
             \item Si $n = 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... s_2 0} en fin de code.
 
             \item $f(x_1) = 0$ s'indique via \tdocinlatex{0 s_1 ...}    au début du code.
         \end{itemize}
         %
-        Les valeurs possibles pour le comportement éventuel en une valeur pivot sont les suivantes.
+        Les valeurs possibles pour le comportement éventuel en un pivot sont les suivantes.
         %
         \begin{enumerate}
             \item \tdocinlatex{0} indique que
@@ -69,6 +69,8 @@ l'expression n'est pas définie au pivot concerné
             \footnote{
                 En France, le panneau de signalisation indiquant un danger est un triangle blanc au bords rouges rouge contenant un point d'exclamation.
             }.
+
+            \item L'absence de valeur indique que l'expression ne change pas de signe au pivot concerné.
         \end{enumerate}
     \end{itemize}
 \end{enumerate}
@@ -91,18 +93,18 @@ l'expression n'est pas définie au pivot concerné
 % --------------- %
 
 
-Voici deux codes fictifs illustrant les indications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
+Voici deux codes fictifs illustrant les explications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/signs-plus-minus-zero.tex}
 
-    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/signs-plus-minus-strange.tex}
 \end{multicols}
 
 Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui aboutiront aux mêmes sorties que les codes correspondants ci-dessus.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-zero-monster.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/signs-plus-minus-zero-monster.tex}
 
-    \tdoclatexinput[code]{examples/dsl/signs-plus-minus-strange-monster.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/signs-plus-minus-strange-monster.tex}
 \end{multicols}
 
 \end{document}

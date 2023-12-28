@@ -2,13 +2,28 @@
 
 \input{../preamble.cfg.tex}
 
-%\usepackage{../macroenv/macroenv}
+\usepackage{../main/main}
 
 
 \begin{document}
 
 %\section{La syntaxe du langage proposé}
-%\subsection{Les contextes pour les tableaux de signes et/ou de variations}
+
+\subsection{Les contextes pour les tableaux d'images}
+
+Les contextes utilisables dans un même tableau de type \tdocquote{images} sont les suivants.
+
+\medskip
+
+\begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
+	\item \tdocinlatex{bounds}
+
+	\item \tdocinlatex{imgs}
+\end{itemize*}
+
+
+% --------------- %
+
 
 \subsubsection{Le contexte \tdocinlatex{bounds} pour les valeurs pivots}
 \label{tns-math-functab-ctxt-bounds}
@@ -34,9 +49,9 @@ Pour indiquer les valeurs pivots nécessaires à la conception d'un tableau, il 
 
 Voici deux codes fictifs illustrant les règles précédentes.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl/bounds-label.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/bounds-label.tex}
 
-    \tdoclatexinput[code]{examples/dsl/bounds-no-label.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/bounds-no-label.tex}
 \end{multicols}
 
 
@@ -48,3 +63,14 @@ Voici deux codes fictifs illustrant les règles précédentes.
 \end{tdocnote}
 
 \end{document}
+
+
+
+
+
+% --------------- %
+
+
+\begin{tdocwarn}
+    La suite de packages \tdocpack{tns} s'appuie sur les conventions mathématiques anglo-saxonnes avec le point comme séparateur décimal. Le plus simple pour travailler avec une virgule comme séparateur décimal et de passer via \tdocinlatex{\num{2.3}} du package qui est automatiquement chargé
+\end{tdocwarn}

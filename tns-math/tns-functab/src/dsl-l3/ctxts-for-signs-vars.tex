@@ -2,7 +2,7 @@
 
 \input{../preamble.cfg.tex}
 
-%\usepackage{../macroenv/macroenv}
+\usepackage{../main/main}
 
 
 \begin{document}
@@ -10,5 +10,25 @@
 %\section{La syntaxe du langage proposé}
 
 \subsection{Les contextes pour les tableaux de signes et/ou de variations}
+
+Les contextes utilisables dans un même tableau de type \tdocquote{signes et/ou variations} sont les suivants.
+
+\medskip
+
+\begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
+	\item \tdocinlatex{bounds}
+
+	\item \tdocinlatex{signs}
+
+	\item \tdocinlatex{vars}
+\end{itemize*}
+
+
+% --------------- %
+
+
+\subsubsection{Le contexte \tdocinlatex{bounds} pour les valeurs pivots}
+
+Se reporter à la section \ref{tns-math-functab-ctxt-bounds} expliquant comment donner les valeurs pivots pour la conception d'un tableau.
 
 \end{document}

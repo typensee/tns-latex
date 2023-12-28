@@ -2,7 +2,7 @@
 
 \input{../preamble.cfg.tex}
 
-%\usepackage{../macroenv/macroenv}
+\usepackage{../main/main}
 
 
 \begin{document}
@@ -15,21 +15,21 @@
 La logique d'utilisation et d'organisation des informations pour le contexte \tdocinlatex{vars} est similaire à celle du contexte \tdocinlatex{signs} ; nous indiquons donc juste les différences.
 %
 \begin{enumerate}
-    \item Voici les informations possibles pour le comportement d'une expression $f$ en supposant que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données via \tdocinlatex{bounds = x_1 , x_2 , ... , x_n} avec de nouveau $p = n - 1$ .
+    \item Voici les informations possibles pour le comportement d'une expression $f$ en supposant que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données via \tdocinlatex{bounds = x_1 , x_2 , ... , x_n} . De nouveau, nous posons $p = n - 1$ .
     %
     \begin{itemize}
         \item A minima, il faut indiquer
         \tdocinlatex{f : v_1 v_2 ... v_p}
         où
         \tdocinlatex{v_1} , \tdocinlatex{v_2} , \dots\ , \tdocinlatex{v_p}
-        donnent des informations sur les $p$ intervalles
+        donnent des informations sur les $p$ intervalles ouverts
         \tdocinlatex{]x_1 ; x_2[} , \tdocinlatex{]x_2 ; x_3[} , \dots\ , \tdocinlatex{]x_p ; x_n[} respectivement.
         Les valeurs possibles pour les \tdocinlatex{v_k} sont les suivantes.
         %
         \begin{enumerate}
             \item \tdocinlatex{<} indique une expression strictement croissante sur l'intervalle concerné.
 
-            \item \tdocinlatex{>} indique une expression une expression strictement décroissante sur l'intervalle concerné.
+            \item \tdocinlatex{>} indique une expression strictement décroissante sur l'intervalle concerné.
 
             \item \tdocinlatex{=} indique une expression constante sur l'intervalle concerné.
 
@@ -37,12 +37,14 @@ La logique d'utilisation et d'organisation des informations pour le contexte \td
         \end{enumerate}
 
 
-        \item On peut aussi indiquer les images de certaines valeurs pivots. Voici ce qui est disponible.
+        \item Pour des valeurs pivots précises, on peut indiquer des images ou des limites à droite et/ou à gauche. Voici ce qui est disponible.
         %
         \begin{enumerate}
+            \item L'absence d'expression est possible pour ne rien indiquer du tout.
+
             \item Toute expression sans lettre \tdocinlatex{u}, ni ponctuation \tdocinlatex{!} est interprétée comme une valeur image au format mathématique \LaTeX.
 
-            \item Une valeur image devant contenir une lettre \tdocinlatex{u} et/ou la ponctuation \tdocinlatex{!} devra être protégée par des accolades. Ceci vient du fait que dans le langage codant les variations ces deux caractères ont une signification spéciale (voir ci-dessus et l'item suivant).
+            \item Une valeur image contenant \tdocinlatex{u} et/ou la ponctuation \tdocinlatex{!} en tant que \tdocquote{token \LaTeX} devra être protégée par des accolades. Ceci vient du fait que dans le langage codant les variations ces deux caractères ont une signification spéciale (voir ci-dessus et l'item suivant).
 
             \item \tdocinlatex{!} indique que
 l'expression n'est pas définie au pivot concerné.
@@ -64,7 +66,7 @@ l'expression n'est pas définie au pivot concerné.
 
                 \item  \tdocinlatex{g ! d} indique $g$ et $d$ comme limites à gauche et à droite respectivement.
 
-                \textbf{Cette syntaxe est interdite pour le premier pivot et le dernier.}
+                \textbf{Cette syntaxe est interdite pour les premier et dernier pivots.}
             \end{itemize}
         \end{enumerate}
     \end{itemize}
@@ -88,18 +90,18 @@ l'expression n'est pas définie au pivot concerné.
 % --------------- %
 
 
-Voici deux codes fictifs illustrant les indications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
+Voici deux codes fictifs illustrant les explications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl/vars-always-defined.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/vars-always-defined.tex}
 
-    \tdoclatexinput[code]{examples/dsl/vars-with-undefined.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/vars-with-undefined.tex}
 \end{multicols}
 
 Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui aboutiront aux mêmes sorties que les codes correspondants ci-dessus.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl/vars-always-defined-monster.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/vars-always-defined-monster.tex}
 
-    \tdoclatexinput[code]{examples/dsl/vars-with-undefined-monster.tex}
+    \tdoclatexinput[code]{examples/dsl-l3/vars-with-undefined-monster.tex}
 \end{multicols}
 
 \end{document}

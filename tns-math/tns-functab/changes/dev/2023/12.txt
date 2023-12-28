@@ -2,6 +2,21 @@
 
 
 ==
+28  (0.0.0-alpha.2)
+==
+
+-----
+:new:
+-----
+
+[[:doc:]]
+\Doc before code: the context \specs for \imgs are complete.
+
+
+// ---------- //
+
+
+==
 27  (0.0.0-alpha.1)
 ==
 
