@@ -5,60 +5,59 @@ tns-functab - TODO
 
 > ---------------------------- <
 
-dsl grammaire pour utilisateurs
+DOC
 
-    ----> mettre aussi un tab "abstrait" pour les expliquer
+    ---> dsl-l3 grammaire pour utilisateurs
 
-    ----> ajouter les mises en forme des minis exemples
+            + mettre aussi un tab "abstrait" pour les expliquer
 
-
-> ---------------------------- <
-
-mode fuche technique rédigé du type f croissant sur I puis sur J
-
-> ---------------------------- <
-
-TAB VALEURS - MODE LATEX DE BASE
-
-    ----> mode vertical ou horizontal
-
-
-% Syntax ?
+            + ajouter les mises en forme des minis exemples
 
 
 > ---------------------------- <
 
-TAB SIGNES / VAR - MODE LATEX DE BASE
+API
 
+    ---> tab vars/signes
 
-% Domain
-    bounds =     t : -\infty , \frac27 , 3 , +\infty ;
-% Signs
-    signs  = f'(t) :         +    0    - 0 +         ;
-% Vars
-    vars   =  f(t) :       a <    b    > c <  \beta
+            + mode fiche tech rédigée du type "f croît sur I puis sur J"
+              (attention à na pas avpir d'adj à accorder)
 
+            + Val inter  via i: ... Quel design ?
 
-& abrev via initials pour les initiés
+            + bounds aussi en bas pour les courbes planes paramétrées
 
+            + Convexité : via flèche courbée + ligne dédié avec du texte
 
-% Domain
-    b =     t : -\infty , \frac27 , 3 , +\infty ;
-% Signs
-    s =   t+4 :         +    0    - 0 +         ;
-          t^2 :         +    n    + n +         ;
-        f'(t) :         +    0    - 0 +         ;
-% Vars
-    v =  f(t) :       a <    b    > c <  \beta
+            + vars auto depuis une ligne de signes : possibles car en interne
+              on a code ces infos
 
+              Quelle syntaxe ? varsform = no.ligne ???
 
-> ---------------------------- <
+            + convexité auto aussi du coup
 
-TAB - MODE DSL ASCII VIA LUATEX
+    ---> tab de valeurs
 
-    ---> nom d'env identitique mais on a une cé pour indiquer le format std (via l3) ou dsl (via luatex)
+            + mode vertical ou horizontal
+
+    ---> raccourcis à une lettre - OK quand API figée mais pas avant !
 
     ---> format par défaut réglage au chargement du package mais aussi localement
+
+
+> ---------------------------- <
+
+INTERNAL TECH
+
+    ---> tab nicematrix en mode LATEX
+
+
+> ---------------------------- <
+
+LULATEX ==> TAB EN MODE DSL ASCII
+
+Nom d'env identitique mais on a une clé dsl pour indiquer le format
+         l3 (via l3) ou lua (via luatex)
 
 
 % Domain
@@ -67,16 +66,3 @@ TAB - MODE DSL ASCII VIA LUATEX
     signs  = f'(t) :     +  0  - 0 +
 % Vars
     vars   =  f(t) :   a <  b  > c <  beta
-
-
-> ---------------------------- <
-
-Tab signes/variables
-
-    --> Val inter  via i: ...
-        Quel design ?
-
-
-> ---------------------------- <
-
-raccourcis à une lettre - OK quand API figée mais pas avant !
