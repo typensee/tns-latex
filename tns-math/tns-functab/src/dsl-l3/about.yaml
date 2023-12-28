@@ -1,8 +1,8 @@
 toc:
   - intro
   - struct
-  - ctxts-for-imgs
-  - ctxt-imgs               ???
-  - ctxts-for-signs-vars
-  - ctxt-signs              ??
-  - ctxt-vars               ?
+  - contexts-for-images
+  - ctxt-imgs
+  - contexts-for-signs-n-variations
+  - ctxt-signs
+  - ctxt-vars
