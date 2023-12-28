@@ -9,7 +9,7 @@ dsl grammaire pour utilisateurs
 
     ----> mettre aussi un tab "abstrait" pour les expliquer
 
-    ----> ajouter les tabelaux mises en forme des exemples
+    ----> ajouter les mises en forme des minis exemples
 
 
 > ---------------------------- <
