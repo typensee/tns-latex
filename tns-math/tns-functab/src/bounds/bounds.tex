@@ -13,13 +13,18 @@
 
 \section{Indiquer les valeurs pivots d'un tableau}
 
-Que ce soit pour indiquer les valeurs dont on veut donner les images, ou bien pour donner les bornes des intervalles pour les signes et/ou les variations d'une fonction réelle, il faut donner ces valeurs \tdocquote{pivots}\,. Les exemples suivants montrent que cela se fait via \tdocenv{functab} en utilisant une syntaxe spéciale du type 
-\tdocinlatex{bounds = ma_var : x_1 , x_2 , ... , x_n} ,
-ou juste 
-\tdocinlatex{bounds = x_1 , x_2 ,} \tdocinlatex{... , x_n}
-si $x$ la variable par défaut convient
+Tous les tableaux sont fabriqués via \tdocenv{functab} en utilisant un langage spécifique simplifiant la saisie des informations.
+Pour tous les tableaux disponibles, il faut toujours donner des valeurs \tdocquote{pivots}
 \footnote{
-	\tdocquote{the interval bounds} signifie \tdocinEN{le bornes de l'intervalle}.
+	 On peut indiquer soit des valeurs dont on veut donner les images, soit des bornes d'intervalles pour les signes et/ou les variations d'une fonction réelle.
+} :
+cela se fait via 
+\tdocinlatex{bounds = ma_var : x_1 , x_2 , ... , x_n}
+ou juste 
+\tdocinlatex{bounds = x_1 , x_2 , ... , x_n}
+si $x$, la variable par défaut, convient
+\footnote{
+	En fait, \tdocquote{the interval bounds} signifie \tdocinEN{les bornes de l'intervalle}.
 	Comme la raison d'être du package \thispack\ est la production simplifiée de tableaux de signes et/ou de variations, le nom \tdocinlatex{bounds} a été retenu au lieu du franco-anglais \tdocinlatex{pivots} par exemple.
 }.
 
@@ -28,7 +33,7 @@ si $x$ la variable par défaut convient
 
 
 \begin{tdocexa}[Avec la variable par défaut]
-    Noter que, bien entendu, tout se saisie en mode mathématique.
+    Noter que tout se saisie en mode mathématique.
 
     \tdoclatexinput{examples/bounds/no-label.tex}
 \end{tdocexa}
@@ -46,14 +51,16 @@ si $x$ la variable par défaut convient
 
 % --------------- %
 
-\begin{tdocexa}[Les dépendances \tdocpack{mathtools} et \tdocpack{siuntix}]
-    L'exemple suivant utilise les macros \tdocmacro{num}
+\begin{tdocexa}[Nombres décimaux en version \tdocquote{locale} et \tdocquote{grandes} fractions]
+%    \leavevmode
+%
+    L'exemple suivant utilise les macros \tdocmacro{dfrac} et \tdocmacro{num}
     \footnote{
-    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres.
+    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres, tout en gérant l'absence d'espaces autour du séparateur décimal.
     }
-    et \tdocmacro{dfrac} venant des excellents packages \tdocpack{siuntix} et \tdocpack{amsmath} respectivement, le second package étant chargé par l'indispensable \tdocpack{mathtools}.
+    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement.
 
-    \tdoclatexinput{examples/bounds/dep-packs.tex}
+    \tdoclatexinput{examples/bounds/dfrac-decimal.tex}
 \end{tdocexa}
 
 
@@ -71,7 +78,7 @@ si $x$ la variable par défaut convient
 
 
 \begin{tdocwarn}
-	L'utilisation de \tdocinlatex{bounds = ...} doit se faire obligatoirement une fois, et une seule, au tout début du contenu.
+	L'utilisation de \tdocinlatex{bounds} doit se faire obligatoirement une fois, et une seule, au tout début du contenu.
 \end{tdocwarn}
 
 

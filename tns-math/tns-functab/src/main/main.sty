@@ -1,14 +1,6 @@
 % == PACKAGES == %
 
-% tns-like packages always propose tools from mathtools.
-
-\RequirePackage{mathtools}[2022/06/29]
-
-
-% tns-like packages always propose tools for decimal numbers
-% and physical / math units thanks to the siunitx package.
-
-\RequirePackage{siunitx}[2023-11-14]
+\RequirePackage{nicematrix}[6.26]
 
 
 % == TOOLS == %
@@ -18,6 +10,8 @@
 % :: ???? :: %
 
 
-\NewDocumentEnvironment{functable}{}{%
-  $%
-}{$}
+\NewDocumentEnvironment{functable}{ b }{%
+  ${#1}^{#1}$ %
+}{
+  OU ${#1}^{#1}$ %
+}
