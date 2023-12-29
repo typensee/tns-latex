@@ -44,6 +44,8 @@ API
 
     ---> format par défaut réglage au chargement du package mais aussi localement
 
+    ---> automatique possible avec outil de son choix : voir comment appel giac par exemple
+
 
 > ---------------------------- <
 

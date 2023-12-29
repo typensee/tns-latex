@@ -9,7 +9,8 @@ This file is a roadmap, in the short term.
 ALWAYS DONE
 -----------
 
-    1) Use of a Python script to know if a name (macro/environment/...) is already used by a TeX Live project.
+    1) Use of a Python script to know if a name (macro/environment/...)
+       is already used by a TeX Live project.
 
     2) New features are always tested at least with l3build.
         + Tests build from the docs: use of meta comments because
@@ -20,12 +21,20 @@ ALWAYS DONE
         + Abstraction from the last changes must be added as soon
           as possible!
 
+    4) Semantics: make it possible to create YAML-style files giving information on the use of a macro for tools that will just do pattern matching in the TEX file.
+
+    For example, \funcdef{f, x, \RR, x^2, \RR} will give :
+
+    yaml::
+        - "\funcdef{f, x, \RR, x^2, \RR}":
+          - See what it says next ???
+
 
 ----------
 NEXT STEPS
 ----------
 
-    1) Tab var/signe/vals maison via un DSL dédié, et aussi automatique possible avec outil de son choix : voir comment appel giac par exemple
+    1) Function tab.: var/sign/val
 
     2) Interval in a dedicated package
 
