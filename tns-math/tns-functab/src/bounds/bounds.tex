@@ -11,8 +11,75 @@
 
 \begin{document}
 
-\section{XXX}
+\section{Indiquer les valeurs pivots d'un tableau}
 
-YYY
+Que ce soit pour indiquer les valeurs dont on veut donner les images, ou bien pour donner les bornes des intervalles pour les signes et/ou les variations d'une fonction réelle, il faut donner ces valeurs \tdocquote{pivots}\,. Les exemples suivants montrent que cela se fait via \tdocenv{functab} en utilisant une syntaxe spéciale du type 
+\tdocinlatex{bounds = ma_var : x_1 , x_2 , ... , x_n} ,
+ou juste 
+\tdocinlatex{bounds = x_1 , x_2 ,} \tdocinlatex{... , x_n}
+si $x$ la variable par défaut convient
+\footnote{
+	\tdocquote{the interval bounds} signifie \tdocinEN{le bornes de l'intervalle}.
+	Comme la raison d'être du package \thispack\ est la production simplifiée de tableaux de signes et/ou de variations, le nom \tdocinlatex{bounds} a été retenu au lieu du franco-anglais \tdocinlatex{pivots} par exemple.
+}.
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Avec la variable par défaut]
+    Noter que, bien entendu, tout se saisie en mode mathématique.
+
+    \tdoclatexinput{examples/bounds/no-label.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Avec une variable \tdocquote{maison}]
+    \leavevmode
+
+    \tdoclatexinput{examples/bounds/label.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+\begin{tdocexa}[Les dépendances \tdocpack{mathtools} et \tdocpack{siuntix}]
+    L'exemple suivant utilise les macros \tdocmacro{num}
+    \footnote{
+    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres.
+    }
+    et \tdocmacro{dfrac} venant des excellents packages \tdocpack{siuntix} et \tdocpack{amsmath} respectivement, le second package étant chargé par l'indispensable \tdocpack{mathtools}.
+
+    \tdoclatexinput{examples/bounds/dep-packs.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Commentaires à la sauce \LaTeX]
+    \leavevmode
+
+    \tdoclatexinput{examples/bounds/comments.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+
+\begin{tdocwarn}
+	L'utilisation de \tdocinlatex{bounds = ...} doit se faire obligatoirement une fois, et une seule, au tout début du contenu.
+\end{tdocwarn}
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+	L'environnement \tdocenv{functab} est assez \tdocquote{malin} pour deviner le type de tableau souhaité en fonction des instructions fournies comme nous le constaterons dans les sections plus utiles qui vont suivre.
+\end{tdocnote}
 
 \end{document}
