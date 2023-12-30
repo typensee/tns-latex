@@ -2,7 +2,7 @@
 
 
 ==
-??
+??  (1.0.0)
 ==
 
-???
+First public version of the project only tested with \mactex 2023.

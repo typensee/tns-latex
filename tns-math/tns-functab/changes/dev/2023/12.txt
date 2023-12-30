@@ -10,7 +10,7 @@
 -----
 
 [[:doc:]]
-\Doc before code: the context \specs for \imgs are complete.
+\Doc before code: the context \specs for \imgs by a \func are complete.
 
 
 // ---------- //

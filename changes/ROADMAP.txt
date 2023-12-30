@@ -27,21 +27,16 @@ ALWAYS DONE
 
     yaml::
         - "\funcdef{f, x, \RR, x^2, \RR}":
-          - See what it says next ???
+          - What to add next ???
 
 
 ----------
 NEXT STEPS
 ----------
 
-    1) Function tab.: var/sign/val
+    1) Function tab.: var/sign/val + data-tab
 
-    2) Interval in a dedicated package
-
-        + Writing
-        + Drawing
-
-    3) stepcalc & basic logic
+    2) stepcalc & basic logic
         + \then ??? instead of \implies
           and
           \when ??? instead of \becauseof
@@ -59,3 +54,8 @@ NEXT STEPS
           (in a double-side case, the use of the first options will not be allowed).
 
         + Macro to facilitate the construction of specialized stepcalc environments like an iff environment, or an evaluation one for example. Use of expl3 template!
+
+    3) Interval in a dedicated package
+
+        + Writing
+        + Drawing
