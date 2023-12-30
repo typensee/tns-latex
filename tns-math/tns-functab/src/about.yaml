@@ -4,11 +4,9 @@ texfacto:
       preamble: preamble.cfg.tex
 
 toc:
-  - bounds        ??????
-  - imgs          ?????
-  - signs         ????
-  - vars          ???
-  - param-curves  ??
-  - deoc          ?
-# This the end...
+  - data          ????
+  - signs         ???
+  - vars          ??
+  - signs-n-vars  ?
+# This is the end, beautiful DSL.
   - dsl-l3

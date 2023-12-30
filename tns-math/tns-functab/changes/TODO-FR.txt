@@ -25,7 +25,7 @@ API
 
             + Val inter  via i: ... Quel design ?
 
-            + bounds aussi en bas pour les courbes planes paramétrées
+            + xvals aussi en bas pour les courbes planes paramétrées
 
             + Convexité : via flèche courbée + ligne dédié avec du texte
 
@@ -63,7 +63,7 @@ Nom d'env identitique mais on a une clé dsl pour indiquer le format
 
 
 % Domain
-    bounds =     t : -oo , 2/7 , 3 , +oo
+    xvals =     t : -oo , 2/7 , 3 , +oo
 % Signs
     signs  = f'(t) :     +  0  - 0 +
 % Vars

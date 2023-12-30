@@ -4,22 +4,22 @@
 
 \exp_args_generate:n { Nnx }
 
-\tl_new:N \l_pmbc_bounds_tl
+\tl_new:N \l_pmbc_xvals_tl
 
 \NewDocumentEnvironment{functab}{b}{
   \seq_set_split:Nnn \l_tmpa_seq { ; } { #1 }
 %  \seq_show:N  \l_tmpa_seq
 
-  \seq_pop_left:NNTF \l_tmpa_seq \l_pmbc_bounds_tl { } {
-    BOUNDS ~ PB !
+  \seq_pop_left:NNTF \l_tmpa_seq \l_pmbc_xvals_tl { } {
+    xvals ~ PB !
   }
-%  \tl_show:N \l_pmbc_bounds_tl
+%  \tl_show:N \l_pmbc_xvals_tl
 
-  \seq_set_split:NnV \l_tmpb_seq { = } \l_pmbc_bounds_tl
+  \seq_set_split:NnV \l_tmpb_seq { = } \l_pmbc_xvals_tl
 %  \seq_show:N  \l_tmpb_seq
 
   \seq_pop_right:NNTF \l_tmpb_seq \l_tmpa_tl { } {
-    BOUNDS - VALUES ~ PB !
+    xvals - VALUES ~ PB !
   }
 %  \tl_show:N \l_tmpa_tl
 
@@ -29,11 +29,11 @@
 
 
   \seq_pop_left:NNTF \l_tmpa_seq \pmbc_signs_tl { } {
-    NO AFTER BOUNDS ~ PB !
+    NO AFTER xvals ~ PB !
   }
   \seq_set_split:NVV \l_tmpb_seq \c_colon_str \pmbc_signs_tl
   \seq_pop_right:NNTF \l_tmpb_seq \l_tmpa_tl { } {
-    BOUNDS - VALUES ~ PB !
+    xvals - VALUES ~ PB !
   }
 %  \tl_show:N \l_tmpa_tl
 
