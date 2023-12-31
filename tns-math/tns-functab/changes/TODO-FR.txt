@@ -49,9 +49,9 @@ API
 
 > ---------------------------- <
 
-INTERNAL TECH
+USER MACRO POUR LES INFOS
 
-    ---> tab nicematrix en mode LATEX
+    ---> tous les contextes utilisés avec leur nom complet mai en option, et dans ce cas, le contexte n'est plus utilisable das le code      SIMPLE ET FACILE À RETENIR !
 
 
 > ---------------------------- <
