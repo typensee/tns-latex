@@ -18,6 +18,8 @@ DOC
 
 API
 
+    ---> fléches : colonne à colonne ou ligne à ligne pour composition soit de fonction soit pour suite récu ou non
+
     ---> tab vars/signes
 
             + mode fiche tech rédigée du type "f croît sur I puis sur J"
