@@ -18,29 +18,33 @@ DOC
 
 API
 
-    ---> fléches : colonne à colonne ou ligne à ligne pour composition soit de fonction soit pour suite récu ou non
+    ---> déco
+
+            + Flèches : colonne à colonne ou ligne à ligne pour composition soit de fonction soit pour suite récu ou non
 
     ---> tab vars/signes
 
             + mode fiche tech rédigée du type "f croît sur I puis sur J"
-              (attention à na pas avpir d'adj à accorder)
+              (attention à ne pas avpir d'adj à accorder)
 
-            + Val inter  via i: ... Quel design ?
+            + Val inter  via i: ...
+              Quel design ? Quelle syntaxe ?
+              Besoin de situer la valeur inter via 1 < x_0 < 2 par exemple.
+              Besoin de donnéer l'image via la ligne concernée car usage très parcellaire et excpetionelle
+              Enfin, on doit via une option rendre possible l'affichage comme si on l'avait directement tapé
 
-            + xvals aussi en bas pour les courbes planes paramétrées
+            + xvals aussi en bas pour les courbes planes paramétrées via une option
 
-            + Convexité : via flèche courbée + ligne dédié avec du texte
+            + sign / vars auto depuis une ligne de signes : possibles car en interne car on a code ces infos
+              Quelle syntaxe ?
+              signs = autofrom 1..4   <-- plusieurs OK
+              vars = autofrom 1       <-- juste une ligne
 
-            + vars auto depuis une ligne de signes : possibles car en interne
-              on a code ces infos
-
-              Quelle syntaxe ? varsform = no.ligne ???
-
-            + convexité auto aussi du coup
+            + Convexité : via flèche courbée + ligne dédié avec du texte de nouveau via une option
 
     ---> tab de valeurs
 
-            + mode vertical ou horizontal
+            + mode vertical ou horizontal ou bien transposer pour tab matriciel
 
     ---> raccourcis à une lettre - OK quand API figée mais pas avant !
 
