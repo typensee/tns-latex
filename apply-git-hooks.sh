@@ -1,3 +1,6 @@
+# Source.
+#     * https://stackoverflow.com/a/74983258/4589608
+
 #
 # Applies the file-prepare-commit-msg hook to all Git repositories accessible from the current directory.
 # This hook prepends the commit message with the branch name.
@@ -43,6 +46,7 @@ add_hook() {
     mkdir -p "$dir/.git/hooks"
 
     cp hook "$dir/.git/hooks/prepare-commit-msg"
+    chmod u+x "$dir/.git/hooks/prepare-commit-msg"
     echo "Added hook to $dir/.git/hooks/prepare-commit-msg"
 }
 
