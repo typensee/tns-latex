@@ -424,7 +424,7 @@ def build_tmp_proj(
 
 \\ProvidesExplPackage
     {{{projectname}}}
-    {{2024-01-???}} % Creation: 2024-01-???
+    {{2024-01-01}} % Creation: 2024-01-???
     {{1.0.0}}
     {{This package proposes ???.}}
 
@@ -442,13 +442,21 @@ def build_tmp_proj(
     code     = r"""
 \documentclass[10pt, a4paper]{article}
 
+\newcommand\thispack{\tdocpack{tns-functab}}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\usepackage[french]{babel, varioref}
+\usepackage{multicol}
+\usepackage[inline]{enumitem}
 
-\usepackage{enumitem}
+\usepackage[french]{babel, varioref}
 \frenchsetup{StandardItemLabels=true}
+
+\usepackage[lang = french]{tutodoc}
+
+\usepackage{amsmath}
+\usepackage[locale=FR]{siunitx}
     """.strip() + f"""
 
 % Package documented.
@@ -552,7 +560,7 @@ Two important points to note.
     code += r"""
 \section{Historique}
 
-\tdocversion{1.0.0}[2024-01-???]
+\tdocversion{1.0.0}[2024-01-01]
 
 Première version publique du projet.
 

@@ -215,13 +215,21 @@ xvals=1,2;yvals=a,b,c;mat=1-a,2-a;1-b,2-b;1-c,2-c
 
 \documentclass[10pt, a4paper]{article}
 
+\newcommand\thispack{\tdocpack{tns-functab}}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\usepackage[french]{babel, varioref}
+\usepackage{multicol}
+\usepackage[inline]{enumitem}
 
-\usepackage{enumitem}
+\usepackage[french]{babel, varioref}
 \frenchsetup{StandardItemLabels=true}
+
+\usepackage[lang = french]{tutodoc}
+
+\usepackage{amsmath}
+\usepackage[locale=FR]{siunitx}
 
 % Package documented.
 \usepackage{tns-functab}
@@ -916,7 +924,7 @@ Comme les espaces autour des ponctutations ne sont pas obligatoires, dans le cad
 \tdoclatexinput[code]{examples-dsl-l3-mat-monster.tex}
 \section{Historique}
 
-\tdocversion{1.0.0}[2024-01-???]
+\tdocversion{1.0.0}[2024-01-01]
 
 Première version publique du projet.
 
