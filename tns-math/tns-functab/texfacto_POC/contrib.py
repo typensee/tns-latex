@@ -189,7 +189,7 @@ def add_contrib_doc(
                 code += r"""
 \begin{document}
 
-\title{Le package \texttt{tutodoc} - Documentation de type tutoriel}
+\title{The \texttt{tns-functab} package - Tutorial-type documentation}
 \author{Christophe BAL}
 \date{\ordinalnum{1} Jan. 2024 - Version 1.1.0}
 
@@ -260,10 +260,10 @@ First public version of the project.
 \end{document}
     """
 
-    codefile = locale_tmpdir.parent / f"{projectname}-en.tex"
+        codefile = locale_tmpdir.parent / f"{projectname}-en.tex"
 
-    with codefile.open(
-        encoding = "utf-8",
-        mode = "a"
-    ) as f:
-        f.write(code)
+        with codefile.open(
+            encoding = "utf-8",
+            mode = "a"
+        ) as f:
+            f.write(code)

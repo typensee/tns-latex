@@ -399,7 +399,12 @@ def build_tmp_proj(
         ".tmp_pack_options.sty",
         ".tmp_pack_src.sty",
     ]:
-        with (projectfolder_TEMP / tmpfile).open(
+        tmpfile = projectfolder_TEMP / tmpfile
+
+        if not tmpfile.is_file():
+            continue
+
+        with tmpfile.open(
             encoding = "utf-8",
             mode = "r"
         ) as f:
@@ -454,6 +459,9 @@ def build_tmp_proj(
         ".tmp_fordoc.tex",
         ".tmp_thedoc.tex",
     ]:
+        if not (projectfolder_TEMP / tmpfile).is_file():
+            continue
+
         if tmpfile == ".tmp_thedoc.tex":
             code += r"""
 \begin{document}

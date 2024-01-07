@@ -1,0 +1,47 @@
+\documentclass[12pt, a4paper]{article}
+
+\input{../preamble.cfg.tex}
+
+
+\begin{document}
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
+
+\subsubsection{Le contexte \tdocinlatex{imgs} pour les images}
+
+Le contexte \tdocinlatex{imgs} s'utilise de façon similaire au contexte \tdocinlatex{xvals} mais avec la possibilité de l'employer autant de fois que nécessaire.
+Par contre, il est obligatoire d'indiquer l'expression  via
+\tdocinlatex{mon_expr : img_1 ,}
+\tdocinlatex{img_2 , ... , img_n}
+où chaque \tdocinlatex{img_k} peut être soit \tdocquote{vide}\,, soit une expression mathématique \LaTeX\,.
+\textbf{Bien retenir qu'il n'existe pas d'expression par défaut.}
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points et des virgules ne sont pas obligatoires.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+Voici un code fictif illustrant les explications précédentes.
+
+\tdoclatexinput[code]{examples/dsl-l3/imgs-f-n-co.tex}
+
+
+Dans le cadre de processus automatisés, il est possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
+
+\tdoclatexinput[code]{examples/dsl-l3/imgs-f-n-co-monster.tex}
+
+
+\end{document}
+
+
+\end{document}
+    

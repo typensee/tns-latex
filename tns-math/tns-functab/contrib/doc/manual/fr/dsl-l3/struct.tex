@@ -1,0 +1,76 @@
+\documentclass[12pt, a4paper]{article}
+
+\input{../preamble.cfg.tex}
+
+
+\begin{document}
+
+
+%\section{La syntaxe du langage proposé}
+
+\subsection{Les blocs d'instruction}
+
+L'organisation des blocs d'informations se fait en respectant les règles suivantes.
+%
+\begin{enumerate}
+    \item Les commentaires se font uniquement à la sauce \LaTeX\ via \tdocinlatex{% Mon commentaire} par exemple.
+
+
+    \item Les lignes vides sont autorisées
+    \footnote{
+        \label{tns-math-functab-dsl-l3-blank-struct}%
+        Ceci est très pratique pour aérer et organiser le code.
+    }.
+
+
+    \item La syntaxe pour les contenus est la suivante.
+    %
+    \begin{itemize}
+        \item Les différents contenus sont séparés par des points-virgules, les retours à la ligne étant autorisés.
+
+        \item Les espaces initiaux et finaux sont ignorés (voir la note \ref{tns-math-functab-dsl-l3-blank-struct} de bas de page).
+
+        \item Tout contenu est associé à un contexte.
+
+        \item Un nouveau contexte s'indique en début de contenu via \tdocinlatex{nom_contexte = contenu_1 ; ...} sans nécessité d'indiquer à chaque fois le contexte.
+
+        \item \textbf{Aucun contexte par défaut n'est initialement défini.}
+    \end{itemize}
+
+
+    \item Le point-virgule est optionnel à la fin du tout dernier contenu.
+\end{enumerate}
+
+
+% --------------- %
+
+
+\medskip
+
+
+Voici un code fictif illustrant les règles précédentes.
+
+\tdoclatexinput[code]{examples/dsl-l3/struct-fictional.tex}
+
+
+Il est possible d'écrire des contenus à la suite comme dans l'exemple suivant
+\footnote{
+    Nous déconseillons ce style de codage car cela nuit à la lisibilité des instructions.
+}.
+
+\tdoclatexinput[code]{examples/dsl-l3/struct-fictional-compact.tex}
+
+
+On peut même utiliser l'horreur suivante
+\footnote{
+    Ce mode de rédaction est en fait idéal pour la fabrication automatisée de codes par un script extérieur.
+}.
+
+\tdoclatexinput[code]{examples/dsl-l3/struct-fictional-monster.tex}
+
+
+\end{document}
+
+
+\end{document}
+    

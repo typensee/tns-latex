@@ -1,0 +1,102 @@
+\documentclass[12pt, a4paper]{article}
+
+\input{../preamble.cfg.tex}
+
+
+\begin{document}
+
+
+\section{Des tableaux de données}
+
+Nous allons voir dans cette section comment saisir des tableaux de données de l'un des types suivants.
+\begin{itemize}
+	\item Tableaux d'images de plusieurs fonctions à une variable.
+
+	\item Tableaux d'images d'une seule fonction à deux variables.
+\end{itemize}
+
+
+\begin{tdocnote}
+	Tous les tableaux seront fabriqués via \tdocenv{functab} en utilisant un langage spécifique simplifiant la saisie des informations.
+	Cet environnement est assez \tdocquote{malin} pour deviner le type de tableau souhaité en fonction des instructions fournies comme nous le constaterons dans les sections qui vont suivre.
+\end{tdocnote}
+
+
+
+% --------------- %
+
+
+\subsection{Tableaux d'images de plusieurs fonctions à une variable}
+
+Pour les tableaux de données, il faut commencer par indiquer les valeurs \tdocquote{initiales}
+\footnote{
+	 On peut indiquer soit des valeurs dont on veut donner les images, soit des bornes d'intervalles pour les signes et/ou les variations d'une fonction réelle.
+} :
+dans le cas des images de fonctions à une variable, cela se fait via
+\tdocinlatex{xvals = mavar : x_1 , x_2 , ... , x_n}
+ou juste
+\tdocinlatex{xvals = x_1 , x_2 , ... , x_n}
+si la variable par défaut, à savoir $x$, convient.
+Une fois ceci fait, il faut renseigner les différentes images via \tdocinlatex{imgs = monexpr : im_1 , im_2 , ... , im_n} en donnant obligatoirement la formule de l'expression étudiée.
+Voici des cas d'utilisation.
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Une seule fonction avec la variable par défaut]
+    \leavevmode
+
+    \tdoclatexinput{examples/1D-data/one-func-no-label.tex}
+\end{tdocexa}
+
+
+\begin{tdocnote}
+	Retenir que tout se saisie en mode mathématique.
+\end{tdocnote}
+
+
+\begin{tdocwarn}
+	L'utilisation de \tdocinlatex{xvals} doit se faire obligatoirement une fois, et une seule, au tout début du contenu.
+\end{tdocwarn}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Deux fonctions pour une variable \tdocquote{maison}]
+    \leavevmode
+
+    \tdoclatexinput{examples/1D-data/two-func-label.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Commentaires à la sauce \LaTeX]
+    \leavevmode
+
+    \tdoclatexinput{examples/1D-data/comments.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+\begin{tdoctip}[Nombres décimaux en version \tdocquote{locale} et \tdocquote{grandes} fractions]
+%    \leavevmode
+%
+    Via les macros \tdocmacro{dfrac} et \tdocmacro{num}
+    \footnote{
+    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres, tout en gérant l'absence d'espaces autour du séparateur décimal.
+    }
+    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement, il est facile de rédiger des nombres décimaux, et d'obtenir de \tdocquote{grandes} fractions comme le montre l'exemple suivant.
+
+    \tdoclatexinput{examples/1D-data/num-n-dfrac.tex}
+\end{tdoctip}
+
+\end{document}
+
+
+\end{document}
+    

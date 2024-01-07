@@ -1,0 +1,708 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french]{babel, varioref}
+
+\usepackage{enumitem}
+\frenchsetup{StandardItemLabels=true}
+
+% Package documented.
+\usepackage[lang = french]{tns-functab}
+
+
+
+\begin{document}
+
+\title{Le package \texttt{tutodoc} - Documentation de type tutoriel}
+\author{Christophe BAL}
+\date{1\ier{} Janv. 2024 - Version 1.1.0}
+
+\maketitle
+
+\begin{abstract}
+Le package \tdocpack{tutodoc}
+\footnote{
+    Le nom vient de \tdocquote{\tdocprewhy{tuto.rial-type} \tdocprewhy{doc.umentation}} se traduit en \tdocquote{documentation de type tutoriel}.
+}
+est utilisé par son auteur pour produire de façon sémantique des documentations de packages et de classes \LaTeX\ dans un style de type tutoriel
+\footnote{
+    L'idée est de produire un fichier \texttt{PDF} efficace à parcourir pour des besoins ponctuels. C'est généralement ce que l'on attend d'une documentation liée au codage.
+},
+et avec un rendu sobre pour une lecture sur écran.
+
+
+\begin{tdocnote}
+     Ce package impose un style de mise en forme.
+    Dans un avenir plus ou moins proche, \tdocpack{tutodoc} sera sûrement éclaté en une classe et un package.
+\end{tdocnote}
+
+\tdocsep
+
+{\small\itshape
+\textbf{Abstract.}
+The \tdocpack{tutodoc} package
+\footnote{
+    The name comes from \tdocquote{\tdocprewhy{tuto.rial-type} \tdocprewhy{doc.umentation}}.
+}
+is used by its author to semantically produce documentation of \LaTeX\ packages and classes in a tutorial style
+\footnote{
+    The idea is to produce an efficient \texttt{PDF} file that can be browsed for one-off needs. This is generally what is expected of coding documentation.
+},
+and with a sober rendering for reading on screen.
+
+
+\begin{tdocnote}
+     This package imposes a formatting style. In the not-too-distant future, \tdocpack{tutodoc} will probably be split into a class and a package.
+\end{tdocnote}
+}
+\end{abstract}
+
+
+\newpage
+\tableofcontents
+\newpage
+\section{Des tableaux de données}
+
+Nous allons voir dans cette section comment saisir des tableaux de données de l'un des types suivants.
+\begin{itemize}
+	\item Tableaux d'images de plusieurs fonctions à une variable.
+
+	\item Tableaux d'images d'une seule fonction à deux variables.
+\end{itemize}
+
+
+\begin{tdocnote}
+	Tous les tableaux seront fabriqués via \tdocenv{functab} en utilisant un langage spécifique simplifiant la saisie des informations.
+	Cet environnement est assez \tdocquote{malin} pour deviner le type de tableau souhaité en fonction des instructions fournies comme nous le constaterons dans les sections qui vont suivre.
+\end{tdocnote}
+
+
+
+% --------------- %
+
+
+\subsection{Tableaux d'images de plusieurs fonctions à une variable}
+
+Pour les tableaux de données, il faut commencer par indiquer les valeurs \tdocquote{initiales}
+\footnote{
+	 On peut indiquer soit des valeurs dont on veut donner les images, soit des bornes d'intervalles pour les signes et/ou les variations d'une fonction réelle.
+} :
+dans le cas des images de fonctions à une variable, cela se fait via
+\tdocinlatex{xvals = mavar : x_1 , x_2 , ... , x_n}
+ou juste
+\tdocinlatex{xvals = x_1 , x_2 , ... , x_n}
+si la variable par défaut, à savoir $x$, convient.
+Une fois ceci fait, il faut renseigner les différentes images via \tdocinlatex{imgs = monexpr : im_1 , im_2 , ... , im_n} en donnant obligatoirement la formule de l'expression étudiée.
+Voici des cas d'utilisation.
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Une seule fonction avec la variable par défaut]
+    \leavevmode
+
+    \tdoclatexinput{examples-1D-data-one-func-no-label.tex}
+\end{tdocexa}
+
+
+\begin{tdocnote}
+	Retenir que tout se saisie en mode mathématique.
+\end{tdocnote}
+
+
+\begin{tdocwarn}
+	L'utilisation de \tdocinlatex{xvals} doit se faire obligatoirement une fois, et une seule, au tout début du contenu.
+\end{tdocwarn}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Deux fonctions pour une variable \tdocquote{maison}]
+    \leavevmode
+
+    \tdoclatexinput{examples-1D-data-two-func-label.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Commentaires à la sauce \LaTeX]
+    \leavevmode
+
+    \tdoclatexinput{examples-1D-data-comments.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+\begin{tdoctip}[Nombres décimaux en version \tdocquote{locale} et \tdocquote{grandes} fractions]
+%    \leavevmode
+%
+    Via les macros \tdocmacro{dfrac} et \tdocmacro{num}
+    \footnote{
+    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres, tout en gérant l'absence d'espaces autour du séparateur décimal.
+    }
+    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement, il est facile de rédiger des nombres décimaux, et d'obtenir de \tdocquote{grandes} fractions comme le montre l'exemple suivant.
+
+    \tdoclatexinput{examples-1D-data-num-n-dfrac.tex}
+\end{tdoctip}
+
+
+%\section{Des tableaux de données}
+
+\subsection{Tableaux d'images d'une seule fonction à deux variables}
+
+Voyons comment taper un tableau d'images d'une fonction à deux variables, ou de façon équivalente d'un tableau à double-entrée
+\footnote{
+	Bien entendu, on perd ici la possibilité de travailler avec plusieurs fonctions au sein du même tableau.
+}
+toujours via l'environnement \tdocenv{functab} qui est multifonctions.
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Avec des étiquettes de partout]
+    En plus de \tdocinlatex{xvals} pour les colonnes, il faut utiliser \tdocinlatex{yvals}, avec un fonctionnement similaire, pour renseigner les valeurs initiales qui seront utilisées pour chaque ligne.
+    Quand aux valeurs de chaque cellule, on les donne sous forme matricielle de façon naturelle via \tdocinlatex{mat} : pour une ligne, les valeurs sont séparées par des virgules, tandis que les points-virgules permettent de passer à la ligne suivante.
+
+    \tdoclatexinput{examples-2D-data-label.tex}
+\end{tdocexa}
+
+
+% --------------- %
+
+
+\begin{tdocexa}[Sans indiquer les étiquettes]
+    \leavevmode
+
+    \tdoclatexinput{examples-2D-data-no-label.tex}
+\end{tdocexa}
+
+
+\section{Tableaux de signes}
+
+\begin{tdocnote}
+	Tout comme pour les tableaux de données, c'est via \tdocenv{functab} et un langage spécifique que les tableaux de signes seront fabriqués.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+\subsection{Le cas des fonctions réelles d'une variable réelle}
+
+La saisie d'un tableau de signes se veut être \tdocquote{naturelle} et \tdocquote{facile}\,. Les exemples suivants devraient vous convaincre que c'est bien le cas.
+
+
+%\section{Tableaux de signes}
+
+\subsection{Le cas des courbes planes paramétrées}
+
+La saisie de tableaux de signes pour des courbes paramétrées nécessite d'afficher la ligne des valeurs pivots aussi en fin de tableau : ceci s'obtient via \tdocenv[{[param = true]}]{functab} : ceci demande . Voici un exemple d'utilisation de cette option.
+
+
+\section{Tableaux de variations}
+
+\begin{tdocnote}
+	Pour les variations, c'est de nouveau via \tdocenv{functab} et un langage spécifique que les tableaux seront fabriqués.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+\subsection{Le cas des fonctions réelles d'une variable réelle}
+
+La saisie d'un tableau de variations est moins immédiate que celle d'un tableau de signes puisque l'on peut indiquer plus d'informations. Les exemples ci-après ont pour mission de rendre \tdocquote{non douloureuse} la saisie de tableaux de variations à la sauce \thispack.
+
+
+%\section{Tableaux de variations}
+
+\subsection{Le cas des courbes planes paramétriques}
+
+Tout comme pour les tableaux de signes, via l'option \tdocinlatex{param = true}, un tableau de variations contiendra dans sa dernière ligne les valeurs pivots. Voici un exemple d'utilisation de cette option.
+
+
+\section{Tableaux de signes et des variations}
+
+Afin d'étudier des fonctions réelles via les signes de leur dérivée, il est possible de mixer des lignes de signes et d'autres pour les variations. Voici des cas d'utilisation.
+
+
+\section{Syntaxe du langage interprétable par \LaTeX}
+\label{tns-math-functab-dsl-l3}
+
+Comme ceci a été montré dans les sections précédentes, \thispack\ facilite la saisie de différents types de tableaux liés à des fonctions en proposant un langage de saisie intuitif
+\footnote{
+    En informatique, on parle de \texttt{DSL} soit \tdocquote{Domain Specific Language}\,, c'est-à-dire \tdocinEN{Langue spécifique à un domaine}\,.
+}.
+Cette section regroupe les règles syntaxiques et sémantiques de ce langage.
+
+
+%\section{La syntaxe du langage proposé}
+
+\subsection{Les blocs d'instruction}
+
+L'organisation des blocs d'informations se fait en respectant les règles suivantes.
+%
+\begin{enumerate}
+    \item Les commentaires se font uniquement à la sauce \LaTeX\ via \tdocinlatex{% Mon commentaire} par exemple.
+
+
+    \item Les lignes vides sont autorisées
+    \footnote{
+        \label{tns-math-functab-dsl-l3-blank-struct}%
+        Ceci est très pratique pour aérer et organiser le code.
+    }.
+
+
+    \item La syntaxe pour les contenus est la suivante.
+    %
+    \begin{itemize}
+        \item Les différents contenus sont séparés par des points-virgules, les retours à la ligne étant autorisés.
+
+        \item Les espaces initiaux et finaux sont ignorés (voir la note \ref{tns-math-functab-dsl-l3-blank-struct} de bas de page).
+
+        \item Tout contenu est associé à un contexte.
+
+        \item Un nouveau contexte s'indique en début de contenu via \tdocinlatex{nom_contexte = contenu_1 ; ...} sans nécessité d'indiquer à chaque fois le contexte.
+
+        \item \textbf{Aucun contexte par défaut n'est initialement défini.}
+    \end{itemize}
+
+
+    \item Le point-virgule est optionnel à la fin du tout dernier contenu.
+\end{enumerate}
+
+
+% --------------- %
+
+
+\medskip
+
+
+Voici un code fictif illustrant les règles précédentes.
+
+\tdoclatexinput[code]{examples-dsl-l3-struct-fictional.tex}
+
+
+Il est possible d'écrire des contenus à la suite comme dans l'exemple suivant
+\footnote{
+    Nous déconseillons ce style de codage car cela nuit à la lisibilité des instructions.
+}.
+
+\tdoclatexinput[code]{examples-dsl-l3-struct-fictional-compact.tex}
+
+
+On peut même utiliser l'horreur suivante
+\footnote{
+    Ce mode de rédaction est en fait idéal pour la fabrication automatisée de codes par un script extérieur.
+}.
+
+\tdoclatexinput[code]{examples-dsl-l3-struct-fictional-monster.tex}
+
+
+%\section{La syntaxe du langage proposé}
+
+\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
+
+Voici les contextes utilisables pour les images de plusieurs fonctions à une variable.
+
+\medskip
+
+\begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
+	\item \tdocinlatex{xvals}
+
+	\item \tdocinlatex{imgs}
+\end{itemize*}
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
+
+\subsubsection{Le contexte \tdocinlatex{xvals} pour les valeurs étudiées}
+\label{tns-math-functab-dsl-l3-ctxt-xvals}
+
+Pour indiquer les valeurs nécessaires à la conception d'un tableau, il faut passer via le contexte \tdocinlatex{xvals} en respectant les règles ci-après.
+%
+\begin{enumerate}
+    \item Le contexte \tdocinlatex{xvals} doit être employé une seule fois en tout début de code, hors commentaires, c'est-à-dire avant le contexte \tdocinlatex{imgs}.
+
+
+    \item Un seul contenu est utilisable en utilisant l'un des deux formats suivants où le nombre de valeurs n'est pas majoré.
+    %
+    \begin{itemize}
+        \item \tdocinlatex{ma_{var} : x_1 , x_2 , ... , x_n} indique que les $n$ valeurs \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données pour la variable nommée $ma_{var}$ avec $n \geq 2$ forcément.
+
+        \item \tdocinlatex{x_1 , x_2 , ... , x_n} indique que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données pour la variable nommée $x$ qui est le nom par défaut.
+    \end{itemize}
+\end{enumerate}
+
+
+\medskip
+
+
+Voici deux codes fictifs illustrant les règles précédentes.
+\begin{multicols}{2}
+    \tdoclatexinput[code]{examples-dsl-l3-xvals-label.tex}
+
+    \tdoclatexinput[code]{examples-dsl-l3-xvals-no-label.tex}
+\end{multicols}
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points et des virgules ne sont pas obligatoires bien que conseillés pour des raisons de lisibilité.
+\end{tdocnote}
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
+
+\subsubsection{Le contexte \tdocinlatex{imgs} pour les images}
+
+Le contexte \tdocinlatex{imgs} s'utilise de façon similaire au contexte \tdocinlatex{xvals} mais avec la possibilité de l'employer autant de fois que nécessaire.
+Par contre, il est obligatoire d'indiquer l'expression  via
+\tdocinlatex{mon_expr : img_1 ,}
+\tdocinlatex{img_2 , ... , img_n}
+où chaque \tdocinlatex{img_k} peut être soit \tdocquote{vide}\,, soit une expression mathématique \LaTeX\,.
+\textbf{Bien retenir qu'il n'existe pas d'expression par défaut.}
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points et des virgules ne sont pas obligatoires.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+Voici un code fictif illustrant les explications précédentes.
+
+\tdoclatexinput[code]{examples-dsl-l3-imgs-f-n-co.tex}
+
+
+Dans le cadre de processus automatisés, il est possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
+
+\tdoclatexinput[code]{examples-dsl-l3-imgs-f-n-co-monster.tex}
+
+
+%\section{La syntaxe du langage proposé}
+
+\subsection{Les contextes pour les signes et/ou les variations}
+
+Voici les contextes utilisables pour les signes et/ou les variations.
+
+\medskip
+
+\begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
+	\item \tdocinlatex{xvals}
+
+	\item \tdocinlatex{signs}
+
+	\item \tdocinlatex{vars}
+\end{itemize*}
+
+
+% --------------- %
+
+
+\subsubsection{Le contexte \tdocinlatex{xvals} pour les valeurs pivots}
+
+Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} donnant la syntaxe attendue ; ce qui échange ici est que les valeurs données sont des valeurs pivots liées aux intervalles sur lesquels on donne des informations.
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les signes et/ou les variations}
+
+\subsubsection{Le contexte \tdocinlatex{signs} pour les signes}
+
+Voici tous les éléments de syntaxe propres au contexte \tdocinlatex{signs}.
+%
+\begin{enumerate}
+    \item Le contexte \tdocinlatex{signs} est employable autant de fois que nécessaire.
+
+
+    \item L'expression dont on indique le signe doit être donnée via \tdocinlatex{mon_expr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir l'item suivant à ce sujet).
+    \textbf{Il n'existe pas d'expression par défaut.}
+
+
+    \item Dans cet item, pour expliquer ce qui est attendu comme informations relatives au comportement d'une expression $f$ , nous allons supposer que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données via \tdocinlatex{xvals = x_1 , x_2 , ... , x_n} . Nous posons aussi $p = n - 1$ avec \tdocpre{p} pour \tdocquote{\tdocprewhy{p.récédent} le naturel $n$} .
+    %
+    \begin{itemize}
+        \item A minima, il faut indiquer
+        \tdocinlatex{f : s_1 s_2 ... s_p}
+        où
+        \tdocinlatex{s_1} , \tdocinlatex{s_2} , \dots\ , \tdocinlatex{s_p}
+        donnent des informations sur les $p$ intervalles
+        \tdocinlatex{]x_1 ; x_2[} , \tdocinlatex{]x_2 ; x_3[} , \dots\ , \tdocinlatex{]x_p ; x_n[} respectivement.
+        Les valeurs possibles pour les \tdocinlatex{s_k} sont les suivantes.
+        %
+        \begin{enumerate}
+            \item \tdocinlatex{+} indique une expression positive stricte sur l'intervalle concerné.
+
+            \item \tdocinlatex{-} indique une expression négative stricte sur l'intervalle concerné.
+
+            \item \tdocinlatex{z} indique une expression nulle sur l'intervalle concerné avec \tdocpre{z} pour \tdocprewhy{z.éro}.
+
+            \item \tdocinlatex{u} indique une expression non définie sur l'intervalle concerné
+            \footnote{
+                Penser par exemple à l'expression $x \, \sqrt{x^2 - 1}$ .
+            }
+            avec \tdocpre{u} pour \tdocprewhy{u.ndefined} soit \tdocinEN{non défini}.
+        \end{enumerate}
+
+
+        \item On peut aussi indiquer le comportement d'une expression en certaines valeurs pivots. Ceci se fait à côté d'une information de type signe : par exemple, en gardant les notations de l'item précédent, nous avons les possibilités suivantes.
+        %
+        \begin{itemize}
+            \item Si $n > 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... 0 s_3 ...} au milieu du code.
+
+            \item Si $n = 3$ alors $f(x_3) = 0$ s'indique via \tdocinlatex{... s_2 0} en fin de code.
+
+            \item $f(x_1) = 0$ s'indique via \tdocinlatex{0 s_1 ...}    au début du code.
+        \end{itemize}
+        %
+        Les valeurs possibles pour le comportement éventuel en un pivot sont les suivantes.
+        %
+        \begin{enumerate}
+            \item \tdocinlatex{0} indique que
+l'expression s'annule au pivot concerné.
+
+            \item \tdocinlatex{!} indique que
+l'expression n'est pas définie au pivot concerné
+            \footnote{
+                En France, le panneau de signalisation indiquant un danger est un triangle blanc au bords rouges rouge et contenant un point d'exclamation.
+            }.
+
+            \item L'absence de valeur indique que l'expression ne change pas de signe au pivot concerné.
+        \end{enumerate}
+    \end{itemize}
+\end{enumerate}
+
+
+% --------------- %
+
+
+%Voici un tableau permettant de mémoriser l'organisation des informations de type \tdocquote{signe} et celles de type \tdocquote{pivot}.
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points et des informations codées ne sont pas obligatoires.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+Voici deux codes fictifs illustrant les explications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
+\begin{multicols}{2}
+    \tdoclatexinput[code]{examples-dsl-l3-signs-plus-minus-zero.tex}
+
+    \tdoclatexinput[code]{examples-dsl-l3-signs-plus-minus-strange.tex}
+\end{multicols}
+
+Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui aboutiront aux mêmes sorties que les codes correspondants ci-dessus.
+\begin{multicols}{2}
+    \tdoclatexinput[code]{examples-dsl-l3-signs-plus-minus-zero-monster.tex}
+
+    \tdoclatexinput[code]{examples-dsl-l3-signs-plus-minus-strange-monster.tex}
+\end{multicols}
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les signes et/ou les variations}
+
+\subsubsection{Le contexte \tdocinlatex{vars} pour les variations}
+
+La logique d'utilisation et d'organisation des informations pour le contexte \tdocinlatex{vars} est similaire à celle du contexte \tdocinlatex{signs} ; nous indiquons donc juste les différences.
+%
+\begin{enumerate}
+    \item Voici les informations possibles pour le comportement d'une expression $f$ en supposant que $n$ valeurs pivots \tdocinlatex{x_1} , \tdocinlatex{x_2} , \dots\ , \tdocinlatex{x_n} ont été données via \tdocinlatex{xvals = x_1 , x_2 , ... , x_n} . De nouveau, nous posons $p = n - 1$ .
+    %
+    \begin{itemize}
+        \item A minima, il faut indiquer
+        \tdocinlatex{f : v_1 v_2 ... v_p}
+        où
+        \tdocinlatex{v_1} , \tdocinlatex{v_2} , \dots\ , \tdocinlatex{v_p}
+        donnent des informations sur les $p$ intervalles ouverts
+        \tdocinlatex{]x_1 ; x_2[} , \tdocinlatex{]x_2 ; x_3[} , \dots\ , \tdocinlatex{]x_p ; x_n[} respectivement.
+        Les valeurs possibles pour les \tdocinlatex{v_k} sont les suivantes.
+        %
+        \begin{enumerate}
+            \item \tdocinlatex{<} indique une expression strictement croissante sur l'intervalle concerné.
+
+            \item \tdocinlatex{>} indique une expression strictement décroissante sur l'intervalle concerné.
+
+            \item \tdocinlatex{=} indique une expression constante sur l'intervalle concerné.
+
+            \item \tdocinlatex{u} indique une expression non définie sur l'intervalle concerné (comme pour les signes).
+        \end{enumerate}
+
+
+        \item Pour des valeurs pivots précises, on peut indiquer des images ou des limites à droite et/ou à gauche. Voici ce qui est disponible.
+        %
+        \begin{enumerate}
+            \item L'absence d'expression est possible pour ne rien indiquer du tout.
+
+            \item Toute expression sans lettre \tdocinlatex{u}, ni ponctuation \tdocinlatex{!} est interprétée comme une valeur image au format mathématique \LaTeX.
+
+            \item Une valeur image contenant \tdocinlatex{u} et/ou la ponctuation \tdocinlatex{!} en tant que \tdocquote{token \LaTeX} devra être protégée par des accolades. Ceci vient du fait que dans le langage codant les variations ces deux caractères ont une signification spéciale (voir ci-dessus et l'item suivant).
+
+            \item \tdocinlatex{!} indique que
+l'expression n'est pas définie au pivot concerné.
+            On peut aussi, si besoin, indiquer des limites à gauche et/ou à droite. Voici les cas possibles.
+            %
+            \begin{itemize}
+                \item \tdocinlatex{!} utilisé seul n'indique aucune limite.
+
+
+                \item  \tdocinlatex{! d} indique juste $d$ comme limite à droite.
+
+                \textbf{Cette syntaxe est interdite pour le tout dernier pivot.}
+
+
+                \item \tdocinlatex{g !} indique juste $g$ comme limite à gauche.
+
+                \textbf{Cette syntaxe est interdite pour le tout premier pivot.}
+
+
+                \item  \tdocinlatex{g ! d} indique $g$ et $d$ comme limites à gauche et à droite respectivement.
+
+                \textbf{Cette syntaxe est interdite pour les premier et dernier pivots.}
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+\end{enumerate}
+
+
+% --------------- %
+
+
+%Voici un tableau permettant de mémoriser l'organisation des informations de type \tdocquote{variation} et celles de type \tdocquote{pivot}.
+
+
+% --------------- %
+
+
+\begin{tdocnote}
+    Les espaces autour des doubles points, du point d'exclamation et des informations codées ne sont pas obligatoires.
+\end{tdocnote}
+
+
+% --------------- %
+
+
+Voici deux codes fictifs illustrant les explications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
+\begin{multicols}{2}
+    \tdoclatexinput[code]{examples-dsl-l3-vars-always-defined.tex}
+
+    \tdoclatexinput[code]{examples-dsl-l3-vars-with-undefined.tex}
+\end{multicols}
+
+Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui aboutiront aux mêmes sorties que les codes correspondants ci-dessus.
+\begin{multicols}{2}
+    \tdoclatexinput[code]{examples-dsl-l3-vars-always-defined-monster.tex}
+
+    \tdoclatexinput[code]{examples-dsl-l3-vars-with-undefined-monster.tex}
+\end{multicols}
+
+
+%\section{La syntaxe du langage proposé}
+
+\subsection{Les contextes pour les images d'une seule fonction à deux variables}
+
+Voici les contextes utilisables pour les images d'une seule fonction à deux variables.
+
+\medskip
+
+\begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
+	\item \tdocinlatex{xvals}
+
+	\item \tdocinlatex{yvals}
+
+	\item \tdocinlatex{mat}
+\end{itemize*}
+
+
+% --------------- %
+
+
+\subsubsection{Le contexte \tdocinlatex{xvals} pour la 1ière variable}
+
+Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} donnant la syntaxe attendue, mais avec une petite différence : le contexte \tdocinlatex{xvals} peut être précédé du contexte \tdocinlatex{yvals} présenté dans la section suivante.
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les images d'une seule fonction à deux variables}
+
+\subsubsection{Le contexte \tdocinlatex{yvals} pour la 2ième variable}
+
+La logique est la même que pour le contexte \tdocinlatex{xvals}, de nouveau en ne pouvant placer que le contexte \tdocinlatex{xvals} avant le contexte \tdocinlatex{yvals}.
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les images d'une seule fonction à deux variables}
+
+\subsubsection{Le contexte \tdocinlatex{mat} pour les images}
+
+Le contexte \tdocinlatex{mat} qui n'est utilisable qu'une seule fois, permet de donner la matrice des données, et ceci en indiquant, si besoin uniquement
+\footnote{
+	Ceci permet de taper un simple tableau à double entrée.
+},
+l'expression étudiée.
+Voici un code fictif illustrant la logique de saisie.
+
+\tdoclatexinput[code]{examples-dsl-l3-mat.tex}
+
+
+% --------------- %
+
+Comme les espaces autour des ponctutations ne sont pas obligatoires, dans le cadre de processus automatisés, il sera possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
+
+\tdoclatexinput[code]{examples-dsl-l3-mat-monster.tex}
+\section{Historique}
+
+\tdocversion{1.1.0}[2024-01-06]
+
+\begin{tdocnew}
+	\item Journal des changements : deux nouveaux environnements.
+    \begin{enumerate}
+        \item \tdocenv{tdocbreak} pour les \tdocquote{bifurcations}\,, soit les modifications non rétrocompatibles.
+
+        \item \tdocenv{tdocprob} pour les problèmes repérés.
+    \end{enumerate}
+
+	\item \tdocmacro{tdocinlatex}: un jaune léger est utilisé comme couleur de fond.
+\end{tdocnew}
+
+\tdocsep
+
+\tdocversion{1.0.1}[2023-12-08]
+
+\begin{tdocfix}
+	\item \tdocmacro{tdocenv}: l'espacement est maintenant correct, même si le paquet \tdocpack{babel} n'est pas chargé avec la langue française.
+
+	\item \tdocenv[{[nostripe]}]{tdocshowcase}: les sauts de page autour des lignes \tdocquote{cadrantes} devraient être rares dorénavant.
+\end{tdocfix}
+
+\tdocsep
+
+\tdocversion{1.0.0}[2023-11-29]
+
+Première version publique du projet.
+
+\end{document}

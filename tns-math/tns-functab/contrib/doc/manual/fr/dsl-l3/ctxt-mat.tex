@@ -1,0 +1,35 @@
+\documentclass[12pt, a4paper]{article}
+
+\input{../preamble.cfg.tex}
+
+
+\begin{document}
+
+
+%\section{La syntaxe du langage proposé}
+%\subsection{Les contextes pour les images d'une seule fonction à deux variables}
+
+\subsubsection{Le contexte \tdocinlatex{mat} pour les images}
+
+Le contexte \tdocinlatex{mat} qui n'est utilisable qu'une seule fois, permet de donner la matrice des données, et ceci en indiquant, si besoin uniquement
+\footnote{
+	Ceci permet de taper un simple tableau à double entrée.
+},
+l'expression étudiée.
+Voici un code fictif illustrant la logique de saisie.
+
+\tdoclatexinput[code]{examples/dsl-l3/mat.tex}
+
+
+% --------------- %
+
+Comme les espaces autour des ponctutations ne sont pas obligatoires, dans le cadre de processus automatisés, il sera possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
+
+\tdoclatexinput[code]{examples/dsl-l3/mat-monster.tex}
+
+
+\end{document}
+
+
+\end{document}
+    
