@@ -7,8 +7,6 @@
 # To use the script, run it with no parameters to add the hook or 'remove' to remove the hook.
 #
 
-HOOK_URL="https://gist.githubusercontent.com/wolf6101/f1857a41f5898328b7e5eef2686974b9/raw/7abf19169c8c6d36144ab5d84f371854958135f0/prepare-commit-msg"
-
 iterate_directories() {
     callback=$1
     callback_run=false
@@ -43,27 +41,27 @@ add_hook() {
     dir=$1
 
     # Creates hooks folder if doesn't exists
-    mkdir -p "$dir/.git/hooks"
+    # mkdir -p "$dir/.git/hooks"
 
-    cp hook "$dir/.git/hooks/prepare-commit-msg"
+    cp "$dir/prepare-commit-msg" "$dir/.git/hooks/prepare-commit-msg"
     chmod u+x "$dir/.git/hooks/prepare-commit-msg"
     echo "Added hook to $dir/.git/hooks/prepare-commit-msg"
 }
 
-remove_hooks() {
-    iterate_directories remove_hook
-}
+# remove_hooks() {
+#     iterate_directories remove_hook
+# }
 
-add_hooks() {
-    curl -s "$HOOK_URL" -o hook
-    chmod +x hook # Make the hook executable
-    iterate_directories add_hook
-    rm hook # Remove the temporary hook file
-}
+# add_hooks() {
+#     # curl -s "$HOOK_URL" -o hook
+#     # chmod +x hook # Make the hook executable
+#     iterate_directories add_hook
+#     # rm hook # Remove the temporary hook file
+# }
 
 if [ "$1" = "remove" ]
 then
     remove_hooks
 else
-    add_hooks
+    iterate_directories add_hook
 fi

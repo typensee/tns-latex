@@ -1,0 +1,28 @@
+# Source.
+#     * https://stackoverflow.com/a/74983258/4589608
+#
+# Automatically prepends commit message with the branch name.
+# Merge commit messages are not prepended.
+# Hook is particularly useful when branches are named after JIRA tickets.
+#
+
+# Check if the MERGE_HEAD file is present, indicating that a merge is being performed
+if [ -f ".git/MERGE_HEAD" ]
+then
+    exit 0
+fi
+
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+
+# Get the commit message, removing lines that start with a #
+MESSAGE=$(cat "$1" | sed '/^#.*/d')
+
+# Check if the commit message is non-empty
+if [ -n "$MESSAGE" ]
+then
+    # Add the branch name and the commit message to the commit message file
+    echo "[$BRANCH_NAME] $MESSAGE" > "$1"
+else
+    echo "Aborting commit due to empty commit message."
+    exit 1
+fi
