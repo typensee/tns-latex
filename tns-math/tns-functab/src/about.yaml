@@ -4,9 +4,9 @@ texfacto:
       preamble: preamble.cfg.tex
 
 toc:
-  - data          ????
-  - signs         ???
-  - vars          ??
-  - signs-n-vars  ?
+  - data
+  - signs
+  - vars
+  - signs-n-vars
 # This is the end, beautiful DSL.
   - dsl-l3

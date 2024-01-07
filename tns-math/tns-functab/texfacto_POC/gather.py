@@ -43,12 +43,14 @@ def dirs2analyze(
     else:
         for i, p in enumerate(sorteddirs):
             if p[-1] != '/':
+                print(f"{sorteddirs = }")
                 TODO_PB
 
             p  = p[:-1]
             fp = source / p
 
             if not fp.is_dir():
+                print(f"{sorteddirs = }")
                 TODO_PB
 
             sorteddirs[i] = fp
@@ -89,6 +91,7 @@ def files2analyze(
             fp = onedir / p
 
             if not fp.is_file():
+                print(f"{sorted2analyze = }")
                 TODO_PB
 
             sorted2analyze[i] = fp
