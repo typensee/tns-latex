@@ -30,7 +30,7 @@ def build_rollout_proj_doc_main(patterns, tmpdir, rolloutdir, manual_dir):
         if texfile.name[0] == '.':
             continue
 
-        lang = texfile.stem.split('-')[1]
+        lang = texfile.stem.split('-')[-1]
 
         destfile = rolloutdir / "doc" / texfile.name
 
@@ -101,6 +101,7 @@ def build_rollout_proj_doc_main(patterns, tmpdir, rolloutdir, manual_dir):
                 rfiledir = rdir
 
             else:
+                print(f"{lang = }\n{rdir = }\n{manual_dir = }")
                 rfiledir = rdir / Path(rfile).parent.name
 
             with (rfiledir / rfile).open("r") as f:

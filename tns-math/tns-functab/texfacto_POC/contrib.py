@@ -78,7 +78,7 @@ def update_contrib(
 
     preambule.write_text(
         data = f"""{preambule.read_text()}
-\\usepackage[lang = french]{{tutodoc}}
+\\usepackage{{tutodoc}}
 """
     )
 
@@ -191,25 +191,24 @@ def add_contrib_doc(
 
 \title{The \texttt{tns-functab} package - Tutorial-type documentation}
 \author{Christophe BAL}
-\date{\ordinalnum{1} Jan. 2024 - Version 1.1.0}
+\date{\ordinalnum{?} Jan. 2024 - Version 1.0.0}
 
 \maketitle
 
 \begin{abstract}
-The \tdocpack{tutodoc} package
+The \thispack\ package provides intuitive and efficient ways of typing tables describing mathematical functions, or tables of data possibly filled in via \tdocquote{computer functions}
 \footnote{
-    The name comes from \tdocquote{\tdocprewhy{tuto.rial-type} \tdocprewhy{doc.umentation}}.
-}
-is used by its author to semantically produce documentation of \LaTeX\ packages and classes in a tutorial style
-\footnote{
-    The idea is to produce an efficient \texttt{PDF} file that can be browsed for one-off needs. This is generally what is expected of coding documentation.
-},
-and with a sober rendering for reading on screen.
+	The reference to \tdocquote{function} is therefore polysemous.
+}.
+Here is what is currently proposed.
+\begin{enumerate}
+	\item Data tables filled in by hand or via a macro.
 
-
-\begin{tdocnote}
-    This package imposes a formatting style. In the not-too-distant future, \tdocpack{tutodoc} will probably be split into a class and a package.
-\end{tdocnote}
+%	\item Tables of data for recursive sequences filled in by hand and/or via a macro.
+%
+%	\item Tables of signs and/or variations of real functions.
+%
+%	\item Tables of signs and/or variations associated with real parametric plane curves.
 \end{abstract}
 
 

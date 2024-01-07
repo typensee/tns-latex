@@ -413,20 +413,20 @@ def build_tmp_proj(
     code = code.strip()
 
     code = f"""
-% ------------------------------------------------------- %
+% ----------------------------------------------------------- %
 % - This is file `{projectname}.sty' generated automatically. - %
-% -                                                     - %
-% - Copyright (C) 2023-2024 by Christophe BAL           - %
-% -                                                     - %
-% - This file may be distributed and/or modified under  - %
-% - the conditions of the GNU 3 License.                - %
-% ------------------------------------------------------- %
+% -                                                         - %
+% - Copyright (C) 2024 by Christophe BAL                    - %
+% -                                                         - %
+% - This file may be distributed and/or modified under      - %
+% - the conditions of the GNU 3 License.                    - %
+% ----------------------------------------------------------- %
 
 \\ProvidesExplPackage
     {{{projectname}}}
-    {{2024-01-06}} % Creation: 2023-11-29
-    {{1.1.0}}
-    {{This package proposes tools for writing "human friendly" documentations of LaTeX packages.}}
+    {{2024-01-???}} % Creation: 2024-01-???
+    {{1.0.0}}
+    {{This package proposes ???.}}
 
 {code}
 """.lstrip()
@@ -452,7 +452,7 @@ def build_tmp_proj(
     """.strip() + f"""
 
 % Package documented.
-\\usepackage[lang = french]{{{projectname}}}
+\\usepackage{{{projectname}}}
     """.rstrip() + '\n'*3
 
     for tmpfile in [
@@ -473,40 +473,65 @@ def build_tmp_proj(
 \maketitle
 
 \begin{abstract}
-Le package \tdocpack{tutodoc}
+\noindent
+Le paquet \thispack\ fournit des moyens intuitifs et efficaces pour taper des tableaux décrivant des fonctions mathématiques, ou bien des tableaux de données remplies éventuellement via des \tdocquote{fonctions informatiques}
 \footnote{
-    Le nom vient de \tdocquote{\tdocprewhy{tuto.rial-type} \tdocprewhy{doc.umentation}} se traduit en \tdocquote{documentation de type tutoriel}.
-}
-est utilisé par son auteur pour produire de façon sémantique des documentations de packages et de classes \LaTeX\ dans un style de type tutoriel
-\footnote{
-    L'idée est de produire un fichier \texttt{PDF} efficace à parcourir pour des besoins ponctuels. C'est généralement ce que l'on attend d'une documentation liée au codage.
-},
-et avec un rendu sobre pour une lecture sur écran.
+	La référence à \tdocquote{fonction} est donc polysémique.
+}.
+Voici ce qui est actuellement proposé.
+\begin{enumerate}
+	\item Tableaux de données remplis à la main ou via une macro.
+
+%	\item Tableaux de données pour des suites récursives remplis à la main et/ou via une macro.
+%
+%	\item Tableaux de signes et/ou de variations de fonctions réelles.
+%
+%	\item Tableaux de signes et/ou de variations associées à des courbes planes paramétrées réelles.
+\end{enumerate}
+
+\medskip
+
+\noindent
+Deux points importants à noter.
+\begin{itemize}
+    \item Sans le paquet \tdocpack{nicematrix} qui fait tout le travail ingrat, le paquet \thispack\ n'aurait certainement pas vu le jour.
+
+    \item Cette documentation est aussi disponible en anglais.
+\end{itemize}
 
 
-\begin{tdocnote}
-     Ce package impose un style de mise en forme.
-    Dans un avenir plus ou moins proche, \tdocpack{tutodoc} sera sûrement éclaté en une classe et un package.
-\end{tdocnote}
+% ------------------ %
+
 
 \tdocsep
 
-{\small\itshape
+{\noindent
+\small\itshape
 \textbf{Abstract.}
-The \tdocpack{tutodoc} package
+The \thispack\ package provides intuitive and efficient ways of typing tables describing mathematical functions, or tables of data possibly filled in via \tdocquote{computer functions}
 \footnote{
-    The name comes from \tdocquote{\tdocprewhy{tuto.rial-type} \tdocprewhy{doc.umentation}}.
-}
-is used by its author to semantically produce documentation of \LaTeX\ packages and classes in a tutorial style
-\footnote{
-    The idea is to produce an efficient \texttt{PDF} file that can be browsed for one-off needs. This is generally what is expected of coding documentation.
-},
-and with a sober rendering for reading on screen.
+	The reference to \tdocquote{function} is therefore polysemous.
+}.
+Here is what is currently proposed.
+\begin{enumerate}
+	\item Data tables filled in by hand or via a macro.
 
+%	\item Tables of data for recursive sequences filled in by hand and/or via a macro.
+%
+%	\item Tables of signs and/or variations of real functions.
+%
+%	\item Tables of signs and/or variations associated with real parametric plane curves.
+\end{enumerate}
 
-\begin{tdocnote}
-     This package imposes a formatting style. In the not-too-distant future, \tdocpack{tutodoc} will probably be split into a class and a package.
-\end{tdocnote}
+\medskip
+
+\noindent
+Two important points to note.
+\begin{itemize}
+    \item Without the \tdocpack{nicematrix} package which does all the thankless work, the \thispack\ package would certainly not have seen the light of day.
+
+    \item This documentation is also available in French.
+\end{itemize}
 }
 \end{abstract}
 
@@ -527,32 +552,7 @@ and with a sober rendering for reading on screen.
     code += r"""
 \section{Historique}
 
-\tdocversion{1.1.0}[2024-01-06]
-
-\begin{tdocnew}
-	\item Journal des changements : deux nouveaux environnements.
-    \begin{enumerate}
-        \item \tdocenv{tdocbreak} pour les \tdocquote{bifurcations}\,, soit les modifications non rétrocompatibles.
-
-        \item \tdocenv{tdocprob} pour les problèmes repérés.
-    \end{enumerate}
-
-	\item \tdocmacro{tdocinlatex}: un jaune léger est utilisé comme couleur de fond.
-\end{tdocnew}
-
-\tdocsep
-
-\tdocversion{1.0.1}[2023-12-08]
-
-\begin{tdocfix}
-	\item \tdocmacro{tdocenv}: l'espacement est maintenant correct, même si le paquet \tdocpack{babel} n'est pas chargé avec la langue française.
-
-	\item \tdocenv[{[nostripe]}]{tdocshowcase}: les sauts de page autour des lignes \tdocquote{cadrantes} devraient être rares dorénavant.
-\end{tdocfix}
-
-\tdocsep
-
-\tdocversion{1.0.0}[2023-11-29]
+\tdocversion{1.0.0}[2024-01-???]
 
 Première version publique du projet.
 
