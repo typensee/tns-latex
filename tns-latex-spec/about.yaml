@@ -1,7 +1,0 @@
-general:
-    desc    : This document contains all the specifications used
-              to develop the tools proposed by the monorepo ``tnslatex``.
-    author  : Christophe BAL
-    licence : cc by nc sa 4.0
-    need    :
-        - tns
