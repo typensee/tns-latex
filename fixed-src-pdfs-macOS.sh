@@ -2,6 +2,8 @@
 # -- CONSTANTS -- #
 # --------------- #
 
+CHANGELOGNEXT="changelog/next.tex"
+
 THISDIR=$(dirname "$0")
 WORKINGDIR=$(pwd)
 
@@ -45,12 +47,15 @@ for f in */*.tex
 do
     fdir=$(dirname "$f")
 
-    cd "$TARGET/$fdir"
+    if [ "$f" != "$CHANGELOGNEXT" ]
+    then
+        cd "$TARGET/$fdir"
 
-    echo "-- NEW TEX FILE --"
-    echo "$f"
-    echo ""
-    SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="pdflatex --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
+        echo "-- NEW TEX FILE --"
+        echo "$f"
+        echo ""
+        SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="pdflatex --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
 
-    # latexmk -c "$TARGET/$f"
+        # latexmk -c "$TARGET/$f"
+    fi
 done # for f in */*.tex;
