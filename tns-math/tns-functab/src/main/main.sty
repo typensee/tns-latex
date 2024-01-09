@@ -9,9 +9,21 @@
 
 % :: ???? :: %
 
+\ExplSyntaxOn
 
 \NewDocumentEnvironment{functable}{ b }{%
-  TODO:
+  WIP:
   \par
-  $#1$ %
+  \medskip
+  \splitlines:n { #1 } %
 }{}
+
+\cs_new:Npn \splitlines:n #1 {
+  \seq_set_split_keep_spaces:Nnn \l_tmpa_seq { ; } { #1 }
+
+  $
+    \seq_use:Nn \l_tmpa_seq { $ \par\smallskip $ }
+  $
+}
+
+\ExplSyntaxOff
