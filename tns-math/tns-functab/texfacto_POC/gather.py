@@ -378,6 +378,9 @@ def build_tmp_proj(
 
 
         for srcfile in resources:
+            if srcfile.name.startswith("debug-"):
+                continue
+
             print(
                 f'   * [RES-SRC] Copying {srcfile.name}'
             )
