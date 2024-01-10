@@ -1,6 +1,7 @@
 % == PACKAGES == %
 
 \RequirePackage{nicematrix}[6.26]
+\RequirePackage{starray}[Version 1.5 - November 2023]
 
 
 % == TOOLS == %
@@ -12,46 +13,44 @@
 % :: RESCAN TRICK :: %
 
 % Source.
-%     + https://tex.stackexchange.com/a/706773/6880
+%   + https://tex.stackexchange.com/a/706773/6880
 
-\tl_new:N   \g_pmbc_splitsemicolon_semicolon_tl
-\tl_gset:Nn \g_pmbc_splitsemicolon_semicolon_tl { ; }
+\tl_new:N   \g_tns_functab_semicolon_tl
+\tl_gset:Nn \g_tns_functab_semicolon_tl { ; }
 
-\tl_new:N   \g_pmbc_splitcolon_colon_tl
-\tl_gset:Nn \g_pmbc_splitcolon_colon_tl { : }
+\tl_new:N   \g_tns_functab_colon_tl
+\tl_gset:Nn \g_tns_functab_colon_tl { : }
 
 \cs_generate_variant:Nn \seq_set_split_keep_spaces:Nnn { NV }
 
 \AtBeginDocument {
-  \tl_gset_rescan:NnV \g_pmbc_splitsemicolon_semicolon_tl 
+  \tl_gset_rescan:NnV \g_tns_functab_semicolon_tl
                       {}
-                      \g_pmbc_splitsemicolon_semicolon_tl
-                      
-  \tl_gset_rescan:NnV \g_pmbc_splitcolon_colon_tl 
+                      \g_tns_functab_semicolon_tl
+
+  \tl_gset_rescan:NnV \g_tns_functab_colon_tl
                       {}
-                      \g_pmbc_splitcolon_colon_tl
+                      \g_tns_functab_colon_tl
 }
 
 
 % :: ORCHESTRA CONDUCTOR :: %
 
 \NewDocumentEnvironment{functable}{ b }{%
-  WIP-SEMI-COLON:
-  \par
-  \medskip
-  \pmbc_splitsemicolon:n { #1 } %
-  
-  \par
-  \bigskip
-  WIP-COLON:
-  \par
-  \medskip
-  \pmbc_splitcolon:n { #1 } %
+  WIP:
+  \tns_functab_build_starray:n { #1 } %
 }{}
 
-\cs_new:Npn \pmbc_splitsemicolon:n #1 {
-  \seq_set_split_keep_spaces:NVn \l_tmpa_seq 
-                                 \g_pmbc_splitsemicolon_semicolon_tl 
+
+% :: INTERNAL DATA STRUCTURE :: %
+
+\cs_new:Npn \tns_functab_build_starray:n #1 {
+  TODO...
+}
+
+\cs_new:Npn \tns_functab_split_semicolon:n #1 {
+  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
+                                 \g_tns_functab_semicolon_tl
                                  { #1 }
 
   $
@@ -59,9 +58,9 @@
   $
 }
 
-\cs_new:Npn \pmbc_splitcolon:n #1 {
+\cs_new:Npn \tns_functab_split_colon:n #1 {
   \seq_set_split_keep_spaces:NVn \l_tmpa_seq
-                                 \g_pmbc_splitcolon_colon_tl
+                                 \g_tns_functab_colon_tl
                                  { #1 }
 
   $
@@ -70,4 +69,3 @@
 }
 
 \ExplSyntaxOff
-
