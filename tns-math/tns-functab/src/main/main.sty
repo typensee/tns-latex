@@ -9,7 +9,22 @@
 
 % -- DSL - L3 -- %
 
-% :: ???? :: %
+% :: RESCAN TRICK :: %
+
+% Source.
+%     + https://tex.stackexchange.com/a/706773/6880
+
+\tl_new:N   \g_pmbc_splitsemicolon_semicolon_tl
+\tl_gset:Nn \g_pmbc_splitsemicolon_semicolon_tl { ; }
+
+\cs_generate_variant:Nn \seq_set_split_keep_spaces:Nnn { NV }
+
+\AtBeginDocument {
+  \tl_gset_rescan:NnV \g_pmbc_splitsemicolon_semicolon_tl {} \g_pmbc_splitsemicolon_semicolon_tl
+}
+
+
+% :: ORCHESTRA CONDUCTOR :: %
 
 \NewDocumentEnvironment{functable}{ b }{%
   WIP:
@@ -17,18 +32,6 @@
   \medskip
   \pmbc_splitsemicolon:n { #1 } %
 }{}
-
-% Rescan trick: https://tex.stackexchange.com/a/706773/6880
-
-\tl_new:N \g_pmbc_splitsemicolon_semicolon_tl
-\tl_gset:Nn \g_pmbc_splitsemicolon_semicolon_tl { ; }
-\cs_generate_variant:Nn \seq_set_split_keep_spaces:Nnn { NV }
-
-\AtBeginDocument
- {
-  \tl_gset_rescan:NnV \g_pmbc_splitsemicolon_semicolon_tl {} \g_pmbc_splitsemicolon_semicolon_tl
- }
-
 
 \cs_new:Npn \pmbc_splitsemicolon:n #1 {
   \seq_set_split_keep_spaces:NVn \l_tmpa_seq \g_pmbc_splitsemicolon_semicolon_tl { #1 }
