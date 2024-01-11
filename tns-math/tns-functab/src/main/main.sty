@@ -36,17 +36,49 @@
 
 % :: ORCHESTRA CONDUCTOR :: %
 
-\NewDocumentEnvironment{functable}{ b }{%
-  WIP:
-  \tns_functab_build_starray:n { #1 } %
+\NewDocumentEnvironment{functable}{ O{none}b }{%
+% New data to build.
+  \str_if_eq:nnTF { #1 } { none } {
+    \tns_functab_build_starray:n { #2 } %
+
+    NEW ~ ENV. \int_use:N \g_tns_functab_id_int
+
+% Use of a preceeding data.
+  } {
+    \int_set:Nn \l_tmpa_int { #1 }
+
+    REUSE ~ OF ~ ENV. \int_use:N \g_tns_functab_id_int
+  }
+
+% Build the good table from the data.
+  \par
+  TODO
 }{}
 
 
 % :: INTERNAL DATA STRUCTURE :: %
 
+\int_new:N  \g_tns_functab_id_int
+\int_set:Nn \g_tns_functab_id_int { 0 }
+
 \cs_new:Npn \tns_functab_build_starray:n #1 {
-  TODO...
+% The id nb of the env.
+  \int_gincr:N \g_tns_functab_id_int
+
+% XXXX
+  \prop_set_from_keyval:Nn \l_tmpa_prop {
+    { kind } = { 1D-data } ,
+    { xvals } = { 1 , 20 , 300 , 4000 }
+  }
+
+  \prop_pop:NnN \l_tmpa_prop { xvals } \l_tmpa_tl
+
+  OK? ~ \tl_use:N \l_tmpa_tl
 }
+
+
+
+
 
 \cs_new:Npn \tns_functab_split_semicolon:n #1 {
   \seq_set_split_keep_spaces:NVn \l_tmpa_seq
