@@ -1,4 +1,5 @@
 from collections import defaultdict
+import                  re
 from shutil      import rmtree
 from yaml        import safe_load
 
@@ -18,6 +19,34 @@ TAG_TEX = "tex"
 TAG_CFG_STY = "cfg.sty"
 TAG_CFG_TEX = "cfg.tex"
 
+
+STY_TITLES_PATTERNS = {
+    deco: re.compile(
+        f"% (?P<deco>{deco}){deco}[ \t]+(?P<title>.*)[ \t]+{deco*2} %"
+    )
+    for deco in "=-:"
+}
+
+
+def titlize(match_obj):
+    if match_obj.group() is not None:
+        founded = match_obj.group()
+        rule    = match_obj.group('deco')*(
+            2*3 + len(match_obj.group('title'))
+        )
+
+        return f"% {rule} %\n{founded}\n% {rule} %"
+
+
+def prettySTY(code):
+    for d, p in STY_TITLES_PATTERNS.items():
+        code = re.sub(
+            p,
+            titlize,
+            code
+        )
+
+    return code
 
 def dirs2analyze(
     source,
@@ -433,6 +462,8 @@ def build_tmp_proj(
 
 {code}
 """.lstrip()
+
+    code = prettySTY(code)
 
     with codefile.open(
         encoding = "utf-8",

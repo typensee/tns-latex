@@ -14,15 +14,109 @@
     {This package proposes ???.}
 
 \RequirePackage{nicematrix}[6.26]
+\RequirePackage{starray}[Version 1.5 - November 2023]
 
 
+\ExplSyntaxOn
+
+% -------------- %
 % -- DSL - L3 -- %
+% -------------- %
 
-% :: ???? :: %
+% :::::::::::::::::: %
+% :: RESCAN TRICK :: %
+% :::::::::::::::::: %
+
+% Source.
+%   + https://tex.stackexchange.com/a/706773/6880
+
+\tl_new:N   \g_tns_functab_semicolon_tl
+\tl_gset:Nn \g_tns_functab_semicolon_tl { ; }
+
+\tl_new:N   \g_tns_functab_colon_tl
+\tl_gset:Nn \g_tns_functab_colon_tl { : }
+
+\cs_generate_variant:Nn \seq_set_split_keep_spaces:Nnn { NV }
+
+\AtBeginDocument {
+  \tl_gset_rescan:NnV \g_tns_functab_semicolon_tl
+                      {}
+                      \g_tns_functab_semicolon_tl
+
+  \tl_gset_rescan:NnV \g_tns_functab_colon_tl
+                      {}
+                      \g_tns_functab_colon_tl
+}
 
 
-\NewDocumentEnvironment{functable}{ b }{%
-  TODO:
+% ::::::::::::::::::::::::: %
+% :: ORCHESTRA CONDUCTOR :: %
+% ::::::::::::::::::::::::: %
+
+\NewDocumentEnvironment{functable}{ O{none}b }{%
+% New data to build.
+  \str_if_eq:nnTF { #1 } { none } {
+    \tns_functab_build_starray:n { #2 } %
+
+    NEW ~ ENV. \int_use:N \g_tns_functab_id_int
+
+% Use of a preceeding data.
+  } {
+    \int_set:Nn \l_tmpa_int { #1 }
+
+    REUSE ~ OF ~ ENV. \int_use:N \g_tns_functab_id_int
+  }
+
+% Build the good table from the data.
   \par
-  $#1$ %
+  TODO
 }{}
+
+
+% ::::::::::::::::::::::::::::: %
+% :: INTERNAL DATA STRUCTURE :: %
+% ::::::::::::::::::::::::::::: %
+
+\int_new:N  \g_tns_functab_id_int
+\int_set:Nn \g_tns_functab_id_int { 0 }
+
+\cs_new:Npn \tns_functab_build_starray:n #1 {
+% The id nb of the env.
+  \int_gincr:N \g_tns_functab_id_int
+
+% XXXX
+  \prop_set_from_keyval:Nn \l_tmpa_prop {
+    { kind } = { 1D-data } ,
+    { xvals } = { 1 , 20 , 300 , 4000 }
+  }
+
+  \prop_pop:NnN \l_tmpa_prop { xvals } \l_tmpa_tl
+
+  OK? ~ \tl_use:N \l_tmpa_tl
+}
+
+
+
+
+
+\cs_new:Npn \tns_functab_split_semicolon:n #1 {
+  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
+                                 \g_tns_functab_semicolon_tl
+                                 { #1 }
+
+  $
+  	\seq_use:Nn \l_tmpa_seq { $\par\smallskip$ }
+  $
+}
+
+\cs_new:Npn \tns_functab_split_colon:n #1 {
+  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
+                                 \g_tns_functab_colon_tl
+                                 { #1 }
+
+  $
+  	\seq_use:Nn \l_tmpa_seq { $\par\smallskip$ }
+  $
+}
+
+\ExplSyntaxOff
