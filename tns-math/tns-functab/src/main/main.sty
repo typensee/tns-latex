@@ -8,7 +8,7 @@
 
 \ExplSyntaxOn
 
-% --     DSL - L3 -- %
+% -- DSL - L3 -- %
 
 % :: RESCAN TRICK :: %
 
@@ -36,18 +36,18 @@
 
 % :: ORCHESTRA CONDUCTOR :: %
 
-\NewDocumentEnvironment{functable}{ O{none}b }{%
+\NewDocumentEnvironment{functable}{ O{}b }{%
 % New data to build.
-  \str_if_eq:nnTF { #1 } { none } {
+  \IfBlankTF{ #1 } {
     \tns_functab_build_starray:n { #2 } %
 
-    NEW ~ ENV. \int_use:N \g_tns_functab_id_int
+    NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int
 
 % Use of a preceeding data.
   } {
     \int_set:Nn \l_tmpa_int { #1 }
 
-    REUSE ~ OF ~ ENV. \int_use:N \g_tns_functab_id_int
+    REUSE ~ OF ~ DATA ~ \int_use:N \g_tns_functab_id_int
   }
 
 % Build the good table from the data.
