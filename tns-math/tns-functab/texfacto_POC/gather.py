@@ -30,12 +30,11 @@ STY_TITLES_PATTERNS = {
 
 def titlize(match_obj):
     if match_obj.group() is not None:
-        founded = match_obj.group()
-        rule    = match_obj.group('deco')*(
-            2*3 + len(match_obj.group('title'))
-        )
+        title = match_obj.group('title')
+        deco  = match_obj.group('deco')
+        rule  = deco*(2*3 + len(match_obj.group('title')))
 
-        return f"% {rule} %\n{founded}\n% {rule} %"
+        return f"% {rule} %\n% {deco*2} {title} {deco*2} %\n% {rule} %"
 
 
 def prettySTY(code):
