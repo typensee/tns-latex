@@ -8,8 +8,8 @@ toc:
   - main/
 # Free structure.
   - data/
-  - signs/
-  - vars/
-  - signs-n-vars/
-# This is the end, beautiful DSL.
-  - dsl-l3/
+#   - signs/
+#   - vars/
+#   - signs-n-vars/
+# # This is the end, beautiful DSL.
+#   - dsl-l3/

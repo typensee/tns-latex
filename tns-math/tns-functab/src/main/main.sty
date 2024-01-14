@@ -10,10 +10,10 @@
 
 % -- THE BIG FORMATTER -- %
 
-\NewDocumentEnvironment{functable}{ O{}b }{%
+\NewDocumentEnvironment{ functable }{ O{} b }{%
 % New data to build.
   \IfBlankTF{ #1 } {
-    \tns_core_DSL_table_parser:nn { functab }{ #2 } %
+    \tns_core_DSL_table_parser:nn { functab } { #2 } %
 
     \par
     NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int

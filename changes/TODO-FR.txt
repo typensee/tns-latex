@@ -10,6 +10,11 @@ utilisation systématique de tabularray et nicematrix suivant le contexte
 
 > ---------------------------- <
 
+syst simple de refe des case avec un nbre dans le coin haut : utile pour indiquer comment le tableau a été rempli
+
+
+> ---------------------------- <
+
 voir si forest est utile ou pas : oui a priori pour l'aspect rédaction humaine
 
 
