@@ -10,6 +10,32 @@
 
 % -- DSL - L3 -- %
 
+% :: THE BIG FORMATTER :: %
+
+\NewDocumentEnvironment{functable}{ O{}b }{%
+% New data to build.
+  \IfBlankTF{ #1 } {
+    \tns_functab_build_starray:nn { functab }{ #2 } %
+
+    \par
+    NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int
+
+% Use of a preceeding data.
+  } {
+    \int_set:Nn \l_tmpa_int { #1 }
+
+    \par
+    REUSE ~ OF ~ DATA ~ \int_use:N \g_tns_functab_id_int
+  }
+
+% Build the good table from the data.
+  \par
+  TODO
+}{}
+
+
+
+
 % :: RESCAN TRICK :: %
 
 % Source.
@@ -34,34 +60,12 @@
 }
 
 
-% :: ORCHESTRA CONDUCTOR :: %
-
-\NewDocumentEnvironment{functable}{ O{}b }{%
-% New data to build.
-  \IfBlankTF{ #1 } {
-    \tns_functab_build_starray:n { #2 } %
-
-    NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int
-
-% Use of a preceeding data.
-  } {
-    \int_set:Nn \l_tmpa_int { #1 }
-
-    REUSE ~ OF ~ DATA ~ \int_use:N \g_tns_functab_id_int
-  }
-
-% Build the good table from the data.
-  \par
-  TODO
-}{}
-
-
-% :: INTERNAL DATA STRUCTURE :: %
+% :: AGNOSTIC PARSER :: %
 
 \int_new:N  \g_tns_functab_id_int
 \int_set:Nn \g_tns_functab_id_int { 0 }
 
-\cs_new:Npn \tns_functab_build_starray:n #1 {
+\cs_new:Npn \tns_functab_build_starray:nn #1#2 {
 % The id nb of the env.
   \int_gincr:N \g_tns_functab_id_int
 
@@ -73,7 +77,9 @@
 
   \prop_pop:NnN \l_tmpa_prop { xvals } \l_tmpa_tl
 
-  OK? ~ \tl_use:N \l_tmpa_tl
+  OK? #1
+  \par
+  \tl_use:N \l_tmpa_tl
 }
 
 
