@@ -13,6 +13,18 @@ utilisation systématique de tabularray et nicematrix suivant le contexte
 syst simple de refe des case avec un nbre dans le coin haut : utile pour indiquer comment le tableau a été rempli
 
 
+\begin{functable}
+    xvals =    t : 1     , 20     , 300 , 4000 ;
+    imgs  = f(t) : a | 2 , bb | 1 , ccc , dddd ;
+            g(t) : U     , VV | s3 , WWW , XXXX
+\end{functable}
+
+Puis dans le texte, on pourra faire \tnsref{functable:1}
+
+
+val | ... pour extra !
+
+
 > ---------------------------- <
 
 voir si forest est utile ou pas : oui a priori pour l'aspect rédaction humaine
