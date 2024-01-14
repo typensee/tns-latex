@@ -8,14 +8,12 @@
 
 \ExplSyntaxOn
 
-% -- DSL - L3 -- %
-
-% :: THE BIG FORMATTER :: %
+% -- THE BIG FORMATTER -- %
 
 \NewDocumentEnvironment{functable}{ O{}b }{%
 % New data to build.
   \IfBlankTF{ #1 } {
-    \tns_functab_build_starray:nn { functab }{ #2 } %
+    \tns_core_DSL_table_parser:nn { functab }{ #2 } %
 
     \par
     NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int
@@ -34,7 +32,7 @@
 }{}
 
 
-
+% -- DSL - L3 -- %
 
 % :: RESCAN TRICK :: %
 
@@ -65,8 +63,8 @@
 \int_new:N  \g_tns_functab_id_int
 \int_set:Nn \g_tns_functab_id_int { 0 }
 
-\cs_new:Npn \tns_functab_build_starray:nn #1#2 {
-% The id nb of the env.
+\cs_new:Npn \tns_core_DSL_table_parser:nn #1#2 {
+% The ID nb. of the env.
   \int_gincr:N \g_tns_functab_id_int
 
 % XXXX
