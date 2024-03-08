@@ -12,22 +12,30 @@ ALWAYS DONE
     1) Use of a Python script to know if a name (macro/environment/...)
        is already used by a TeX Live project.
 
+
     2) New features are always tested at least with l3build.
+
         + Tests build from the docs: use of meta comments because
           some tests can need some specific settings.
+
         + Home-made tests can be added if necessary.
 
+
     3) tnscore
+
         + Abstraction from the last changes must be added as soon
           as possible!
 
-    4) Semantics: make it possible to create YAML-style files giving information on the use of a macro for tools that will just do pattern matching in the TEX file.
 
-    For example, \funcdef{f, x, \RR, x^2, \RR} will give :
+    4) Semantics: make it possible to create YAML-style files giving
+       information on the use of a macro for tools that will just do
+       pattern matching in the TEX file.
 
-    yaml::
-        - "\funcdef{f, x, \RR, x^2, \RR}":
-          - What to add next ???
+       For example, \funcdef{f, x, \RR, x^2, \RR} could give :
+
+       yaml::
+         - "\funcdef{f, x, \RR, x^2, \RR}":
+         - What to add next ???
 
 
 ----------
@@ -36,7 +44,9 @@ NEXT STEPS
 
     1) Function tab.: var/sign/val + data-tab
 
+
     2) stepcalc & basic logic
+
         + \then ??? instead of \implies
           and
           \when ??? instead of \becauseof
@@ -51,11 +61,16 @@ NEXT STEPS
             \nextstep<bottom to top ALONE>
           or
             \nextstep{double side}
-          (in a double-side case, the use of the first options will not be allowed).
+          (in a double-side case, the use of the first options will
+          not be allowed).
 
-        + Macro to facilitate the construction of specialized stepcalc environments like an iff environment, or an evaluation one for example. Use of expl3 template!
+        + Macro to facilitate the construction of specialized stepcalc
+          environments like an iff environment, or an evaluation one
+          for example. Use of expl3 template!
+
 
     3) Interval in a dedicated package
 
         + Writing
+
         + Drawing
