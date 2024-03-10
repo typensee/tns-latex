@@ -5,6 +5,15 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+clarification des rôles
+
+    + env pour création d'un tableau
+
+    + réutilisation pour plus tard via des macros, sauf si on refait un tab
+
+
+> ---------------------------- <
+
 DOC
 
     ---> dsl-l3 grammaire pour utilisateurs
@@ -20,12 +29,13 @@ API
 
     ---> déco
 
-            + Flèches : colonne à colonne ou ligne à ligne pour composition soit de fonction soit pour suite récu ou non
+            + Flèches : colonne à colonne ou ligne à ligne pour
+              composition soit de fonction soit pour suite récu ou non
 
     ---> tab vars/signes
 
             + mode fiche tech rédigée du type "f croît sur I puis sur J"
-              (attention à ne pas avpir d'adj à accorder)
+              (besoin d'un syst de traduction)
 
             + Val inter  via i: ...
               Quel design ? Quelle syntaxe ?
@@ -44,13 +54,29 @@ API
 
     ---> tab de valeurs
 
-            + mode vertical ou horizontal ou bien transposer pour tab matriciel
+            + mode vertical ou horizontal ou bien transposer pour
+              tab matriciel
+
+            + macro calculatrice de remplissage calculé des valeurs matricielles ou non
 
     ---> raccourcis à une lettre - OK quand API figée mais pas avant !
 
     ---> format par défaut réglage au chargement du package mais aussi localement
 
-    ---> automatique possible avec outil de son choix : voir comment appel giac par exemple
+    ---> syst simple de ref des case avec un nbre dans le coin haut : utile pour indiquer comment le tableau a été rempli
+
+
+    \begin{functable}
+        xvals =    t : 1     , 20     , 300 , 4000 ;
+        imgs  = f(t) : a | 2 , bb | 1 , ccc , dddd ;
+                g(t) : U     , VV | s3 , WWW , XXXX
+    \end{functable}
+
+    Puis dans le texte, on pourra faire \tnsref{functable:1}
+
+
+    val | ... pour extra !
+
 
 
 > ---------------------------- <
@@ -69,8 +95,8 @@ Nom d'env identitique mais on a une clé dsl pour indiquer le format
 
 
 % Domain
-    xvals =     t : -oo , 2/7 , 3 , +oo
+    xvals =     t : -oo , 2/7 ,  3  , +oo
 % Signs
-    signs  = f'(t) :     +  0  - 0 +
+    signs  = f'(t) :    +  0  -  0  +
 % Vars
-    vars   =  f(t) :   a <  b  > c <  beta
+    vars   =  f(t) :  a <  b  >  c  <  beta

@@ -42,10 +42,15 @@ ALWAYS DONE
 NEXT STEPS
 ----------
 
-    1) Function tab.: var/sign/val + data-tab
+    1) Function tab.
+
+        + 2D-values
+        + 3D-values
+        + signs
+        + variations
 
 
-    2) stepcalc & basic logic
+    2) stepcalc ---> seqcalc (sequential calculus) & basic logic
 
         + \then ??? instead of \implies
           and
@@ -68,9 +73,11 @@ NEXT STEPS
           environments like an iff environment, or an evaluation one
           for example. Use of expl3 template!
 
+        + customisable colours: arrow and text, so we can have a black arrow and coloured text linked to coloured calculation.
+
 
     3) Interval in a dedicated package
 
-        + Writing
+        + Writing: coma separated value \intervalO{a, b} ...
 
-        + Drawing
+        + Drawing: drawing on different levels, and visual tools for union and intersection

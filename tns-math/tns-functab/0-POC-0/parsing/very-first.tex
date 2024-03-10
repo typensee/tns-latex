@@ -1,65 +1,26 @@
-% == PACKAGES == %
-
-\RequirePackage{nicematrix}%
-               [6.26]
-
-\RequirePackage{starray}%
-               [Version 1.5 - November 2023]
-
-
-% == TOOLS == %
+\documentclass[12pt]{article}
 
 \ExplSyntaxOn
 
 % -- FUNCTABLE ENV. -- %
 
-%%%
-% prototype::
-%     #1 : options wanted.
-%     #2 : the DSL code of the table.
-%
-%     :action: the table wanted is produced, and an internal version
-%              of the datas is stored to allow to do some actions
-%              with the data.
-%
-%     :see: l3func.tns_functab_functable:nn
-%%%
-\NewDocumentEnvironment{ functable }{ O{} b }{%
-  \tns_functab_functable:nn { #1 } { #2 }
+\NewDocumentEnvironment{ functable }{ b }{%
+  \tns_functab_functable:n { #1 }
 }{}
 
 
-%%%
-% prototype::
-%     :see: env.functable
-%
-% This function is the \latex3 big maker...
-%%%
-\cs_new:Npn \tns_functab_functable:nn #1#2 {
-% TODO
-% Options to use.
+\cs_new:Npn \tns_functab_functable:n #1 {
+  \tns_core_DSL_ctxt_parser:nn { functable } { #1 } 
 
-
-% Aanlysing the "context" DSL code.
-  \tns_core_DSL_ctxt_parser:nn { functable } { #2 } %
-
-
-% Building the table.
   \bigskip\par
   NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int
 
-% Build the good table from the data.
   \par
-  {\hfill \Huge TODO}
+  TODO
 }
 
 
-% -- "CONTEXT" AGNOSTIC DSL (L3 version) -- %
-
-% :: RESCAN TRICK :: %
-
-% Source.
-%   + https://tex.stackexchange.com/a/706773/6880
+% -- DSL - L3 -- %
 
 \tl_new:N   \g_tns_functab_semicolon_tl
 \tl_gset:Nn \g_tns_functab_semicolon_tl { ; }
@@ -90,21 +51,13 @@
 \tl_new:N  \l_tns_core_current_ctxt_tl
 
 
-%%%
-% prototype::
-%     #1 :
-%     #2 :
-%
-%     :action:
-%%%
 \cs_new:Npn \tns_core_DSL_ctxt_parser:nn #1#2 {
 % The ID nb. of the env.
   \int_gincr:N \g_tns_functab_id_int
 
 % Line by line parsing.
 %
-% Lines are semi-colon seprataed,
-% and empty lins must be ignored.
+% Lines are semi-colon separated.
   \seq_set_split:NVn \l_tns_core_ctxts_seq
                       \g_tns_functab_semicolon_tl
                       { #2 }
@@ -171,44 +124,18 @@
     VAL: ~
     $(\tl_use:N \l_tmpa_tl)$
   }
-
-
-
-% XXXX
-%   \prop_set_from_keyval:Nn \l_tmpa_prop {
-%     { kind } = { 1D-data } ,
-%     { xvals } = { 1 , 20 , 300 , 4000 }
-%   }
-
-%   \prop_pop:NnN \l_tmpa_prop { xvals } \l_tmpa_tl
-
-%   OK? #1
-%   \par
-%   \tl_use:N \l_tmpa_tl
-}
-
-
-
-
-
-\cs_new:Npn \tns_functab_split_semicolon:n #1 {
-  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
-                                 \g_tns_functab_semicolon_tl
-                                 { #1 }
-
-  $
-  	\seq_use:Nn \l_tmpa_seq { $\par\smallskip$ }
-  $
-}
-
-\cs_new:Npn \tns_functab_split_colon:n #1 {
-  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
-                                 \g_tns_functab_colon_tl
-                                 { #1 }
-
-  $
-  	\seq_use:Nn \l_tmpa_seq { $\par\smallskip$ }
-  $
 }
 
 \ExplSyntaxOff
+
+
+\begin{document}
+
+\begin{functable}
+    xvals =    t : 1 , 20 , 300 , 4000 ;
+    imgs  = f(t) : a , bb , ccc , dddd ;
+            g(t) : U , VV , WWW , XXXX
+\end{functable}
+
+\end{document}
+

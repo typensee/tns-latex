@@ -1,0 +1,23 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{nicematrix}
+
+\begin{document}
+
+\begin{verbatim}
+\begin{functable}
+    xvals =    t : 1 , 20 , 300 , 4000 ;
+    imgs  = f(t) : a , bb , ccc , dddd ;
+            g(t) : U , VV , WWW , XXXX
+\end{functable}
+\end{verbatim}
+
+$\begin{NiceArray}[cell-space-limits = 3pt]{c*{4}{|c}}
+    t    & 1 & 20 & 300 & 4000
+\\ \hline
+    f(t) & a & bb & ccc & dddd
+\\ \hline
+    g(t) & U & VV & VVV & WWW
+\end{NiceArray}$
+
+\end{document}
