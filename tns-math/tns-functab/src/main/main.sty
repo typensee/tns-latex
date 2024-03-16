@@ -3,9 +3,6 @@
 \RequirePackage{nicematrix}%
                [6.26]
 
-\RequirePackage{starray}%
-               [Version 1.5 - November 2023]
-
 
 % == TOOLS == %
 
@@ -13,35 +10,56 @@
 
 % -- FUNCTABLE ENV. -- %
 
+% :: \L3 INTERFACE :: %
+
 %%%
 % prototype::
-%     #1 : options wanted.
+%     #1 : the user's settings (see below).
 %     #2 : the DSL code of the table.
 %
-%     :action: the table wanted is produced, and an internal version
-%              of the datas is stored to allow to do some actions
-%              with the data.
+%     :action: an internal version of the information given via the DSL
+%              is created, and then, unless otherwise stated, the table
+%              corresponding to the data is produced.
 %
 %     :see: l3func.tns_functab_functable:nn
+%
+%
+% =================
+% Available options
+% =================
+%
+% XXXX
 %%%
 \NewDocumentEnvironment{ functable }{ O{} b }{%
   \tns_functab_functable:nn { #1 } { #2 }
 }{}
 
 
+% :: \L3 MAIN IMPLEMENTATION :: %
+
+% The ID nb. of the env.
+\int_new:N  \g_tns_functab_id_int
+\int_set:Nn \g_tns_functab_id_int { 0 }
+
+
 %%%
 % prototype::
-%     :see: env.functable
+%     :action: the work expected by the `functable` \env.
 %
-% This function is the \latex3 big maker...
+%     :see: env.functable ,
+%           l3func.tns_core_DSL_ctxt_parser:nn
 %%%
 \cs_new:Npn \tns_functab_functable:nn #1#2 {
 % TODO
 % Options to use.
 
 
+  \int_gincr:N \g_tns_functab_id_int
+
 % Analysis of the "context" DSL code.
-  \tns_core_DSL_ctxt_parser:nn { functable } { #2 } %
+  \tns_core_DSL_ctxt_parser:nn
+    { -:- functable -:- \int_use:N \g_tns_functab_id_int -:- } % ID USED
+    { #2 }
 
 
 % Building the table.
@@ -52,5 +70,14 @@
   \par
   {\hfill \Huge TODO}
 }
+
+
+% :: \L3 1D-DATA :: %
+
+
+% :: \L3 2D-DATA :: %
+
+
+% :: \L3 SIGNS AND/OR VARIATIONS :: %
 
 \ExplSyntaxOff
