@@ -1,0 +1,16 @@
+// ---------- //
+
+
+==
+??  (0.0.0-alpha.5)
+==
+
+-----
+:new:
+-----
+
+[[:tech:]]
+\DSL for 2D-data: système de parsing qui stocke dans variable nommé via utilisateur ou auto lles infos suivantes
+
+    ---> type de tab
+    ---> restant ?

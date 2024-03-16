@@ -1,0 +1,129 @@
+% Source: https://tex.stackexchange.com/a/712959/6880
+
+\documentclass[border=6pt,varwidth]{standalone}
+
+\usepackage{nicematrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\ExplSyntaxOn
+
+\cs_generate_variant:Nn \seq_map_indexed_inline:Nn { cn }
+\cs_generate_variant:Nn \seq_gset_from_clist:Nn { ce }
+
+\seq_new:N \l__projetmbc_functable_seq
+\seq_new:N \l__projetmbc_key_name_list_seq
+
+\tl_new:N \l__projetmbc_coordinates_tl
+\tl_new:N \l__projetmbc_key_tl
+\tl_new:N \l__projetmbc_name_tl
+
+
+\NewDocumentEnvironment { savefunctable } { m +b }
+  {
+    \seq_set_split:Nnn \l__projetmbc_functable_seq { ; } {#2}
+
+    \seq_map_inline:Nn \l__projetmbc_functable_seq
+      {
+        \seq_set_split:Nnn \l__projetmbc_key_name_list_seq { = } {##1}
+
+        \int_compare:nNnT { \seq_count:N \l__projetmbc_key_name_list_seq } = { 2 }
+          {
+            \seq_pop_left:NN \l__projetmbc_key_name_list_seq \l__projetmbc_key_tl
+            \seq_gclear_new:c { g__projetmbc_#1_key_\l__projetmbc_key_tl _seq }
+          }
+
+        \seq_set_split:Nee \l__projetmbc_key_name_list_seq { \c_colon_str } { \seq_item:Nn \l__projetmbc_key_name_list_seq { 1 } }
+
+        \seq_pop_left:NN \l__projetmbc_key_name_list_seq \l__projetmbc_name_tl
+
+        \seq_gput_right:cV { g__projetmbc_#1_key_\l__projetmbc_key_tl _seq } \l__projetmbc_name_tl
+
+        \seq_gclear_new:c { g__projetmbc_#1_key_\l__projetmbc_key_tl _name_\l__projetmbc_name_tl _seq }
+
+        \seq_gset_from_clist:ce { g__projetmbc_#1_key_\l__projetmbc_key_tl _name_\l__projetmbc_name_tl _seq } { \seq_item:Nn \l__projetmbc_key_name_list_seq { 1 } }
+      }
+  }
+  {}
+
+
+\NewDocumentCommand \usefunctable { m m }
+  {
+    \str_case:nnF {#2}
+      {
+        { list~of~imgs }
+          {
+            \seq_use:cn { g__projetmbc_#1_key_imgs_seq } { , ~ }
+          }
+        
+        { maximum~of~xvals }
+          {
+            \fp_eval:n { max ( \seq_use:cn { g__projetmbc_#1_key_xvals_name_\seq_item:cn { g__projetmbc_#1_key_xvals_seq } { 1 }_seq } { , } ) }
+          }
+
+        { NiceArray }
+          {
+            $
+              \begin { NiceArray }
+                [ cell-space-limits = 3pt ]
+                { c * { \seq_count:c { g__projetmbc_#1_key_xvals_name_\seq_item:cn { g__projetmbc_#1_key_xvals_seq } { 1 }_seq } } { | c } }
+                \seq_item:cn { g__projetmbc_#1_key_xvals_seq } { 1 } & \seq_use:cn { g__projetmbc_#1_key_xvals_name_\seq_item:cn { g__projetmbc_#1_key_xvals_seq } { 1 }_seq } { & } \\ \hline
+                \seq_map_indexed_inline:cn { g__projetmbc_#1_key_imgs_seq }
+                  {
+                    ##2 & \seq_use:cn { g__projetmbc_#1_key_imgs_name_##2_seq } { & }
+                    \int_compare:nNnF {##1} = { \seq_count:c { g__projetmbc_#1_key_imgs_seq } }
+                      { \\ \hline }
+                  }
+              \end { NiceArray }
+            $
+          }
+
+        { plot }
+          {
+            \tl_build_begin:N \l__projetmbc_coordinates_tl
+            \seq_map_indexed_inline:cn { g__projetmbc_#1_key_xvals_name_\seq_item:cn { g__projetmbc_#1_key_xvals_seq } { 1 }_seq }
+              {
+                \tl_build_put_right:Ne \l__projetmbc_coordinates_tl
+                  { ( ##2 , \seq_item:cn { g__projetmbc_#1_key_imgs_name_\seq_item:cn { g__projetmbc_#1_key_imgs_seq } { 1 }_seq } {##1} ) }
+              }
+            \tl_build_end:N \l__projetmbc_coordinates_tl
+            \begin { tikzpicture }
+              \begin { axis }
+                [
+                  ymin = 0
+                ]
+                \addplot coordinates
+                  { \l__projetmbc_coordinates_tl }
+                ;
+              \end { axis }
+            \end { tikzpicture }
+          }
+      }
+      { \errmessage { wrong~option~for~functable~environment } }
+  }
+
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\begin{savefunctable}{example 1}
+    xvals =    t : 1 , 20 , 300 , 4000 ;
+    imgs  = f(t) : a , bb , ccc , dddd ;
+            g(t) : U , VV , WWW , XXXX
+\end{savefunctable}
+
+\begin{savefunctable}{example 2}
+    xvals =    t : 1 , 2 , 3 , 4 ;
+    imgs  = f(t) : 8 , 5 , 7 , 6 ;
+\end{savefunctable}
+
+Using \texttt{example 1} with \texttt{NiceArray}: \usefunctable{example 1}{NiceArray}
+
+The maximum of the \texttt{xvals} of \texttt{example 2}: \usefunctable{example 2}{maximum of xvals}
+
+The list of \texttt{imgs} of \texttt{example 1}: \usefunctable{example 1}{list of imgs}
+
+A \texttt{plot} for \texttt{example 2}: \usefunctable{example 2}{plot}
+
+\end{document}

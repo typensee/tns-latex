@@ -9,7 +9,7 @@ This file is a roadmap, in the short term.
 ALWAYS DONE
 -----------
 
-    1) Use of a Python script to know if a name (macro/environment/...)
+    1) TODO --> Use of a Python script to know if a name (macro/environment/...)
        is already used by a TeX Live project.
 
 
@@ -27,7 +27,7 @@ ALWAYS DONE
           as possible!
 
 
-    4) Semantics: make it possible to create YAML-style files giving
+    4) TODO --> Semantics: make it possible to create YAML-style files giving
        information on the use of a macro for tools that will just do
        pattern matching in the TEX file.
 
@@ -57,6 +57,7 @@ NEXT STEPS
           \when ??? instead of \becauseof
 
         + New easy-to-use syntax, regarding the style:
+
             \nextstep   % Nothing to say
           or
             \nextstep[top to bottom]<bottom to top>
@@ -66,8 +67,9 @@ NEXT STEPS
             \nextstep<bottom to top ALONE>
           or
             \nextstep{double side}
-          (in a double-side case, the use of the first options will
-          not be allowed).
+
+          In a double-side case, the use of the first options will
+          not be allowed.
 
         + Macro to facilitate the construction of specialized stepcalc
           environments like an iff environment, or an evaluation one
@@ -81,3 +83,12 @@ NEXT STEPS
         + Writing: coma separated value \intervalO{a, b} ...
 
         + Drawing: drawing on different levels, and visual tools for union and intersection
+
+
+    4) Proba tree
+
+        + Work on a more efficient API
+
+        + Setting like in tblr of tabularray, no more stting inside the tree
+
+        + Dedicated DSL?

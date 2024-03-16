@@ -1,0 +1,162 @@
+% == TOOLS == %
+
+\ExplSyntaxOn
+
+% -- "CONTEXT" AGNOSTIC DSL (L3 version) -- %
+
+% :: RESCAN TRICK :: %
+
+% Source.
+%   + https://tex.stackexchange.com/a/706773/6880
+
+\tl_new:N   \g_tns_functab_semicolon_tl
+\tl_gset:Nn \g_tns_functab_semicolon_tl { ; }
+
+\tl_new:N   \g_tns_functab_colon_tl
+\tl_gset:Nn \g_tns_functab_colon_tl { : }
+
+\cs_generate_variant:Nn \seq_set_split:Nnn { NV }
+
+\AtBeginDocument {
+  \tl_gset_rescan:NnV \g_tns_functab_semicolon_tl
+                      {}
+                      \g_tns_functab_semicolon_tl
+
+  \tl_gset_rescan:NnV \g_tns_functab_colon_tl
+                      {}
+                      \g_tns_functab_colon_tl
+}
+
+
+% :: AGNOSTIC PARSERS :: %
+
+\int_new:N  \g_tns_functab_id_int
+\int_set:Nn \g_tns_functab_id_int { 0 }
+
+\int_new:N \l_tns_core_ctxt_nb_line_int
+\seq_new:N \l_tns_core_ctxts_seq
+\tl_new:N  \l_tns_core_current_ctxt_tl
+
+
+%%%
+% prototype::
+%     #1 :
+%     #2 :
+%
+%     :action:
+%%%
+\cs_new:Npn \tns_core_DSL_ctxt_parser:nn #1#2 {
+% The ID nb. of the env.
+  \int_gincr:N \g_tns_functab_id_int
+
+% Line by line parsing.
+%
+% Lines are semi-colon seprataed,
+% and empty lins must be ignored.
+  \seq_set_split:NVn \l_tns_core_ctxts_seq
+                      \g_tns_functab_semicolon_tl
+                      { #2 }
+
+  \int_zero:N \l_tns_core_ctxt_nb_line_int
+
+  \seq_map_inline:Nn \l_tns_core_ctxts_seq {
+    \bigskip\par
+
+    \int_incr:N \l_tns_core_ctxt_nb_line_int
+
+    Line ~ \int_use:N \l_tns_core_ctxt_nb_line_int
+    \par
+
+% Get the context and its content.
+    \seq_set_split:Nnn \l_tmpa_seq { = } { ##1 }
+
+    \int_set:Nn \l_tmpa_int {\seq_count:N \l_tmpa_seq}
+
+    \quad
+    \int_case:nnF { \int_use:N \l_tmpa_int } {
+      { 1 } {
+        LAST - CTXT: ~
+        (\tl_use:N \l_tns_core_current_ctxt_tl)
+      }
+      { 2 } {
+        \seq_pop_left:NN \l_tmpa_seq \l_tns_core_current_ctxt_tl
+
+        NEW - CTXT: ~
+        (\tl_use:N \l_tns_core_current_ctxt_tl)
+      }
+    }{
+      ILLEGAL!
+    }
+
+% Get the optional label and its content.
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
+
+    \seq_set_split:NVV \l_tmpa_seq
+                       \g_tns_functab_colon_tl
+                       \l_tmpa_tl
+
+    \int_set:Nn \l_tmpa_int {\seq_count:N \l_tmpa_seq}
+
+    \par\quad
+    \int_case:nnF { \int_use:N \l_tmpa_int } {
+      { 1 } {
+        NO LABEL
+      }
+      { 2 } {
+        \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
+
+        LABEL: ~
+        $(\tl_use:N \l_tmpa_tl)$
+      }
+    }{
+      ILLEGAL!
+    }
+
+    \par\quad
+
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
+
+    VAL: ~
+    $(\tl_use:N \l_tmpa_tl)$
+  }
+
+
+
+% XXXX
+%   \prop_set_from_keyval:Nn \l_tmpa_prop {
+%     { kind } = { 1D-data } ,
+%     { xvals } = { 1 , 20 , 300 , 4000 }
+%   }
+
+%   \prop_pop:NnN \l_tmpa_prop { xvals } \l_tmpa_tl
+
+%   OK? #1
+%   \par
+%   \tl_use:N \l_tmpa_tl
+}
+
+
+
+
+
+\cs_new:Npn \tns_functab_split_semicolon:n #1 {
+  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
+                                 \g_tns_functab_semicolon_tl
+                                 { #1 }
+
+  $
+  	\seq_use:Nn \l_tmpa_seq { $\par\smallskip$ }
+  $
+}
+
+\cs_new:Npn \tns_functab_split_colon:n #1 {
+  \seq_set_split_keep_spaces:NVn \l_tmpa_seq
+                                 \g_tns_functab_colon_tl
+                                 { #1 }
+
+  $
+  	\seq_use:Nn \l_tmpa_seq { $\par\smallskip$ }
+  $
+}
+
+\ExplSyntaxOff

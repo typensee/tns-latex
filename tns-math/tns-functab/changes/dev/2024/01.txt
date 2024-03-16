@@ -10,4 +10,4 @@
 -----
 
 [[:doc:]]
-\Doc before code: the 2d-data explanations have been written.
+\Doc before code: the 2D-data explanations have been written.
