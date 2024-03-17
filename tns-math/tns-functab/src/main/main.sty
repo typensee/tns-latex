@@ -50,9 +50,8 @@
 \prop_clear_new:N \g_tns_functab_id_user
 
 % Semantic of the env.
-\seq_new:N  \g_tns_functab_kind_seq
-\bool_new:N \l_tns_functab_in_body_bool
-\int_new:N  \l_tns_functab_nb_contetx_int
+\seq_new:N \g_tns_functab_kind_seq
+\int_new:N \l_tns_functab_context_actual_nb_int
 
 
 %%%
@@ -98,16 +97,17 @@
 
 %%%
 % prototype::
-%     :action: ???
+%     :action: ??? porducton of internal version (taht could be used later iwithout reparsing)
 %%%
 \cs_new:Npn \tns_functab_validate_functable:n {
 % Good use of the contexts?
-  \bool_set_eq:NN \g_tns_functab_in_body \c_false_bool
-  \int_zero:N \l_tns_functab_nb_contetx_int
+  \int_zero:N \l_tns_functab_context_actual_nb_int
 
   \seq_map_inline:cn { -:- functable.pre.parsing.contexts -:- } {
-    \int_incr:N \l_tns_functab_nb_contetx_int
+    \int_incr:N \l_tns_functab_context_actual_nb_int
+
     \par
+
     \str_case_e:nnF { ##1 } {
 % XVALS
       { xvals } {
