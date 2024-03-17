@@ -10,7 +10,4 @@
 -----
 
 [[:tech:]]
-\DSL for 2D-data: système de parsing qui stocke dans variable nommé via utilisateur ou auto lles infos suivantes
-
-    ---> type de tab
-    ---> restant ?
+\DSL for data: a \1st version that is functional, but without option management for the moment (for example, it is not possible to define content that can be reused later, but the internal coding can integrate this in the near future).

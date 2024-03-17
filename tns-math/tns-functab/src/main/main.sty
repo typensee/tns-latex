@@ -8,7 +8,7 @@
 
 \ExplSyntaxOn
 
-% -- FUNCTABLE ENV. -- %
+% -- FUNCTABLE ENV. - MAIN API -- %
 
 % :: \L3 INTERFACE :: %
 
@@ -72,7 +72,7 @@
 
 % Parsing the agnostic "context" DSL code.
   \tns_core_DSL_ctxt_parser:nn
-    { -:- functable.pre.parsing.contexts -:- } % ID USED
+    { -:- functable.pre.parsing.contexts -:- } % Temporary ID
     { #2 }
 
 % -------------
@@ -88,7 +88,7 @@
 % Do we have a legal DSL code?
   \tns_functab_validate_functable:n
 
-% Building the table.
+% Let's do what the user wants.
   \par
   {\hfill \Huge TODO}
 }
@@ -127,7 +127,8 @@
       }
 % UNKNOWN CONTEXT
 %
-% Let's be silent with missing context already pointed by the context DSL parser.
+% Let's be silent with the missing contexts that have been already
+% indicated by the context DSL parser.
       { :-: ctxt-dsl-missing-context :-: } { }
     }{
       \msg_error:nnn { tnsfunctab }
@@ -136,12 +137,6 @@
     }
   }
 }
-
-
-% :: \L3 1D-DATA :: %
-
-
-% :: \L3 2D-DATA :: %
 
 
 % :: \L3 SIGNS :: %
