@@ -2,7 +2,9 @@
 
 \input{../preamble.cfg.tex}
 
+\usepackage{../main/ctxt-dsl}
 \usepackage{../main/main}
+
 
 % TESTING LOCAL IMPLEMENTATION %
 
@@ -15,19 +17,18 @@
 
 \subsection{Tableaux d'images d'une seule fonction à deux variables}
 
-Voyons comment taper un tableau d'images d'une fonction à deux variables, ou de façon équivalente d'un tableau à double-entrée
+Voyons comment taper un tableau d'images d'une seule fonction à deux variables, ou de façon équivalente d'un tableau à double-entrée.
 \footnote{
 	Bien entendu, on perd ici la possibilité de travailler avec plusieurs fonctions au sein du même tableau.
 }
-toujours via l'environnement \tdocenv{functab} qui est multifonctions.
 
 
 % --------------- %
 
 
 \begin{tdocexa}[Avec des étiquettes de partout]
-    En plus de \tdocinlatex{xvals} pour les colonnes, il faut utiliser \tdocinlatex{yvals} pour renseigner les valeurs initiales qui seront utilisées pour chaque ligne.
-    Quant aux valeurs de chaque cellule, elles sont données sous forme matricielle de façon naturelle via \tdocinlatex{mat} : pour une ligne, les valeurs sont séparées par des virgules, tandis que les points-virgules permettent de passer à la ligne suivante.
+    En plus de \tdocinlatex{xvals} pour les colonnes, il faut utiliser \tdocinlatex{yvals} pour renseigner les valeurs pivots qui seront utilisées pour chaque ligne.
+    De plus, les valeurs de chaque cellule se donnent de façon naturelle sous forme matricielle via \tdocinlatex{mat} : pour une ligne, les valeurs sont séparées par des virgules, tandis que les points-virgules permettent de passer à la ligne suivante.
 
     \tdoclatexinput{examples/2D-data/label.tex}
 \end{tdocexa}
@@ -36,7 +37,7 @@ toujours via l'environnement \tdocenv{functab} qui est multifonctions.
 % --------------- %
 
 
-\begin{tdocexa}[Sans aucune étiquette]
+\begin{tdocexa}[Avec les variables par défaut]
     \leavevmode
 
     \tdoclatexinput{examples/2D-data/no-label.tex}

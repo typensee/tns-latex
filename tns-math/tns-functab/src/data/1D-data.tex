@@ -2,7 +2,9 @@
 
 \input{../preamble.cfg.tex}
 
+\usepackage{../main/ctxt-dsl}
 \usepackage{../main/main}
+
 
 % TESTING LOCAL IMPLEMENTATION %
 
@@ -13,9 +15,9 @@
 
 \section{Des tableaux de données}
 
-Nous allons voir dans cette section comment saisir des tableaux de données de l'un des types suivants.
+Nous allons voir dans cette section comment saisir de petits tableaux de données de l'un des types suivants.
 \begin{itemize}
-	\item Tableaux d'images de plusieurs fonctions à une variable.
+	\item Tableaux d'images de plusieurs fonctions à une seule variable.
 
 	\item Tableaux d'images d'une seule fonction à deux variables.
 \end{itemize}
@@ -31,16 +33,22 @@ Nous allons voir dans cette section comment saisir des tableaux de données de l
 % --------------- %
 
 
-\subsection{Tableaux d'images de fonctions à une variable}
+\subsection{Tableaux d'images de fonctions à une seule variable}
 
-Les valeurs dont on veut indiquer les images se donnent via
-\tdocinlatex{xvals = mavar : x_1 , x_2 , ... , x_n}
-ou juste
-\tdocinlatex{xvals = x_1 , x_2 , ... , x_n}
-si la variable par défaut, à savoir $x$, convient.
-Une fois ceci fait, il faut renseigner les différentes images via \tdocinlatex{imgs = monexpr : im_1 , im_2 , ... , im_n} en donnant obligatoirement la formule de l'expression étudiée.
-Voici des cas d'utilisation.
+Les valeurs pivots, qui sont celles dont on veut indiquer les images, s'indiquent de deux façons.
+%
+\begin{enumerate}
+	\item \tdocinlatex{xvals = x_1 , x_2 , ... , x_n} indiquent les valeurs pour la variable nommée $x$ par défaut.
 
+	\item \tdocinlatex{xvals = mavar : x_1 , x_2 , ... , x_n} permet de renommer la variable en $mavar$\,.
+\end{enumerate}
+
+
+Une fois ceci fait, il faut renseigner les différentes images en donnant obligatoirement la formule de l'expression étudiée en passant via \tdocinlatex{imgs = monexpr : im_1 , im_2 , ... , im_n}\,.
+
+\medskip
+
+En résumé, tout se passe via \tdocinlatex{xvals = ...} et \tdocinlatex{imgs = ...} pour définir les valeurs pivots et leurs images.
 
 % --------------- %
 

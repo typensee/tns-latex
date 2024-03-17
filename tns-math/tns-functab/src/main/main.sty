@@ -35,11 +35,24 @@
 }{}
 
 
+% :: MESSAGES :: %
+
+\msg_set:nnnn { tnsfunctab } { unknown-context }
+  { illegal ~ context ~ << ~ #1 ~ >>. }
+  { \msg_see_documentation_text:n { tnsfunctab } }
+
+
 % :: \L3 MAIN IMPLEMENTATION :: %
 
-% The ID nb. of the env.
-\int_new:N  \g_tns_functab_id_int
-\int_set:Nn \g_tns_functab_id_int { 0 }
+% The IDs of the env.
+\int_new:N        \g_tns_functab_id_int
+\int_set:Nn       \g_tns_functab_id_int { 0 }
+\prop_clear_new:N \g_tns_functab_id_user
+
+% Semantic of the env.
+\seq_new:N  \g_tns_functab_kind_seq
+\bool_new:N \l_tns_functab_in_body_bool
+\int_new:N  \l_tns_functab_nb_contetx_int
 
 
 %%%
@@ -54,21 +67,74 @@
 % Options to use.
 
 
+% Internal ID number.
   \int_gincr:N \g_tns_functab_id_int
 
-% Analysis of the "context" DSL code.
+% Parsing the agnostic "context" DSL code.
   \tns_core_DSL_ctxt_parser:nn
-    { -:- functable -:- \int_use:N \g_tns_functab_id_int -:- } % ID USED
+    { -:- functable.pre.parsing.contexts -:- } % ID USED
     { #2 }
 
+% -------------
+% DEBUG - START
+
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
+
+% DEBUG - END
+% -----------
+
+% Do we have a legal DSL code?
+  \tns_functab_validate_functable:n
 
 % Building the table.
-  \bigskip\par
-  NEW ~ DATA ~ \int_use:N \g_tns_functab_id_int
-
-% Build the good table from the data.
   \par
   {\hfill \Huge TODO}
+}
+
+
+% :: VALIDATION OF A FUNC. TABLE :: %
+
+%%%
+% prototype::
+%     :action: ???
+%%%
+\cs_new:Npn \tns_functab_validate_functable:n {
+% Good use of the contexts?
+  \bool_set_eq:NN \g_tns_functab_in_body \c_false_bool
+  \int_zero:N \l_tns_functab_nb_contetx_int
+
+  \seq_map_inline:cn { -:- functable.pre.parsing.contexts -:- } {
+    \int_incr:N \l_tns_functab_nb_contetx_int
+    \par
+    \str_case_e:nnF { ##1 } {
+% XVALS
+      { xvals } {
+        OK: ##1
+      }
+% YVALS
+      { yvals } {
+        OK: ##1
+      }
+% 1D-DATA
+      { imgs } {
+        OK: ##1
+      }
+% 2D-DATA
+      { mat } {
+        OK: ##1
+      }
+% UNKNOWN CONTEXT
+%
+% Let's be silent with missing context already pointed by the context DSL parser.
+      { :-: ctxt-dsl-missing-context :-: } { }
+    }{
+      \msg_error:nnn { tnsfunctab }
+                     { unknown-context }
+                     { ##1 }
+    }
+  }
 }
 
 
@@ -78,6 +144,10 @@
 % :: \L3 2D-DATA :: %
 
 
-% :: \L3 SIGNS AND/OR VARIATIONS :: %
+% :: \L3 SIGNS :: %
+
+
+% :: \L3 VARIATIONS :: %
+
 
 \ExplSyntaxOff

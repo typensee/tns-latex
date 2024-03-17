@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+
+\input{../preamble.cfg.tex} % : ; and babel-french!
+
+\usepackage{ctxt-dsl}
+\usepackage{main}
+
+\setlength\parindent{0cm}
+
+
+\begin{document}
+
+
+% ----------------------- %
+
+
+\section{1D Data}
+
+\subsection{Bad example 1}
+
+\begin{functable}
+               t : 1 , 20 , 300 , 4000 ;
+    imgs  = f(t) : a , bb , ccc , dddd ;
+            g(t) : U , VV , WWW , XXXX
+\end{functable}
+
+
+\subsection{Bad example 2}
+
+\begin{functable}
+    xvals = 1 , u = 20 , 300 , 4000 ;
+    imgs  = a , bb , ccc , dddd ;
+            U , VV , WWW , XXXX
+\end{functable}
+
+
+\subsection{Bad example 3}
+
+\begin{functable}
+    xvals = u : v : 1 , 20 , 300 , 4000 ;
+    imgs  = a , bb , ccc , dddd ;
+            U , VV , WWW , XXXX
+\end{functable}
+
+
+
+\subsection{Bad example 4}
+
+\begin{functable}
+    xvals = t : 1 , 20 , 300 , 4000 ;
+    xvals = a , bb , ccc , dddd 
+\end{functable}
+
+
+
+\subsection{Bad example 5}
+
+\begin{functable}
+    yvals = t : 1 , 20 , 300 , 4000 ;
+    signs = a , bb , ccc , dddd 
+\end{functable}
+
+
+
+\subsection{Bad example 6}
+
+\begin{functable}
+    xvals = t : 1 , 20 , 300 , 4000 ;
+    mat   = a , bb , ccc , dddd 
+\end{functable}
+
+
+
+\subsection{Bad example 7}
+
+\begin{functable}
+    tvals = t : 1 , 20 , 300 , 4000 ;
+    mat   = a , bb , ccc , dddd 
+\end{functable}
+
+\end{document}
