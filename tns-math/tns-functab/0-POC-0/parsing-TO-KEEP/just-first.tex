@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand\beforeafter{m}{
+\seq_set_split_keep_spaces:Nnn \l_tmpa_seq { = } { #1 }
+\seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
+\tl_set:Ne \l_tmpa_tl { \tl_trim_spaces:V \l_tmpa_tl }
+\tl_set:Ne \l_tmpb_tl { \seq_use:Nn \l_tmpa_seq { = } }
+\tl_set:Ne \l_tmpb_tl { \tl_trim_spaces:V \l_tmpb_tl }
+
+Before:~\tl_use:N \l_tmpa_tl
+\par
+After:~\tl_use:N \l_tmpb_tl
+}
+
+\ExplSyntaxOff
+
+\begin{document}
+
+\beforeafter{a= 2+3}
+
+\beforeafter{a= 2 =3}
+
+\end{document}

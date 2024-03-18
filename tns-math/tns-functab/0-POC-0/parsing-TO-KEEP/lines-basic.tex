@@ -1,0 +1,83 @@
+% Source: https://tex.stackexchange.com/q/705192/6880
+
+\documentclass{article}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{\linebyline}{+v}{
+    \regex_split:nnN { \^^M } { #1 } \l_tmpa_seq
+    \seq_use:Nn \l_tmpa_seq { :: }
+}
+
+
+\NewDocumentEnvironment{stdlinebyline}{b}{
+    \begin{math}
+    \seq_set_split:Nnn \l_tmpa_seq {;} { #1 }
+    \seq_use:Nn \l_tmpa_seq { --XX-- }
+    \end{math}
+}{}
+
+
+\NewDocumentEnvironment{envlinebyline}{b}{
+    \begin{math}
+    \group_begin:
+%    \char_set_catcode_letter:N \^^M
+%    \seq_set_split:Nnn \l_tmpa_seq {\^^M} { #1}
+    \regex_split:nnN { \^^M } { #1 } \l_tmpa_seq
+    \seq_use:Nn \l_tmpa_seq { --XX-- }
+    \group_end:
+    \end{math}
+}{}
+
+
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\verb#\linebyline#
+
+\medskip
+
+\linebyline{
+% Comment
+    Line 1
+    Line ^2
+% Comment
+    Line 3
+}
+
+
+\bigskip
+
+
+\verb#\begin{stdlinebyline} ... \end{stdlinebyline}#
+
+\medskip
+
+\begin{stdlinebyline}
+% Comment
+    Line 1  ;
+    Line ^2 ;
+% Comment
+    Line 3  ;
+\end{stdlinebyline}
+
+
+\bigskip
+
+
+\verb#\begin{envlinebyline} ... \end{envlinebyline}#
+
+\medskip
+
+\begin{envlinebyline}
+% Comment
+    Line 1
+    Line ^2
+% Comment
+    Line 3
+\end{envlinebyline}
+
+
+\end{document}

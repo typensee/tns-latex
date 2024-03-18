@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\ExplSyntaxOn
+
+\exp_args_generate:n { Nnx }
+
+\tl_new:N \l_pmbc_xvals_tl
+
+\NewDocumentEnvironment{functab}{b}{
+  \seq_set_split:Nnn \l_tmpa_seq { ; } { #1 }
+%  \seq_show:N  \l_tmpa_seq
+
+  \seq_pop_left:NNTF \l_tmpa_seq \l_pmbc_xvals_tl { } {
+    xvals ~ PB !
+  }
+%  \tl_show:N \l_pmbc_xvals_tl
+
+  \seq_set_split:NnV \l_tmpb_seq { = } \l_pmbc_xvals_tl
+%  \seq_show:N  \l_tmpb_seq
+
+  \seq_pop_right:NNTF \l_tmpb_seq \l_tmpa_tl { } {
+    xvals - VALUES ~ PB !
+  }
+%  \tl_show:N \l_tmpa_tl
+
+  \clist_set:NV \l_tmpb_clist \l_tmpa_tl
+%  \clist_show:N \l_tmpb_clist
+
+
+
+  \seq_pop_left:NNTF \l_tmpa_seq \pmbc_signs_tl { } {
+    NO AFTER xvals ~ PB !
+  }
+  \seq_set_split:NVV \l_tmpb_seq \c_colon_str \pmbc_signs_tl
+  \seq_pop_right:NNTF \l_tmpb_seq \l_tmpa_tl { } {
+    xvals - VALUES ~ PB !
+  }
+%  \tl_show:N \l_tmpa_tl
+
+  \tl_map_inline:Nn \l_tmpa_tl {
+      x##1x
+  }
+}{}
+
+\ExplSyntaxOff
+
+
+\begin{document}
+
+\section*{Code}
+
+\begin{verbatim}
+% Domain
+    b =     t : -\infty , \frac27 , 3 , +\infty ;
+% Signs
+    s =   t+4 :         +    0    - 0 +         ;
+      =   t^2 :         +    n    + n +         ;
+      = f'(t) :         +    0    - 0 +         ;
+% Vars
+    v =  f(t) :       a <    b    > c <  \beta
+\end{verbatim}
+
+
+
+\section*{Output}
+
+\begin{functab}
+% Domain
+    b =     t : -\infty , \frac27 , 3 , +\infty ;
+% Signs
+    s =   t+4 :         +    0    - 0 +         ;
+      =   t^2 :         +    n    + n +         ;
+      = f'(t) :         +    0    - 0 +         ;
+% Vars
+    v =  f(t) :       a <    b    > c <  \beta
+\end{functab}
+
+\end{document}
