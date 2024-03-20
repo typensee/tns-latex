@@ -37,8 +37,18 @@
 
 % :: MESSAGES :: %
 
-\msg_set:nnnn { tnsfunctab } { unknown-context }
+\msg_set:nnnn { tnsfunctab } { context-unknown  }
   { illegal ~ context ~ << ~ #2 ~ >> ~ : ~ see ~ the ~ context ~ nb.#1. }
+  { \msg_see_documentation_text:n { tnsfunctab } }
+
+
+\msg_set:nnnn { tnsfunctab } { context-misplaced }
+  { the ~ context ~ << ~ #1 ~ >> ~ must ~ be ~ at ~ the ~ #2 ~ place. }
+  { \msg_see_documentation_text:n { tnsfunctab } }
+
+
+\msg_set:nnnn { tnsfunctab } { context-bad-use }
+  { bad ~ use ~ of ~ the ~ context ~ << ~ #2 ~ >> ~ : ~ see ~ the ~ context ~ nb.#1. }
   { \msg_see_documentation_text:n { tnsfunctab } }
 
 
@@ -90,7 +100,7 @@
 % -------------
 % DEBUG - START
 
-  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
 %   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
 %   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
 
@@ -98,7 +108,9 @@
 % -----------
 
 % Do we have a legal DSL code?
-  \tns_functab_validate_functable:n
+% If it does, we build an internal easy-to-use version of the user's data.
+  \tns_functab_validate_ctxts_seq:n
+  \tns_functab_build_internal:n
 
 % Let's do what the user wants.
   \par
@@ -108,13 +120,29 @@
 
 % :: VALIDATION OF A FUNC. TABLE :: %
 
+% The IDs of the env.
+\bool_new:N \l_tns_functab_xvals_used_bool
+\bool_new:N \l_tns_functab_yvals_used_bool
+\bool_new:N \l_tns_functab_imgs_used_bool
+\bool_new:N \l_tns_functab_mat_used_bool
+\bool_new:N \l_tns_functab_signs_vars_used_bool
+
+
 %%%
 % prototype::
 %     :action: ??? porducton of internal version (taht could be used later iwithout reparsing)
 %%%
-\cs_new:Npn \tns_functab_validate_functable:n {
+\cs_new:Npn \tns_functab_validate_ctxts_seq:n {
 % Good use of the contexts?
+%
+% NOTE. We have the long name of contexts.
   \int_zero:N \l_tns_functab_context_actual_nb_int
+
+  \bool_set_false:N \l_tns_functab_xvals_used_bool
+  \bool_set_false:N \l_tns_functab_yvals_used_bool
+  \bool_set_false:N \l_tns_functab_imgs_used_bool
+  \bool_set_false:N \l_tns_functab_mat_used_bool
+  \bool_set_false:N \l_tns_functab_signs_vars_used_bool
 
   \seq_map_inline:cn { -:- functable.pre.parsing.contexts -:- :: contexts } {
     \int_incr:N \l_tns_functab_context_actual_nb_int
@@ -122,34 +150,119 @@
     \par
 
     \str_case_e:nnF { ##1 } {
-% XVALS
+% XVALS.
+%
+% 1st context.
       { xvals } {
-        OK: ##1
+        \int_compare:nNnF \l_tns_functab_context_actual_nb_int = 1 {
+          \msg_error:nnnn { tnsfunctab } { context-misplaced }
+                          { xvals }
+                          { 1st }
+        }
+
+        \bool_set_true:N \l_tns_functab_xvals_used_bool
       }
-% YVALS
+% YVALS.
+%
+% 2nd context if it is used.
       { yvals } {
-        OK: ##1
+        \int_compare:nNnF \l_tns_functab_context_actual_nb_int = 2 {
+          \msg_error:nnnn { tnsfunctab } { context-misplaced }
+                          { yvals }
+                          { 2nd }
+        }
+
+        \bool_set_true:N \l_tns_functab_yvals_used_bool
       }
-% 1D-DATA
+% IMGS: 1D-DATA.
       { imgs } {
-        OK: ##1
+        \bool_if:nT {
+               ! \l_tns_functab_xvals_used_bool
+            || \l_tns_functab_yvals_used_bool
+            || \l_tns_functab_mat_used_bool
+            || \l_tns_functab_signs_vars_used_bool
+        } {
+          \msg_error:nnVn { tnsfunctab } { context-bad-use }
+                          \l_tns_functab_context_actual_nb_int
+                          { ##1 }
+        }
+
+        \bool_set_true:N \l_tns_functab_imgs_used_bool
       }
-% 2D-DATA
+% MAT: 2D-DATA.
       { mat } {
-        OK: ##1
+        \bool_if:nT {
+               ! \l_tns_functab_xvals_used_bool
+            || ! \l_tns_functab_yvals_used_bool
+            || \l_tns_functab_imgs_used_bool
+            || \l_tns_functab_signs_vars_used_bool
+        } {
+          \msg_error:nnVn { tnsfunctab } { context-bad-use }
+                          \l_tns_functab_context_actual_nb_int
+                          { ##1 }
+        }
+
+        \bool_set_true:N \l_tns_functab_mat_used_bool
+      }
+% SIGNS (with or without vars).
+      { signs } {
+        \bool_if:nT {
+               ! \l_tns_functab_xvals_used_bool
+            || \l_tns_functab_yvals_used_bool
+            || \l_tns_functab_imgs_used_bool
+            || \l_tns_functab_mat_used_bool
+        } {
+          \msg_error:nnVn { tnsfunctab } { context-bad-use }
+                          \l_tns_functab_context_actual_nb_int
+                          { ##1 }
+        }
+
+        \bool_set_true:N \l_tns_functab_signs_vars_used_bool
+      }
+% VARS (with or without signs).
+      { vars } {
+        \bool_if:nT {
+               ! \l_tns_functab_xvals_used_bool
+            || \l_tns_functab_yvals_used_bool
+            || \l_tns_functab_imgs_used_bool
+            || \l_tns_functab_mat_used_bool
+        } {
+          \msg_error:nnVn { tnsfunctab } { context-bad-use }
+                          \l_tns_functab_context_actual_nb_int
+                          { ##1 }
+        }
+
+        \bool_set_true:N \l_tns_functab_signs_vars_used_bool
       }
 % UNKNOWN CONTEXT
 %
-% Let's be silent with the missing contexts that have been already
+% Let's be silent with the missing context error that have been already
 % indicated by the context DSL parser.
       { :-: ctxt-dsl-missing-context :-: } { }
     }{
-      \msg_error:nnVn { tnsfunctab }
-                      { unknown-context }
+      \msg_error:nnVn { tnsfunctab } { context-unknown  }
                       { \int_use:N \l_tns_functab_context_actual_nb_int }
                       { ##1 }
     }
   }
+}
+
+
+%%%
+% prototype::
+%     :action: ??? porducton of internal version (taht could be used later iwithout reparsing)
+%%%
+\cs_new:Npn \tns_functab_build_internal:n {
+    OK????
+% -------------
+% DEBUG - START
+
+  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
+  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
+  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
+
+% DEBUG - END
+% -----------
 }
 
 

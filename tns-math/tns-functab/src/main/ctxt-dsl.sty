@@ -97,12 +97,11 @@
       { 1 } {
 % We must have a last context.
         \tl_if_eq:NnT \l_tns_core_current_ctxt_tl { :-: ctxt-dsl-missing-context :-: } {
-          \msg_error:nnn { tnscore }
-                         { ctxt-DSL-no-context }
+          \msg_error:nnn { tnscore } { ctxt-DSL-no-context }
                          { ##1 }
         }
       }
-% A new context that can be a shortname.
+% A new context that can be a shortname : see the #3 argument.
       { 2 } {
         \seq_pop_left:NN \l_tmpa_seq \l_tns_core_current_ctxt_tl
 
@@ -112,8 +111,7 @@
       }
 % Too much equal signs found.
     }{
-      \msg_error:nnn { tnscore }
-                     { ctxt-DSL-too-much-equal-signs}
+      \msg_error:nnn { tnscore } { ctxt-DSL-too-much-equal-signs}
                      { ##1 }
     }
 
@@ -137,8 +135,7 @@
       }
 % Too much colons found.
     }{
-      \msg_error:nnn { tnscore }
-                     { ctxt-DSL-too-much-colons}
+      \msg_error:nnn { tnscore } { ctxt-DSL-too-much-colons}
                      { ##1 }
     }
 
@@ -148,7 +145,7 @@
 % Update the "external" variables.
     \seq_gput_right:cV { #1::contexts } \l_tns_core_current_ctxt_tl
     \seq_gput_right:cV { #1::labels }   \l_tns_core_current_label_tl
-    \seq_gput_right:cV { #1::contents } \l_tns_core_current_label_tl
+    \seq_gput_right:cV { #1::contents } \l_tns_core_current_value_tl
   }
 }
 
