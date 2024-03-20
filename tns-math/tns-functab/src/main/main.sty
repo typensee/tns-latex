@@ -64,8 +64,7 @@
 \int_new:N \l_tns_functab_context_actual_nb_int
 
 % Shortname of contexts.
-\prop_clear_new:N  \g_tns_functab_shortname_ctxts_prop
-
+\prop_clear_new:N        \g_tns_functab_shortname_ctxts_prop
 \prop_set_from_keyval:Nn \g_tns_functab_shortname_ctxts_prop {
   i = imgs,
   m = mat,
@@ -110,6 +109,8 @@
 % Do we have a legal DSL code?
 % If it does, we build an internal easy-to-use version of the user's data.
   \tns_functab_validate_ctxts_seq:n
+    { -:- functable.pre.parsing.contexts -:- } % Temporary ID
+
   \tns_functab_build_internal:n
 
 % Let's do what the user wants.
@@ -130,9 +131,9 @@
 
 %%%
 % prototype::
-%     :action: ??? porducton of internal version (taht could be used later iwithout reparsing)
+%     :action: ???
 %%%
-\cs_new:Npn \tns_functab_validate_ctxts_seq:n {
+\cs_new:Npn \tns_functab_validate_ctxts_seq:n #1 {
 % Good use of the contexts?
 %
 % NOTE. We have the long name of contexts.
@@ -174,7 +175,7 @@
 
         \bool_set_true:N \l_tns_functab_yvals_used_bool
       }
-% IMGS: 1D-DATA.
+% IMGS - 1D-DATA.
       { imgs } {
         \bool_if:nT {
                ! \l_tns_functab_xvals_used_bool
@@ -188,8 +189,9 @@
         }
 
         \bool_set_true:N \l_tns_functab_imgs_used_bool
+        \tl_gset:cn { #1::kind } { ##1 }
       }
-% MAT: 2D-DATA.
+% MAT - 2D-DATA.
       { mat } {
         \bool_if:nT {
                ! \l_tns_functab_xvals_used_bool
@@ -203,6 +205,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_mat_used_bool
+        \tl_gset:cn { #1::kind } { ##1 }
       }
 % SIGNS (with or without vars).
       { signs } {
@@ -218,6 +221,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_signs_vars_used_bool
+        \tl_gset:cn { #1::kind } { signs-vars }
       }
 % VARS (with or without signs).
       { vars } {
@@ -233,6 +237,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_signs_vars_used_bool
+        \tl_gset:cn { #1::kind } { signs-vars }
       }
 % UNKNOWN CONTEXT
 %
@@ -250,26 +255,41 @@
 
 %%%
 % prototype::
-%     :action: ??? porducton of internal version (taht could be used later iwithout reparsing)
+%     :action: producton of internal version (taht could be used later iwithout reparsing)
 %%%
 \cs_new:Npn \tns_functab_build_internal:n {
     OK????
 % -------------
 % DEBUG - START
 
+  \tl_show:c  { -:- functable.pre.parsing.contexts -:- :: kind }
   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
 
 % DEBUG - END
 % -----------
+
+
+
+
+
+
+
+% We clear our temporary sequences.
+  \seq_clear:c { -:- functable.pre.parsing.contexts -:- :: contexts }
+  \seq_clear:c { -:- functable.pre.parsing.contexts -:- :: labels }
+  \seq_clear:c { -:- functable.pre.parsing.contexts -:- :: contents }
 }
 
 
-% :: \L3 SIGNS :: %
+% :: \L3 IMGS INTERNAL :: %
 
 
-% :: \L3 VARIATIONS :: %
+% :: \L3 MAT INTERNAL :: %
+
+
+% :: \L3 SIGNS/VARS INTERNAL :: %
 
 
 \ExplSyntaxOff
