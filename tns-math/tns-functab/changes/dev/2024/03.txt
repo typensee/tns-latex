@@ -10,4 +10,4 @@
 -----
 
 [[:tech:]]
-\DSL for data: a \1st functional version, but without option management for the moment (for example, it is not possible to define content that can be reused at a later date, but the code is ready for this).
+\DSL for data: a \1st functional version with shortnames for contexts, but without option management for the moment (for example, it is not possible to define content that can be reused at a later date, but the code is ready for this).

@@ -38,7 +38,7 @@
 % :: MESSAGES :: %
 
 \msg_set:nnnn { tnsfunctab } { unknown-context }
-  { illegal ~ context ~ << ~ #1 ~ >>. }
+  { illegal ~ context ~ << ~ #2 ~ >> ~ : ~ see ~ the ~ context ~ nb.#1. }
   { \msg_see_documentation_text:n { tnsfunctab } }
 
 
@@ -47,11 +47,23 @@
 % The IDs of the env.
 \int_new:N        \g_tns_functab_id_int
 \int_set:Nn       \g_tns_functab_id_int { 0 }
-\prop_clear_new:N \g_tns_functab_id_user
+% \prop_clear_new:N \g_tns_functab_id_user_prop
 
 % Semantic of the env.
 \seq_new:N \g_tns_functab_kind_seq
 \int_new:N \l_tns_functab_context_actual_nb_int
+
+% Shortname of contexts.
+\prop_clear_new:N  \g_tns_functab_shortname_ctxts_prop
+
+\prop_set_from_keyval:Nn \g_tns_functab_shortname_ctxts_prop {
+  i = imgs,
+  m = mat,
+  s = signs,
+  v = vars,
+  x = xvals,
+  y = yvals
+}
 
 
 %%%
@@ -70,14 +82,15 @@
   \int_gincr:N \g_tns_functab_id_int
 
 % Parsing the agnostic "context" DSL code.
-  \tns_core_DSL_ctxt_parser:nn
+  \tns_core_DSL_ctxt_parser:nnN
     { -:- functable.pre.parsing.contexts -:- } % Temporary ID
     { #2 }
+    { \g_tns_functab_shortname_ctxts_prop }
 
 % -------------
 % DEBUG - START
 
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
+  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
 %   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
 %   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
 
@@ -103,7 +116,7 @@
 % Good use of the contexts?
   \int_zero:N \l_tns_functab_context_actual_nb_int
 
-  \seq_map_inline:cn { -:- functable.pre.parsing.contexts -:- } {
+  \seq_map_inline:cn { -:- functable.pre.parsing.contexts -:- :: contexts } {
     \int_incr:N \l_tns_functab_context_actual_nb_int
 
     \par
@@ -131,9 +144,10 @@
 % indicated by the context DSL parser.
       { :-: ctxt-dsl-missing-context :-: } { }
     }{
-      \msg_error:nnn { tnsfunctab }
-                     { unknown-context }
-                     { ##1 }
+      \msg_error:nnVn { tnsfunctab }
+                      { unknown-context }
+                      { \int_use:N \l_tns_functab_context_actual_nb_int }
+                      { ##1 }
     }
   }
 }

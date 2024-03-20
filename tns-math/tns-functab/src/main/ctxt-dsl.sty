@@ -67,7 +67,7 @@
 % warning::
 %     XXXX
 %%%
-\cs_new:Npn \tns_core_DSL_ctxt_parser:nn #1#2 {
+\cs_new:Npn \tns_core_DSL_ctxt_parser:nnN #1#2#3 {
 % "External" flat variables.
   \seq_gclear_new:c { #1::contexts }
   \seq_gclear_new:c { #1::labels }
@@ -102,9 +102,13 @@
                          { ##1 }
         }
       }
-% A new context.
+% A new context that can be a shortname.
       { 2 } {
         \seq_pop_left:NN \l_tmpa_seq \l_tns_core_current_ctxt_tl
+
+        \prop_get:NVNT { #3 } \l_tns_core_current_ctxt_tl \l_tmpa_tl {
+          \tl_set_eq:NN \l_tns_core_current_ctxt_tl \l_tmpa_tl
+        }
       }
 % Too much equal signs found.
     }{
