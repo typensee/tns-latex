@@ -221,7 +221,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_signs_vars_used_bool
-        \tl_gset:cn { #1::kind } { signs-vars }
+        \tl_gset:cn { #1::kind } { ##1-vars }
       }
 % VARS (with or without signs).
       { vars } {
@@ -237,7 +237,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_signs_vars_used_bool
-        \tl_gset:cn { #1::kind } { signs-vars }
+        \tl_gset:cn { #1::kind } { signs-##1 }
       }
 % UNKNOWN CONTEXT
 %
@@ -258,21 +258,31 @@
 %     :action: producton of internal version (taht could be used later iwithout reparsing)
 %%%
 \cs_new:Npn \tns_functab_build_internal:n {
-    OK????
 % -------------
 % DEBUG - START
-
-  \tl_show:c  { -:- functable.pre.parsing.contexts -:- :: kind }
-  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
-  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
-  \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
-
+%
+%   \tl_show:c  { -:- functable.pre.parsing.contexts -:- :: kind }
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
+%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
+%
 % DEBUG - END
 % -----------
 
-
-
-
+  \str_case_e:nnF { \tl_use:c { -:- functable.pre.parsing.contexts -:- :: kind } } {
+% IMGS.
+    { imgs } {
+        1D-DATA
+    }
+% MAT.
+    { mat } {
+        2D-DATA
+    }
+% SIGNS / VARS.
+    { signs-vars } {
+        SIGNS-AND-OR-VARS
+    }
+  }{}
 
 
 
