@@ -5,6 +5,11 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+ctxt dsl : on numérote aussi version générique de l'ana du parser parser
+
+
+> ---------------------------- <
+
 clarification des rôles
 
     + env pour création d'un tableau

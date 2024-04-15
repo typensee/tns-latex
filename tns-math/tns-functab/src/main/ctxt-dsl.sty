@@ -56,22 +56,23 @@
 
 
 %%%
-% prototype::
+% prototype ::
 %     #1 : the ID used to name the different variables storing
 %          the contexts found.
 %     #2 : the user's code to be parsed.
+%     #3 : short names
 %
 %     :action: XXX
 %
 %
-% warning::
+% warning ::
 %     XXXX
 %%%
-\cs_new:Npn \tns_core_DSL_ctxt_parser:nnN #1#2#3 {
+\cs_new:Npn \tns_core_DSL_ctxt_parser:NnN #1#2#3 {
 % "External" flat variables.
-  \seq_gclear_new:c { #1::contexts }
-  \seq_gclear_new:c { #1::labels }
-  \seq_gclear_new:c { #1::contents }
+  \seq_gclear_new:c { \tl_use:N {#1} :: contexts }
+  \seq_gclear_new:c { \tl_use:N {#1} :: labels }
+  \seq_gclear_new:c { \tl_use:N {#1} :: contents }
 
 % Line by line parsing, where the lines are semi-colon separated.
 % Empty lines are ignored.
@@ -143,9 +144,9 @@
     \seq_pop_left:NN \l_tmpa_seq \l_tns_core_current_value_tl
 
 % Update the "external" variables.
-    \seq_gput_right:cV { #1::contexts } \l_tns_core_current_ctxt_tl
-    \seq_gput_right:cV { #1::labels }   \l_tns_core_current_label_tl
-    \seq_gput_right:cV { #1::contents } \l_tns_core_current_value_tl
+    \seq_gput_right:cV { #1 :: contexts } \l_tns_core_current_ctxt_tl
+    \seq_gput_right:cV { #1 :: labels }   \l_tns_core_current_label_tl
+    \seq_gput_right:cV { #1 :: contents } \l_tns_core_current_value_tl
   }
 }
 

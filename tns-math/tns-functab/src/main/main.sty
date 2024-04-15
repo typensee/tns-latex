@@ -55,9 +55,11 @@
 % :: \L3 MAIN IMPLEMENTATION :: %
 
 % The IDs of the env.
-\int_new:N        \g_tns_functab_id_int
-\int_set:Nn       \g_tns_functab_id_int { 0 }
-% \prop_clear_new:N \g_tns_functab_id_user_prop
+\int_new:N  \g_tns_functab_id_int
+\int_set:Nn \g_tns_functab_id_int { 0 }
+
+% The temporary internal IDs.
+\tl_new:N \l__tns_functab_tmp_id_tl
 
 % Semantic of the env.
 \seq_new:N \g_tns_functab_kind_seq
@@ -77,6 +79,9 @@
 
 %%%
 % prototype::
+%     #1 :
+%     #2 :
+%
 %     :action: the work expected by the `functable` \env.
 %
 %     :see: env.functable ,
@@ -87,21 +92,28 @@
 % Options to use.
 
 
-% Internal ID number.
+% Internal ID.
   \int_gincr:N \g_tns_functab_id_int
 
+  \tl_set:Nn \l__tns_functab_tmp_id_tl {
+    -:-
+    functable.pre.parsing.contexts.
+    \int_use:N \g_tns_functab_id_int
+    -:-
+  } % Temporary ID
+
 % Parsing the agnostic "context" DSL code.
-  \tns_core_DSL_ctxt_parser:nnN
-    { -:- functable.pre.parsing.contexts -:- } % Temporary ID
+  \tns_core_DSL_ctxt_parser:NnN
+    { \l__tns_functab_tmp_id_tl }
     { #2 }
     { \g_tns_functab_shortname_ctxts_prop }
 
 % -------------
 % DEBUG - START
 
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contents }
 
 % DEBUG - END
 % -----------
@@ -109,11 +121,22 @@
 % Do we have a legal DSL code?
 % If it does, we build an internal easy-to-use version of the user's data.
   \tns_functab_validate_ctxts_seq:n
-    { -:- functable.pre.parsing.contexts -:- } % Temporary ID
+    { \tl_use:N \l__tns_functab_tmp_id_tl }
 
   \tns_functab_build_internal:n
+    { \tl_use:N \l__tns_functab_tmp_id_tl }
 
-% Let's do what the user wants.
+% -------------
+% DEBUG - START
+
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contents }
+
+% DEBUG - END
+% -----------
+
+% Let's do what the user wants regarding the options used.
   \par
   {\hfill \Huge TODO}
 }
@@ -131,6 +154,8 @@
 
 %%%
 % prototype::
+%     #1 :
+%
 %     :action: ???
 %%%
 \cs_new:Npn \tns_functab_validate_ctxts_seq:n #1 {
@@ -145,7 +170,7 @@
   \bool_set_false:N \l_tns_functab_mat_used_bool
   \bool_set_false:N \l_tns_functab_signs_vars_used_bool
 
-  \seq_map_inline:cn { -:- functable.pre.parsing.contexts -:- :: contexts } {
+  \seq_map_inline:cn { #1 :: contexts } {
     \int_incr:N \l_tns_functab_context_actual_nb_int
 
     \par
@@ -240,7 +265,7 @@
         \tl_gset:cn { #1::kind } { signs-##1 }
       }
 % UNKNOWN CONTEXT
-%
+
 % Let's be silent with the missing context error that have been already
 % indicated by the context DSL parser.
       { :-: ctxt-dsl-missing-context :-: } { }
@@ -255,21 +280,23 @@
 
 %%%
 % prototype::
+%    #1 :
+
 %     :action: producton of internal version (taht could be used later iwithout reparsing)
 %%%
-\cs_new:Npn \tns_functab_build_internal:n {
+\cs_new:Npn \tns_functab_build_internal:n #1 {
 % -------------
 % DEBUG - START
-%
-%   \tl_show:c  { -:- functable.pre.parsing.contexts -:- :: kind }
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contexts }
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: labels }
-%   \seq_show:c { -:- functable.pre.parsing.contexts -:- :: contents }
-%
+
+%   \tl_show:c  { #1 :: kind }
+%   \seq_show:c { #1 :: contexts }
+%   \seq_show:c { #1 :: labels }
+%   \seq_show:c { #1 :: contents }
+
 % DEBUG - END
 % -----------
 
-  \str_case_e:nnF { \tl_use:c { -:- functable.pre.parsing.contexts -:- :: kind } } {
+  \str_case_e:nnF { \tl_use:c { #1 :: kind } } {
 % IMGS.
     { imgs } {
         1D-DATA
@@ -286,10 +313,10 @@
 
 
 
-% We clear our temporary sequences.
-  \seq_clear:c { -:- functable.pre.parsing.contexts -:- :: contexts }
-  \seq_clear:c { -:- functable.pre.parsing.contexts -:- :: labels }
-  \seq_clear:c { -:- functable.pre.parsing.contexts -:- :: contents }
+% % We clear our temporary sequences.
+  \seq_clear:c { #1 :: contexts }
+  \seq_clear:c { #1 :: labels }
+  \seq_clear:c { #1 :: contents }
 }
 
 
