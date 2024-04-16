@@ -150,4 +150,22 @@
   }
 }
 
+
+%%%
+% prototype ::
+%     #1 : the ID used to name the different variables storing
+%          the contexts found.
+%
+%     :action: XXX
+%
+%
+% warning ::
+%     XXXX
+%%%
+\cs_new:Npn \tns_core_DSL_ctxt_free_memory:N #1 {
+  \seq_clear:c { #1 :: contexts }
+  \seq_clear:c { #1 :: labels   }
+  \seq_clear:c { #1 :: contents }
+}
+
 \ExplSyntaxOff
