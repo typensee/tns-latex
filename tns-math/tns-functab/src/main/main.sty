@@ -111,9 +111,9 @@
 % -------------
 % DEBUG - START
 
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels }
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contents }
+   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels }
+   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contents }
 
 % DEBUG - END
 % -----------
@@ -121,20 +121,20 @@
 % Do we have a legal DSL code?
 % If it does, we build an internal easy-to-use version of the user's data.
   \tns_functab_validate_ctxts_seq:n
-    { \tl_use:N  \l__tns_functab_tmp_id_tl }
+    { \tl_use:N \l__tns_functab_tmp_id_tl }
 
 % We can build internal data to be used later.
   \use:c {
     tns_functab_build_internal_
-    \use:c { \tl_use:N  \l__tns_functab_tmp_id_tl :: kind } :nn
+    \use:c { \tl_use:N \l__tns_functab_tmp_id_tl :: kind } :nn
   } {
-    \tl_use:N  \l__tns_functab_tmp_id_tl
+    \tl_use:N \l__tns_functab_tmp_id_tl
   } {
     \int_use:N \g_tns_functab_id_int
   }
 
 % We clear our temporary sequences.
-  \tns_core_DSL_ctxt_free_memory:N { #1 }
+  \tns_core_DSL_ctxt_free_memory:N { \l__tns_functab_tmp_id_tl }
 
 % -------------
 % DEBUG - START
@@ -146,13 +146,16 @@
 % DEBUG - END
 % -----------
 
-% Let's do what the user wants regarding the options used.
+% The options to use (some options are specific to some kind of table).
+
+
+% Let's do what the user wants.
   \par
   {\hfill \Huge TODO}
 }
 
 
-% :: INTERNAL DATA :: %
+% :: VALIDATE DATA :: %
 
 % The IDs of the env.
 \bool_new:N \l_tns_functab_xvals_used_bool
@@ -288,15 +291,25 @@
 }
 
 
+% :: INTERNAL DATA :: %
+
 %%%
 % prototype::
-%     #1 :
-%     #2 :
+%     #1 : temporal id from preparsing
+%     #2 : global id nulber
 %
 %     :action: XXX
 %%%
 \cs_new:Npn \tns_functab_build_internal_imgs:nn #1#2 {
     1D-DATA : #1 ++ #2
+
+% -------------
+% DEBUG - START
+
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+
+% DEBUG - END
+% -----------
 }
 
 
@@ -309,6 +322,14 @@
 %%%
 \cs_new:Npn \tns_functab_build_internal_mat:nn #1#2 {
     2D-DATA : #1 == #2
+
+% -------------
+% DEBUG - START
+
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+
+% DEBUG - END
+% -----------
 }
 
 
@@ -321,6 +342,17 @@
 %%%
 \cs_new:Npn \tns_functab_build_internal_signs_vars:nn #1#2 {
     SIGNS-AND-OR-VARS
+
+% -------------
+% DEBUG - START
+
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+
+% DEBUG - END
+% -----------
 }
+
+
+% :: DEBUG MODE :: %
 
 \ExplSyntaxOff
