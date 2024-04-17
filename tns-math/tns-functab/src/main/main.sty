@@ -227,7 +227,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_imgs_used_bool
-        \tl_gset:cn { #1::kind } { ##1 }
+        \tl_gset:cn { #1 :: kind } { ##1 }
       }
 % MAT - 2D-DATA.
       { mat } {
@@ -243,7 +243,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_mat_used_bool
-        \tl_gset:cn { #1::kind } { ##1 }
+        \tl_gset:cn { #1 :: kind } { ##1 }
       }
 % SIGNS (with or without vars).
       { signs } {
@@ -259,7 +259,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_signs_vars_used_bool
-        \tl_gset:cn { #1::kind } { ##1_vars }
+        \tl_gset:cn { #1 :: kind } { ##1_vars }
       }
 % VARS (with or without signs).
       { vars } {
@@ -275,7 +275,7 @@
         }
 
         \bool_set_true:N \l_tns_functab_signs_vars_used_bool
-        \tl_gset:cn { #1::kind } { signs_##1 }
+        \tl_gset:cn { #1 :: kind } { signs_##1 }
       }
 % UNKNOWN CONTEXT
 
