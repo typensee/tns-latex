@@ -14,7 +14,7 @@
 
 %%%
 % prototype::
-%     #1 : the user's settings (see below).
+%     #1 : the user's options (see below).
 %     #2 : the DSL code of the table.
 %
 %     :action: an internal version of the information given via the DSL
@@ -24,11 +24,9 @@
 %     :see: l3func.tns_functab_functable:nn
 %
 %
-% =================
-% Available options
-% =================
+% Here are the available options.
 %
-% XXXX
+% TODO : options of functable
 %%%
 \NewDocumentEnvironment{ functable }{ O{} b }{%
   \tns_functab_functable:nn { #1 } { #2 }
@@ -38,7 +36,8 @@
 % :: MESSAGES :: %
 
 \msg_set:nnnn { tnsfunctab } { context-unknown  }
-  { illegal ~ context ~ << ~ #2 ~ >> ~ : ~ see ~ the ~ context ~ nb.#1. }
+  { illegal ~ context ~ << ~ #2 ~ >> ~. ~
+    See ~ the ~ context ~ nb.#1. }
   { \msg_see_documentation_text:n { tnsfunctab } }
 
 
@@ -48,13 +47,14 @@
 
 
 \msg_set:nnnn { tnsfunctab } { context-bad-use }
-  { bad ~ use ~ of ~ the ~ context ~ << ~ #2 ~ >> ~ : ~ see ~ the ~ context ~ nb.#1. }
+  { bad ~ use ~ of ~ the ~ context ~ << ~ #2 ~ >> ~. ~
+    See ~ the ~ context ~ nb.#1. }
   { \msg_see_documentation_text:n { tnsfunctab } }
 
 
 % :: \L3 MAIN IMPLEMENTATION :: %
 
-% The IDs of the env.
+% The ID global number of the env.
 \int_new:N  \g_tns_functab_id_int
 \int_set:Nn \g_tns_functab_id_int { 0 }
 
@@ -112,7 +112,7 @@
 % DEBUG - START
 
    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
-   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels }
+   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels   }
    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contents }
 
 % DEBUG - END

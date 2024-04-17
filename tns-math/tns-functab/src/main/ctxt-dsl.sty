@@ -59,25 +59,40 @@
 
 %%%
 % prototype ::
-%     #1 : the ``<ID>`` used to name the different intermediate variables.
+%     #1 : an ``<ID>``.
 %     #2 : the context code to be parsed.
 %     #3 : the short names, if any, given as a property list
 %
-%     :action: this functions builds 3 sequences named with specific csnames.
-%     This sequences use a flat version of the data.
-%         * ``<ID>::contexts`` is the ordered sequences of contexts used like
-%           for example ``{ctxt_1}{ctxt_2}{ctxt_3}``.
-%         * ``<ID>::labels`` is the ordered sequences of labels, eventually
-%           empty, used like for example ``{}{label_2}{label_3}``.
-%         * ``<ID>::contents`` is the ordered sequences of contents like for
-%           example ``{1st content}{2nd content}{3rd content}``.
+%     :action: this functions builds 3 "intermediate" sequences
+%              ``<ID>::contexts``, ``<ID>::labels`` and
+%              ``<ID>::contents`` (see below).
 %
 %     :see: l3.func.tns_core_DSL_ctxt_free_memory
 %
 %
+% Let's suppose we have the following context code.
+%
+% verbatim::
+%     ctxt_1 =         part_1
+%     ctxt_2 = lbl_2 : part_2
+%     ctxt_3 =         part_3
+%     ctxt_4 = lbl_4 : part_4
+%
+% In that case, we will have the following 3 "intermediate" sequences.
+%
+%     1) ``<ID>::contexts`` is the ordered sequences of the context names.
+%     Here, we have ``{ctxt_1}{ctxt_2}{ctxt_3}{ctxt_4}``.
+%
+%     2) ``<ID>::labels`` is the ordered sequences of the optional labels.
+%     Here, we have ``{}{lbl_2}{}{lbl_4}``.
+%
+%     3) ``<ID>::contents`` is the ordered sequences of the contents.
+%     Here, we have ``{part_1}{part_2}{part_3}{part_4}``.
+%
+%
 % warning ::
-%     The only errors checked concern the general syntax of the DSL context, so
-%     the elements of the 3 sequences are stored as typed by the user.
+%     The only errors checked concern the general syntax of the DSL context,
+%     so the items of the 3 sequences are stored as typed by the user.
 %%%
 \cs_new:Npn \tns_core_DSL_ctxt_parser:NnN #1#2#3 {
 % "External" flat variables.
@@ -167,10 +182,11 @@
 
 %%%
 % prototype ::
-%     #1 : the ``<ID>`` used to name the different intermediate variables.
+%     #1 : an ``<ID>``.
 %
-%     :action: this functions clears the sequences ``<ID>::contexts``,
-%     ``<ID>::labels`` and ``<ID>::contents``.
+%     :action: this functions clears the  3 "intermediate" sequences
+%              ``<ID>::contexts``, ``<ID>::labels`` and
+%              ``<ID>::contents``.
 %%%
 \cs_new:Npn \tns_core_DSL_ctxt_free_memory:N #1 {
   \seq_clear:c { #1 :: contexts }
