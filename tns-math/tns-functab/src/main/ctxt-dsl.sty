@@ -58,7 +58,7 @@
 
 
 %%%
-% prototype ::
+% prototype::
 %     #1 : an ``<ID>``.
 %     #2 : the context code to be parsed.
 %     #3 : the short names, if any, given as a property list
@@ -66,7 +66,7 @@
 %     :action: this functions builds 3 "intermediate" sequences
 %              ``<ID>::contexts``,
 %              ``<ID>::labels`` and
-%              ``<ID>::contents`` (see below).
+%              ``<ID>::values`` (see below).
 %
 %     :see: l3.func.tns_core_DSL_ctxt_free_memory
 %
@@ -74,10 +74,10 @@
 % Let's suppose we have the following context code.
 %
 % verbatim::
-%     ctxt_1 =         part_1
-%     ctxt_2 = lbl_2 : part_2
-%     ctxt_3 =         part_3
-%     ctxt_4 = lbl_4 : part_4
+%     ctxt_1 =         val_1
+%     ctxt_2 = lbl_2 : val_2
+%     ctxt_3 =         val_3
+%     ctxt_4 = lbl_4 : val_4
 %
 % In that case, we will have the following 3 "intermediate" sequences.
 %
@@ -87,11 +87,11 @@
 %     2) ``<ID>::labels`` is the ordered sequence of the optional labels.
 %     Here, we have ``{}{lbl_2}{}{lbl_4}``.
 %
-%     3) ``<ID>::contents`` is the ordered sequence of the contents.
-%     Here, we have ``{part_1}{part_2}{part_3}{part_4}``.
+%     3) ``<ID>::values`` is the ordered sequence of the values.
+%     Here, we have ``{val_1}{val_2}{val_3}{val_4}``.
 %
 %
-% warning ::
+% warning::
 %     The only errors checked concern the general syntax of the DSL context,
 %     so the items of the 3 sequences are stored as typed by the user.
 %%%
@@ -99,7 +99,7 @@
 % "External" flat variables.
   \seq_gclear_new:c { \tl_use:N {#1} :: contexts }
   \seq_gclear_new:c { \tl_use:N {#1} :: labels   }
-  \seq_gclear_new:c { \tl_use:N {#1} :: contents }
+  \seq_gclear_new:c { \tl_use:N {#1} :: values }
 
 % Line by line parsing, where the lines are semi-colon separated.
 % Empty lines are ignored.
@@ -144,7 +144,7 @@
                      { ##1 }
     }
 
-% Get the optional label and its content.
+% Get the optional label and the value.
     \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
 
     \seq_set_split:NVV \l_tmpa_seq
@@ -166,30 +166,30 @@
                      { ##1 }
     }
 
-% Content.
+% Value.
     \seq_pop_left:NN \l_tmpa_seq \l_tns_core_current_value_tl
 
 % Update the "external" variables.
     \seq_gput_right:cV { #1 :: contexts } \l_tns_core_current_ctxt_tl
     \seq_gput_right:cV { #1 :: labels   } \l_tns_core_current_label_tl
-    \seq_gput_right:cV { #1 :: contents } \l_tns_core_current_value_tl
+    \seq_gput_right:cV { #1 :: values   } \l_tns_core_current_value_tl
   }
 }
 
 
 %%%
-% prototype ::
+% prototype::
 %     #1 : an ``<ID>``.
 %
 %     :action: this functions clears the  3 "intermediate" sequences
 %              ``<ID>::contexts``,
 %              ``<ID>::labels`` and
-%              ``<ID>::contents``.
+%              ``<ID>::values``.
 %%%
 \cs_new:Npn \tns_core_DSL_ctxt_free_memory:N #1 {
   \seq_clear:c { #1 :: contexts }
   \seq_clear:c { #1 :: labels   }
-  \seq_clear:c { #1 :: contents }
+  \seq_clear:c { #1 :: values }
 }
 
 \ExplSyntaxOff
