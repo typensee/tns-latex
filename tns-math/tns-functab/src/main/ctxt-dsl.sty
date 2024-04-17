@@ -50,7 +50,6 @@
 
 % :: AGNOSTIC PARSERS :: %
 
-% The following local constant are used by the parser.
 \int_new:N \l_tns_core_all_ctxts_nb_line_int
 \seq_new:N \l_tns_core_all_ctxts_seq
 \tl_new:N  \l_tns_core_current_ctxt_tl
@@ -60,23 +59,30 @@
 
 %%%
 % prototype ::
-%     #1 : the ID used to name the different variables storing
-%          the contexts found.
-%     #2 : the user's code to be parsed.
-%     #3 : short names
+%     #1 : the ``<ID>`` used to name the different intermediate variables.
+%     #2 : the context code to be parsed.
+%     #3 : the short names, if any, given as a property list
 %
-%     :action: XXX
+%     :action: this functions builds 3 sequences named with specific csnames.
+%     This sequences use a flat version of the data.
+%         * ``<ID>::contexts`` is the ordered sequences of contexts used like
+%           for example ``{ctxt_1}{ctxt_2}{ctxt_3}``.
+%         * ``<ID>::labels`` is the ordered sequences of labels, eventually
+%           empty, used like for example ``{}{label_2}{label_3}``.
+%         * ``<ID>::contents`` is the ordered sequences of contents like for
+%           example ``{1st content}{2nd content}{3rd content}``.
 %
 %     :see: l3.func.tns_core_DSL_ctxt_free_memory
 %
 %
 % warning ::
-%     XXXX
+%     The only errors checked concern the general syntax of the DSL context, so
+%     the elements of the 3 sequences are stored as typed by the user.
 %%%
 \cs_new:Npn \tns_core_DSL_ctxt_parser:NnN #1#2#3 {
 % "External" flat variables.
   \seq_gclear_new:c { \tl_use:N {#1} :: contexts }
-  \seq_gclear_new:c { \tl_use:N {#1} :: labels }
+  \seq_gclear_new:c { \tl_use:N {#1} :: labels   }
   \seq_gclear_new:c { \tl_use:N {#1} :: contents }
 
 % Line by line parsing, where the lines are semi-colon separated.
@@ -88,7 +94,8 @@
   \int_zero:N \l_tns_core_all_ctxts_nb_line_int
 
 % Maping over each context found.
-  \tl_set:Nn \l_tns_core_current_ctxt_tl { :-: ctxt-dsl-missing-context :-: }
+  \tl_set:Nn \l_tns_core_current_ctxt_tl
+             { :-: ctxt-dsl-missing-context :-: }
 
   \seq_map_inline:Nn \l_tns_core_all_ctxts_seq {
     \int_incr:N \l_tns_core_all_ctxts_nb_line_int
@@ -102,7 +109,9 @@
 % Last context must be used.
       { 1 } {
 % We must have a last context.
-        \tl_if_eq:NnT \l_tns_core_current_ctxt_tl { :-: ctxt-dsl-missing-context :-: } {
+        \tl_if_eq:NnT \l_tns_core_current_ctxt_tl
+                      { :-: ctxt-dsl-missing-context :-: }
+        {
           \msg_error:nnn { tnscore } { ctxt-DSL-no-context }
                          { ##1 }
         }
@@ -150,7 +159,7 @@
 
 % Update the "external" variables.
     \seq_gput_right:cV { #1 :: contexts } \l_tns_core_current_ctxt_tl
-    \seq_gput_right:cV { #1 :: labels }   \l_tns_core_current_label_tl
+    \seq_gput_right:cV { #1 :: labels   } \l_tns_core_current_label_tl
     \seq_gput_right:cV { #1 :: contents } \l_tns_core_current_value_tl
   }
 }
@@ -158,14 +167,10 @@
 
 %%%
 % prototype ::
-%     #1 : the ID used to name the different variables storing
-%          the contexts found.
+%     #1 : the ``<ID>`` used to name the different intermediate variables.
 %
-%     :action: XXX
-%
-%
-% warning ::
-%     XXXX
+%     :action: this functions clears the sequences ``<ID>::contexts``,
+%     ``<ID>::labels`` and ``<ID>::contents``.
 %%%
 \cs_new:Npn \tns_core_DSL_ctxt_free_memory:N #1 {
   \seq_clear:c { #1 :: contexts }
