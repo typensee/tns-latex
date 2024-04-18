@@ -31,15 +31,6 @@
 
 % :: \L3 INTERFACE :: %
 
-%%%
-% prototype::
-%     :see: l3func.tns_functab_functable:nn
-%%%
-\NewDocumentEnvironment{ functable }{ O{} b }{%
-  \tns_functab_functable:nn { #1 } { #2 }
-}{}
-
-
 % Shortname of contexts.
 \prop_clear_new:N        \g_tns_functab_shortname_ctxts_prop
 \prop_set_from_keyval:Nn \g_tns_functab_shortname_ctxts_prop {
@@ -60,6 +51,15 @@
 
 % Semantic of the env.
 \int_new:N \l_tns_functab_context_actual_nb_int
+
+
+%%%
+% prototype::
+%     :see: l3func.tns_functab_functable:nn
+%%%
+\NewDocumentEnvironment{ functable }{ O{} b }{%
+  \tns_functab_functable:nn { #1 } { #2 }
+}{}
 
 
 %%%
