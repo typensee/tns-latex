@@ -10,29 +10,6 @@
 
 % -- FUNCTABLE ENV. - MAIN API -- %
 
-% :: \L3 INTERFACE :: %
-
-%%%
-% prototype::
-%     #1 : the user's options (see below).
-%     #2 : the DSL code of the table.
-%
-%     :action: an internal version of the information given via the DSL
-%              is created, and then, unless otherwise stated, the table
-%              corresponding to the data is produced.
-%
-%     :see: l3func.tns_functab_functable:nn
-%
-%
-% Here are the available options.
-%
-% TODO : options of functable
-%%%
-\NewDocumentEnvironment{ functable }{ O{} b }{%
-  \tns_functab_functable:nn { #1 } { #2 }
-}{}
-
-
 % :: MESSAGES :: %
 
 \msg_set:nnnn { tnsfunctab } { context-unknown  }
@@ -52,18 +29,16 @@
   { \msg_see_documentation_text:n { tnsfunctab } }
 
 
-% :: \L3 MAIN IMPLEMENTATION :: %
+% :: \L3 INTERFACE :: %
 
-% The ID global number of the env.
-\int_new:N  \g_tns_functab_id_int
-\int_set:Nn \g_tns_functab_id_int { 0 }
+%%%
+% prototype::
+%     :see: l3func.tns_functab_functable:nn
+%%%
+\NewDocumentEnvironment{ functable }{ O{} b }{%
+  \tns_functab_functable:nn { #1 } { #2 }
+}{}
 
-% The temporary internal IDs.
-\tl_new:N \l__tns_functab_tmp_id_tl
-
-% Semantic of the env.
-\seq_new:N \g_tns_functab_kind_seq
-\int_new:N \l_tns_functab_context_actual_nb_int
 
 % Shortname of contexts.
 \prop_clear_new:N        \g_tns_functab_shortname_ctxts_prop
@@ -76,16 +51,39 @@
   y = yvals
 }
 
+% The global ID number of the env.
+\int_new:N  \g_tns_functab_id_int
+\int_set:Nn \g_tns_functab_id_int { 0 }
+
+% The temporary internal ID.
+\tl_new:N \l__tns_functab_tmp_id_tl
+
+% Semantic of the env.
+\int_new:N \l_tns_functab_context_actual_nb_int
+
 
 %%%
 % prototype::
-%     #1 :
-%     #2 :
+%     #1 : the user's options (:see: l3func.tns_functab_functable:nn).
+%     #2 : the DSL code of the table.
 %
-%     :action: the work expected by the `functable` \env.
+%     :action: the actions requested by the user are carried out:
+%              storage of a new table, possibly with its formatting,
+%              or action with data from an old table.
 %
-%     :see: env.functable ,
-%           l3func.tns_core_DSL_ctxt_parser:nn
+%     :see: l3func.tns_core_DSL_ctxt_parser:nn ,
+%           l3func.tns_core_DSL_ctxt_free_memory:N
+%
+%
+% =================
+% Available options
+% =================
+%
+% ---------------------------
+% TODO : options of functable
+% ---------------------------
+%
+%  ???
 %%%
 \cs_new:Npn \tns_functab_functable:nn #1#2 {
 % TODO
@@ -113,7 +111,7 @@
 
    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels   }
-   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: values }
+   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: values   }
 
 % DEBUG - END
 % -----------
@@ -151,7 +149,7 @@
 
 % Let's do what the user wants.
   \par
-  {\hfill \Huge TODO}
+  { \hfill \Huge TODO }
 }
 
 
