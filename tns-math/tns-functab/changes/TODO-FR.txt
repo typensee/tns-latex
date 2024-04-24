@@ -10,6 +10,17 @@ ctxt dsl : on numérote aussi version générique de l'ana du parser parser
 
 > ---------------------------- <
 
+key définie en cascade
+
+    + dans main, on a
+        * mode debug qui imprime ce qui a téé repéré
+        * clés communes à différenets modes
+
+    + chaque morceau de code dev va ajouter ces clés, et en cas de cél co
+
+
+> ---------------------------- <
+
 clarification des rôles
 
     + env pour création d'un tableau

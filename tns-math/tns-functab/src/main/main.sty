@@ -95,8 +95,8 @@
 
   \tl_set:Nn \l__tns_functab_tmp_id_tl {
     -:-
-    functable.pre.parsing.contexts.
-    \int_use:N \g_tns_functab_id_int
+      functable.pre.parsing.contexts.
+      \int_use:N \g_tns_functab_id_int
     -:-
   } % Temporary ID
 
@@ -124,7 +124,8 @@
 % We can build internal data to be used later.
   \use:c {
     tns_functab_build_internal_
-    \use:c { \tl_use:N \l__tns_functab_tmp_id_tl :: kind } :nn
+    \use:c { \tl_use:N \l__tns_functab_tmp_id_tl :: kind }
+    :nn
   } {
     \tl_use:N \l__tns_functab_tmp_id_tl
   } {
