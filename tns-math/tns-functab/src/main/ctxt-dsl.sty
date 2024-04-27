@@ -79,7 +79,7 @@
 %     ctxt_3 =         val_3
 %     ctxt_4 = lbl_4 : val_4
 %
-% In that case, we will have the following 3 "intermediate" sequences.
+% In that case, we will have the following "intermediate" sequences.
 %
 %     1) ``<ID>::contexts`` is the ordered sequence of the context names.
 %     Here, we have ``{ctxt_1}{ctxt_2}{ctxt_3}{ctxt_4}``.
@@ -92,7 +92,7 @@
 %
 %
 % warning::
-%     The only errors checked concern the general syntax of the DSL context,
+%     The errors raised only concern the general syntax of the DSL context,
 %     so the items of the 3 sequences are stored as typed by the user.
 %%%
 \cs_new:Npn \tns_core_DSL_ctxt_parser:NnN #1#2#3 {
@@ -181,7 +181,7 @@
 % prototype::
 %     #1 : an ``<ID>``.
 %
-%     :action: this functions clears the  3 "intermediate" sequences
+%     :action: this function clears the "intermediate" sequences
 %              ``<ID>::contexts``,
 %              ``<ID>::labels`` and
 %              ``<ID>::values``.
