@@ -22,7 +22,7 @@ ALWAYS DONE
         + Home-made tests can be added if necessary.
 
 
-    3) tnscore
+    3) tns-core
 
         + Abstraction from the last changes must be added as soon
           as possible!
@@ -51,7 +51,11 @@ NEXT STEPS
         + variations
 
 
-    2) stepcalc ---> seqcalc (sequential calculus) & basic logic
+    2) tns-core on ctan, and then used by tns-functab :
+       just for context for the moment.
+
+
+    3) stepcalc ---> seqcalc (sequential calculus) & basic logic
 
         + \then ??? instead of \implies
           and
@@ -79,14 +83,14 @@ NEXT STEPS
         + customisable colours: arrow and text, so we can have a black arrow and coloured text linked to coloured calculation.
 
 
-    3) Interval in a dedicated package
+    4) Interval in a dedicated package
 
         + Writing: coma separated value \intervalO{a, b} ...
 
         + Drawing: drawing on different levels, and visual tools for union and intersection
 
 
-    4) Proba tree
+    5) Proba tree
 
         + Work on a more efficient API
 

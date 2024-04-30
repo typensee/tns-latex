@@ -5,11 +5,6 @@ tns-functab - TODO
 
 > ---------------------------- <
 
-ctxt dsl : on numérote aussi version générique de l'ana du parser parser
-
-
-> ---------------------------- <
-
 key définie en cascade
 
     + dans main, on a
@@ -25,7 +20,8 @@ clarification des rôles
 
     + env pour création d'un tableau
 
-    + réutilisation pour plus tard via des macros, sauf si on refait un tab
+    + réutilisation pour plus tard via des macros, y compris
+      si on refait un tab à partir d'anciennes données
 
 
 > ---------------------------- <
