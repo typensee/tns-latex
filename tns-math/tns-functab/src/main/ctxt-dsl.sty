@@ -6,22 +6,22 @@
 
 % :: MESSAGES :: %
 
-\msg_set:nnnn { tnscore } { ctxt-DSL-no-context }
+\msg_set:nnnn { tns-core } { ctxt-DSL-no-context }
   { missing ~ context. ~
     See ~ the ~ context ~ line ~ >>> ~ #1 }
-  { \msg_see_documentation_text:n { tnsfunctab } }
+  { \msg_see_documentation_text:n { tns-functab } }
 
 
-\msg_set:nnnn { tnscore } { ctxt-DSL-too-much-equal-signs  }
+\msg_set:nnnn { tns-core } { ctxt-DSL-too-much-equal-signs  }
   { too ~ much ~ equal ~ signs ~ used. ~
     See ~ the ~ context ~ line ~ >>> ~ #1 }
-  { \msg_see_documentation_text:n { tnsfunctab } }
+  { \msg_see_documentation_text:n { tns-functab } }
 
 
-\msg_set:nnnn { tnscore } { ctxt-DSL-too-much-colons  }
+\msg_set:nnnn { tns-core } { ctxt-DSL-too-much-colons  }
   { too ~ much ~ colons ~ used. ~
     See ~ the ~ context ~ line ~ >>> ~ #1 }
-  { \msg_see_documentation_text:n { tnsfunctab } }
+  { \msg_see_documentation_text:n { tns-functab } }
 
 
 % :: RESCAN TRICK :: %
@@ -126,7 +126,7 @@
         \tl_if_eq:NnT \l_tns_core_current_ctxt_tl
                       { :-: ctxt-dsl-missing-context :-: }
         {
-          \msg_error:nnn { tnscore } { ctxt-DSL-no-context }
+          \msg_error:nnn { tns-core } { ctxt-DSL-no-context }
                          { ##1 }
         }
       }
@@ -140,7 +140,7 @@
       }
 % Too much equal signs found.
     }{
-      \msg_error:nnn { tnscore } { ctxt-DSL-too-much-equal-signs}
+      \msg_error:nnn { tns-core } { ctxt-DSL-too-much-equal-signs}
                      { ##1 }
     }
 
@@ -162,7 +162,7 @@
       }
 % Too much colons found.
     }{
-      \msg_error:nnn { tnscore } { ctxt-DSL-too-much-colons}
+      \msg_error:nnn { tns-core } { ctxt-DSL-too-much-colons}
                      { ##1 }
     }
 

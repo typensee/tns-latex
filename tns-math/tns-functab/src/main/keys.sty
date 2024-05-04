@@ -1,0 +1,18 @@
+% == PACKAGES == %
+
+
+% == TOOLS == %
+
+\ExplSyntaxOn
+
+% -- KEY-VAL SETTING -- %
+
+% :: functable ENV :: %
+
+\keys_define:nn { tns-functab / functable } {
+  bar .code:n = { \keys_set:nn { tns-functab / functable / bar } { #1 } },
+  bar / tmpa .dim_set:N = \l_tmpa_dim,
+  bar / tmpa .initial:n = 1em,
+}
+
+\ExplSyntaxOff

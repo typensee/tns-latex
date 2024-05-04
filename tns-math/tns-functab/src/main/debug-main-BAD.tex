@@ -3,7 +3,9 @@
 \input{../preamble.cfg.tex} % : ; and babel-french!
 
 \usepackage{ctxt-dsl}
+\usepackage{keys}
 \usepackage{main}
+\usepackage{messages}
 
 \setlength\parindent{0cm}
 
@@ -51,7 +53,7 @@
 %
 %\begin{functable}
 %    tvals = t : 1 , 20 , 300 , 4000 ;
-%    mat   = a , bb , ccc , dddd 
+%    mat   = a , bb , ccc , dddd
 %\end{functable}
 
 
@@ -60,7 +62,7 @@
 \begin{functable}
     x = = 1 , 20 , 300 , 4000 ;
     y = 1 , 20 , 300 , 4000 ;
-    m = lab: a , bb , ccc , dddd 
+    m = lab: a , bb , ccc , dddd
 \end{functable}
 
 
@@ -68,7 +70,7 @@
 
 \begin{functable}
     m     = a , bb , ccc , dddd ;
-    xvals = 1 , 20 , 300 , 4000 
+    xvals = 1 , 20 , 300 , 4000
 \end{functable}
 
 
@@ -77,7 +79,7 @@
 \begin{functable}
     x = 5, 7 ;
     m = a , bb , ccc , dddd ;
-    y = 1 , 20 , 300 , 4000 
+    y = 1 , 20 , 300 , 4000
 \end{functable}
 
 
@@ -85,7 +87,7 @@
 
 \begin{functable}
     xvals = t : 1 , 20 , 300 , 4000 ;
-    m     = a , bb , ccc , dddd 
+    m     = a , bb , ccc , dddd
 \end{functable}
 
 
@@ -93,7 +95,7 @@
 
 \begin{functable}
     xvals = t : 1 , 20 , 300 , 4000 ;
-    y     = a , bb , ccc , dddd 
+    y     = a , bb , ccc , dddd
 \end{functable}
 
 
@@ -102,14 +104,14 @@
 \begin{functable}
     x = t : 1 , 20 , 300 , 4000 ;
     m = a , bb , ccc , dddd ;
-    i = a , bb , ccc , dddd 
+    i = a , bb , ccc , dddd
 \end{functable}
 
 
 \subsection{Bad example \thesubsection}
 
 \begin{functable}
-    i = a , bb , ccc , dddd 
+    i = a , bb , ccc , dddd
 \end{functable}
 
 
@@ -118,7 +120,7 @@
 \begin{functable}
     x = 7 ;
     y = 7 ;
-    i = a , bb , ccc , dddd 
+    i = a , bb , ccc , dddd
 \end{functable}
 
 \end{document}
