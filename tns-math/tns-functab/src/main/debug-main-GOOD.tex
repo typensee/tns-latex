@@ -3,9 +3,10 @@
 \input{../preamble.cfg.tex} % : ; and babel-french!
 
 \usepackage{ctxt-dsl}
-\usepackage{keys}
+
+\usepackage{keyvals.cfg}
+\usepackage{messages.cfg}
 \usepackage{main}
-\usepackage{messages}
 
 \setlength\parindent{0cm}
 
@@ -21,9 +22,9 @@
 \subsection{Example \thesubsection}
 
 \begin{functable}
-    xvals =    t : 1             , 20 , 300 , 4000 ;
-    imgs  = f(t) : \text{a , b } , bb , ccc , dddd ;
-            g(t) : \text{U: V}   , VV , WWW , XXXX
+    xvals =    t : 1            , 20 , 300 , 4000 ;
+    imgs  = f(t) : \text{a , b} , bb , ccc , dddd ;
+            g(t) : \text{U: V}  , VV , WWW , XXXX
 \end{functable}
 
 

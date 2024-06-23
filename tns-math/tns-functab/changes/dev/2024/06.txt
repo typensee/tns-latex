@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+??  (0.0.0-alpha.5)
+==
+
+-----
+:new:
+-----
+
+[[:tech:]]
+\DSL for data: a \1st functional version with shortnames for contexts, but without option management for the moment (for example, it is not possible to define content that can be reused later, but the code is ready for this incoming feature).

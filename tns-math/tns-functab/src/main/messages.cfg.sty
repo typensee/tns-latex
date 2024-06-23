@@ -1,6 +1,3 @@
-% == PACKAGES == %
-
-
 % == TOOLS == %
 
 \ExplSyntaxOn
@@ -9,17 +6,29 @@
 
 % :: functable ENV :: %
 
+%%%
+% prototype::
+%     :see: l3func.tns_functab_validate_ctxts_seq:n
+%%%
 \msg_set:nnnn { tns-functab } { context-unknown  }
   { illegal ~ context ~ << ~ #2 ~ >> ~. ~
     See ~ the ~ context ~ nb.#1. }
   { \msg_see_documentation_text:n { tns-functab } }
 
 
+%%%
+% prototype::
+%     :see: l3func.tns_functab_validate_ctxts_seq:n
+%%%
 \msg_set:nnnn { tns-functab } { context-misplaced }
   { the ~ context ~ << ~ #1 ~ >> ~ must ~ be ~ at ~ the ~ #2 ~ place. }
   { \msg_see_documentation_text:n { tns-functab } }
 
 
+%%%
+% prototype::
+%     :see: l3func.tns_functab_validate_ctxts_seq:n
+%%%
 \msg_set:nnnn { tns-functab } { context-bad-use }
   { bad ~ use ~ of ~ the ~ context ~ << ~ #2 ~ >> ~. ~
     See ~ the ~ context ~ nb.#1. }
