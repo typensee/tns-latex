@@ -5,6 +5,31 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+autoriser nbres cellules insuffisants mais pas excedents !
+
+
+> ---------------------------- <
+
+cellules vides automatiques
+
+
+xvals =        1..4                                         ;
+imgs  =   f :  ;
+        \pi :
+
+
+ET AUSSI
+
+
+xvals = 1 , 2 ;
+yvals = a , b , c ;
+mat   = 1 - a , 2 - a ;
+        1 - b , 2 - b ;
+        1 - c , 2 - c
+
+
+> ---------------------------- <
+
 key définie en cascade
 
     + dans main, on a
