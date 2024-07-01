@@ -27,8 +27,16 @@ Voyons comment taper un tableau d'images d'une seule fonction à deux variables,
 
 
 \begin{tdocexa}[Avec des étiquettes de partout]
-    En plus de \tdocinlatex{xvals} pour les colonnes, il faut utiliser \tdocinlatex{yvals} pour renseigner les valeurs pivots qui seront utilisées pour chaque ligne.
-    De plus, les valeurs de chaque cellule se donnent de façon naturelle sous forme matricielle via \tdocinlatex{mat} : pour une ligne, les valeurs sont séparées par des virgules, tandis que les points-virgules permettent de passer à la ligne suivante.
+    En plus de \tdocinlatex{xvals} pour les colonnes, il faut utiliser \tdocinlatex{yvals} pour renseigner les valeurs des lignes.
+    Quant aux valeurs des cellules, elles se donnent comme suit.
+    %
+    \begin{itemize}
+    	\item Le contexte \tdocinlatex{mat} permet d'employer une écriture matricielle.
+
+    	\item Pour une ligne, les valeurs sont séparées par des virgules.
+
+    	\item Les points-virgules permettent de passer à la ligne suivante.
+    \end{itemize}
 
     \tdoclatexinput{examples/2D-data/label.tex}
 \end{tdocexa}

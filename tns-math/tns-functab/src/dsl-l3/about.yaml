@@ -2,14 +2,14 @@ toc:
   - intro.tex
   - struct.tex
 # 1 var functions - Images
-  - ctxts-for-one-var-images.tex
+  - ctxts-for-1D-data.tex
   - ctxt-xvals.tex
   - ctxt-imgs.tex
-# 1 var functions - Signs / Variations
-  - ctxts-for-signs-n-variations.tex
-  - ctxt-signs.tex
-  - ctxt-vars.tex
 # 2 var functions - Images
-  - ctxts-for-two-var-images.tex
+  - ctxts-for-2D-data.tex
   - ctxt-yvals.tex
   - ctxt-mat.tex
+# 1 var functions - Signs / Variations
+  - ctxts-for-signs-n-vars.tex
+  - ctxt-signs.tex
+  - ctxt-vars.tex

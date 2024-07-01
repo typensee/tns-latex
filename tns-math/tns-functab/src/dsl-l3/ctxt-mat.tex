@@ -12,21 +12,17 @@
 
 \subsubsection{Le contexte \tdocinlatex{mat} pour les images}
 
-Le contexte \tdocinlatex{mat} qui n'est utilisable qu'une seule fois, permet de donner la matrice des données, et ceci en indiquant, si besoin uniquement
-\footnote{
-	Ceci permet de taper un simple tableau à double entrée.
-},
-l'expression étudiée.
-Voici un code fictif illustrant la logique de saisie.
+Le contexte \tdocinlatex{mat} qui n'est utilisable qu'une seule fois, permet de donner la matrice des données, et ceci en indiquant éventuellement l'expression étudiée.
+Voici un code fictif illustrant la logique de saisie sans passer via l'expression $f$ utilisée par défaut.
 
-\tdoclatexinput[code]{examples/dsl-l3/mat.tex}
+\tdoclatexinput[code]{examples/dsl-l3/imgs-2D.tex}
 
 
 % --------------- %
 
 Comme les espaces autour des ponctutations ne sont pas obligatoires, dans le cadre de processus automatisés, il sera possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
 
-\tdoclatexinput[code]{examples/dsl-l3/mat-monster.tex}
+\tdoclatexinput[code]{examples/dsl-l3/imgs-2D-monster.tex}
 
 
 \end{document}

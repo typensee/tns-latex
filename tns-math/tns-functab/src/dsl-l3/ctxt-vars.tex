@@ -18,8 +18,11 @@ La logique d'utilisation et d'organisation des informations pour le contexte \td
     \item Voici les informations possibles pour le comportement d'une expression $f$ en supposant que $n$ valeurs pivots \tdocinlatex{x1} , \tdocinlatex{x2} , \dots\ , \tdocinlatex{xn} ont été données via \tdocinlatex{xvals = x1 , x2 , ... , xn} . De nouveau, nous posons $p = n - 1$ .
     %
     \begin{itemize}
+	    \item Un seul contexte \tdocinlatex{vars} peut ne pas nommer l'expression qui sera $f$ par défaut, les autres devront le faire via \tdocinlatex{monexpr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir ce qui suit).
+
+
         \item A minima, il faut indiquer
-        \tdocinlatex{f : v1 v2 ... vp}
+        \tdocinlatex{v1 v2 ... vp}
         où
         \tdocinlatex{v1} , \tdocinlatex{v2} , \dots\ , \tdocinlatex{vp}
         donnent des informations sur les $p$ intervalles ouverts

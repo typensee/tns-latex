@@ -12,14 +12,11 @@
 
 \subsubsection{Le contexte \tdocinlatex{imgs} pour les images}
 
-Le contexte \tdocinlatex{imgs} s'utilise comme le contexte \tdocinlatex{xvals} mais avec la possibilité de l'employer autant de fois que nécessaire.
-Par contre, il est obligatoire d'indiquer l'expression  via
-\tdocinlatex{monexpr : i1 , i2 , ... , in}
-où chaque \tdocinlatex{ik} peut être soit \tdocquote{vide}\,, soit une expression mathématique \LaTeX\,.
+Le contexte \tdocinlatex{imgs} s'utilise comme le contexte \tdocinlatex{xvals}\,, mais autant de fois que nécessaire. Par contre, un seul contexte peut ne pas nommer l'expression qui sera $f$ par défaut, les autres devront le faire via \tdocinlatex{monexpr : i1 , i2 , ... , in} où chaque \tdocinlatex{ik} peut être soit \tdocquote{vide}\,, soit une expression mathématique \LaTeX\,.
 
 
 \begin{tdocwarn}
-    Bien retenir qu'il n'existe pas d'expression par défaut.
+    Bien retenir qu'il n'existe pas qu'une seule possibilité d'employer l'expression par défaut.
 \end{tdocwarn}
 
 
@@ -36,12 +33,12 @@ où chaque \tdocinlatex{ik} peut être soit \tdocquote{vide}\,, soit une express
 
 Voici un code fictif illustrant les explications précédentes.
 
-\tdoclatexinput[code]{examples/dsl-l3/imgs-f-n-co.tex}
+\tdoclatexinput[code]{examples/dsl-l3/imgs-1D-n-co.tex}
 
 
 Dans le cadre de processus automatisés, il est possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
 
-\tdoclatexinput[code]{examples/dsl-l3/imgs-f-n-co-monster.tex}
+\tdoclatexinput[code]{examples/dsl-l3/imgs-1D-n-co-monster.tex}
 
 
 \end{document}

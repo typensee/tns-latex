@@ -82,6 +82,8 @@ NEXT STEPS
 
         + customisable colours: arrow and text, so we can have a black arrow and coloured text linked to coloured calculation.
 
+        + possibility to copy the first left side part at eache step, or the last one when a cut has been done.
+
 
     4) Interval in a dedicated package
 
