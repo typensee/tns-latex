@@ -3,29 +3,39 @@ tns-functab - TODO
 ===========
 
 
+// ---------- //
+
+
+==
+??  (0.0.0-alpha.6)
+==
+
+-----
+:new:
+-----
+
+[[:tech:]]
+\DSL for data: a \1st functional version with shortnames for contexts, but without option management for the moment (for example, it is not possible to define content that can be reused later, but the code is ready for this incoming feature).
+
+
 > ---------------------------- <
 
-autoriser nbres cellules insuffisants mais pas excedents !
+autofrom
 
+    + ...n pour n cellules vides
 
-> ---------------------------- <
+      ... pour les ellules manuqnates mais utilisables une seule fois (cf début fin et le reste vide)
 
-cellules vides automatiques
+    + Dernière cellule non renseigné OK
 
+    + ctxt* pour un contexte avec focntionnalité de type macro au cas par cas
 
-xvals =        1..4                                         ;
-imgs  =   f :  ;
-        \pi :
-
-
-ET AUSSI
-
-
-xvals = 1 , 2 ;
-yvals = a , b , c ;
-mat   = 1 - a , 2 - a ;
-        1 - b , 2 - b ;
-        1 - c , 2 - c
+        xvals* = 1..4
+        yvals* = 1..4
+        imgs*  = ????
+        mat*   = ????
+        signs* = ????
+        vars*  = ????
 
 
 > ---------------------------- <
