@@ -11,6 +11,7 @@
 %\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
 
 \subsubsection{Le contexte \tdocinlatex{imgs} pour les images}
+\label{tns-math-functab-dsl-l3-ctxt-imgs}
 
 Le contexte \tdocinlatex{imgs} s'utilise comme le contexte \tdocinlatex{xvals}
 \footnote{
@@ -21,16 +22,27 @@ aux différences près suivantes.
 \begin{enumerate}
     \item L'emploi de \tdocinlatex{imgs} se fait autant de fois que nécessaire.
 
+
     \item Sémantiquement, on indique \tdocinlatex{monexpr : i1 , i2 , ... , in} où chaque \tdocinlatex{ik} est une image, éventuellement vide, et \tdocinlatex{monexpr} l'expression dont on donne les images.
+
 
     \item Un seul des contextes peut ne pas nommer l'expression via \tdocinlatex{i1 , i2 , ... , in} afin d'utiliser $f$ qui est celle par défaut.
 
-    \item \textbf{Il est possible d'omettre les cellules vides les plus à droite.}
+
+    \item \textbf{Des cases consécutives vides facilement.}
+    %
+    \begin{itemize}
+    	\item Il est possible d'omettre les cellules vides les plus à droite.
+
+    	\item La valeur particulière \tdocinlatex{..i} permet d'avoir $i$ cases vides consécutives où $i \geq 1$\,.
+
+    	\item On peut aussi utiliser une seule fois \tdocinlatex{..} qui demande de compléter avec le nombre de cases vides consécutives nécessaires pour obtenir une ligne complète.
+    \end{itemize}
 \end{enumerate}
 
 
 \begin{tdocwarn}
-    Bien retenir qu'il n'existe pas qu'une seule possibilité d'employer l'expression par défaut.
+    Bien retenir qu'il n'existe pas qu'une seule possibilité d'employer $f$ l'expression par défaut.
 \end{tdocwarn}
 
 
