@@ -5,9 +5,9 @@
 05  (0.0.0-alpha.6)
 ==
 
------
-:new:
------
+--------
+:update:
+--------
 
 [[:doc:]]
 \Doc before code: "autocalc" ellipsis command to fill one row.
