@@ -1,7 +1,7 @@
 % == PACKAGES == %
 
 \RequirePackage{nicematrix}%
-               [6.26]
+               [6.28]
 
 
 % == TOOLS == %
@@ -12,9 +12,9 @@
 
 % :: \L3 INTERFACE :: %
 
-% Shortname of contexts.
-\prop_clear_new:N        \g_tns_functab_shortname_ctxts_prop
-\prop_set_from_keyval:Nn \g_tns_functab_shortname_ctxts_prop {
+% Shortnames of contexts.
+\prop_clear_new:N        \c_tns_functab_shortname_ctxts_prop
+\prop_set_from_keyval:Nn \c_tns_functab_shortname_ctxts_prop {
   i = imgs,
   m = mat,
   s = signs,
@@ -24,14 +24,14 @@
 }
 
 % The global ID number of the env.
-\int_new:N  \g_tns_functab_id_int
-\int_set:Nn \g_tns_functab_id_int { 0 }
+\int_new:N  \g_tns_functab_ID_int
+\int_set:Nn \g_tns_functab_ID_int { 0 }
 
-% The temporary internal ID.
-\tl_new:N \l__tns_functab_tmp_id_tl
+% Temporary internal ID.
+\tl_new:N \l__tns_functab_tmp_ID_tl
 
-% Semantic of the env.
-\int_new:N \l_tns_functab_context_actual_nb_int
+% Line number of the context (comments and empty lines are ignored).
+\int_new:N \l__tns_functab_context_line_int
 
 
 %%%
@@ -45,12 +45,11 @@
 
 %%%
 % prototype::
-%     #1 : the user's options (:see: l3func.tns_functab_functable:nn).
+%     #1 : the user's options.
 %     #2 : the DSL code of the table.
 %
 %     :action: the actions requested by the user are carried out:
-%              storage of a new table, possibly with its formatting,
-%              or action with data from an old table.
+%              storage of a new table, possibly with its formatting.
 %
 %     :see: l3func.tns_core_DSL_ctxt_parser:nn ,
 %           l3func.tns_core_DSL_ctxt_free_memory:N
@@ -63,71 +62,65 @@
 % ---------------------------
 % TODO : options of functable
 % ---------------------------
-%
-%  ???
 %%%
 \cs_new:Npn \tns_functab_functable:nn #1#2 {
-% TODO
-% Options to use.
+% TODO : Options to use.
 
+% Internal IDs.
+  \int_gincr:N \g_tns_functab_ID_int
 
-% Internal ID.
-  \int_gincr:N \g_tns_functab_id_int
-
-  \tl_set:Nn \l__tns_functab_tmp_id_tl {
+  \tl_set:Nn \l__tns_functab_tmp_ID_tl {
     -:-
       functable.pre.parsing.contexts.
-      \int_use:N \g_tns_functab_id_int
+      \int_use:N \g_tns_functab_ID_int
     -:-
-  } % Temporary ID
+  }
 
 % Parsing the agnostic "context" DSL code.
   \tns_core_DSL_ctxt_parser:NnN
-    { \l__tns_functab_tmp_id_tl }
+    { \l__tns_functab_tmp_ID_tl }
     { #2 }
-    { \g_tns_functab_shortname_ctxts_prop }
+    { \c_tns_functab_shortname_ctxts_prop }
 
 % -------------
 % DEBUG - START
 
-   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
-   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels   }
-   \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: values   }
+  %  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
+  %  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: labels   }
+  %  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: values   }
 
 % DEBUG - END
 % -----------
 
 % Do we have a legal DSL code?
-% If it does, we build an internal easy-to-use version of the user's data.
   \tns_functab_validate_ctxts_seq:n
-    { \tl_use:N \l__tns_functab_tmp_id_tl }
+    { \tl_use:N \l__tns_functab_tmp_ID_tl }
 
-% We can build internal data to be used later.
+% We can now build internal data for future use.
   \use:c {
     tns_functab_build_internal_
-    \use:c { \tl_use:N \l__tns_functab_tmp_id_tl :: kind }
+    \use:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: kind }
     :nn
   } {
-    \tl_use:N \l__tns_functab_tmp_id_tl
+    \tl_use:N \l__tns_functab_tmp_ID_tl
   } {
-    \int_use:N \g_tns_functab_id_int
+    \int_use:N \g_tns_functab_ID_int
   }
 
 % We clear our temporary sequences.
-  \tns_core_DSL_ctxt_free_memory:N { \l__tns_functab_tmp_id_tl }
+  \tns_core_DSL_ctxt_free_memory:N { \l__tns_functab_tmp_ID_tl }
 
 % -------------
 % DEBUG - START
 
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: labels }
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: values }
+  %  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
+  %  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: labels }
+  %  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: values }
 
 % DEBUG - END
 % -----------
 
-% The options to use (some options are specific to some kind of table).
-
+% TODO : The options to use (some options are specific to some kind of table).
 
 % Let's do what the user wants.
   \par
@@ -137,17 +130,17 @@
 
 % :: VALIDATE DATA :: %
 
-% The IDs of the env.
-\bool_new:N \l_tns_functab_xvals_used_bool
-\bool_new:N \l_tns_functab_yvals_used_bool
-\bool_new:N \l_tns_functab_imgs_used_bool
-\bool_new:N \l_tns_functab_mat_used_bool
-\bool_new:N \l_tns_functab_signs_vars_used_bool
+% Which contexts have been used?
+\bool_new:N \l__tns_functab_xvals_used_bool
+\bool_new:N \l__tns_functab_yvals_used_bool
+\bool_new:N \l__tns_functab_imgs_used_bool
+\bool_new:N \l__tns_functab_mat_used_bool
+\bool_new:N \l__tns_functab_signs_vars_used_bool
 
 
 %%%
 % prototype::
-%     #1 :
+%     #1 : the internal ``<ID>`` of the \env.
 %
 %     :action: ???
 %%%
@@ -155,116 +148,122 @@
 % Good use of the contexts?
 %
 % NOTE. We have the long name of contexts.
-  \int_zero:N \l_tns_functab_context_actual_nb_int
+  \int_zero:N \l__tns_functab_context_line_int
 
-  \bool_set_false:N \l_tns_functab_xvals_used_bool
-  \bool_set_false:N \l_tns_functab_yvals_used_bool
-  \bool_set_false:N \l_tns_functab_imgs_used_bool
-  \bool_set_false:N \l_tns_functab_mat_used_bool
-  \bool_set_false:N \l_tns_functab_signs_vars_used_bool
+  \bool_set_false:N \l__tns_functab_xvals_used_bool
+  \bool_set_false:N \l__tns_functab_yvals_used_bool
+  \bool_set_false:N \l__tns_functab_imgs_used_bool
+  \bool_set_false:N \l__tns_functab_mat_used_bool
+  \bool_set_false:N \l__tns_functab_signs_vars_used_bool
 
   \seq_map_inline:cn { #1 :: contexts } {
-    \int_incr:N \l_tns_functab_context_actual_nb_int
+    \int_incr:N \l__tns_functab_context_line_int
 
     \par
 
     \str_case_e:nnF { ##1 } {
 % XVALS.
 %
-% 1st context.
+% 1st context and x-dimension.
       { xvals } {
-        \int_compare:nNnF \l_tns_functab_context_actual_nb_int = 1 {
+        \int_compare:nNnF \l__tns_functab_context_line_int = 1 {
           \msg_error:nnnn { tns-functab } { context-misplaced }
                           { xvals }
                           { 1st }
         }
 
-        \bool_set_true:N \l_tns_functab_xvals_used_bool
+        \bool_set_true:N \l__tns_functab_xvals_used_bool
       }
+
 % YVALS.
 %
-% 2nd context if it is used.
+% 2nd context if it is used and y-dimension.
       { yvals } {
-        \int_compare:nNnF \l_tns_functab_context_actual_nb_int = 2 {
+        \int_compare:nNnF \l__tns_functab_context_line_int = 2 {
           \msg_error:nnnn { tns-functab } { context-misplaced }
                           { yvals }
                           { 2nd }
         }
 
-        \bool_set_true:N \l_tns_functab_yvals_used_bool
+        \bool_set_true:N \l__tns_functab_yvals_used_bool
       }
+
 % IMGS - 1D-DATA.
       { imgs } {
         \bool_if:nT {
-               ! \l_tns_functab_xvals_used_bool
-            || \l_tns_functab_yvals_used_bool
-            || \l_tns_functab_mat_used_bool
-            || \l_tns_functab_signs_vars_used_bool
+               ! \l__tns_functab_xvals_used_bool
+            || \l__tns_functab_yvals_used_bool
+            || \l__tns_functab_mat_used_bool
+            || \l__tns_functab_signs_vars_used_bool
         } {
           \msg_error:nnVn { tns-functab } { context-bad-use }
-                          \l_tns_functab_context_actual_nb_int
+                          \l__tns_functab_context_line_int
                           { ##1 }
         }
 
-        \bool_set_true:N \l_tns_functab_imgs_used_bool
+        \bool_set_true:N \l__tns_functab_imgs_used_bool
         \tl_gset:cn { #1 :: kind } { ##1 }
       }
+
 % MAT - 2D-DATA.
       { mat } {
         \bool_if:nT {
-               ! \l_tns_functab_xvals_used_bool
-            || ! \l_tns_functab_yvals_used_bool
-            || \l_tns_functab_imgs_used_bool
-            || \l_tns_functab_signs_vars_used_bool
+               ! \l__tns_functab_xvals_used_bool
+            || ! \l__tns_functab_yvals_used_bool
+            || \l__tns_functab_imgs_used_bool
+            || \l__tns_functab_signs_vars_used_bool
         } {
           \msg_error:nnVn { tns-functab } { context-bad-use }
-                          \l_tns_functab_context_actual_nb_int
+                          \l__tns_functab_context_line_int
                           { ##1 }
         }
 
-        \bool_set_true:N \l_tns_functab_mat_used_bool
+        \bool_set_true:N \l__tns_functab_mat_used_bool
         \tl_gset:cn { #1 :: kind } { ##1 }
       }
+
 % SIGNS (with or without vars).
       { signs } {
         \bool_if:nT {
-               ! \l_tns_functab_xvals_used_bool
-            || \l_tns_functab_yvals_used_bool
-            || \l_tns_functab_imgs_used_bool
-            || \l_tns_functab_mat_used_bool
+               ! \l__tns_functab_xvals_used_bool
+            || \l__tns_functab_yvals_used_bool
+            || \l__tns_functab_imgs_used_bool
+            || \l__tns_functab_mat_used_bool
         } {
           \msg_error:nnVn { tns-functab } { context-bad-use }
-                          \l_tns_functab_context_actual_nb_int
+                          \l__tns_functab_context_line_int
                           { ##1 }
         }
 
-        \bool_set_true:N \l_tns_functab_signs_vars_used_bool
+        \bool_set_true:N \l__tns_functab_signs_vars_used_bool
         \tl_gset:cn { #1 :: kind } { ##1_vars }
       }
+
 % VARS (with or without signs).
       { vars } {
         \bool_if:nT {
-               ! \l_tns_functab_xvals_used_bool
-            || \l_tns_functab_yvals_used_bool
-            || \l_tns_functab_imgs_used_bool
-            || \l_tns_functab_mat_used_bool
+               ! \l__tns_functab_xvals_used_bool
+            || \l__tns_functab_yvals_used_bool
+            || \l__tns_functab_imgs_used_bool
+            || \l__tns_functab_mat_used_bool
         } {
           \msg_error:nnVn { tns-functab } { context-bad-use }
-                          \l_tns_functab_context_actual_nb_int
+                          \l__tns_functab_context_line_int
                           { ##1 }
         }
 
-        \bool_set_true:N \l_tns_functab_signs_vars_used_bool
+        \bool_set_true:N \l__tns_functab_signs_vars_used_bool
         \tl_gset:cn { #1 :: kind } { signs_##1 }
       }
-% UNKNOWN CONTEXT
 
 % Let's be silent with the missing context error that have been already
 % indicated by the context DSL parser.
       { :-: ctxt-dsl-missing-context :-: } { }
+
+% UNKNOWN CONTEXT
     }{
       \msg_error:nnVn { tns-functab } { context-unknown  }
-                      { \int_use:N \l_tns_functab_context_actual_nb_int }
+                      { \int_use:N \l__tns_functab_context_line_int }
                       { ##1 }
     }
   }
@@ -281,12 +280,19 @@
 %     :action: XXX
 %%%
 \cs_new:Npn \tns_functab_build_internal_imgs:nn #1#2 {
-    1D-DATA : #1 ++ #2
+% Dimensions.
+  \int_gzero_new:c { #1 :: xdim }
+  \int_gzero_new:c { #1 :: ydim }
+
+  1D-DATA : #1 ++ #2
 
 % -------------
 % DEBUG - START
 
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
+
+  \int_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: xdim }
+  \int_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: ydim }
 
 % DEBUG - END
 % -----------
@@ -306,7 +312,7 @@
 % -------------
 % DEBUG - START
 
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
 
 % DEBUG - END
 % -----------
@@ -326,13 +332,19 @@
 % -------------
 % DEBUG - START
 
-%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_id_tl :: contexts }
+%    \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
 
 % DEBUG - END
 % -----------
 }
 
 
+% -------------
+% DEBUG - START
+
 % :: DEBUG MODE :: %
+
+% DEBUG - END
+% -----------
 
 \ExplSyntaxOff

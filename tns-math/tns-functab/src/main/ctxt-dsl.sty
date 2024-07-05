@@ -4,26 +4,6 @@
 
 % -- "CONTEXT" AGNOSTIC DSL (L3 version) -- %
 
-% :: MESSAGES :: %
-
-\msg_set:nnnn { tns-core } { ctxt-DSL-no-context }
-  { missing ~ context. ~
-    See ~ the ~ context ~ line ~ >>> ~ #1 }
-  { \msg_see_documentation_text:n { tns-core } }
-
-
-\msg_set:nnnn { tns-core } { ctxt-DSL-too-much-equal-signs  }
-  { too ~ much ~ equal ~ signs ~ used. ~
-    See ~ the ~ context ~ line ~ >>> ~ #1 }
-  { \msg_see_documentation_text:n { tns-core } }
-
-
-\msg_set:nnnn { tns-core } { ctxt-DSL-too-much-colons  }
-  { too ~ much ~ colons ~ used. ~
-    See ~ the ~ context ~ line ~ >>> ~ #1 }
-  { \msg_see_documentation_text:n { tns-core } }
-
-
 % :: RESCAN TRICK :: %
 
 % Source.
@@ -59,7 +39,7 @@
 
 %%%
 % prototype::
-%     #1 : an ``<ID>``.
+%     #1 : an internal ``<ID>``.
 %     #2 : the context code to be parsed.
 %     #3 : the short names, if any, given as a property list.
 %

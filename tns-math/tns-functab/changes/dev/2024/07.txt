@@ -5,12 +5,27 @@
 05  (0.0.0-alpha.6)
 ==
 
+-----
+:new:
+-----
+
+[[:fordev:]]
+XXX
+
+
+// ---------- //
+
+
+==
+05
+==
+
 --------
 :update:
 --------
 
 [[:doc:]]
-\Doc before code: "autocalc" ellipsis command to fill one row.
+\Doc before code: "auto-calc" ellipsis command to fill one row.
 
 
 // ---------- //
