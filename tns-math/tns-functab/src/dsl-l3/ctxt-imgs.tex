@@ -12,7 +12,21 @@
 
 \subsubsection{Le contexte \tdocinlatex{imgs} pour les images}
 
-Le contexte \tdocinlatex{imgs} s'utilise comme le contexte \tdocinlatex{xvals}\,, mais autant de fois que nécessaire. Par contre, un seul contexte peut ne pas nommer l'expression qui sera $f$ par défaut, les autres devront le faire via \tdocinlatex{monexpr : i1 , i2 , ... , in} où chaque \tdocinlatex{ik} peut être soit \tdocquote{vide}\,, soit une expression mathématique \LaTeX\,.
+Le contexte \tdocinlatex{imgs} s'utilise comme le contexte \tdocinlatex{xvals}
+\footnote{
+    Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} si besoin.
+}
+aux différences près suivantes.
+%
+\begin{enumerate}
+    \item L'emploi de \tdocinlatex{imgs} se fait autant de fois que nécessaire.
+
+    \item Sémantiquement, on indique \tdocinlatex{monexpr : i1 , i2 , ... , in} où chaque \tdocinlatex{ik} est une image, éventuellement vide, et \tdocinlatex{monexpr} l'expression dont on donne les images.
+
+    \item Un seul des contextes peut ne pas nommer l'expression via \tdocinlatex{i1 , i2 , ... , in} afin d'utiliser $f$ qui est celle par défaut.
+
+    \item Il est autorisé de ne pas indiquer les cellules vides le plus à droite.
+\end{enumerate}
 
 
 \begin{tdocwarn}

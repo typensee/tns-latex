@@ -2,7 +2,7 @@
 
 
 ==
-???  (0.0.0-alpha.5)
+05  (0.0.0-alpha.5)
 ==
 
 -----
@@ -14,4 +14,4 @@
 
     1) Last empty cells can be omitted.
 
-    2) Ellipsis command for several empty cells in the same rows (nothing proposed for columns of 2D-data).
+    2) Ellipsis command for several empty consecutive cells (nothing is proposed for columns of 2D-data).

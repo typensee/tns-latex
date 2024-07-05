@@ -25,7 +25,12 @@ Pour indiquer les valeurs nécessaires à la conception d'un tableau, il faut pa
         \item \tdocinlatex{ma_{var} : x1 , x2 , ... , xn} indique que les $n$ valeurs \tdocinlatex{x1} , \tdocinlatex{x2} , \dots\ , \tdocinlatex{xn} ont été données pour la variable nommée $ma_{var}$ avec $n \geq 1$\,.
 
         \item \tdocinlatex{x1 , x2 , ... , xn} indique que $n$ valeurs pivots \tdocinlatex{x1} , \tdocinlatex{x2} , \dots\ , \tdocinlatex{xn} ont été données pour la variable nommée $x$ par défaut.
+        
+        \item On peut utiliser des valeurs \enquote{vides}\,.
     \end{itemize}
+
+
+    \item Des cases vides facilement : on peut employer \tdocinlatex{..i} comme valeur particulière de l'un des \tdocinlatex{xk} afin d'avoir $i$ cases vides consécutives. On peut employer \tdocinlatex{..} qui est un raccourci de \tdocinlatex{..1}\,.
 \end{enumerate}
 
 
@@ -37,6 +42,8 @@ Voici deux codes fictifs illustrant les règles précédentes.
     \tdoclatexinput[code]{examples/dsl-l3/xvals-label.tex}
 
     \tdoclatexinput[code]{examples/dsl-l3/xvals-no-label.tex}
+
+    \tdoclatexinput[code]{examples/dsl-l3/xvals-auto.tex}
 \end{multicols}
 
 

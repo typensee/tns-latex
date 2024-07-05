@@ -12,8 +12,21 @@
 
 \subsubsection{Le contexte \tdocinlatex{mat} pour les images}
 
-Le contexte \tdocinlatex{mat} qui n'est utilisable qu'une seule fois, permet de donner la matrice des données, et ceci en indiquant éventuellement l'expression étudiée.
-Voici un code fictif illustrant la logique de saisie sans passer via l'expression $f$ utilisée par défaut.
+Le contexte \tdocinlatex{mat} s'utilise comme le contexte \tdocinlatex{xvals}
+\footnote{
+    Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} si besoin.
+}
+aux différences près suivantes.
+%
+\begin{enumerate}
+    \item L'emploi de \tdocinlatex{mat} se fait une fois par ligne de la matrice des données.
+    Sémantiquement, on indique \tdocinlatex{e_i1 , e_i2 , ... , e_in} où chaque \tdocinlatex{e_ik} sert à donner la valeur, éventuellement vide, de l'entrée dans la ligne \tdocinlatex{i} et la colonne \tdocinlatex{k}\,.
+
+    \item Seul le 1\ier\ emploi de \tdocinlatex{mat} permet de changer le nom de l'expression, $f$ étant celle utilisée par défaut.
+\end{enumerate}
+
+
+Voici un code fictif illustrant la logique de saisie.
 
 \tdoclatexinput[code]{examples/dsl-l3/imgs-2D.tex}
 

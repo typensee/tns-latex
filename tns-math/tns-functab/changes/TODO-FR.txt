@@ -20,6 +20,15 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+macro descriptives via des macros utilisabe en dur par exemple \desc{xvals=1,2,3;imgs=a,b,c}
+
+  ---> A CREUSER
+
+Idée de pouvoir rédiger des questions facilement
+
+
+> ---------------------------- <
+
 autofrom
 
     + ...n pour n cellules vides
@@ -30,8 +39,8 @@ autofrom
 
     + ctxt* pour un contexte avec focntionnalité de type macro au cas par cas
 
-        xvals* = 1..4
-        yvals* = 1..4
+        xvals* = 1..4    TAILLE CONNUE !
+        yvals* = 1..4    TAILLE CONNUE !
         imgs*  = ????
         mat*   = ????
         signs* = ????
