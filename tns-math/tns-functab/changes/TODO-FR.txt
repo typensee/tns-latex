@@ -7,6 +7,23 @@ tns-functab - TODO
 
 
 ==
+06  (0.0.0-alpha.6)
+==
+
+-----
+:new:
+-----
+
+[[:fordev:]]
+XXX
+
+    ??? ---> var xvars et yvars et ctxts interne séparés
+
+
+// ---------- //
+
+
+==
 ??  (0.0.0-alpha.XXX)
 ==
 
