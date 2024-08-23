@@ -1,7 +1,10 @@
 from .gather import *
 
 
-def contrib_tex_template(text, localtools = ""):
+def contrib_tex_template(
+    text,
+    localtools = ""
+):
     if localtools:
         localtools = f"""
 % == FORDOC == %
@@ -78,7 +81,7 @@ def update_contrib(
 
     preambule.write_text(
         data = f"""{preambule.read_text()}
-\\usepackage{{tutodoc}}
+\\usepackage[lang = french]{{tutodoc}}
 """
     )
 
@@ -186,35 +189,16 @@ def add_contrib_doc(
             ".tmp_thedoc.tex",
         ]:
             if tmpfile == ".tmp_thedoc.tex":
-                code += r"""
-\begin{document}
+                content = (PRE_AUTO_START / "en.tex").read_text()
 
-\title{The \texttt{tns-functab} package - Tutorial-type documentation}
-\author{Christophe BAL}
-\date{\ordinalnum{?} Jan. 2024 - Version 1.0.0}
+                code += f"""
+\\begin{{document}}
 
-\maketitle
+{content}
 
-\begin{abstract}
-The \thispack\ package provides intuitive and efficient ways of typing tables describing mathematical functions, or tables of data possibly filled in via \tdocquote{computer functions}
-\footnote{
-	The reference to \tdocquote{function} is therefore polysemous.
-}.
-Here is what is currently proposed.
-\begin{enumerate}
-	\item Data tables filled in by hand or via a macro.
-
-%	\item Tables of data for recursive sequences filled in by hand and/or via a macro.
-%
-%	\item Tables of signs and/or variations of real functions.
-%
-%	\item Tables of signs and/or variations associated with real parametric plane curves.
-\end{abstract}
-
-
-\newpage
-\tableofcontents
-\newpage
+\\newpage
+\\tableofcontents
+\\newpage
 """
 
             with (locale_tmpdir / tmpfile).open(
@@ -223,46 +207,21 @@ Here is what is currently proposed.
             ) as f:
                 code += f.read()
 
+        content = (PRE_AUTO_CHGELOG / "en.tex").read_text()
+
         code = code.strip()
-        code += r"""
-\section{History}
+        code += f"""
+\\section{{History}}
 
-\tdocversion{1.1.0}[2024-01-06]
+{content}
 
-\begin{tdocnew}
-	\item Change log : two new environments.
-    \begin{enumerate}
-        \item \tdocenv{tdocbreak} for breaking changes which are not backward compatible.
-
-        \item \tdocenv{tdocprob} for identified problems.
-    \end{enumerate}
-
-	\item \tdocmacro{tdocinlatex}: a light yellow is used as the background color.
-\end{tdocnew}
-
-\tdocsep
-
-\tdocversion{1.0.1}[2023-12-08]
-
-\begin{tdocfix}
-	\item \tdocmacro{tdocenv}: spacing is now correct, even if the \tdocpack{babel} package is not loaded with the French language.
-
-	\item \tdocenv[{[nostripe]}]{tdocshowcase}: page breaks around \tdocquote{framing} lines should be rare from now on.
-\end{tdocfix}
-
-\tdocsep
-
-\tdocversion{1.0.0}[2023-11-29]
-
-First public version of the project.
-
-\end{document}
+\\end{{document}}
     """
 
-        codefile = locale_tmpdir.parent / f"{projectname}-en.tex"
+    codefile = locale_tmpdir.parent / f"{projectname}-en.tex"
 
-        with codefile.open(
-            encoding = "utf-8",
-            mode = "a"
-        ) as f:
-            f.write(code)
+    with codefile.open(
+        encoding = "utf-8",
+        mode = "a"
+    ) as f:
+        f.write(code)
