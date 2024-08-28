@@ -6,6 +6,6 @@ general:
   author : Christophe BAL
   licence: gnu 3
   lang   :
-    - doc: fr
+    doc: fr
   require:
     - latex
