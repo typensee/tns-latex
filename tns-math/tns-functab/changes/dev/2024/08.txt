@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+29
+==
+
+--------
+:fordev:
+--------
+
+[[:facto:]]
+**Complete** automation of the building process, making this last one usable for other projects.
