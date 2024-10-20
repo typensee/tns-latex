@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[10pt,a4paper]{tutodoc}
 
 % -------------------------- %
 % -- DATE TO TEST - START -- %
@@ -8,14 +8,26 @@
 \newcommand\docmonth{04}
 \newcommand\docday  {29}
 
+% Preparing next release
+\renewcommand\docday{0}
+
+
 % ------------------------ %
 % -- DATE TO TEST - END -- %
 % ------------------------ %
 
-\usepackage[utf8]{inputenc}
-\usepackage[french]{babel, varioref}
+\input{../preamble.cfg.tex}
 
-\usepackage[lang = french]{tutodoc}
+
+\ExplSyntaxOn
+  \int_compare:nTF { \docday = 0 } {
+  	\newcommand\when{NEXT ~ (draft)}
+  	\newcommand\filepath{next}
+  } {
+  	\newcommand\when{\docyear-\docmonth-\docday}
+  	\newcommand\filepath{\docyear/\docmonth/\docday}
+  }
+\ExplSyntaxOff
 
 
 \begin{document}
@@ -23,16 +35,20 @@
 {
     \color{red!75!black}
     \rule\linewidth{1pt}
-    
+
     \vspace{-1em}
-    \section*{Test : \docyear-\docmonth-\docday}
-    
+    \section*{Test: \when}
+    \ExplSyntaxOff
     \vspace{-.75em}
     \rule\linewidth{1pt}
 }
 
+
+\small
+
 \bigskip
 
-%\input{\docyear/\docmonth/\docday}
+\tdocversion{1.2.3-rc.4}[5678-90-12]
+\input{\filepath}
 
 \end{document}
