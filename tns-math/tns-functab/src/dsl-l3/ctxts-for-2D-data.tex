@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -16,18 +16,18 @@ Voici les contextes disponibles pour les images d'une seule fonction à deux var
 \medskip
 
 \begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
-	\item \tdocinlatex{xvals}
+	\item \tdoclatexin{xvals}
 
-	\item \tdocinlatex{yvals}
+	\item \tdoclatexin{yvals}
 
-	\item \tdocinlatex{mat}
+	\item \tdoclatexin{mat}
 \end{itemize*}
 
 
 % --------------- %
 
 
-\subsubsection{Le contexte \tdocinlatex{xvals} pour la 1ière variable}
+\subsubsection{Le contexte \tdoclatexin{xvals} pour la 1ière variable}
 
 Voir la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} donnant la syntaxe attendue.
 

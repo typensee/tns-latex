@@ -1,8 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
-
-%\usepackage{../macroenv/macroenv}
+\usepackage{../preamble.cfg}
 
 
 \begin{document}
@@ -14,13 +12,17 @@
 \maketitle
 
 \begin{abstract}
-    Le paquet \thispack\ fournit des moyens intuitifs et efficaces pour taper de petits tableaux de données, ainsi que des tableaux de signes et de variations de fonctions mathématiques% remplies éventuellement via des \tdocquote{fonctions informatiques}
+    Le paquet \thisproj\,%
+    \footnote{
+        Le nom vient de \tdocquote{\tdocprewhy{t.ype} \tdocpre{n} (and) \tdocprewhy{s.ee} \tdocprewhy{func.tion} \tdocprewhy{tab.le}} qui se traduit en \tdocquote{taper et voir des tableaux de fonctions}.
+    }
+    fournit des moyens intuitifs et efficaces pour taper de petits tableaux de données, ainsi que des tableaux de signes et de variations de fonctions mathématiques% remplies éventuellement via des \tdocquote{fonctions informatiques}
     %\footnote{
     %	La référence à \tdocquote{fonction} est donc polysémique.
     %}
-    , ceci se faisant via un langage de saisie intuitif.
+    , ceci se faisant via un langage de saisie intuitif.%
     \footnote{
-        En informatique, on parle de \texttt{DSL} soit \tdocquote{Domain Specific Language}\,, c'est-à-dire \tdocinEN{Langue spécifique à un domaine}\,.
+        Le terme technique est \texttt{DSL} soit \tdocquote{Domain Specific Language} qui signifie \tdocinEN{Langue spécifique à un domaine}\,.
     }
     Voici ce qui est proposé pour cette toute première version.
     \begin{enumerate}
@@ -38,9 +40,9 @@
     \noindent
     Deux points importants à noter.
     \begin{itemize}
-        \item Sans le paquet \tdocpack{nicematrix} qui fait tout le travail ingrat, le paquet \thispack\ n'aurait certainement pas vu le jour.
+        \item Sans le paquet \tdocpack{nicematrix} qui fait tout le travail ingrat, le paquet \thisproj\ n'aurait certainement pas vu le jour.
 
-        \item Cette documentation est aussi disponible en <<OTHER-LANGS>>.
+        \item Cette documentation est aussi disponible en <<DOC-LANGS>>.
     \end{itemize}
 \end{abstract}
     

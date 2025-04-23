@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZpc{} Plus étrange...}
+\PYG{c}{\PYGZpc{} f = 0         sur \PYGZob{}x\PYGZus{}1\PYGZcb{} U ]x\PYGZus{}2 ; x\PYGZus{}3[}
+\PYG{c}{\PYGZpc{} f non définie sur ]x\PYGZus{}1 : x\PYGZus{}2] U \PYGZob{}x\PYGZus{}3\PYGZcb{}}
+
+xvals = x\PYG{n+nb}{\PYGZus{}}1 , x\PYG{n+nb}{\PYGZus{}}2 , x\PYG{n+nb}{\PYGZus{}}3 ;
+signs =  0  u  !  z  !
+\end{MintedVerbatim}

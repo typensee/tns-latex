@@ -1,0 +1,15 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+xvals = 1 , 2 ;
+yvals = a , b , c , d ;
+
+\PYG{c}{\PYGZpc{} X \PYGZhy{}\PYGZhy{}\PYGZgt{} Colonnes}
+\PYG{c}{\PYGZpc{} Y \PYGZhy{}\PYGZhy{}\PYGZgt{} Lignes}
+\PYG{c}{\PYGZpc{} }
+\PYG{c}{\PYGZpc{} Un changement de ligne s\PYGZsq{}indique via \PYGZdq{};\PYGZdq{}.}
+\PYG{c}{\PYGZpc{}}
+\PYG{c}{\PYGZpc{} Bien mis en forme, le code est limpide.}
+mat = m : 1 \PYGZhy{} a , 2 \PYGZhy{} a ; 
+          1 \PYGZhy{} b , 2 \PYGZhy{} b ; 
+          1 \PYGZhy{} c , 2 \PYGZhy{} c ; 
+          1 \PYGZhy{} d , 2 \PYGZhy{} d
+\end{MintedVerbatim}

@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/ctxt-dsl}
 \usepackage{../main/main}
@@ -27,11 +27,11 @@ Voyons comment taper un tableau d'images d'une seule fonction à deux variables,
 
 
 \begin{tdocexa}[Avec des étiquettes de partout]
-    En plus de \tdocinlatex{xvals} pour les colonnes, il faut utiliser \tdocinlatex{yvals} pour renseigner les valeurs des lignes.
+    En plus de \tdoclatexin{xvals} pour les colonnes, il faut utiliser \tdoclatexin{yvals} pour renseigner les valeurs des lignes.
     Quant aux valeurs des cellules, elles se donnent comme suit.
     %
     \begin{itemize}
-    	\item Le contexte \tdocinlatex{mat} permet d'employer une écriture matricielle.
+    	\item Le contexte \tdoclatexin{mat} permet d'employer une écriture matricielle.
 
     	\item Pour une ligne, les valeurs sont séparées par des virgules.
 

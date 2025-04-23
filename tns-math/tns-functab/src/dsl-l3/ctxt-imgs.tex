@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -10,23 +10,23 @@
 %\section{La syntaxe du langage proposé}
 %\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
 
-\subsubsection{Le contexte \tdocinlatex{imgs} pour les images}
+\subsubsection{Le contexte \tdoclatexin{imgs} pour les images}
 \label{tns-math-functab-dsl-l3-ctxt-imgs}
 
-Le contexte \tdocinlatex{imgs} s'utilise comme le contexte \tdocinlatex{xvals}
+Le contexte \tdoclatexin{imgs} s'utilise comme le contexte \tdoclatexin{xvals}
 \footnote{
     Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} si besoin.
 }
 aux différences près suivantes.
 %
 \begin{enumerate}
-    \item L'emploi de \tdocinlatex{imgs} se fait autant de fois que nécessaire.
+    \item L'emploi de \tdoclatexin{imgs} se fait autant de fois que nécessaire.
 
 
-    \item Sémantiquement, on indique \tdocinlatex{monexpr : i1 , i2 , ... , in} où chaque \tdocinlatex{ik} est une image, éventuellement vide, et \tdocinlatex{monexpr} l'expression dont on donne les images.
+    \item Sémantiquement, on indique \tdoclatexin{monexpr : i1 , i2 , ... , in} où chaque \tdoclatexin{ik} est une image, éventuellement vide, et \tdoclatexin{monexpr} l'expression dont on donne les images.
 
 
-    \item Un seul des contextes peut ne pas nommer l'expression via \tdocinlatex{i1 , i2 , ... , in} afin d'utiliser $f$ qui est celle par défaut.
+    \item Un seul des contextes peut ne pas nommer l'expression via \tdoclatexin{i1 , i2 , ... , in} afin d'utiliser $f$ qui est celle par défaut.
 
 
     \item \textbf{Des cases consécutives vides facilement.}
@@ -34,9 +34,9 @@ aux différences près suivantes.
     \begin{itemize}
     	\item Il est possible d'omettre les cellules vides les plus à droite.
 
-    	\item La valeur particulière \tdocinlatex{..i} permet d'avoir $i$ cases vides consécutives où $i \geq 1$\,.
+    	\item La valeur particulière \tdoclatexin{..i} permet d'avoir $i$ cases vides consécutives où $i \geq 1$\,.
 
-    	\item On peut aussi utiliser une seule fois \tdocinlatex{..} qui demande de compléter avec le nombre de cases vides consécutives nécessaires pour obtenir une ligne complète.
+    	\item On peut aussi utiliser une seule fois \tdoclatexin{..} qui demande de compléter avec le nombre de cases vides consécutives nécessaires pour obtenir une ligne complète.
     \end{itemize}
 \end{enumerate}
 
@@ -59,12 +59,12 @@ aux différences près suivantes.
 
 Voici un code fictif illustrant les explications précédentes.
 
-\tdoclatexinput[code]{examples/dsl-l3/imgs-1D-n-co.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/imgs-1D-n-co.tex}
 
 
 Dans le cadre de processus automatisés, il est possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
 
-\tdoclatexinput[code]{examples/dsl-l3/imgs-1D-n-co-monster.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/imgs-1D-n-co-monster.tex}
 
 
 \end{document}

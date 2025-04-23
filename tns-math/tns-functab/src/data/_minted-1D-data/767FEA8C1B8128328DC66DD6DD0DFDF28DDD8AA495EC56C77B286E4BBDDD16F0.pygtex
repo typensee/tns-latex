@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZpc{} Packages used.}
+\PYG{c}{\PYGZpc{}   + \PYGZbs{}usepackage\PYGZob{}amsmath\PYGZcb{}}
+\PYG{c}{\PYGZpc{}   + \PYGZbs{}usepackage[locale=FR]\PYGZob{}siunitx\PYGZcb{}}
+
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}functable\PYG{n+nb}{\PYGZcb{}}
+    xvals = a , b                   , c                       ;
+    imgs  = 1 , \PYG{k}{\PYGZbs{}num}\PYG{n+nb}{\PYGZob{}}2345678.90123\PYG{n+nb}{\PYGZcb{}} , \PYG{k}{\PYGZbs{}dfrac}\PYG{n+nb}{\PYGZob{}}45\PYG{n+nb}{\PYGZcb{}\PYGZob{}}\PYG{k}{\PYGZbs{}num}\PYG{n+nb}{\PYGZob{}}67890\PYG{n+nb}{\PYGZcb{}\PYGZcb{}}
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}functable\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

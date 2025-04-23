@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -10,27 +10,27 @@
 %\section{La syntaxe du langage proposé}
 %\subsection{Les contextes pour les images de plusieurs fonctions à une variable}
 
-\subsubsection{Le contexte \tdocinlatex{xvals} pour les valeurs étudiées}
+\subsubsection{Le contexte \tdoclatexin{xvals} pour les valeurs étudiées}
 \label{tns-math-functab-dsl-l3-ctxt-xvals}
 
-Pour indiquer les valeurs nécessaires à la conception d'un tableau, il faut passer via le contexte \tdocinlatex{xvals} en respectant les règles ci-après.
+Pour indiquer les valeurs nécessaires à la conception d'un tableau, il faut passer via le contexte \tdoclatexin{xvals} en respectant les règles ci-après.
 %
 \begin{enumerate}
-    \item Le contexte \tdocinlatex{xvals} doit être employé une seule fois en tout début de code, hors commentaires, c'est-à-dire avant tout autre contexte.
+    \item Le contexte \tdoclatexin{xvals} doit être employé une seule fois en tout début de code, hors commentaires, c'est-à-dire avant tout autre contexte.
 
 
     \item Un seul contenu est utilisable en utilisant l'un des deux formats suivants où le nombre de valeurs n'est pas majoré.
     %
     \begin{itemize}
-        \item \tdocinlatex{ma_{var} : x1 , x2 , ... , xn} indique que les $n$ valeurs \tdocinlatex{x1} , \tdocinlatex{x2} , \dots\ , \tdocinlatex{xn} ont été données pour la variable nommée $ma_{var}$ avec $n \geq 1$\,.
+        \item \tdoclatexin{ma_{var} : x1 , x2 , ... , xn} indique que les $n$ valeurs \tdoclatexin{x1} , \tdoclatexin{x2} , \dots\ , \tdoclatexin{xn} ont été données pour la variable nommée $ma_{var}$ avec $n \geq 1$\,.
 
-        \item \tdocinlatex{x1 , x2 , ... , xn} indique que $n$ valeurs \tdocinlatex{x1} , \tdocinlatex{x2} , \dots\ , \tdocinlatex{xn} ont été données pour la variable nommée $x$ par défaut.
-        
+        \item \tdoclatexin{x1 , x2 , ... , xn} indique que $n$ valeurs \tdoclatexin{x1} , \tdoclatexin{x2} , \dots\ , \tdoclatexin{xn} ont été données pour la variable nommée $x$ par défaut.
+
         \item On peut utiliser des valeurs \enquote{vides}\,.
     \end{itemize}
 
 
-    \item \textbf{Des cases consécutives vides facilement :} la valeur particulière \tdocinlatex{..i} permet d'avoir $i$ cases vides consécutives où $i \geq 1$\,.
+    \item \textbf{Des cases consécutives vides facilement :} la valeur particulière \tdoclatexin{..i} permet d'avoir $i$ cases vides consécutives où $i \geq 1$\,.
 \end{enumerate}
 
 
@@ -39,11 +39,11 @@ Pour indiquer les valeurs nécessaires à la conception d'un tableau, il faut pa
 
 Voici des codes fictifs illustrant les règles précédentes.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl-l3/xvals-label.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/xvals-label.tex}
 
-    \tdoclatexinput[code]{examples/dsl-l3/xvals-no-label.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/xvals-no-label.tex}
 
-    \tdoclatexinput[code]{examples/dsl-l3/xvals-auto.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/xvals-auto.tex}
 \end{multicols}
 
 

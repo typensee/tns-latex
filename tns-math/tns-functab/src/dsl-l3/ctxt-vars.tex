@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -10,33 +10,33 @@
 %\section{La syntaxe du langage proposé}
 %\subsection{Les contextes pour les signes et/ou les variations}
 
-\subsubsection{Le contexte \tdocinlatex{vars} pour les variations}
+\subsubsection{Le contexte \tdoclatexin{vars} pour les variations}
 
-La logique d'utilisation et d'organisation des informations pour le contexte \tdocinlatex{vars} est similaire à celle du contexte \tdocinlatex{signs}\,, nous indiquons donc juste les différences.
+La logique d'utilisation et d'organisation des informations pour le contexte \tdoclatexin{vars} est similaire à celle du contexte \tdoclatexin{signs}\,, nous indiquons donc juste les différences.
 %
 \begin{enumerate}
-    \item Voici les informations possibles pour le comportement d'une expression $f$ en supposant que $n$ valeurs pivots \tdocinlatex{x1}\,, \tdocinlatex{x2}\,, \dots\ , \tdocinlatex{xn} ont été données via \tdocinlatex{xvals = x1 , x2 , ... , xn}\,. De nouveau, nous posons $p = n - 1$\,.
+    \item Voici les informations possibles pour le comportement d'une expression $f$ en supposant que $n$ valeurs pivots \tdoclatexin{x1}\,, \tdoclatexin{x2}\,, \dots\ , \tdoclatexin{xn} ont été données via \tdoclatexin{xvals = x1 , x2 , ... , xn}\,. De nouveau, nous posons $p = n - 1$\,.
     %
     \begin{itemize}
-	    \item Un seul contexte \tdocinlatex{vars} peut ne pas nommer l'expression pour utiliser $f$ le nom par défaut, les autres devront le faire via \tdocinlatex{monexpr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir ce qui suit).
+	    \item Un seul contexte \tdoclatexin{vars} peut ne pas nommer l'expression pour utiliser $f$ le nom par défaut, les autres devront le faire via \tdoclatexin{monexpr : ...} où les points de suspension spécifient les informations liées au comportement de l'expression (voir ce qui suit).
 
 
         \item A minima, il faut indiquer
-        \tdocinlatex{v1 v2 ... vp}
+        \tdoclatexin{v1 v2 ... vp}
         où
-        \tdocinlatex{v1} , \tdocinlatex{v2} , \dots\ , \tdocinlatex{vp}
+        \tdoclatexin{v1} , \tdoclatexin{v2} , \dots\ , \tdoclatexin{vp}
         donnent des informations sur les $p$ intervalles ouverts
-        \tdocinlatex{]x1 ; x2[} , \tdocinlatex{]x2 ; x3[} , \dots\ , \tdocinlatex{]xp ; xn[} respectivement.
-        Les valeurs possibles pour les \tdocinlatex{vk} sont les suivantes.
+        \tdoclatexin{]x1 ; x2[} , \tdoclatexin{]x2 ; x3[} , \dots\ , \tdoclatexin{]xp ; xn[} respectivement.
+        Les valeurs possibles pour les \tdoclatexin{vk} sont les suivantes.
         %
         \begin{enumerate}
-            \item \tdocinlatex{<} indique une expression strictement croissante sur l'intervalle concerné.
+            \item \tdoclatexin{<} indique une expression strictement croissante sur l'intervalle concerné.
 
-            \item \tdocinlatex{>} indique une expression strictement décroissante sur l'intervalle concerné.
+            \item \tdoclatexin{>} indique une expression strictement décroissante sur l'intervalle concerné.
 
-            \item \tdocinlatex{=} indique une expression constante sur l'intervalle concerné.
+            \item \tdoclatexin{=} indique une expression constante sur l'intervalle concerné.
 
-            \item \tdocinlatex{u} indique une expression non définie sur l'intervalle concerné (comme pour les signes).
+            \item \tdoclatexin{u} indique une expression non définie sur l'intervalle concerné (comme pour les signes).
         \end{enumerate}
 
 
@@ -45,35 +45,35 @@ La logique d'utilisation et d'organisation des informations pour le contexte \td
         \begin{enumerate}
             \item L'absence d'expression est possible pour ne rien indiquer du tout.
 
-            \item Toute expression sans lettre \tdocinlatex{u}, ni ponctuation \tdocinlatex{!} est interprétée comme une valeur image au format mathématique \LaTeX.
+            \item Toute expression sans lettre \tdoclatexin{u}, ni ponctuation \tdoclatexin{!} est interprétée comme une valeur image au format mathématique \LaTeX.
 
-            \item Une valeur image contenant \tdocinlatex{u} et/ou la ponctuation \tdocinlatex{!} en tant que \tdocquote{token \LaTeX} devra être protégée par des accolades. Ceci vient du fait que dans le langage codant les variations ces deux caractères ont une signification spéciale (voir ci-dessus et l'item suivant).
+            \item Une valeur image contenant \tdoclatexin{u} et/ou la ponctuation \tdoclatexin{!} en tant que \tdocquote{token \LaTeX} devra être protégée par des accolades. Ceci vient du fait que dans le langage codant les variations ces deux caractères ont une signification spéciale (voir ci-dessus et l'item suivant).
 
-            \item \tdocinlatex{!} indique que
+            \item \tdoclatexin{!} indique que
 l'expression n'est pas définie au pivot concerné.
             On peut aussi, si besoin, indiquer des limites à gauche et/ou à droite. Voici les cas possibles.
             %
             \begin{itemize}[label={\scriptsize o}]
-                \item \tdocinlatex{!} utilisé seul n'indique aucune limite.
+                \item \tdoclatexin{!} utilisé seul n'indique aucune limite.
 
 
-                \item  \tdocinlatex{! d} indique juste $d$ comme limite à droite.
+                \item  \tdoclatexin{! d} indique juste $d$ comme limite à droite.
 
                 \textbf{Cette syntaxe est interdite pour le tout dernier pivot.}
 
 
-                \item \tdocinlatex{g !} indique juste $g$ comme limite à gauche.
+                \item \tdoclatexin{g !} indique juste $g$ comme limite à gauche.
 
                 \textbf{Cette syntaxe est interdite pour le tout premier pivot.}
 
 
-                \item  \tdocinlatex{g ! d} indique $g$ et $d$ comme limites à gauche et à droite respectivement.
+                \item  \tdoclatexin{g ! d} indique $g$ et $d$ comme limites à gauche et à droite respectivement.
 
                 \textbf{Cette syntaxe est interdite pour les premier et dernier pivots.}
             \end{itemize}
         \end{enumerate}
-        
-    
+
+
     	\item \textbf{Il est possible de renseigner une ligne partiellement.}
     \end{itemize}
 \end{enumerate}
@@ -98,16 +98,16 @@ l'expression n'est pas définie au pivot concerné.
 
 Voici deux codes fictifs illustrant les explications précédentes ; noter au passage que les espaces ignorés permettent d'obtenir un résultat humainement très clair.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl-l3/vars-always-defined.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/vars-always-defined.tex}
 
-    \tdoclatexinput[code]{examples/dsl-l3/vars-with-undefined.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/vars-with-undefined.tex}
 \end{multicols}
 
 Dans le cadre de processus automatisés, il est possible de produire les horreurs suivantes qui aboutiront aux mêmes sorties que les codes correspondants ci-dessus.
 \begin{multicols}{2}
-    \tdoclatexinput[code]{examples/dsl-l3/vars-always-defined-monster.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/vars-always-defined-monster.tex}
 
-    \tdoclatexinput[code]{examples/dsl-l3/vars-with-undefined-monster.tex}
+    \tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/vars-with-undefined-monster.tex}
 \end{multicols}
 
 \end{document}

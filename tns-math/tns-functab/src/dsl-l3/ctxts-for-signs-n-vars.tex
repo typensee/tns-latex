@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -16,23 +16,23 @@ Voici les contextes disponibles pour les signes et/ou les variations.
 \medskip
 
 \begin{itemize*}[before = \leavevmode\kern15pt, itemjoin = \kern15pt]
-	\item \tdocinlatex{xvals}
+	\item \tdoclatexin{xvals}
 
-	\item \tdocinlatex{signs}
+	\item \tdoclatexin{signs}
 
-	\item \tdocinlatex{vars}
+	\item \tdoclatexin{vars}
 \end{itemize*}
 
 
 \begin{tdocnote}
-	On peut utiliser au choix \tdocinlatex{signs} ou \tdocinlatex{vars} de façon isolée.
+	On peut utiliser au choix \tdoclatexin{signs} ou \tdoclatexin{vars} de façon isolée.
 \end{tdocnote}
 
 
 % --------------- %
 
 
-\subsubsection{Le contexte \tdocinlatex{xvals} pour les valeurs pivots}
+\subsubsection{Le contexte \tdoclatexin{xvals} pour les valeurs pivots}
 
 Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-xvals} donnant la syntaxe attendue ; ce qui échange ici est que les valeurs données sont des valeurs pivots liées aux intervalles sur lesquels on donne des informations.
 

@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -10,32 +10,32 @@
 %\section{La syntaxe du langage proposé}
 %\subsection{Les contextes pour les images d'une seule fonction à deux variables}
 
-\subsubsection{Le contexte \tdocinlatex{mat} pour les images}
+\subsubsection{Le contexte \tdoclatexin{mat} pour les images}
 
-Le contexte \tdocinlatex{mat} s'utilise comme le contexte \tdocinlatex{imgs}
+Le contexte \tdoclatexin{mat} s'utilise comme le contexte \tdoclatexin{imgs}
 \footnote{
     Se reporter à la section \ref{tns-math-functab-dsl-l3-ctxt-imgs} si besoin.
 }
 aux différences près suivantes.
 %
 \begin{enumerate}
-    \item L'emploi de \tdocinlatex{mat} se fait une fois par ligne de la matrice des données.
-    Sémantiquement, on indique \tdocinlatex{e_i1 , e_i2 , ... , e_in} où chaque \tdocinlatex{e_ik} sert à donner la valeur, éventuellement vide, de l'entrée dans la ligne \tdocinlatex{i} et la colonne \tdocinlatex{k}\,.
+    \item L'emploi de \tdoclatexin{mat} se fait une fois par ligne de la matrice des données.
+    Sémantiquement, on indique \tdoclatexin{e_i1 , e_i2 , ... , e_in} où chaque \tdoclatexin{e_ik} sert à donner la valeur, éventuellement vide, de l'entrée dans la ligne \tdoclatexin{i} et la colonne \tdoclatexin{k}\,.
 
-    \item Seul le 1\ier\ emploi de \tdocinlatex{mat} permet de changer le nom de l'expression, $f$ étant celle utilisée par défaut.
+    \item Seul le 1\ier\ emploi de \tdoclatexin{mat} permet de changer le nom de l'expression, $f$ étant celle utilisée par défaut.
 \end{enumerate}
 
 
 Voici un code fictif illustrant la logique de saisie.
 
-\tdoclatexinput[code]{examples/dsl-l3/imgs-2D.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/imgs-2D.tex}
 
 
 % --------------- %
 
 Comme les espaces autour des ponctutations ne sont pas obligatoires, dans le cadre de processus automatisés, il sera possible de produire l'horreur suivante qui aboutira à la même sortie que le code ci-dessus.
 
-\tdoclatexinput[code]{examples/dsl-l3/imgs-2D-monster.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-l3/imgs-2D-monster.tex}
 
 
 \end{document}

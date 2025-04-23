@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/main}
 
@@ -14,7 +14,7 @@
 L'organisation des blocs d'informations se fait en respectant les règles suivantes.
 %
 \begin{enumerate}
-    \item Les commentaires se font uniquement à la sauce \LaTeX\ via \tdocinlatex{% Mon commentaire} par exemple.
+    \item Les commentaires se font uniquement à la sauce \LaTeX\ via \tdoclatexin{% Mon commentaire} par exemple.
 
 
     \item Les lignes vides sont autorisées.
@@ -33,7 +33,7 @@ L'organisation des blocs d'informations se fait en respectant les règles suivan
 
         \item Tout contenu est associé à un contexte.
 
-        \item Un nouveau contexte s'indique en début de contenu via \tdocinlatex{nom_contexte = contenu_1 ; ...} sans nécessité d'indiquer à chaque fois le contexte.
+        \item Un nouveau contexte s'indique en début de contenu via \tdoclatexin{nom_contexte = contenu_1 ; ...} sans nécessité d'indiquer à chaque fois le contexte.
 
         \item \textbf{Aucun contexte par défaut n'est initialement défini.}
     \end{itemize}

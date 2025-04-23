@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZpc{} g croit de 5 à 7   sur ]x\PYGZus{}1 ; x\PYGZus{}2[}
+\PYG{c}{\PYGZpc{} g est constante    sur [x\PYGZus{}2 ; x\PYGZus{}3]}
+\PYG{c}{\PYGZpc{} g décroit de 7 à 0 sur ]x\PYGZus{}3 ; x\PYGZus{}4[}
+
+\PYG{c}{\PYGZpc{} 5 = valeur en x\PYGZus{}1}
+\PYG{c}{\PYGZpc{} 7 = valeur en x\PYGZus{}2 et x\PYGZus{}3}
+\PYG{c}{\PYGZpc{} 0 = valeur en x\PYGZus{}4}
+
+xvals =     x\PYG{n+nb}{\PYGZus{}}1 , x\PYG{n+nb}{\PYGZus{}}2 , x\PYG{n+nb}{\PYGZus{}}3 , x\PYG{n+nb}{\PYGZus{}}4 ;
+vars  = g :  5  \PYGZlt{}  7  =  7  \PYGZgt{}  0
+\end{MintedVerbatim}

@@ -1,6 +1,6 @@
-\documentclass[10pt, a4paper]{tutodoc}
+\documentclass{tutodoc}
 
-\input{../preamble.cfg.tex}
+\usepackage{../preamble.cfg}
 
 \usepackage{../main/ctxt-dsl}
 \usepackage{../main/main}
@@ -38,17 +38,17 @@ Nous allons voir dans cette section comment saisir de petits tableaux de donnée
 Les valeurs pivots, qui sont celles dont on veut indiquer les images, s'indiquent de deux façons.
 %
 \begin{enumerate}
-	\item \tdocinlatex{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable nommée $x$ par défaut.
+	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable nommée $x$ par défaut.
 
-	\item \tdocinlatex{xvals = mavar : x1 , x2 , ... , xn} permet de renommer la variable en $mavar$\,.
+	\item \tdoclatexin{xvals = mavar : x1 , x2 , ... , xn} permet de renommer la variable en $mavar$\,.
 \end{enumerate}
 
 
-Une fois ceci fait, il faut renseigner les différentes images en donnant obligatoirement la formule de l'expression étudiée en passant via \tdocinlatex{imgs = monexpr : i1 , i2 , ... , in}\,.
+Une fois ceci fait, il faut renseigner les différentes images en donnant obligatoirement la formule de l'expression étudiée en passant via \tdoclatexin{imgs = monexpr : i1 , i2 , ... , in}\,.
 
 \medskip
 
-En résumé, tout se passe via \tdocinlatex{xvals = ...} pour les valeurs pivots, et \tdocinlatex{imgs = ...} pour les images.
+En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots, et \tdoclatexin{imgs = ...} pour les images.
 
 % --------------- %
 
@@ -66,7 +66,7 @@ En résumé, tout se passe via \tdocinlatex{xvals = ...} pour les valeurs pivots
 
 
 \begin{tdocwarn}
-	L'utilisation de \tdocinlatex{xvals} doit être faite une fois, et une seule, au tout début du contenu.
+	L'utilisation de \tdoclatexin{xvals} doit être faite une fois, et une seule, au tout début du contenu.
 \end{tdocwarn}
 
 
