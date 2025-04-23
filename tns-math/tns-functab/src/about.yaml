@@ -1,7 +1,6 @@
 texfacto:
   doc:
-    pack:
-      preamble: preamble.cfg.tex
+    preamble: preamble.cfg.tex
 
 toc:
 # The main starting point.

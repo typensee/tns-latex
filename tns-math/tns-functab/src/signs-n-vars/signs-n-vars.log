@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  23 APR 2025 16:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  23 APR 2025 21:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1129,88 +1129,6 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \backup@length=\skip89
 \ar@cellbox=\box148
 )))
-(../main/main.sty
-(/usr/local/texlive/2025/texmf-dist/tex/latex/nicematrix/nicematrix.sty
-Package: nicematrix 2025/03/30 v7.1b Enhanced arrays with the help of PGF/TikZ
-\g__nicematrix_env_int=\count404
-\g__nicematrix_NiceMatrixBlock_int=\count405
-\g__nicematrix_notes_caption_int=\count406
-\l__nicematrix_columns_width_dim=\dimen324
-\l__nicematrix_col_width_dim=\dimen325
-\g__nicematrix_row_total_int=\count407
-\g__nicematrix_col_total_int=\count408
-\g__nicematrix_last_row_node_int=\count409
-\l__nicematrix_key_nb_rows_int=\count410
-\g__nicematrix_blocks_wd_dim=\dimen326
-\g__nicematrix_blocks_ht_dim=\dimen327
-\g__nicematrix_blocks_dp_dim=\dimen328
-\l__nicematrix_width_dim=\dimen329
-\l__nicematrix_tabular_width_dim=\dimen330
-\l__nicematrix_rule_width_dim=\dimen331
-\l__nicematrix_old_iRow_int=\count411
-\l__nicematrix_old_jCol_int=\count412
-\g__nicematrix_total_X_weight_int=\count413
-\l__nicematrix_X_columns_dim=\dimen332
-\l__nicematrix_x_initial_dim=\dimen333
-\l__nicematrix_y_initial_dim=\dimen334
-\l__nicematrix_x_final_dim=\dimen335
-\l__nicematrix_y_final_dim=\dimen336
-\l__nicematrix_tmpc_dim=\dimen337
-\l__nicematrix_tmpd_dim=\dimen338
-\l__nicematrix_tmpe_dim=\dimen339
-\l__nicematrix_tmpf_dim=\dimen340
-\g__nicematrix_dp_row_zero_dim=\dimen341
-\g__nicematrix_ht_row_zero_dim=\dimen342
-\g__nicematrix_ht_row_one_dim=\dimen343
-\g__nicematrix_dp_ante_last_row_dim=\dimen344
-\g__nicematrix_ht_last_row_dim=\dimen345
-\g__nicematrix_dp_last_row_dim=\dimen346
-\g__nicematrix_width_last_col_dim=\dimen347
-\g__nicematrix_width_first_col_dim=\dimen348
-\l__nicematrix_row_min_int=\count414
-\l__nicematrix_row_max_int=\count415
-\l__nicematrix_col_min_int=\count416
-\l__nicematrix_col_max_int=\count417
-\l__nicematrix_start_int=\count418
-\l__nicematrix_end_int=\count419
-\l__nicematrix_local_start_int=\count420
-\l__nicematrix_local_end_int=\count421
-\g__nicematrix_static_num_of_col_int=\count422
-\l__nicematrix_rounded_corners_dim=\dimen349
-\l__nicematrix_tab_rounded_corners_dim=\dimen350
-\l__nicematrix_offset_dim=\dimen351
-\l__nicematrix_line_width_dim=\dimen352
-\g__nicematrix_block_box_int=\count423
-\l__nicematrix_submatrix_extra_height_dim=\dimen353
-\l__nicematrix_submatrix_left_xshift_dim=\dimen354
-\l__nicematrix_submatrix_right_xshift_dim=\dimen355
-\l__nicematrix_first_row_int=\count424
-\l__nicematrix_first_col_int=\count425
-\l__nicematrix_last_row_int=\count426
-\l__nicematrix_last_col_int=\count427
-\c@tabularnote=\count428
-\g__nicematrix_tabularnote_int=\count429
-\c@nicematrix_draft=\count430
-\l__nicematrix_cell_space_top_limit_dim=\dimen356
-\l__nicematrix_cell_space_bottom_limit_dim=\dimen357
-\l__nicematrix_xdots_inter_dim=\dimen358
-\l__nicematrix_xdots_shorten_start_dim=\dimen359
-\l__nicematrix_xdots_shorten_end_dim=\dimen360
-\l__nicematrix_xdots_radius_dim=\dimen361
-\l__nicematrix_notes_above_space_dim=\dimen362
-\l__nicematrix_left_margin_dim=\dimen363
-\l__nicematrix_right_margin_dim=\dimen364
-\l__nicematrix_extra_left_margin_dim=\dimen365
-\l__nicematrix_extra_right_margin_dim=\dimen366
-\c__nicematrix_max_l_dim=\dimen367
-\l__nicematrix_position_int=\count431
-\l__nicematrix_multiplicity_int=\count432
-\l__nicematrix_brace_yshift_dim=\dimen368
-)
-\g_tns_functab_ID_int=\count433
-\l__tns_functab_context_line_int=\count434
-)
-(../signs/signs.sty) (../vars/vars.sty)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
@@ -1219,7 +1137,10 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
 
-No file signs-n-vars.aux.
+(./signs-n-vars.aux
+Package babel Info: 'french' activates 'french' shorthands.
+(babel)             Reported  on input line 14.
+)
 \openout1 = `signs-n-vars.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -1240,6 +1161,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1285,16 +1207,16 @@ or `french'. on input line 12.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count435
-\scratchdimen=\dimen369
+\scratchcounter=\count404
+\scratchdimen=\dimen324
 \scratchbox=\box149
-\nofMPsegments=\count436
-\nofMParguments=\count437
+\nofMPsegments=\count405
+\nofMParguments=\count406
 \everyMPshowfont=\toks57
-\MPscratchCnt=\count438
-\MPscratchDim=\dimen370
-\MPnumerator=\count439
-\makeMPintoPDFobject=\count440
+\MPscratchCnt=\count407
+\MPscratchDim=\dimen325
+\MPnumerator=\count408
+\makeMPintoPDFobject=\count409
 \everyMPtoPDFconversion=\toks58
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1306,6 +1228,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package hyperref Info: Link coloring ON on input line 12.
+
+(./signs-n-vars.out) (./signs-n-vars.out)
 \@outlinefile=\write5
 \openout5 = `signs-n-vars.out'.
 
@@ -1324,11 +1248,9 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
-\BKM@id=\count441
+\BKM@id=\count410
 ))
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tutodoc/tutodoc-fr.loc.cls)
-Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported  on input line 12.
 LaTeX Info: Redefining \degres on input line 12.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
@@ -1337,45 +1259,35 @@ Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
 (french.ldf)             reported on input line 12.
 LaTeX Info: Redefining \up on input line 12.
-\c__nicematrix_shift_Ldots_last_row_dim=\dimen371
-\c__nicematrix_shift_exterior_Vdots_dim=\dimen372
-\c__nicematrix_innersep_middle_dim=\dimen373
-\c@tabularnotesi=\count442
-\enitdp@tabularnotes=\count443
-\c@tabularnotes*i=\count444
-\enitdp@tabularnotes*=\count445
 
 
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+runsystem(latexminted cleantemp  --timestamp 20250423211015 7FA8AACD09DBC9250D6
+46D741525493D)...executed.
+
+
 (./signs-n-vars.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
-
-
-Package rerunfilecheck Warning: File `signs-n-vars.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `signs-n-vars.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `signs-n-vars.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 45841 strings out of 469626
- 1060593 string characters out of 5471004
- 1674227 words of memory out of 5000000
- 72091 multiletter control sequences out of 15000+600000
+ 43579 strings out of 469626
+ 983710 string characters out of 5471004
+ 1597031 words of memory out of 5000000
+ 69839 multiletter control sequences out of 15000+600000
  629880 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  139i,7n,141p,10922b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on signs-n-vars.pdf (1 page, 35261 bytes).
+Output written on signs-n-vars.pdf (1 page, 35454 bytes).
 PDF statistics:
  32 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream

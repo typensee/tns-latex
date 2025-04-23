@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  23 APR 2025 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  23 APR 2025 21:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1137,7 +1137,10 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
 
-No file test_one_date.aux.
+(./test_one_date.aux
+Package babel Info: 'french' activates 'french' shorthands.
+(babel)             Reported  on input line 13.
+)
 \openout1 = `test_one_date.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -1158,6 +1161,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1224,6 +1228,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package hyperref Info: Link coloring ON on input line 34.
+
+(./test_one_date.out) (./test_one_date.out)
 \@outlinefile=\write5
 \openout5 = `test_one_date.out'.
 
@@ -1245,8 +1251,6 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 \BKM@id=\count410
 ))
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tutodoc/tutodoc-fr.loc.cls)
-Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported  on input line 34.
 LaTeX Info: Redefining \degres on input line 34.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
@@ -1255,16 +1259,32 @@ Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
 (french.ldf)             reported on input line 34.
 LaTeX Info: Redefining \up on input line 34.
-Package marginnote Info: right page because not two side mode on input line 53.
+Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 57
+.
+Package marginnote Info: right page because not two side mode on input line 57.
 
-Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 53.
+Package marginnote Info: xpos seems to be 64.01869pt on input line 57.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
+nput line 58.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree0.fd
+)
+
+LaTeX Font Warning: Font shape `T1/cmss/bx/sc' undefined
+(Font)              using `T1/cmss/bx/n' instead on input line 58.
 
 (./next.tex)
 
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local
+/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc}{/usr/local/
+texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+runsystem(latexminted cleantemp  --timestamp 20250423211331 33FE90B7B9A80BE1275
+7335743FB8E7B)...executed.
+
+
 (./test_one_date.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -1272,33 +1292,30 @@ L3 programming layer <2020/03/25>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `test_one_date.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `test_one_date.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `test_one_date.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 43592 strings out of 469626
- 983873 string characters out of 5471004
- 1598066 words of memory out of 5000000
- 69854 multiletter control sequences out of 15000+600000
- 631413 words of font info for 46 fonts, out of 8000000 for 9000
+ 43641 strings out of 469626
+ 985076 string characters out of 5471004
+ 1600066 words of memory out of 5000000
+ 69887 multiletter control sequences out of 15000+600000
+ 632785 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  139i,7n,141p,10923b,1127s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on test_one_date.pdf (1 page, 41329 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/fontawesome5/FontAweso
+me5Free-Regular.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-s
+uper/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-sup
+er/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super
+/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/s
+fsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfs
+x1440.pfb>
+Output written on test_one_date.pdf (1 page, 84882 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
+ 55 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

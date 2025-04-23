@@ -22,34 +22,43 @@
 
 \ExplSyntaxOn
   \int_compare:nTF { \docday = 0 } {
-  	\newcommand\when{NEXT ~ (draft)}
-  	\newcommand\filepath{next}
+      \newcommand\when{NEXT ~ (draft)}
+      \newcommand\filepath{next}
   } {
-  	\newcommand\when{\docyear-\docmonth-\docday}
-  	\newcommand\filepath{\docyear/\docmonth/\docday}
+      \newcommand\when{\docyear-\docmonth-\docday}
+      \newcommand\filepath{\docyear/\docmonth/\docday}
   }
 \ExplSyntaxOff
 
 
 \begin{document}
 
-{
+\bgroup
     \color{red!75!black}
     \rule\linewidth{1pt}
 
     \vspace{-1em}
-    \section*{Test: \when}
-    \ExplSyntaxOff
+    \section*{\color{red!75!black} Test: \when}
+
     \vspace{-.75em}
     \rule\linewidth{1pt}
-}
+\egroup
 
 
 \small
 
 \bigskip
 
-\tdocversion{1.2.3-rc.4}[5678-90-12]
+\begin{tdoctodo}[
+    col       = ForestGreen,
+    col-chges = Goldenrod,
+    date      = 5678-90-12,
+    version   = 1.2.3-rc.4
+]
+    \item Voilà comment sera daté le tout premier type de changements, mais avec des couleurs plus sobres.
+\end{tdoctodo}
+
+
 \input{\filepath}
 
 \end{document}
