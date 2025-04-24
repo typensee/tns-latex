@@ -3,6 +3,16 @@ tns-functab - TODO
 ===========
 
 
+partir de zéro en -grdanat la prédoc déjà écrite.
+
+    --> ceci permet de forunir le proj au fil de son amélioration
+
+    --> on peut envisager l'autmoatusation
+
+    --> pas de surcharge cogntive car là y a trop de chises !!!
+
+
+
 // ---------- //
 
 
