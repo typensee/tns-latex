@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}functable\PYG{n+nb}{\PYGZcb{}}
-    xvals =    t : 10    , 20        , 30          ;
-    imgs  = a(t) : a     , B \PYG{k}{\PYGZbs{}cdot} B , \PYG{k}{\PYGZbs{}frac}\PYG{n+nb}{\PYGZob{}}c\PYG{n+nb}{\PYGZcb{}\PYGZob{}}c\PYG{n+nb}{\PYGZcb{}} ;
-            b(t) : x \PYGZhy{} y , \PYG{k}{\PYGZbs{}cos} z    , t\PYG{n+nb}{\PYGZus{}}0
-\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}functable\PYG{n+nb}{\PYGZcb{}}
-\end{Verbatim}

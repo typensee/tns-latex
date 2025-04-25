@@ -1,7 +1,0 @@
-texfacto:
-  doc:
-    pack:
-      preamble: preamble.cfg.tex
-
-# toc:
-#   - ???

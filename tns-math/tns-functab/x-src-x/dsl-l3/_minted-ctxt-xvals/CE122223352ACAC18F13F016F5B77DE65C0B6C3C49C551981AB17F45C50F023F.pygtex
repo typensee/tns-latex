@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{c}{\PYGZpc{} Avec t une variable \PYGZdq{}maison\PYGZdq{}.}
-xvals = t : a , b , c
-\end{Verbatim}
