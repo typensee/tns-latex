@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}functable\PYG{n+nb}{\PYGZcb{}}
+    xvals = 1      ,  2   ,    3    ;
+    imgs  = 1\PYG{n+nb}{\PYGZus{}}\PYG{n+nb}{\PYGZob{}}un\PYG{n+nb}{\PYGZcb{}} ,  2\PYG{n+nb}{\PYGZca{}}2 , 3\PYG{n+nb}{\PYGZca{}}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZca{}}3\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}functable\PYG{n+nb}{\PYGZcb{}}
+\end{MintedVerbatim}

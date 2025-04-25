@@ -2,13 +2,13 @@
 
 \usepackage{../preamble.cfg}
 
-\usepackage{../main/ctxt-dsl}
+\usepackage{../main/core-ctxt-dsl}
 \usepackage{../main/main}
 
 
 % TESTING LOCAL IMPLEMENTATION %
 
-\usepackage{data}
+\usepackage{data-1D}
 
 
 \begin{document}
@@ -56,7 +56,7 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 \begin{tdocexa}[Une seule fonction avec la variable par défaut]
     \leavevmode
 
-    \tdoclatexinput{examples/1D-data/one-func-no-label.tex}
+    \tdoclatexinput{examples/data-1D/one-func-no-label.tex}
 \end{tdocexa}
 
 
@@ -76,7 +76,7 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 \begin{tdocexa}[Deux fonctions pour une variable \tdocquote{maison}]
     \leavevmode
 
-    \tdoclatexinput{examples/1D-data/two-func-label.tex}
+    \tdoclatexinput{examples/data-1D/two-func-label.tex}
 \end{tdocexa}
 
 
@@ -86,7 +86,7 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 \begin{tdocexa}[Commentaires à la sauce \LaTeX]
     \leavevmode
 
-    \tdoclatexinput{examples/1D-data/comments.tex}
+    \tdoclatexinput{examples/data-1D/comments.tex}
 \end{tdocexa}
 
 
@@ -101,7 +101,7 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
     }
     venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement, il est facile de rédiger des nombres décimaux, et d'obtenir de \tdocquote{grandes} fractions comme le montre l'exemple suivant.
 
-    \tdoclatexinput{examples/1D-data/num-n-dfrac.tex}
+    \tdoclatexinput{examples/data-1D/num-n-dfrac.tex}
 \end{tdoctip}
 
 \end{document}

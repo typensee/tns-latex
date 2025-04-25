@@ -1,0 +1,24 @@
+toc:
+  - intro.tex
+  - struct.tex
+
+
+
+#   # 1 var functions - Images
+#   - ctxts-for-1D-data.tex
+#   - ctxt-xvals.tex
+#   #TODO - ctxt-xvals-star.tex
+#   - ctxt-imgs.tex
+#   #TODO - ctxt-imgs-star.tex
+# # 2 var functions - Images
+#   - ctxts-for-2D-data.tex
+#   - ctxt-yvals.tex
+#   #TODO - ctxt-yvals-star.tex
+#   - ctxt-mat.tex
+#   #TODO - ctxt-mat-star.tex
+# # 1 var functions - Signs / Variations
+#   - ctxts-for-signs-n-vars.tex
+#   - ctxt-signs.tex
+#   #TODO - ctxt-signs-star.tex
+#   - ctxt-vars.tex
+#   #TODO - ctxt-vars-star.tex

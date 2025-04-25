@@ -9,4 +9,8 @@
 :break:
 -------
 
-The real coding begins: the research work has been kept, but made invisible on the repository (moving from a small code to a large one is easier).
+The real coding begins (we will move from a small code to a large one).
+
+    1) The "doc-before-code" research done has been kept, but made invisible on the repository.
+
+    2) The \dsl \specs will be indicated in a dedicated \yaml file.

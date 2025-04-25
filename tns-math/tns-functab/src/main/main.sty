@@ -56,7 +56,8 @@
 % Temporary internal ID.
 \tl_new:N \l__tns_functab_tmp_ID_tl
 
-% Line number of the context (comments and empty lines are ignored).
+% Relative, and not global, line number of the context (comments and
+% empty lines are ignored).
 \int_new:N \l__tns_functab_context_line_int
 
 
@@ -87,9 +88,10 @@
 \cs_new:Npn \tns_functab_functable:nn #1#2 {
 % TODO : Options to use.
 
-% Internal IDs.
+% Internal ID nb. that is global to the TeX file compiled.
   \int_gincr:N \g_tns_functab_ID_int
 
+% Parsing the agnostic "context" DSL code.
   \tl_set:Nn \l__tns_functab_tmp_ID_tl {
     -:-
       functable.pre.parsing.contexts.
@@ -97,7 +99,6 @@
     -:-
   }
 
-% Parsing the agnostic "context" DSL code.
   \tns_functab_core_DSL_ctxt_parser:NnN
     { \l__tns_functab_tmp_ID_tl }
     { #2 }
@@ -117,7 +118,9 @@
   \tns_functab_validate_ctxts_seq:n
     { \tl_use:N \l__tns_functab_tmp_ID_tl }
 
-% We can now build internal data for future use.
+% TODO : The options to use (some options are specific to some kind of table).
+
+% Let's do what the user wants.
   \use:c {
     tns_functab_build_internal_
     \use:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: kind }
@@ -141,11 +144,6 @@
 % DEBUG - END
 % -----------
 
-% TODO : The options to use (some options are specific to some kind of table).
-
-% Let's do what the user wants.
-  \par
-  { \hfill \Huge TODO }
 }
 
 
@@ -298,38 +296,11 @@
 }
 
 
-% :: INTERNAL DATA :: %
 
-%%%
-% prototype::
-%     #1 : temporal id from preparsing
-%     #2 : global id
-%
-%     :action: XXX
-%%%
-\cs_new:Npn \tns_functab_build_internal_imgs:nn #1#2 {
-% Dimensions.
-  \int_gzero_new:c { #1 :: xdim }
-  \int_gzero_new:c { #1 :: ydim }
 
-  1D-DATA : #1 ++ #2
 
-% -------------
-% DEBUG - START
 
-  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
-  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: labels }
-  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: values }
-
-  \int_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: xdim }
-  \int_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: ydim }
-
-% DEBUG - END
-% -----------
-
-  %%%%
-}
-
+% :: OUT OF MAIN !!!! :: %
 
 %%%
 % prototype::

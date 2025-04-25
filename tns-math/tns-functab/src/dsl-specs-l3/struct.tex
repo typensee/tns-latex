@@ -33,7 +33,7 @@ L'organisation des blocs d'informations se fait en respectant les règles suivan
 
         \item Tout contenu est associé à un contexte.
 
-        \item Un nouveau contexte s'indique en début de contenu via \tdoclatexin{nom_contexte = contenu_1 ; ...} sans nécessité d'indiquer à chaque fois le contexte.
+        \item Un nouveau contexte s'indique en début de contenu via \tdoclatexin{nom_contexte = contenu_1 ; ...} sans nécessité répéter à la suite le même nom de contexte.
 
         \item \textbf{Aucun contexte par défaut n'est initialement défini.}
     \end{itemize}
@@ -51,27 +51,27 @@ L'organisation des blocs d'informations se fait en respectant les règles suivan
 
 Voici un code fictif illustrant les règles précédentes.
 
-\tdoclatexinput[code]{examples/dsl-l3/struct-fictional.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-std.tex}
 
 
 Voici la version verbeuse, un peu trop, du code précédent.
 
-\tdoclatexinput[code]{examples/dsl-l3/struct-fictional-verbose.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-verbose.tex}
 
 
-Il est possible d'écrire des contenus à la suite comme dans l'exemple suivant.
+Il est possible d'écrire des contenus à la suite comme dans l'exemple suivant.%
 \footnote{
     Nous déconseillons ce style de codage car cela nuit à la lisibilité des instructions.
 }
 
-\tdoclatexinput[code]{examples/dsl-l3/struct-fictional-compact.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-compact.tex}
 
 
-On peut même utiliser l'horreur suivante.
+On peut même utiliser l'horreur suivante.%
 \footnote{
-    Ce mode de rédaction est en fait idéal pour la fabrication automatisée de codes par un script extérieur.
+    Ce mode de rédaction est idéal pour la fabrication automatisée de codes par un script extérieur.
 }
 
-\tdoclatexinput[code]{examples/dsl-l3/struct-fictional-monster.tex}
+\tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-monster.tex}
 
 \end{document}

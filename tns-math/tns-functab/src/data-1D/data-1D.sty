@@ -1,0 +1,35 @@
+\ExplSyntaxOn
+
+% :: \L3 2D-DATA :: %
+
+%%%
+% prototype::
+%     #1 : temporal id from preparsing
+%     #2 : global id
+%
+%     :action: XXX
+%%%
+\cs_new:Npn \tns_functab_build_internal_imgs:nn #1#2 {
+% Dimensions.
+  \int_gzero_new:c { #1 :: xdim }
+  \int_gzero_new:c { #1 :: ydim }
+
+  1D-DATA : #1 ++ #2
+
+% -------------
+% DEBUG - START
+
+%  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: contexts }
+%  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: labels }
+%  \seq_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: values }
+%
+%  \int_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: xdim }
+%  \int_show:c { \tl_use:N \l__tns_functab_tmp_ID_tl :: ydim }
+
+% DEBUG - END
+% -----------
+
+  %%%%
+}
+
+\ExplSyntaxOff
