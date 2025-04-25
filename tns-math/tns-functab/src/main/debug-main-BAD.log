@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  25 APR 2025 18:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  25 APR 2025 17:05
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**debug-main-GOOD.tex
-(./debug-main-GOOD.tex
+**debug-main-BAD.tex
+(./debug-main-BAD.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tutodoc/tutodoc.cls
@@ -1220,11 +1220,8 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
 
-(./debug-main-GOOD.aux
-Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported  on input line 15.
-)
-\openout1 = `debug-main-GOOD.aux'.
+(./debug-main-BAD.aux)
+\openout1 = `debug-main-BAD.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -1312,9 +1309,9 @@ e
 ))
 Package hyperref Info: Link coloring ON on input line 11.
 
-(./debug-main-GOOD.out) (./debug-main-GOOD.out)
+(./debug-main-BAD.out) (./debug-main-BAD.out)
 \@outlinefile=\write5
-\openout5 = `debug-main-GOOD.out'.
+\openout5 = `debug-main-BAD.out'.
 
 Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           Using `bookmark' together with `hyperref' is recommended,
@@ -1334,6 +1331,8 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 \BKM@id=\count442
 ))
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tutodoc/tutodoc-fr.loc.cls)
+Package babel Info: 'french' activates 'french' shorthands.
+(babel)             Reported  on input line 11.
 LaTeX Info: Redefining \degres on input line 11.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
@@ -1349,129 +1348,34 @@ LaTeX Info: Redefining \up on input line 11.
 \enitdp@tabularnotes=\count444
 \c@tabularnotes*i=\count445
 \enitdp@tabularnotes*=\count446
-\-:-functable.pre.parsing.contexts.1-:-::xdim=\count447
-\-:-functable.pre.parsing.contexts.1-:-::ydim=\count448
 
-The sequence \-:-functable.pre.parsing.contexts.1-:-::contexts contains the
-items (without outer braces):
->  {xvals}
->  {imgs}
->  {imgs}.
-<recently read> }
-                 
-l.25 \end
+./debug-main-BAD.tex:97: Missing \endcsname inserted.
+<to be read again> 
+                   \-:-functable.pre.parsing.contexts.1-:-::kind 
+l.97 \end
          {functable}
 ? 
-The sequence \-:-functable.pre.parsing.contexts.1-:-::labels contains the
-items (without outer braces):
->  {t}
->  {f(t)}
->  {g(t)}.
-<recently read> }
-                 
-l.25 \end
+./debug-main-BAD.tex:97: Extra \endcsname.
+\use:c #1->\cs:w #1\cs_end: 
+                            
+l.97 \end
          {functable}
 ? 
-The sequence \-:-functable.pre.parsing.contexts.1-:-::values contains the
-items (without outer braces):
->  {1 , 20 , 300 , 4000}
->  {\text {a , b} , bb , ccc , dddd}
->  {\text {U: V} , VV , WWW , XXXX}.
-<recently read> }
-                 
-l.25 \end
+./debug-main-BAD.tex:97: Emergency stop.
+\use:c #1->\cs:w #1\cs_end: 
+                            
+l.97 \end
          {functable}
-? 
-> \-:-functable.pre.parsing.contexts.1-:-::xdim=0.
-<recently read> }
-                 
-l.25 \end
-         {functable}
-? 
-> \-:-functable.pre.parsing.contexts.1-:-::ydim=0.
-<recently read> }
-                 
-l.25 \end
-         {functable}
-? 
-\-:-functable.pre.parsing.contexts.2-:-::xdim=\count449
-\-:-functable.pre.parsing.contexts.2-:-::ydim=\count450
-The sequence \-:-functable.pre.parsing.contexts.2-:-::contexts contains the
-items (without outer braces):
->  {xvals}
->  {imgs}
->  {imgs}.
-<recently read> }
-                 
-l.33 \end
-         {functable}
-? 
-The sequence \-:-functable.pre.parsing.contexts.2-:-::labels contains the
-items (without outer braces):
->  {}
->  {}
->  {g(x)}.
-<recently read> }
-                 
-l.33 \end
-         {functable}
-? 
-The sequence \-:-functable.pre.parsing.contexts.2-:-::values contains the
-items (without outer braces):
->  {1 , 20 , 300 , 4000}
->  {\text {a , b} , bb , ccc , dddd}
->  {\text {U: V} , VV , WWW , XXXX}.
-<recently read> }
-                 
-l.33 \end
-         {functable}
-? 
-> \-:-functable.pre.parsing.contexts.2-:-::xdim=0.
-<recently read> }
-                 
-l.33 \end
-         {functable}
-? 
-> \-:-functable.pre.parsing.contexts.2-:-::ydim=0.
-<recently read> }
-                 
-l.33 \end
-         {functable}
-? 
+End of file on the terminal!
 
-
-[1
-
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-runsystem(latexminted cleantemp  --timestamp 20250425185037 4476166A8A54E1419D7
-7E3B9118697F4)...executed.
-
-
-(./debug-main-GOOD.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2020/03/25>
- ***********
-Package rerunfilecheck Info: File `debug-main-GOOD.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 45944 strings out of 469626
- 1065122 string characters out of 5471004
- 1678588 words of memory out of 5000000
- 72190 multiletter control sequences out of 15000+600000
- 631423 words of font info for 46 fonts, out of 8000000 for 9000
+ 45904 strings out of 469626
+ 1063957 string characters out of 5471004
+ 1677586 words of memory out of 5000000
+ 72161 multiletter control sequences out of 15000+600000
+ 629879 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 139i,7n,141p,10925b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on debug-main-GOOD.pdf (1 page, 51967 bytes).
-PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 139i,1n,141p,10924b,1114s stack positions out of 10000i,1000n,20000p,200000b,200000s
+./debug-main-BAD.tex:97:  ==> Fatal error occurred, no output PDF file produced
+!

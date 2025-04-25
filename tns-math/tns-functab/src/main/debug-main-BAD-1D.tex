@@ -1,0 +1,116 @@
+\documentclass{tutodoc}
+
+\usepackage{../preamble.cfg}
+
+% TESTING LOCAL IMPLEMENTATION %
+
+\usepackage{core-ctxt-dsl}
+\usepackage{main}
+
+
+\begin{document}
+
+\section{BAD: 1D Data}
+
+\subsection{Bad example \thesubsection}
+
+\begin{functable}
+               t : 1 , 20 , 300 , 4000 ;
+    imgs  = f(t) : a , bb , ccc , dddd ;
+            g(t) : U , VV , WWW , XXXX
+\end{functable}
+
+
+\subsection{Bad example \thesubsection}
+
+\begin{functable}
+    xvals = 1 , u = 20 , 300 , 4000 ;
+    imgs  = a , bb , ccc , dddd ;
+            U , VV , WWW , XXXX
+\end{functable}
+
+
+\subsection{Bad example \thesubsection}
+
+\begin{functable}
+    xvals = u : v : 1 , 20 , 300 , 4000 ;
+    imgs  = a , bb , ccc , dddd ;
+            U , VV , WWW , XXXX
+\end{functable}
+
+
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    tvals = t : 1 , 20 , 300 , 4000 ;
+%    mat   = a , bb , ccc , dddd
+%\end{functable}
+
+
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    x = = 1 , 20 , 300 , 4000 ;
+%    y = 1 , 20 , 300 , 4000 ;
+%    m = lab: a , bb , ccc , dddd
+%\end{functable}
+%
+%
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    m     = a , bb , ccc , dddd ;
+%    xvals = 1 , 20 , 300 , 4000
+%\end{functable}
+%
+%
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    x = 5, 7 ;
+%    m = a , bb , ccc , dddd ;
+%    y = 1 , 20 , 300 , 4000
+%\end{functable}
+%
+%
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    xvals = t : 1 , 20 , 300 , 4000 ;
+%    m     = a , bb , ccc , dddd
+%\end{functable}
+%
+%
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    xvals = t : 1 , 20 , 300 , 4000 ;
+%    y     = a , bb , ccc , dddd
+%\end{functable}
+
+%
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    x = t : 1 , 20 , 300 , 4000 ;
+%    m = a , bb , ccc , dddd ;
+%    i = a , bb , ccc , dddd
+%\end{functable}
+
+
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    i = a , bb , ccc , dddd
+%\end{functable}
+%
+%
+%\subsection{Bad example \thesubsection}
+%
+%\begin{functable}
+%    x = 7 ;
+%    y = 7 ;
+%    i = a , bb , ccc , dddd
+%\end{functable}
+
+\end{document}

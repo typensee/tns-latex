@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  25 APR 2025 18:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  25 APR 2025 17:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**debug-main-GOOD.tex
-(./debug-main-GOOD.tex
+**debug-main-BAD-1D.tex
+(./debug-main-BAD-1D.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/tutodoc/tutodoc.cls
@@ -1220,11 +1220,11 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
 
-(./debug-main-GOOD.aux
+(./debug-main-BAD-1D.aux
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported  on input line 15.
+(babel)             Reported  on input line 16.
 )
-\openout1 = `debug-main-GOOD.aux'.
+\openout1 = `debug-main-BAD-1D.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -1312,9 +1312,9 @@ e
 ))
 Package hyperref Info: Link coloring ON on input line 11.
 
-(./debug-main-GOOD.out) (./debug-main-GOOD.out)
+(./debug-main-BAD-1D.out) (./debug-main-BAD-1D.out)
 \@outlinefile=\write5
-\openout5 = `debug-main-GOOD.out'.
+\openout5 = `debug-main-BAD-1D.out'.
 
 Class scrartcl Info: loading recommended package `bookmark'.
 (scrartcl)           Using `bookmark' together with `hyperref' is recommended,
@@ -1349,17 +1349,51 @@ LaTeX Info: Redefining \up on input line 11.
 \enitdp@tabularnotes=\count444
 \c@tabularnotes*i=\count445
 \enitdp@tabularnotes*=\count446
+
+
+./debug-main-BAD-1D.tex:21: Package tns-functab (core-ctxt-dsl) Error: missing 
+context.See the context
+(tns-functab (core-ctxt-dsl))                line >>> t : 1 , 20 , 300 ,
+(tns-functab (core-ctxt-dsl))                4000
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.21 \end
+         {functable}
+? 
+
+./debug-main-BAD-1D.tex:21: Package tns-functab (main) Error: bad use of the co
+ntext << imgs >> .See the
+(tns-functab (main))                context nb.2.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.21 \end
+         {functable}
+? 
+
+./debug-main-BAD-1D.tex:21: Package tns-functab (main) Error: bad use of the co
+ntext << imgs >> .See the
+(tns-functab (main))                context nb.3.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.21 \end
+         {functable}
+? 
 \-:-functable.pre.parsing.contexts.1-:-::xdim=\count447
 \-:-functable.pre.parsing.contexts.1-:-::ydim=\count448
-
 The sequence \-:-functable.pre.parsing.contexts.1-:-::contexts contains the
 items (without outer braces):
->  {xvals}
+>  {:-:ctxt-dsl-missing-context:-:}
 >  {imgs}
 >  {imgs}.
 <recently read> }
                  
-l.25 \end
+l.21 \end
          {functable}
 ? 
 The sequence \-:-functable.pre.parsing.contexts.1-:-::labels contains the
@@ -1369,109 +1403,148 @@ items (without outer braces):
 >  {g(t)}.
 <recently read> }
                  
-l.25 \end
+l.21 \end
          {functable}
 ? 
 The sequence \-:-functable.pre.parsing.contexts.1-:-::values contains the
 items (without outer braces):
 >  {1 , 20 , 300 , 4000}
->  {\text {a , b} , bb , ccc , dddd}
->  {\text {U: V} , VV , WWW , XXXX}.
+>  {a , bb , ccc , dddd}
+>  {U , VV , WWW , XXXX}.
 <recently read> }
                  
-l.25 \end
+l.21 \end
          {functable}
 ? 
 > \-:-functable.pre.parsing.contexts.1-:-::xdim=0.
 <recently read> }
                  
-l.25 \end
+l.21 \end
          {functable}
 ? 
 > \-:-functable.pre.parsing.contexts.1-:-::ydim=0.
 <recently read> }
                  
-l.25 \end
+l.21 \end
+         {functable}
+? 
+
+./debug-main-BAD-1D.tex:30: Package tns-functab (core-ctxt-dsl) Error: too much
+ equal signs used.See the
+(tns-functab (core-ctxt-dsl))                context line >>> xvals = 1 , u
+(tns-functab (core-ctxt-dsl))                = 20 , 300 , 4000
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.30 \end
+         {functable}
+? 
+
+./debug-main-BAD-1D.tex:30: Package tns-functab (main) Error: bad use of the co
+ntext << imgs >> .See the
+(tns-functab (main))                context nb.2.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.30 \end
+         {functable}
+? 
+
+./debug-main-BAD-1D.tex:30: Package tns-functab (main) Error: bad use of the co
+ntext << imgs >> .See the
+(tns-functab (main))                context nb.3.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.30 \end
          {functable}
 ? 
 \-:-functable.pre.parsing.contexts.2-:-::xdim=\count449
 \-:-functable.pre.parsing.contexts.2-:-::ydim=\count450
 The sequence \-:-functable.pre.parsing.contexts.2-:-::contexts contains the
 items (without outer braces):
->  {xvals}
+>  {:-:ctxt-dsl-missing-context:-:}
 >  {imgs}
 >  {imgs}.
 <recently read> }
                  
-l.33 \end
+l.30 \end
          {functable}
 ? 
 The sequence \-:-functable.pre.parsing.contexts.2-:-::labels contains the
 items (without outer braces):
 >  {}
 >  {}
->  {g(x)}.
+>  {}.
 <recently read> }
                  
-l.33 \end
+l.30 \end
          {functable}
 ? 
 The sequence \-:-functable.pre.parsing.contexts.2-:-::values contains the
 items (without outer braces):
->  {1 , 20 , 300 , 4000}
->  {\text {a , b} , bb , ccc , dddd}
->  {\text {U: V} , VV , WWW , XXXX}.
+>  {xvals}
+>  {a , bb , ccc , dddd}
+>  {U , VV , WWW , XXXX}.
 <recently read> }
                  
-l.33 \end
+l.30 \end
          {functable}
 ? 
 > \-:-functable.pre.parsing.contexts.2-:-::xdim=0.
 <recently read> }
                  
-l.33 \end
+l.30 \end
          {functable}
 ? 
 > \-:-functable.pre.parsing.contexts.2-:-::ydim=0.
 <recently read> }
                  
-l.33 \end
+l.30 \end
          {functable}
 ? 
 
+./debug-main-BAD-1D.tex:39: Package tns-functab (core-ctxt-dsl) Error: too much
+ colons used.See the
+(tns-functab (core-ctxt-dsl))                context line >>> xvals = u : v
+(tns-functab (core-ctxt-dsl))                : 1 , 20 , 300 , 4000
 
-[1
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.39 \end
+         {functable}
+? 
+\-:-functable.pre.parsing.contexts.3-:-::xdim=\count451
+\-:-functable.pre.parsing.contexts.3-:-::ydim=\count452
+The sequence \-:-functable.pre.parsing.contexts.3-:-::contexts contains the
+items (without outer braces):
+>  {xvals}
+>  {imgs}
+>  {imgs}.
+<recently read> }
+                 
+l.39 \end
+         {functable}
+? 
+./debug-main-BAD-1D.tex:39: Emergency stop.
+<recently read> }
+                 
+l.39 \end
+         {functable}
+End of file on the terminal!
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-runsystem(latexminted cleantemp  --timestamp 20250425185037 4476166A8A54E1419D7
-7E3B9118697F4)...executed.
-
-
-(./debug-main-GOOD.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2020/03/25>
- ***********
-Package rerunfilecheck Info: File `debug-main-GOOD.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 45944 strings out of 469626
- 1065122 string characters out of 5471004
- 1678588 words of memory out of 5000000
- 72190 multiletter control sequences out of 15000+600000
+ 45939 strings out of 469626
+ 1065153 string characters out of 5471004
+ 1677592 words of memory out of 5000000
+ 72194 multiletter control sequences out of 15000+600000
  631423 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 139i,7n,141p,10925b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on debug-main-GOOD.pdf (1 page, 51967 bytes).
-PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 139i,1n,141p,10927b,1118s stack positions out of 10000i,1000n,20000p,200000b,200000s
+./debug-main-BAD-1D.tex:39:  ==> Fatal error occurred, no output PDF file produ
+ced!
