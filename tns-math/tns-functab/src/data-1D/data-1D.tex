@@ -13,47 +13,31 @@
 
 \begin{document}
 
-\section{Des tableaux de données}
+\section{Tableaux d'images de fonctions à une seule variable}
 
-Nous allons voir dans cette section comment saisir de petits tableaux de données de l'un des types suivants.
-\begin{itemize}
-	\item Tableaux d'images de plusieurs fonctions à une seule variable.
-
-	\item Tableaux d'images d'une seule fonction à deux variables.
-\end{itemize}
-
-
-\begin{tdocnote}
-	Tous les tableaux seront fabriqués via \tdocenv{functab} en utilisant un langage spécifique simplifiant la saisie des informations.
-	Cet environnement est assez \tdocquote{malin} pour deviner le type de tableau souhaité en fonction des instructions fournies comme nous le constaterons dans cette documentation.
-\end{tdocnote}
-
-
-
-% --------------- %
-
-
-\subsection{Tableaux d'images de fonctions à une seule variable}
-
-Les valeurs pivots, qui sont celles dont on veut indiquer les images, s'indiquent de deux façons.
+La saisie de tableaux, automatiquement en mode mathématique, d'images de fonctions à une seule variable nécessitent de fournir les valeurs pivots, c'est-à-dire les nombres dont on veut indiquer les images. Ceci peut se faire de deux façons.
 %
 \begin{enumerate}
-	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable nommée $x$ par défaut.
+	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable $x$, qui est celle par défaut.
 
-	\item \tdoclatexin{xvals = mavar : x1 , x2 , ... , xn} permet de renommer la variable en $mavar$\,.
+	\item \tdoclatexin{xvals = mavar : x1 , x2 , ... , xn} permet de renommer la variable en $mavar$.
 \end{enumerate}
 
 
-Une fois ceci fait, il faut renseigner les différentes images en donnant obligatoirement la formule de l'expression étudiée en passant via \tdoclatexin{imgs = monexpr : i1 , i2 , ... , in}\,.
+Pour les images, il existe deux modes de saisie, mais avec une restriction forte, car une seule série d'images peut utiliser le nom par défaut.
+%
+\begin{enumerate}
+	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les images pour la fonction $f(x)$, qui est celle par défaut.
 
-\medskip
+	\item \tdoclatexin{imgs = mafonc : i1 , i2 , ... , in} indique les images pour la fonction $mafonc$.
+\end{enumerate}
 
 En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots, et \tdoclatexin{imgs = ...} pour les images.
 
 % --------------- %
 
 
-\begin{tdocexa}[Une seule fonction avec la variable par défaut]
+\begin{tdocexa}[Une seule fonction avec les noms par défaut]
     \leavevmode
 
     \tdoclatexinput{examples/data-1D/one-func-no-label.tex}
@@ -66,14 +50,18 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 
 
 \begin{tdocwarn}
-	L'utilisation de \tdoclatexin{xvals} doit être faite une fois, et une seule, au tout début du contenu.
+	\begin{enumerate}[wide]
+		\item L'utilisation de \tdoclatexin{xvals} doit être faite une fois, et une seule, au tout début du contenu.
+
+		\item L'emploi du nom par défaut pour une fonction n'est possible que pour une seule série d'images.
+	\end{enumerate}
 \end{tdocwarn}
 
 
 % --------------- %
 
 
-\begin{tdocexa}[Deux fonctions pour une variable \tdocquote{maison}]
+\begin{tdocexa}[Deux fonctions et une variable, le tout en mode \tdocquote{maison}]
     \leavevmode
 
     \tdoclatexinput{examples/data-1D/two-func-label.tex}
@@ -95,11 +83,15 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 \begin{tdoctip}[Nombres décimaux en version \tdocquote{locale} et \tdocquote{grandes} fractions]
 %    \leavevmode
 %
-    Via les macros \tdocmacro{dfrac} et \tdocmacro{num}
+    Via les macros \tdocmacro{dfrac} et \tdocmacro{num}%
     \footnote{
     	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres, tout en gérant l'absence d'espaces autour du séparateur décimal.
     }
-    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement, il est facile de rédiger des nombres décimaux, et d'obtenir de \tdocquote{grandes} fractions comme le montre l'exemple suivant.
+    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement, il est facile de rédiger des nombres décimaux, et d'obtenir de \tdocquote{grandes} fractions,%
+    \footnote{
+    	Bien que typographiquement laides, les grandes fractions peuvent être très utiles dans un contexte pédagogique de niveau pré-universitaire.
+    }
+    comme le montre l'exemple suivant.
 
     \tdoclatexinput{examples/data-1D/num-n-dfrac.tex}
 \end{tdoctip}

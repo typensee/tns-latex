@@ -1,30 +1,20 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  25 APR 2025 21:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.17)  25 APR 2025 21:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**data-1D.sty
-(./data-1D.sty
+**data-1D.tex
+(./data-1D.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
-)
-*
-! Emergency stop.
-<*> 
-    
-End of file on the terminal!
-
- 
-Here is how much of TeX's memory you used:
- 16 strings out of 469626
- 382 string characters out of 5471004
- 423118 words of memory out of 5000000
- 26931 multiletter control sequences out of 15000+600000
- 626825 words of font info for 40 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 12i,0n,13p,80b,8s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
-d keyval usage)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tutodoc/tutodoc.cls
+Document Class: tutodoc 2024-12-18 v1.7.1 This package proposes tools for writi
+ng "human friendly" documentations of LaTeX packages.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrartcl.cls
+Document Class: scrartcl 2024/10/24 v3.43 KOMA-Script document class (article)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrbase.sty
 Package: scrbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-independent 
@@ -1231,7 +1221,7 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
  (./data-1D.aux
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported  on input line 15.
+(babel)             Reported  on input line 14.
 )
 \openout1 = `data-1D.aux'.
 
@@ -1358,26 +1348,23 @@ LaTeX Info: Redefining \up on input line 14.
 \enitdp@tabularnotes=\count444
 \c@tabularnotes*i=\count445
 \enitdp@tabularnotes*=\count446
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 27.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
-)
 \pydata@fh@0=\write6
 \openout6 = `_D714FD0EAB6A9CA65F5FD7FA316E95EF.data.minted'.
 
-runsystem(latexminted config  --timestamp 20250425210523 D714FD0EAB6A9CA65F5FD7
+runsystem(latexminted config  --timestamp 20250425214723 D714FD0EAB6A9CA65F5FD7
 FA316E95EF)...executed.
 
- (./_D714FD0EAB6A9CA65F5FD7FA316E95EF.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250425210523 D714FD0EAB6A9CA65
+
+(./_D714FD0EAB6A9CA65F5FD7FA316E95EF.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20250425214723 D714FD0EAB6A9CA65
 F5FD7FA316E95EF)...executed.
 
 
 (./_minted/pastie.style.minted)
 (./_minted/0635E6DE32967C794B4107B881823C49.highlight.minted)
 (./_minted/A9E3600FA4A389A8D8AC451498B06650.highlight.minted)
-(./_minted/F87F0B03EA550CB65D22A42697EA4060.highlight.minted)
+(./_minted/0635E6DE32967C794B4107B881823C49.highlight.minted)
+(./_minted/940579B39F48729B4465D66A7EB2552D.highlight.minted)
 (./_minted/3D79E829E2718D325B73EC173CB365FA.highlight.minted)
 (./_minted/223162F6BE5BA409A60F604220F22CF0.highlight.minted)
 (./_minted/CD6207BBCC717906BC126D481801DFA8.highlight.minted
@@ -1388,8 +1375,13 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/it' in size <10> not available
 \-:-functable.pre.parsing.contexts.1-:-::xdim=\count447
 \-:-functable.pre.parsing.contexts.1-:-::ydim=\count448
 )
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
+nput line 48.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd
+)
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 69.
+nput line 53.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/ufontawesomefree2.fd
 ) (./_minted/F8D635030078EAE2A829731FAB18E309.highlight.minted)
@@ -1398,7 +1390,7 @@ nput line 69.
 \-:-functable.pre.parsing.contexts.2-:-::xdim=\count449
 \-:-functable.pre.parsing.contexts.2-:-::ydim=\count450
 )
-(./_minted/5ED150B490079F9D83AAB0493F9AD899.highlight.minted)
+(./_minted/56FED1FCCAE636E40AF75F44D2CCA867.highlight.minted)
 (./examples/data-1D/comments.tex
 \-:-functable.pre.parsing.contexts.3-:-::xdim=\count451
 \-:-functable.pre.parsing.contexts.3-:-::ydim=\count452
@@ -1413,9 +1405,8 @@ nput line 69.
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local
-/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/
-texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/usr/local/t
-exlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc}]
+/texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/usr/local/
+texlive/2025/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc}]
 
 [2] (./data-1D.aux)
  ***********
@@ -1426,30 +1417,30 @@ Package rerunfilecheck Info: File `data-1D.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 46504 strings out of 469626
- 1080050 string characters out of 5471004
- 1712600 words of memory out of 5000000
- 72665 multiletter control sequences out of 15000+600000
- 637051 words of font info for 58 fonts, out of 8000000 for 9000
+ 46497 strings out of 469626
+ 1079821 string characters out of 5471004
+ 1713600 words of memory out of 5000000
+ 72656 multiletter control sequences out of 15000+600000
+ 635945 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 139i,8n,141p,10917b,1747s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 139i,8n,141p,10917b,1745s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/fontawesome5/FontAweso
 me5Free-Solid.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/
-sfit1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sf
-rm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm
-0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm10
-00.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1200
+ts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/
+sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sf
+it1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm
+0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm08
+00.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000
 .pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1440.p
 fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb><
 /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></u
 sr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on data-1D.pdf (2 pages, 249345 bytes).
+Output written on data-1D.pdf (2 pages, 238040 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 115 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
