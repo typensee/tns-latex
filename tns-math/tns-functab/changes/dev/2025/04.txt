@@ -1,0 +1,12 @@
+// ---------- //
+
+
+==
+25  (0.0.0-alpha.6)
+==
+
+-------
+:break:
+-------
+
+The real coding begins: the research work has been kept, but made invisible on the repository (moving from a small code to a large one is easier).
