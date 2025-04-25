@@ -52,6 +52,11 @@ XXX
 
 > ---------------------------- <
 
+core-ctxt-dsl ---> dans tnscore !!!
+
+
+> ---------------------------- <
+
 macro descriptives via des macros utilisabe en dur par exemple \desc{xvals=1,2,3;imgs=a,b,c}
 
   ---> A CREUSER

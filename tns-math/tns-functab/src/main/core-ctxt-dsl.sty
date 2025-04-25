@@ -1,0 +1,229 @@
+% == ABSTRACT PARSER == %
+
+\ExplSyntaxOn
+
+% -- "CONTEXT" AGNOSTIC DSL (L3 version) -- %
+
+\msg_set:nnnn { tns-functab ~ (core-ctxt-dsl) }
+  { core-ctxt-dsl : ctxt-DSL-no-context }
+  {
+    missing ~ context.
+    ~
+    See ~ the ~ context ~ line ~ nb.#1
+  }
+  { \msg_see_documentation_text:n { tns-functab } }
+
+
+\msg_set:nnnn { tns-functab ~ (core-ctxt-dsl) }
+  { core-ctxt-dsl : ctxt-DSL-too-much-equal-signs  }
+  {
+    too ~ much ~ equal ~ signs ~ used.
+    ~
+    See ~ the ~ context ~ line ~ nb.#1
+  }
+  { \msg_see_documentation_text:n { tns-functab } }
+
+
+\msg_set:nnnn { tns-functab ~ (core-ctxt-dsl) }
+  { core-ctxt-dsl : ctxt-DSL-too-much-colons  }
+  {
+    too ~ much ~ colons ~ used.
+    ~
+    See ~ the ~ context ~ line ~ nb.#1
+  }
+  { \msg_see_documentation_text:n { tns-functab } }
+
+
+% :: RESCAN TRICK :: %
+
+% Source.
+%   + https://tex.stackexchange.com/a/706773/6880
+
+\tl_new:N   \g_tns_functab_core_semicolon_tl
+\tl_gset:Nn \g_tns_functab_core_semicolon_tl { ; }
+
+\tl_new:N   \g_tns_functab_core_colon_tl
+\tl_gset:Nn \g_tns_functab_core_colon_tl { : }
+
+\cs_generate_variant:Nn \seq_set_split:Nnn { NV }
+
+\AtBeginDocument {
+  \tl_gset_rescan:NnV
+    \g_tns_functab_core_semicolon_tl
+    { }
+    \g_tns_functab_core_semicolon_tl
+
+  \tl_gset_rescan:NnV
+    \g_tns_functab_core_colon_tl
+    { }
+    \g_tns_functab_core_colon_tl
+}
+
+
+% :: AGNOSTIC PARSERS :: %
+
+\int_new:N \l_tns_functab_core_all_ctxts_nb_line_int
+\seq_new:N \l_tns_functab_core_all_ctxts_seq
+\tl_new:N  \l_tns_functab_core_current_ctxt_tl
+\tl_new:N  \l_tns_functab_core_current_label_tl
+\tl_new:N  \l_tns_functab_core_current_value_tl
+
+
+%%%
+% prototype::
+%     #1 : an internal ``<ID>``.
+%     #2 : the context code to be parsed.
+%     #3 : the short names, if any, given as a property list.
+%
+%     :action: this functions builds 3 "intermediate" sequences
+%              ``<ID>::contexts``,
+%              ``<ID>::labels`` and
+%              ``<ID>::values`` (see below).
+%
+%     :see: l3.func.tns_functab_core_DSL_ctxt_free_memory
+%
+%
+% Let's suppose we have the following context code.
+%
+% verbatim::
+%     ctxt_1 =         val_1
+%     ctxt_2 = lbl_2 : val_2
+%     ctxt_3 =         val_3
+%     ctxt_4 = lbl_4 : val_4
+%
+% In that case, we will have the following "intermediate" sequences.
+%
+%     1) ``<ID>::contexts`` is the ordered sequence of the context names.
+%     Here, we have ``{ctxt_1}{ctxt_2}{ctxt_3}{ctxt_4}``.
+%
+%     2) ``<ID>::labels`` is the ordered sequence of the optional labels.
+%     Here, we have ``{}{lbl_2}{}{lbl_4}``.
+%
+%     3) ``<ID>::values`` is the ordered sequence of the values.
+%     Here, we have ``{val_1}{val_2}{val_3}{val_4}``.
+%
+%
+% warning::
+%     The errors raised only concern the general syntax of the DSL context,
+%     so the items of the 3 sequences are stored as typed by the user.
+%%%
+\cs_new:Npn \tns_functab_core_DSL_ctxt_parser:NnN #1#2#3 {
+% "External" flat variables.
+  \seq_gclear_new:c { \tl_use:N {#1} :: contexts }
+  \seq_gclear_new:c { \tl_use:N {#1} :: labels   }
+  \seq_gclear_new:c { \tl_use:N {#1} :: values   }
+
+% Line by line parsing, where the lines are semi-colon separated.
+% Empty lines are ignored.
+  \seq_set_split:NVn
+    \l_tns_functab_core_all_ctxts_seq
+    \g_tns_functab_core_semicolon_tl
+    { #2 }
+
+  \int_zero:N \l_tns_functab_core_all_ctxts_nb_line_int
+
+% Maping over each context found.
+  \tl_set:Nn
+    \l_tns_functab_core_current_ctxt_tl
+    { :-: ctxt-dsl-missing-context :-: }
+
+  \seq_map_inline:Nn \l_tns_functab_core_all_ctxts_seq {
+    \int_incr:N \l_tns_functab_core_all_ctxts_nb_line_int
+
+% Get the context name and its content.
+    \seq_set_split:Nnn \l_tmpa_seq { = } { ##1 }
+
+    \int_case:nnF { \seq_count:N \l_tmpa_seq } {
+% Last context must be used.
+      { 1 } {
+% We must have a last context.
+        \tl_if_eq:NnT
+          \l_tns_functab_core_current_ctxt_tl
+          { :-: ctxt-dsl-missing-context :-: } {
+            \msg_error:nnn { tns-functab }
+              { ctxt-DSL-no-context }
+              { ##1 }
+          }
+      }
+% A new context that can be a shortname : see the #3 argument.
+      { 2 } {
+        \seq_pop_left:NN
+          \l_tmpa_seq
+          \l_tns_functab_core_current_ctxt_tl
+
+        \prop_get:NVNT
+          { #3 }
+          \l_tns_functab_core_current_ctxt_tl \l_tmpa_tl {
+            \tl_set_eq:NN \l_tns_functab_core_current_ctxt_tl \l_tmpa_tl
+          }
+      }
+% Too much equal signs found.
+    }{
+      \msg_error:nnn { tns-functab }
+        { ctxt-DSL-too-much-equal-signs }
+        { ##1 }
+    }
+
+% Get the optional label and the value.
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
+
+    \seq_set_split:NVV
+      \l_tmpa_seq
+      \g_tns_functab_core_colon_tl
+      \l_tmpa_tl
+
+    \int_case:nnF { \seq_count:N \l_tmpa_seq } {
+% No label used.
+      { 1 } {
+        \tl_set:Nn \l_tns_functab_core_current_label_tl { }
+      }
+% One label used.
+      { 2 } {
+        \seq_pop_left:NN
+          \l_tmpa_seq
+          \l_tns_functab_core_current_label_tl
+      }
+% Too much colons found.
+    }{
+      \msg_error:nnn { tns-functab }
+        { ctxt-DSL-too-much-colons }
+        { ##1 }
+    }
+
+% Value.
+    \seq_pop_left:NN
+      \l_tmpa_seq
+      \l_tns_functab_core_current_value_tl
+
+% Update the "external" variables.
+    \seq_gput_right:cV
+      { #1 :: contexts }
+      \l_tns_functab_core_current_ctxt_tl
+
+    \seq_gput_right:cV
+     { #1 :: labels }
+     \l_tns_functab_core_current_label_tl
+
+    \seq_gput_right:cV
+      { #1 :: values }
+      \l_tns_functab_core_current_value_tl
+  }
+}
+
+
+%%%
+% prototype::
+%     #1 : an ``<ID>``.
+%
+%     :action: this function clears the "intermediate" sequences
+%              ``<ID>::contexts``,
+%              ``<ID>::labels`` and
+%              ``<ID>::values``.
+%%%
+\cs_new:Npn \tns_functab_core_DSL_ctxt_free_memory:N #1 {
+  \seq_gclear:c { #1 :: contexts }
+  \seq_gclear:c { #1 :: labels   }
+  \seq_gclear:c { #1 :: values   }
+}
+
+\ExplSyntaxOff
