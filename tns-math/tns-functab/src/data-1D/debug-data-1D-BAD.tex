@@ -1,0 +1,48 @@
+\documentclass{tutodoc}
+
+\usepackage{../preamble.cfg}
+
+\usepackage{../main/core-ctxt-dsl}
+\usepackage{../main/main}
+
+% TESTING LOCAL IMPLEMENTATION %
+
+\usepackage{data-1D}
+
+
+\begin{document}
+
+\section{Bad example \thesection}
+
+\begin{functable}
+               t : 1 , 20 , 300 , 4000 ;
+    imgs  = f(t) : a , bb , ccc , dddd ;
+            g(t) : U , VV , WWW , XXXX
+\end{functable}
+
+
+\section{Bad example \thesection}
+
+\begin{functable}
+    xvals = 1 , u = 20 , 300 , 4000 ;
+    imgs  = a , bb , ccc , dddd ;
+            U , VV , WWW , XXXX
+\end{functable}
+
+
+\section{Bad example \thesection}
+
+\begin{functable}
+    xvals = u : v : 1 , 20 , 300 , 4000 ;
+    imgs  = a , bb , ccc , dddd ;
+            U , VV , WWW , XXXX
+\end{functable}
+
+
+\section{Bad example \thesection}
+
+\begin{functable}
+    i = a , bb , ccc , dddd
+\end{functable}
+
+\end{document}
