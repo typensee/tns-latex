@@ -2,32 +2,93 @@
 
 % :: 1D-DATA :: %
 
+\seq_new:N \l__tns_functab_full_code_seq
+
+\tl_new:N    \l__tns_functab_imgs_raw_line_tl
+\clist_new:N \l__tns_functab_imgs_line_clist
+
+\int_new:N \l__tns_functab_imgs_nb_func_int
+
+
 %%%
 % prototype::
 %     #1 : temporal ''<ID>'' from preparsing
+%          (this is for manipulating raw data)
 %     #2 : global ''<ID>''
+%          (this is to store ready-to-use data)
 %
-%     :action: XXX
+%     :action: for the moment, we're just printing the data
+%              in the expected table.
 %%%
 \cs_new:Npn \tns_functab_build_internal_imgs:nn #1#2 {
 % x-dim.
-  \int_gzero_new:c { #1 :: xdim }
-
-  TODO%1D-DATA : #1 ++ #2
+  \int_zero_new:c { #1 :: xdim }
 
 % -------------
 % DEBUG - START
 
-%  \seq_show:c { #1 :: contexts }
-%  \seq_show:c { #1 :: labels }
-%  \seq_show:c { #1 :: values }
+  %  \seq_show:c { #1 :: contexts }
+  %  \seq_show:c { #1 :: labels }
+  %  \seq_show:c { #1 :: values }
 
-%  \int_show:c { #1 :: xdim }
+  %  \int_show:c { #1 :: xdim }
 
 % DEBUG - END
 % -----------
 
-  %%%%
+% Full code for the data.
+  \seq_clear:N \l__tns_functab_full_code_tl
+
+% x values.
+  \seq_pop_left:cN
+    { #1 :: values }
+    \l__tns_functab_imgs_raw_line_tl
+
+  \clist_set_eq:NN
+    \l__tns_functab_imgs_line_clist
+    \l__tns_functab_imgs_raw_line_tl
+
+  \seq_put_right:Nx
+    \l__tns_functab_full_code_seq
+    {
+      XXX & \clist_use:Nn \l__tns_functab_imgs_line_clist { & }
+    }
+
+% Images.
+  \int_set:Nn
+    \l__tns_functab_imgs_nb_func_int
+    { \seq_count:c { #1 :: contexts } - 1 }
+
+  \int_while_do:nn
+    { \l__tns_functab_imgs_nb_func_int > 0 } {
+      \seq_pop_left:cN
+        { #1 :: values }
+        \l__tns_functab_imgs_raw_line_tl
+
+      \clist_set_eq:NN
+        \l__tns_functab_imgs_line_clist
+        \l__tns_functab_imgs_raw_line_tl
+
+      \seq_put_right:Nx
+        \l__tns_functab_full_code_seq
+        {
+          % \\ \hline
+          FFFF(X) & \clist_use:Nn \l__tns_functab_imgs_line_clist { & }
+        }
+
+      \int_decr:N \l__tns_functab_imgs_nb_func_int
+    }
+
+% Let's print the 1D table.
+
+$\begin{NiceArray}[cell-space-limits = 3pt]{c*{4}{|c}}
+  \seq_use:Nn \l__tns_functab_full_code_seq {\\ \hline}
+% %   \tl_use:N \l__tns_functab_full_code_tl
+% % \\ \hline
+% %   f(t) & a & bb & ccc & dddd
+% % \\ \hline
+% %   g(t) & U & VV & VVV & WWW
+\end{NiceArray}$
 }
 
 \ExplSyntaxOff
