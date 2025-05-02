@@ -1,0 +1,13 @@
+// ---------- //
+
+
+==
+02  (0.0.0-alpha.7)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+1D data: first functional draft version of tables for \imgs of single \var \funcs.

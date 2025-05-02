@@ -2,13 +2,31 @@
 
 % :: 1D-DATA :: %
 
-\seq_new:N \l__tns_functab_full_code_seq
+\msg_set:nnnn { tns-functab ~ (data-1D) }
+  { data-1D : default-f-label-already-used  }
+  {
+    default ~ label ~ for ~ function ~ used ~ at ~ least ~ twice.
+  }
+  { \msg_see_documentation_text:n { tns-functab } }
 
-\tl_new:N    \l__tns_functab_imgs_raw_line_tl
-\clist_new:N \l__tns_functab_imgs_line_clist
+  \seq_new:N \l__tns_functab_one_var_full_code_seq
 
-\int_new:N \l__tns_functab_imgs_nb_func_int
+\tl_new:N    \l__tns_functab_one_var_raw_line_tl
+\clist_new:N \l__tns_functab_one_var_line_clist
 
+\int_new:N \l__tns_functab_one_var_nb_rows_undone_int
+\int_new:N \l__tns_functab_one_var_current_width_int
+\int_new:N \l__tns_functab_one_var_max_width_int
+
+\bool_new:N \l__tns_functab_one_var_def_label_f_used_bool
+\tl_new:N   \l__tns_functab_one_var_label_line_tl
+
+% Default labels.
+\prop_clear_new:N        \c_tns_functab_one_var_default_labels_prop
+\prop_set_from_keyval:Nn \c_tns_functab_one_var_default_labels_prop {
+  x = x,
+  f = f(x)
+}
 
 %%%
 % prototype::
@@ -22,7 +40,7 @@
 %%%
 \cs_new:Npn \tns_functab_build_internal_imgs:nn #1#2 {
 % x-dim.
-  \int_zero_new:c { #1 :: xdim }
+  % \int_zero_new:c { #1 :: xdim }
 
 % -------------
 % DEBUG - START
@@ -36,59 +54,94 @@
 % DEBUG - END
 % -----------
 
+% Dims of the table.
+  \int_zero_new:N \l__tns_functab_one_var_max_width_int
+  \int_set:Nn     \l__tns_functab_one_var_nb_rows_undone_int {
+    \seq_count:c { #1 :: contexts }
+  }
+
 % Full code for the data.
   \seq_clear:N \l__tns_functab_full_code_tl
 
 % x values.
-  \seq_pop_left:cN
-    { #1 :: values }
-    \l__tns_functab_imgs_raw_line_tl
+  \seq_pop_left:cN { #1 :: labels }
+    \l__tns_functab_one_var_label_line_tl
 
-  \clist_set_eq:NN
-    \l__tns_functab_imgs_line_clist
-    \l__tns_functab_imgs_raw_line_tl
+  \tl_if_empty:NTF \l__tns_functab_one_var_label_line_tl {
+    \tl_set:Nn \l__tns_functab_one_var_label_line_tl
+      { \prop_item:Nn \c_tns_functab_one_var_default_labels_prop { x } }
+  } { }
 
-  \seq_put_right:Nx
-    \l__tns_functab_full_code_seq
+  \seq_pop_left:cN { #1 :: values }
+   \l__tns_functab_one_var_raw_line_tl
+
+  \clist_set_eq:NN \l__tns_functab_one_var_line_clist
+    \l__tns_functab_one_var_raw_line_tl
+
+  \seq_put_right:Nx \l__tns_functab_one_var_full_code_seq {
+      \tl_use:N     \l__tns_functab_one_var_label_line_tl
+    & \clist_use:Nn \l__tns_functab_one_var_line_clist { & }
+  }
+
+  \int_set:Nn \l__tns_functab_one_var_max_width_int {
+    \clist_count:N \l__tns_functab_one_var_line_clist
+  }
+
+  \int_decr:N \l__tns_functab_one_var_nb_rows_undone_int
+
+% Images.  l__tns_functab_one_var_label_line_tl
+  \bool_set_false:N \l__tns_functab_one_var_def_label_f_used_bool
+
+  \int_while_do:nn { \l__tns_functab_one_var_nb_rows_undone_int > 0 } {
+    \seq_pop_left:cN { #1 :: labels }
+      \l__tns_functab_one_var_label_line_tl
+
+    \tl_if_empty:NTF \l__tns_functab_one_var_label_line_tl {
+      \bool_if:NTF \l__tns_functab_one_var_def_label_f_used_bool {
+        \msg_error:nn { tns-functab ~ (data-1D) }
+          { data-1D : default-f-label-already-used  }
+      } {
+        \bool_set_true:N \l__tns_functab_one_var_def_label_f_used_bool
+
+        \tl_set:Nn \l__tns_functab_one_var_label_line_tl
+          { \prop_item:Nn \c_tns_functab_one_var_default_labels_prop { f } }
+      }
+    } { }
+
+    \seq_pop_left:cN
+      { #1 :: values }
+      \l__tns_functab_one_var_raw_line_tl
+
+    \clist_set_eq:NN
+      \l__tns_functab_one_var_line_clist
+      \l__tns_functab_one_var_raw_line_tl
+
+    \seq_put_right:Nx \l__tns_functab_one_var_full_code_seq {
+        \tl_use:N     \l__tns_functab_one_var_label_line_tl
+      & \clist_use:Nn \l__tns_functab_one_var_line_clist { & }
+    }
+
+    \int_set:Nn \l__tns_functab_one_var_current_width_int {
+      \clist_count:N \l__tns_functab_one_var_line_clist
+    }
+
+    \int_compare:nNnT
+        { \l__tns_functab_one_var_max_width_int }
+      < { \l__tns_functab_one_var_current_width_int }
     {
-      XXX & \clist_use:Nn \l__tns_functab_imgs_line_clist { & }
+      \int_set_eq:NN \l__tns_functab_one_var_max_width_int
+                     \l__tns_functab_one_var_current_width_int
     }
 
-% Images.
-  \int_set:Nn
-    \l__tns_functab_imgs_nb_func_int
-    { \seq_count:c { #1 :: contexts } - 1 }
+    \int_decr:N \l__tns_functab_one_var_nb_rows_undone_int
+  }
 
-  \int_while_do:nn
-    { \l__tns_functab_imgs_nb_func_int > 0 } {
-      \seq_pop_left:cN
-        { #1 :: values }
-        \l__tns_functab_imgs_raw_line_tl
-
-      \clist_set_eq:NN
-        \l__tns_functab_imgs_line_clist
-        \l__tns_functab_imgs_raw_line_tl
-
-      \seq_put_right:Nx
-        \l__tns_functab_full_code_seq
-        {
-          % \\ \hline
-          FFFF(X) & \clist_use:Nn \l__tns_functab_imgs_line_clist { & }
-        }
-
-      \int_decr:N \l__tns_functab_imgs_nb_func_int
-    }
-
-% Let's print the 1D table.
-
-$\begin{NiceArray}[cell-space-limits = 3pt]{c*{4}{|c}}
-  \seq_use:Nn \l__tns_functab_full_code_seq {\\ \hline}
-% %   \tl_use:N \l__tns_functab_full_code_tl
-% % \\ \hline
-% %   f(t) & a & bb & ccc & dddd
-% % \\ \hline
-% %   g(t) & U & VV & VVV & WWW
-\end{NiceArray}$
+% Just ask at nicematric to print the table.
+  $\begin{NiceArray}%
+    [cell-space-limits = 3pt]%
+    {c*{\int_use:N \l__tns_functab_one_var_max_width_int}{|c}}
+      \seq_use:Nn \l__tns_functab_one_var_full_code_seq {\\ \hline}
+  \end{NiceArray}$
 }
 
 \ExplSyntaxOff
