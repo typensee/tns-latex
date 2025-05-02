@@ -6,6 +6,14 @@ tns-functab - TODO
 // ---------- //
 
 
+env pour indiquer les données, les afficher evntuellement, ou les sauvegarder dans un format simple (celui de 'lastraction du paser ?)
+
+ensuite via des macros, et nons des envs, on peut reutilise soit pour afficher (meme syst de clé qeu l'env) ou pour calculer....
+
+
+// ---------- //
+
+
 ==
 06  (0.0.0-alpha.6)
 ==

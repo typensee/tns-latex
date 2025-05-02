@@ -11,36 +11,41 @@
 
 \subsection{Les blocs d'instruction}
 
-L'organisation des blocs d'informations se fait en respectant les règles suivantes.
+Commençons par l'organisation des blocs d'informations qui suit les règles suivantes.
 %
 \begin{enumerate}
-    \item Les commentaires se font uniquement à la sauce \LaTeX\ via \tdoclatexin{% Mon commentaire} par exemple.
+    \item Commenter un code de tableau est faisable via la syntaxe \LaTeX\ comme dans \tdoclatexin{% Mon commentaire}.
 
 
-    \item Les lignes vides sont autorisées.
+    \item Les lignes vides sont autorisées, bien qu'ignorées pour la construction du rendu.
     \footnote{
         \label{tns-math-functab-dsl-l3-blank-struct}%
         Ceci est très pratique pour aérer et organiser le code.
     }
 
 
-    \item La syntaxe pour les contenus est la suivante.
+    \item La syntaxe générale pour les contenus est la suivante.
     %
     \begin{itemize}
-        \item Les différents contenus sont séparés par des points-virgules, les retours à la ligne étant autorisés.
+        \item Les différents contenus, forcément non vides, sont séparés par des points-virgules.
+        Les retours à la ligne sont autorisés, bien qu'ignorés lors de l'analyse du code
+        (voir la note \ref{tns-math-functab-dsl-l3-blank-struct} de bas de page).
 
-        \item Les espaces initiaux et finaux sont ignorés (voir la note \ref{tns-math-functab-dsl-l3-blank-struct} de bas de page).
+        \item Les espaces initiaux et finaux sont ignorés
+        (voir la note \ref{tns-math-functab-dsl-l3-blank-struct} de bas de page).
 
         \item Tout contenu est associé à un contexte.
 
-        \item Un nouveau contexte s'indique en début de contenu via \tdoclatexin{nom_contexte = contenu_1 ; ...} sans nécessité répéter à la suite le même nom de contexte.
-
-        \item \textbf{Aucun contexte par défaut n'est initialement défini.}
+        \item Un nouveau contexte s'indique en début de contenu via \tdoclatexin{nom_contexte = contenu_1 ; ...} sans nécessité de répéter à la suite le même nom de contexte.
     \end{itemize}
-
-
-    \item Pas de point-virgule à la fin du tout dernier contenu.
 \end{enumerate}
+
+
+\begin{tdocwarn}
+	Aucun contexte par défaut n'est initialement défini,
+	et
+	il ne faut pas utiliser de point-virgule à la fin du tout dernier contenu (car cela indiquerait un dernier contenu vide).
+\end{tdocwarn}
 
 
 % --------------- %
@@ -61,17 +66,18 @@ Voici la version verbeuse, un peu trop, du code précédent.
 
 Il est possible d'écrire des contenus à la suite comme dans l'exemple suivant.%
 \footnote{
-    Nous déconseillons ce style de codage car cela nuit à la lisibilité des instructions.
+    Nous déconseillons ce style de codage, car cela nuit à la lisibilité des instructions.
 }
 
 \tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-compact.tex}
 
 
-On peut même utiliser l'horreur suivante.%
-\footnote{
-    Ce mode de rédaction est idéal pour la fabrication automatisée de codes par un script extérieur.
-}
+\begin{tdocnote}
+	Il est possible d'utiliser l'horreur suivante.
 
-\tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-monster.tex}
+	\tdoclatexinput<\tdoctcb{code}>{examples/dsl-specs-l3/struct-fictional-monster.tex}
+	
+	Ce mode de rédaction est idéal pour la fabrication automatisée de codes par un script extérieur.
+\end{tdocnote}
 
 \end{document}

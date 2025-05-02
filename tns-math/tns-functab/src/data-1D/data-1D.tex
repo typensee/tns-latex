@@ -15,7 +15,7 @@
 
 \section{Tableaux d'images de fonctions à une seule variable}
 
-La saisie de tableaux, automatiquement en mode mathématique, d'images de fonctions à une seule variable nécessitent de fournir les valeurs pivots, c'est-à-dire les nombres dont on veut indiquer les images. Ceci peut se faire de deux façons.
+La saisie de tableaux, forcément en mode mathématique, d'images de fonctions à une seule variable nécessitent de fournir les valeurs pivots qui sont celles dont on veut indiquer les images. Ceci peut se faire de deux façons.
 %
 \begin{enumerate}
 	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable $x$, qui est celle par défaut.
@@ -27,7 +27,7 @@ La saisie de tableaux, automatiquement en mode mathématique, d'images de foncti
 Pour les images, il existe deux modes de saisie, mais avec une restriction forte, car une seule série d'images peut utiliser le nom par défaut.
 %
 \begin{enumerate}
-	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les images pour la fonction $f(x)$, qui est celle par défaut.
+	\item \tdoclatexin{imgs = i1 , i2 , ... , in} indiquent les images pour la fonction $f(x)$, qui est celle par défaut.
 
 	\item \tdoclatexin{imgs = mafonc : i1 , i2 , ... , in} indique les images pour la fonction $mafonc$.
 \end{enumerate}
@@ -38,15 +38,15 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 
 
 \begin{tdocexa}[Une seule fonction avec les noms par défaut]
-    \leavevmode
+    Noter dans l'exemple suivant combien le code est similaire au rendu, ceci permettant une saisie intuitive des données.
 
     \tdoclatexinput{examples/data-1D/one-func-no-label.tex}
 \end{tdocexa}
 
 
-\begin{tdocnote}
+\begin{tdocimp}
 	Retenir que tout se saisie en mode mathématique.
-\end{tdocnote}
+\end{tdocimp}
 
 
 \begin{tdocwarn}
@@ -85,13 +85,14 @@ En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots
 %
     Via les macros \tdocmacro{dfrac} et \tdocmacro{num}%
     \footnote{
-    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres, tout en gérant l'absence d'espaces autour du séparateur décimal.
+    	Cette macro ajoute de fins espaces mettant en valeur les groupes de chiffres, tout en gérant l'absence d'espaces autour de la virgule en tant que séparateur décimal.
     }
-    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement, il est facile de rédiger des nombres décimaux, et d'obtenir de \tdocquote{grandes} fractions,%
+    venant des excellents packages \tdocpack{amsmath} et \tdocpack{siuntix} respectivement,
+    nous pouvons rédiger des nombres décimaux, et obtenir de \tdocquote{grandes} fractions,%
     \footnote{
     	Bien que typographiquement laides, les grandes fractions peuvent être très utiles dans un contexte pédagogique de niveau pré-universitaire.
     }
-    comme le montre l'exemple suivant.
+    comme ci-dessous.
 
     \tdoclatexinput{examples/data-1D/num-n-dfrac.tex}
 \end{tdoctip}
