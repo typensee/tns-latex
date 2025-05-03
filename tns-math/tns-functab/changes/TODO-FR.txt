@@ -11,6 +11,8 @@ env pour indiquer les données, les afficher evntuellement, ou les sauvegarder d
 ensuite via des macros, et nons des envs, on peut reutilise soit pour afficher (meme syst de clé qeu l'env) ou pour calculer....
 
 
+via spec yaml, on construit automatiquement le code de validation pré parsing
+
 // ---------- //
 
 

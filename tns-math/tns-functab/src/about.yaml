@@ -3,10 +3,9 @@ texfacto:
     preamble: preamble.cfg.tex
 
 toc:
-# The main starting point.
   - main/
-# Free structure.
-  - data/
+  - data-1D/
+#   - data-2D/
 #   - signs/
 #   - vars/
 #   - signs-n-vars/
