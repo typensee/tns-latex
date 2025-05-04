@@ -20,18 +20,18 @@
 La saisie de tableaux, forcément en mode mathématique, d'images de fonctions à une seule variable nécessitent de fournir les valeurs pivots qui sont celles dont on veut indiquer les images. Ceci peut se faire de deux façons.
 %
 \begin{enumerate}
-	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable $x$, qui est celle par défaut.
+	\item \tdoclatexin{xvals = x1 , x2 , ... , xk} indiquent les valeurs pour la variable $x$, qui est celle par défaut.
 
-	\item \tdoclatexin{xvals = mavar : x1 , x2 , ... , xn} permet de renommer la variable en $mavar$.
+	\item \tdoclatexin{xvals = mavar : x1 , x2 , ... , xk} permet de renommer la variable en $mavar$.
 \end{enumerate}
 
 
 Pour les images, il existe deux modes de saisie, mais avec une restriction forte, car une seule série d'images peut utiliser le nom par défaut.
 %
 \begin{enumerate}
-	\item \tdoclatexin{imgs = i1 , i2 , ... , in} indiquent les images pour la fonction $f(x)$, qui est celle par défaut.
+	\item \tdoclatexin{imgs = i1 , i2 , ... , ik} indiquent les images pour la fonction $f(x)$, qui est celle par défaut.
 
-	\item \tdoclatexin{imgs = mafonc : i1 , i2 , ... , in} indique les images pour la fonction $mafonc$.
+	\item \tdoclatexin{imgs = mafonc : i1 , i2 , ... , ik} indique les images pour la fonction $mafonc$.
 \end{enumerate}
 
 En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots, et \tdoclatexin{imgs = ...} pour les images.
