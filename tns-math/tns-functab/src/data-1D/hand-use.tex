@@ -13,31 +13,7 @@
 
 \begin{document}
 
-\section{Tableaux d'images de fonctions à une seule variable}
-
-La saisie de tableaux, forcément en mode mathématique, d'images de fonctions à une seule variable nécessitent de fournir les valeurs pivots qui sont celles dont on veut indiquer les images. Ceci peut se faire de deux façons.
-%
-\begin{enumerate}
-	\item \tdoclatexin{xvals = x1 , x2 , ... , xn} indiquent les valeurs pour la variable $x$, qui est celle par défaut.
-
-	\item \tdoclatexin{xvals = mavar : x1 , x2 , ... , xn} permet de renommer la variable en $mavar$.
-\end{enumerate}
-
-
-Pour les images, il existe deux modes de saisie, mais avec une restriction forte, car une seule série d'images peut utiliser le nom par défaut.
-%
-\begin{enumerate}
-	\item \tdoclatexin{imgs = i1 , i2 , ... , in} indiquent les images pour la fonction $f(x)$, qui est celle par défaut.
-
-	\item \tdoclatexin{imgs = mafonc : i1 , i2 , ... , in} indique les images pour la fonction $mafonc$.
-\end{enumerate}
-
-En résumé, tout se passe via \tdoclatexin{xvals = ...} pour les valeurs pivots, et \tdoclatexin{imgs = ...} pour les images.
-%
-Il est possible d'employer \tdoclatexin{x} et \tdoclatexin{i} comme raccourcis de \tdoclatexin{xvals} et \tdoclatexin{imgs}.
-
-% --------------- %
-
+\subsection{Des exemples d'utilisation directe}
 
 \begin{tdocexa}[Une seule fonction avec les noms par défaut]
     Noter dans l'exemple suivant combien le code est similaire au rendu, ceci permettant une saisie intuitive des données.
@@ -83,10 +59,10 @@ Il est possible d'employer \tdoclatexin{x} et \tdoclatexin{i} comme raccourcis d
 % --------------- %
 
 
-\begin{tdocexa}[Commentaires à la sauce \LaTeX]
+\begin{tdocexa}[Commentaires à la sauce \LaTeX, et cellules vides]
     \leavevmode
 
-    \tdoclatexinput{examples/data-1D/comments.tex}
+    \tdoclatexinput{examples/data-1D/comments-empty-cells.tex}
 \end{tdocexa}
 
 

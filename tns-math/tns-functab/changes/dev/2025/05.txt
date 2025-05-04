@@ -2,6 +2,36 @@
 
 
 ==
+04
+==
+
+--------
+:update:
+--------
+
+[[:doc:]]
+path::''main/main.tex'' file: the quick presentation explains the technical ‘context’ vocabulary.
+
+
+--------
+:fordev:
+--------
+
+[[:tech:]]
+The new features.
+
+    1) \Specs: each kind of table must use a dedicated path::''dsl-specs'' folder that must contain a path::''l3.yaml'' file.
+
+    2) The path::''fixed-src-pdfs-macOS.sh'' script ignores files with a prefix path::''debug-'' and sufix path::''-BAD'' (this files are used to test manually misused of the \pack).
+
+    3) ???
+    The prefix ''tns_'' has been reserved into the \l3 ecosystem.
+
+
+// ---------- //
+
+
+==
 02  (0.0.0-alpha.7)
 ==
 
@@ -10,4 +40,4 @@
 -----
 
 [[:api:]]
-1D data: first functional draft version of tables for \imgs of single \var \funcs.
+1D data: first functional draft version of tables for \imgs of single \var \funcs, but without option management for the moment (for example, it is not possible to define content that can be reused later, but the code is ready for this incoming feature).

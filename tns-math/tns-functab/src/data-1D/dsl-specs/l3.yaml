@@ -1,7 +1,12 @@
-# If necessary, the following specifications can be completed via
-# a TeX file that will be added in the specifications document.
+# The following specifications can be completed via a TeX file
+# ''desc.tex'' to be added to the final specifications document.
 
-# We must use long name with the following regex-like wildcard.
+- meta:
+  title: "Images de valeurs par plusieurs fonctions à une variable"
+  desc : "Voici les contextes disponibles pour les images de plusieurs fonctions à une variable."
+
+# The technical specifications must give long name, and can use
+# the following regex-like wildcard.
 #
 #    --> no wildcard is for a mandatory context.
 #    --> "?" is for a context that can be used at most one time.
@@ -11,5 +16,5 @@
 #
 # The order used in this file must be the same in the user's code.
 
-- xvals: "valeurs pivots dont on veut les images"
-- imgs+: "les images pour une fonction d'une variable réelle"
+- xvals: "ce sont les valeurs pivots dont on veut les images."
+- imgs+: "ce sont les images par une fonction d'une variable réelle."

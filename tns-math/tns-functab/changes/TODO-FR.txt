@@ -3,66 +3,28 @@ tns-functab - TODO
 ===========
 
 
-// ---------- //
+> ---------------------------- <
 
-
-env pour indiquer les données, les afficher evntuellement, ou les sauvegarder dans un format simple (celui de 'lastraction du paser ?)
-
-ensuite via des macros, et nons des envs, on peut reutilise soit pour afficher (meme syst de clé qeu l'env) ou pour calculer....
-
-
-via spec yaml, on construit automatiquement le code de validation pré parsing
-
-// ---------- //
-
-
-==
-06  (0.0.0-alpha.6)
-==
-
------
-:new:
------
-
-[[:fordev:]]
-XXX
-
-    ??? ---> var xvars et yvars et ctxts interne séparés
-
-
-// ---------- //
-
-
-==
-??  (0.0.0-alpha.XXX)
-==
-
---------
-:fordev:
---------
-
-[[:tech:]]
-???
-
-
-// ---------- //
-
-
-==
-??  (0.0.0-alpha.XXX)
-==
-
------
-:new:
------
-
-[[:tech:]]
-\DSL for data: a \1st functional version with shortnames for contexts, but without option management for the moment (for example, it is not possible to define content that can be reused later, but the code is ready for this incoming feature).
+latex3 : blocquer le préfix tns_
 
 
 > ---------------------------- <
 
-core-ctxt-dsl ---> dans tnscore !!!
+automatiser dsl-specs/l3.yaml vers doc : ordre d'insertaion dans spec identiqueu à celui de la doc principale
++
+??? via spec yaml, on construit automatiquement le code de validation pré parsing
+
+
+> ---------------------------- <
+
+sauvegarder dans un format simple (celui de 'lastraction du paser ?)
++
+ensuite via des macros, et nons des envs, on peut reutilise soit pour afficher (meme syst de clé qeu l'env) ou pour calculer....
+
+
+> ---------------------------- <
+
+core-ctxt-dsl ---> dans tnscore !!! ATTENDRE AU MOINS DEUX PACKS sur ctan
 
 
 > ---------------------------- <
@@ -81,8 +43,6 @@ autofrom
     + ...n pour n cellules vides
 
       ... pour les ellules manuqnates mais utilisables une seule fois (cf début fin et le reste vide)
-
-    + Dernière cellule non renseigné OK
 
     + ctxt* pour un contexte avec focntionnalité de type macro au cas par cas
 

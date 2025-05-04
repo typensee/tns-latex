@@ -17,9 +17,22 @@ La rédaction du contenu des tableaux se fait via \tdocenv{functab} qui attend c
 Cet environnement est assez \tdocquote{malin} pour deviner le type de tableau souhaité en fonction des instructions fournies, comme nous le constaterons dans cette documentation.
 
 
+\begin{tdocimp}
+	Dans la suite, nous emploierons le terme \tdocquote{contexte} pour indiquer un contexte d'utilisation, ou bien le nom de la variable indiquant ce contexte. Par exemple, dans le code suivant sont indiqués les contextes
+	\tdoclatexin{xvals},
+	\tdoclatexin{signs}
+	et
+	\tdoclatexin{vars}.%
+	\footnote{
+		Le code devrait être facile à décrypter grâce à la mise en forme du code qui contient des espaces ignorés lors de l'analyse faite par \thisproj. 
+	}
+	
+	\tdoclatexinput<\tdoctcb{code}>{examples/main/tab-signs-vars.tex}
+\end{tdocimp}
+
+
 \begin{tdoccaut}
-	Ne pas prendre ce package pour ce qu'il n'est pas.
-	L'idée qui a mené à la mise en production de \thisproj\ est de simplifier la saisie au jour le jour de petits tableaux courants dans des leçons de mathématiques pré-universitaires.
+	\thisproj\ a été conçu dans un objectif précis : faciliter la saisie courante de petits tableaux dans l'enseignement pré-universitaire en mathématiques. Il ne faut pas lui prêter des intentions qu'il n'a pas. 
 \end{tdoccaut}
 
 \end{document}

@@ -1,3 +1,6 @@
+# Version: 2025-05-04.tns-functable
+
+
 # --------------- #
 # -- CONSTANTS -- #
 # --------------- #
@@ -49,13 +52,16 @@ do
 
     if [ "$f" != "$CHANGELOGNEXT" ]
     then
-        cd "$TARGET/$fdir"
+        if [[ $(basename "$f") != debug-*-BAD.tex ]]; then
+            echo "-- NEW TEX FILE --"
+            echo "$f"
+            echo ""
 
-        echo "-- NEW TEX FILE --"
-        echo "$f"
-        echo ""
-        SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="pdflatex --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
+            cd "$TARGET/$fdir"
 
-        # latexmk -c "$TARGET/$f"
+            SOURCE_DATE_EPOCH=0 FORCE_SOURCE_DATE=1 latexmk -quiet -pdf -pdflatex="pdflatex --interaction=nonstopmode --halt-on-error --shell-escape  %O %S" "$TARGET/$f" || nocompile "$TARGET/$f"
+
+            # latexmk -c "$TARGET/$f"
+        fi
     fi
 done # for f in */*.tex;
