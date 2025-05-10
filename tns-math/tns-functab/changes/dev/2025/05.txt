@@ -2,6 +2,22 @@
 
 
 ==
+??  (0.0.0-alpha.8)
+==
+
+-----
+:new:
+-----
+
+[[:api:]]
+
+1D data: table can be printed in vertical mode (no option available at this stage).
+
+
+// ---------- //
+
+
+==
 04
 ==
 

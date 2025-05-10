@@ -5,6 +5,18 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+1D - data : mode verticale (utile pour suite avec decoration)
+
+facto du code car 2D et 1D dat même type de mef
+
+
+> ---------------------------- <
+
+passer à tablurray qui donne au oassage acces a la librarire de calcul de contenu via une macro fonc
+
+
+> ---------------------------- <
+
 latex3 : blocquer le préfix tns_
 
 

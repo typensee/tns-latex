@@ -11,6 +11,7 @@
 
   \seq_new:N \l__tns_functab_one_var_full_code_seq
 
+
 \tl_new:N    \l__tns_functab_one_var_raw_line_tl
 \clist_new:N \l__tns_functab_one_var_line_clist
 
@@ -89,7 +90,7 @@
 
   \int_decr:N \l__tns_functab_one_var_nb_rows_undone_int
 
-% Images.  l__tns_functab_one_var_label_line_tl
+% Images.
   \bool_set_false:N \l__tns_functab_one_var_def_label_f_used_bool
 
   \int_while_do:nn { \l__tns_functab_one_var_nb_rows_undone_int > 0 } {
@@ -142,6 +143,129 @@
     {c*{\int_use:N \l__tns_functab_one_var_max_width_int}{|c}}
       \seq_use:Nn \l__tns_functab_one_var_full_code_seq {\\ \hline}
   \end{NiceArray}$
+}
+
+%%%
+% prototype::
+%     #1 : temporal ''<ID>'' from preparsing
+%          (this is for manipulating raw data)
+%     #2 : global ''<ID>''
+%          (this is to store ready-to-use data)
+%
+%     :action: for the moment, we're just printing the data
+%              in the expected table.
+%%%
+\cs_new:Npn \tns_functab_build_internal_imgs_TBLR:nn #1#2 {
+% x-dim.
+  % \int_zero_new:c { #1 :: xdim }
+
+% -------------
+% DEBUG - START
+
+  %  \seq_show:c { #1 :: contexts }
+  %  \seq_show:c { #1 :: labels }
+  %  \seq_show:c { #1 :: values }
+
+  %  \int_show:c { #1 :: xdim }
+
+% DEBUG - END
+% -----------
+
+% Dims of the table.
+  \int_zero_new:N \l__tns_functab_one_var_max_width_int
+  \int_set:Nn     \l__tns_functab_one_var_nb_rows_undone_int {
+    \seq_count:c { #1 :: contexts }
+  }
+
+% Full code for the data.
+  \seq_clear:N \l__tns_functab_full_code_tl
+
+% x values.
+  \seq_pop_left:cN { #1 :: labels }
+    \l__tns_functab_one_var_label_line_tl
+
+  \tl_if_empty:NTF \l__tns_functab_one_var_label_line_tl {
+    \tl_set:Nn \l__tns_functab_one_var_label_line_tl
+      { \prop_item:Nn \c_tns_functab_one_var_default_labels_prop { x } }
+  } { }
+
+  \seq_pop_left:cN { #1 :: values }
+   \l__tns_functab_one_var_raw_line_tl
+
+  \clist_set_eq:NN \l__tns_functab_one_var_line_clist
+    \l__tns_functab_one_var_raw_line_tl
+
+  \seq_put_right:Nx \l__tns_functab_one_var_full_code_seq {
+      \tl_use:N     \l__tns_functab_one_var_label_line_tl
+    & \clist_use:Nn \l__tns_functab_one_var_line_clist { & }
+  }
+
+  \int_set:Nn \l__tns_functab_one_var_max_width_int {
+    \clist_count:N \l__tns_functab_one_var_line_clist
+  }
+
+  \int_decr:N \l__tns_functab_one_var_nb_rows_undone_int
+
+% Images.
+  \bool_set_false:N \l__tns_functab_one_var_def_label_f_used_bool
+
+  \int_while_do:nn { \l__tns_functab_one_var_nb_rows_undone_int > 0 } {
+    \seq_pop_left:cN { #1 :: labels }
+      \l__tns_functab_one_var_label_line_tl
+
+    \tl_if_empty:NTF \l__tns_functab_one_var_label_line_tl {
+      \bool_if:NTF \l__tns_functab_one_var_def_label_f_used_bool {
+        \msg_error:nn { tns-functab ~ (data-1D) }
+          { data-1D : default-f-label-already-used  }
+      } {
+        \bool_set_true:N \l__tns_functab_one_var_def_label_f_used_bool
+
+        \tl_set:Nn \l__tns_functab_one_var_label_line_tl
+          { \prop_item:Nn \c_tns_functab_one_var_default_labels_prop { f } }
+      }
+    } { }
+
+    \seq_pop_left:cN
+      { #1 :: values }
+      \l__tns_functab_one_var_raw_line_tl
+
+    \clist_set_eq:NN
+      \l__tns_functab_one_var_line_clist
+      \l__tns_functab_one_var_raw_line_tl
+
+    \seq_put_right:Nx \l__tns_functab_one_var_full_code_seq {
+        \tl_use:N     \l__tns_functab_one_var_label_line_tl
+      & \clist_use:Nn \l__tns_functab_one_var_line_clist { & }
+    }
+
+    \int_set:Nn \l__tns_functab_one_var_current_width_int {
+      \clist_count:N \l__tns_functab_one_var_line_clist
+    }
+
+    \int_compare:nNnT
+        { \l__tns_functab_one_var_max_width_int }
+      < { \l__tns_functab_one_var_current_width_int }
+    {
+      \int_set_eq:NN \l__tns_functab_one_var_max_width_int
+                     \l__tns_functab_one_var_current_width_int
+    }
+
+    \int_decr:N \l__tns_functab_one_var_nb_rows_undone_int
+  }
+
+  \begin{tblr}{
+    % Nous n'avons besoin que des lignes verticales de la 2ième ligne
+    % à l'avant-dernière (X, Y, Z font \ref aux trois dernières lignes
+    % verticales).
+      vline{2-Y},
+      hline{2-Y},
+    % Il est aisé de régler l'espacement autour des lignes verticales.
+      colsep = 1.1em,
+    % Nous indiquons que toutes les cellules son "mathématiques".
+        cells  = {mode = math}
+    }
+    \seq_use:Nn \l__tns_functab_one_var_full_code_seq { \\ }
+  \end{tblr}
 }
 
 \ExplSyntaxOff
