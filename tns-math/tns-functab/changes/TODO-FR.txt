@@ -5,6 +5,13 @@ tns-functab - TODO
 
 > ---------------------------- <
 
+tabularray uniquement car simple à mef via arg "optionnel" de tblr
++
+la biblio tikz permet de faire ttes les décos extra viylues!
+
+
+> ---------------------------- <
+
 1D - data : mode verticale (utile pour suite avec decoration)
 
 facto du code car 2D et 1D dat même type de mef
