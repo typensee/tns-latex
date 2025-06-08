@@ -5,6 +5,12 @@ typensee-latex (monorepo) - TODO
 
 > ---------------------------- <
 
+logcalc : pour expliquer un raisonnemnt au sens large
+    ---> stepcalc : explications utilisable en mode ref affoché et réutilisable ensuite
+
+
+> ---------------------------- <
+
 utilisation systématique de tabularray et nicematrix suivant le contexte
 
 
